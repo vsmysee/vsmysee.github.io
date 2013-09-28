@@ -1,5 +1,12 @@
-<html>
-<body>
-hello world
-</body>
-</html>
+---
+layout: default
+title: 停下来，思考是人进步的本质
+---
+
+
+<ul>
+　　{% for post in site.posts %}
+　　　　<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+　　{% endfor %}
+</ul>
+
