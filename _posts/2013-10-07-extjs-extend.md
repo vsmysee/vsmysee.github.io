@@ -1,43 +1,130 @@
 ---
 layout: article
 title: 理解Extjs的Ext.extend函数
-desc: 继承是面向对象的核心概念，在js中来实现很有意思
+desc: 继承是面向对象的核心概念，在js中来实现很有意思，我从java这门OO语言开始说明继承，然后再用js来实现
 ---
 
-想必世界上所有的计算机学生都知道图灵的大名和事迹，因为美国计算机器学会（ACM）每年都会颁发“图灵奖”，它被誉为计算机科学的最高荣誉。大部分的计算机学生都会在某门课程（比如“计算理论”）学习“图灵机”的原理。然而，有多少人知道丘奇是什么人，他做出了什么贡献，他与图灵是什么样的关系呢？我想恐怕不到一半的人吧。
+在Java中，我们在实现继承的时候存在下面几个事实：
 
-如果你查一下数学家谱图，就会发现丘奇其实是图灵的博士导师。然而从 Andrew Hodges 所著的《图灵传》，你却可以看到图灵的心目中仿佛并没有这个导师，仿佛自己的“全新发明”应得的名气，被丘奇抢走了一样（注意作者的用词：robbed）。事实到底是怎样的，恐怕谁也说不清楚。我只能说，貌似计算机科学从诞生之日开始就充满了各种“宗教斗争”。
+1， 准备两个类，他们用extends关键字链接起来
 
-虽然现在图灵更加有名，然而在现实的程序设计中，却是丘奇的理论在起着绝大部分的作用。据我的经验，丘奇的理论让很多事情变得简单，而图灵的机器却过度的复杂。丘奇所发明的 lambda calculus 以及后续的工作，是几乎一切程序语言的理论基础。而根据老一辈的计算机工程师们的描述，最早的计算机构架也没有受到图灵的启发，那是一些电机工程师完全独立的工作。然而有趣的是，继承了丘奇衣钵的计算机科学家们拿到的那个大奖，仍然被叫做“图灵奖”。我粗略的算了一下，在迄今所有的图灵奖之中，程序语言的研究者占了近三分之一。
+2， 如果超类没有默认构造函数，需要在子类构造函数中显式的super并传参，如果都是默认构造函数也可以super，不super虚拟机是自动的
 
-从图灵机到 lambda calculus
+3， 子类可追加，覆盖，重载方法，子类可以有自己的私有属性，他们在子类构造函数中被构造
 
-图灵机永远的停留在了理论的领域，绝大多数被用在“计算理论”（Theory of Computation）中。计算理论其实包括两个主要概念：“可计算性理论”（computability）和“复杂度理论”(complexity）。这两个概念在通常的计算理论书籍（比如 Sipser 的经典教材）里，都是用图灵机来叙述的。在学习计算理论的时候，绝大多数的计算机学生恐怕都会为图灵机头痛好一阵子。
+4， 字段是数据，方法在代码区，和类建立方法表，同一个类的对象有自己的数据但是共享方法代码
 
-然而在做了研究生“计算理论”课程一个学期的 TA 之后我却发现，其实几乎所有计算理论的原理，都可以用 lambda calculus，或者程序语言和解释器的原理来描述。所谓“通用图灵机”（Universal Turing Machine），其实就是一个可以解释自己的解释器，叫做“元解释器”（meta-circular interpreter）。在 Dan Friedman 的 B621 程序语言理论课程中，我最后的项目就是一个 meta-circular interpreter。这个解释器能够完全的解释它自己，而且可以任意的嵌套（也就是说用它自己来解释它自己，再来解释它自己……）。然而我的“元解释器”却是基于 lambda calculus 的，所以我后来发现了一种方法，可以完全的用 lambda calculus 来解释计算理论里面几乎所有的定理。
+ 
 
-我为这个发现写了两篇博文：《A Reformulation of Reducibility》和《Undecidability Proof of Halting Problem without Diagonalization》。我把 Sipser 的计算理论课本里面的几乎整个一章的证明都用我自己的这种方式改写了一遍，然后讲给上课的学生。因为这种表示方法比起通常的“图灵机+自然语言”的方式简单和精确，所以收到了相当好的效果，好些学生对我说有一种恍然大悟的感觉。
+比如有两个类，Plane和Space，Plane表示平面，Space表示空间，Space是Plane的子类，在java中
+{% highlight java %}
+/**
+ * 根据字段数量分配内存块
+ * 实例化的时候虚拟机调用Plane.Plane方法把这个内存块作为this和构造参数传进去，初始化完数据字段。
+ * 建立方法表映射
+ */
 
-我把这一发现告诉了我当时的导师 Amr Sabry。他笑了，说这个他早就知道了。他推荐我去看一本书，叫做《Computability and Complexity from a Programming Perspective》，作者是大名鼎鼎的 Neil Jones (他也是“Partial Evaluation”这一重要概念的提出者）。这本书不是用图灵机，而是一种近似于 Pascal，却又带有 lambda calculus 的一些特征的语言（叫做 “WHILE 语言”）来描述计算理论。用这种语言，Jones 不但轻松的证明了所有经典的计算理论定理，而且能够证明一些使用图灵机不能证明的定理。
+class Plane {
 
-我曾经一直不明白，为什么可以如此简单的解释清楚的事情，计算理论需要使用图灵机，而且叙述也非常的繁复和含糊。由于这些证明都出于资深的计算理论家们之手，让我不得不怀疑自己的想法里面是不是缺了点什么。可是在看到了 Jones 教授的这本书之后，我倍感欣慰。原来一切本来就是这么的简单！
+    protected int x;
 
-后来从 CMU 的教授 Robert Harper 的一篇博文《Languages and Machines》中，我也发现 Harper 跟我具有类似的观点，甚至更加极端一些。他强烈的支持使用 lambda calculus，反对图灵机和其他一切机器作为计算理论的基础。这也难怪，因为 Harper 跟丘奇是“直系”的学术血统关系：Alonzo Church -> Stephen Kleene -> Robert Constable -> Robert Harper。其中 Stephen Kleene 是图灵的师兄，也是一个超级聪明的人。
+    protected int y;
 
-从 lambda calculus 到电子线路
+    Plane(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
-当我在 2012 年的 POPL 第一次见到 Neil Jones 的时候，他和蔼的跟我解释了许许多多的问题。当我问到他这本书的时候，他对我说：“我不推荐我的书给你，因为大部分的人都觉得 lambda calculus 难以理解。”Lambda calculus 难以理解？我怎么不觉得呢？我觉得图灵机麻烦多了。然后我才发现，由于经过了这么多年的研究之后，自己对 lambda calculus 的理解程度已经到了深入骨髓的地步，所以我已经全然不知新手对它是什么样的感觉。原来“简单”这个词，在具有不同经历的人头脑里，有着完全不同的含义。
+    public void XY() {
+        System.out.println(x * y);
+    }
+}
+/**
+ * 自动拥有了超类的行为，但是超类的属性需要超类去构造
+ * 子类可构造自己的属性，添加自己的方法，覆盖超类的方法
+ * <p/>
+ * 按照继承结构的所有字段分配内存块，调用Space.Space将这个内存块作为this和参数一起传进去
+ * 把超类的那部分给超类，然后自己初始化自己的。
+ * <p/>
+ * 建立方法表
+ */
+class Space extends Plane {
 
-所以其实 Jones 教授说的没错，lambda calculus 也许对于大部分人来说不合适，因为对于它没有一个好的入门指南。Lambda calculus 出自逻辑学家之手，而逻辑学家们最在行的，就是把很简单的“程序”用天书一样的公式表示出来。这难怪老一辈的逻辑学家们，因为他们创造那些概念的时候，计算机还不存在。但是如果现在还用那一堆符号，恐怕就有点落伍了。大部分人在看到 beta-reduction, alpha-conversion, eta-conversion, ... 这大堆的公式的时候，就已经头痛难忍了，怎么还有可能利用它来理解计算理论呢？
+    private int z;
 
-其实那一堆符号所表示的东西，终究超越不了现实里的物体和变化，最多不过再幻想一下“多种未来”或者“时间机器”。有了计算机之后，这些符号公式，其实都可以用数据结构和程序语言来表示。所以 lambda calculus 在我的头脑里真的很简单。每一个 lambda 其实就像是一个电路模块。它从电线端子得到输入，然后输出一个结果。你把那些电线叫什么名字根本不重要，重要的是同一根电线的名字必须“一致”，这就是所谓的“alpha-conversion”的原理…… 不在这里多说了，如果你想深入的了解我心目中的 lambda calculus，也许可以看看我的另一篇博文《怎样写一个解释器》，看看这个关于类型推导的幻灯片的开头，或者进一步，看看如何推导出 Y combinator，或者看看《What is a program?》。你也可以看看 Matthias Felleisen 和 Matthew Flatt 的《Programming Languages and Lambda Calculi》。
+    Space(int x, int y, int z) {
+        super(x, y);
+        this.z = z;
+    }
 
-所以，也许你看到了在我的头脑里面并存着丘奇和图灵的影子。我觉得丘奇的 lambda calculus 是比图灵机简单而强大的描述工具，然而我却又感染到了图灵对于“物理”和“机器”的执着。我觉得逻辑学家们对 lambda calculus 的解释过于复杂，而通过把它理解为物理的“电路元件”，让我对 lambda calculus 做出了更加简单的解释，把它与“现实世界”联系在了一起。
+    public void XYZ() {
+        System.out.println(x * y * z);
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+        Plane plane = new Plane(2,3);
+        plane.XY();
+
+        Space space = new Space(2, 3, 4);
+        space.XYZ();
+
+    }
+}
+{% endhighlight %}
+
+那么在js中也一样，区别是代码要放到构造函数（可以理解为Java中的类）的原型上，原型是放置方法和不变属性的理想场所，原型是一个对象，它和普通对象唯一不同的就是他有一个constructor属性指向它所依附的构造器，在java中子类查找属性和方法是通过虚拟机来完成，但是在js中需要通过原型链来完成。也就是说继承关系对程序员是不透明的，需要了解这个原型机制，原型机制上存在两条链，一是原型链，二是构造函数链。
+仿照上面java的代码，我们可以完成js的写法，如下：
+{% highlight javascript %}
+var Plane = function(x, y) {
+    this.x = x;
+    this.y = y;
+};
+
+Plane.prototype.XY = function() {
+    alert(this.x * this.y);
+};
+
+var Space = function(x, y, z) {
+    //用this调用超类构造函数,没有java的super自动调用，所以要手动调用
+    Plane.call(this, x, y);
+    //Space.superclass.constructor.call(this, x, y); 可以用一个统一的语法
+    //构造自己的数据
+    this.z = z;
+};
+
+Space.prototype.XYZ = function() {
+    alert(this.x * this.y * this.z);
+}
+{% endhighlight %}
+
+JS中函数的this指函数的调用者，不管是java还是js，this都可理解为新分配的那段容纳对象的内存。在java 中通过Space extends Plane，虚拟机就维护好了他们的继承关系以完成继承关系的自动查找，但是在js中需要我们手动的处理，在这个时候Space是调用不到XY这个方法的，因为他们没有在原型链上。我们可以开发一个函数来模拟java的关键字extends，比如这个函数叫做extend,通过执行extend(Plane,Space)完成原型链的组装。
+
+那么extend怎么实现呢?首先要明白原型链，子类和父类在原型链上的关系是Space.prototype._proto_ == Plane.prototype，如果你理解不了，那就看String这个类吧，String.prototype._proto_ == Object.prototype，即String的原型会链接到Object的原型上，链接是通过_proto_这个属性来完成的。_proto_是一个只读的属性，只能通过构造函数写入，所以String是Object的子类。
+
+现在Plane的prototype._proto_ 等于Object，Space的prototype._proto_也等于Object，我们要在extend函数变换这个关系，即完成Space.prototype._proto_ == Plane.prototype，我们知道一个对象的_proto_要指向某个构造函数的原型，需要让这个对象由那个构造函数构造，那么我们只需要让Space.prototype = new Plane()就可以了，这个时候Space.prototype._proto_ == Plane.prototype，而不再指向Object，原型还有一个属性constructor指向原型所在的构造器，由于Space.prototype刚被Plane创建出来，还没有这个属性，我们要手动赋值上去，代码是Space.prototype. constructor = Space。这样extend的责任就完成了。
 
 
+但是这里有两个问题：
 
-所以到最后，丘奇和图灵这两种看似矛盾的思想，在我的脑海里得到了和谐的统一。这些精髓的思想帮助我解决了许多的问题。感谢你们，计算机科学的两位鼻祖。
+1， 由于Space的原型在extend中被替换了，那么它原有的方法就没有了。
+
+2， Space的原型是Plane构造的，虽然做到了Space.prototype._proto_ == Plane.prototype，但是Plane也在原型上写入了x,y这两个垃圾数据，他们都是undefined，没有意义，所以要手动删除掉，这样extend这个方法就不能通用了。
+
+ 
+
+首先解决第一个问题，我们要变化一点思路，利用js中函数也是数据的特性，我们把Space的那些方法拷贝到一个对象中，比如
+var sbm= { XYZ  : function() {
+
+    alert(this.x * this.y * this.z);
+
+}
+
+ };
+
+把这个sbm也传递给extend，extend在替换完原型后将sbm上的所有方法复制到Space的原型上即可,sbm是一个对象直接量，用json语法。现在的extend就变为了三个参数，即extend(sb,sp,sbm)，sb是子类，sp是超类，sbm是子类要放到原型上的方法。
 
 
-
-
+对于第二个问题，本质原因是Plane这个函数要完成一些数据初始化，它是超类，我们不能控制，我们只关心Plane的原型而不关心它构造什么数据，所以我们可以把它的原型单独拿出来，再定义一个干净的函数，这个函数不做任何事，将这个干净函数的原型设置为Plane的原型，再用这个干净函数构造一个对象，这样出来的对象就是是干净的，也完成了_proto_指向了Plane.prototype，完美！有了这两个方法，我们就可以开始实现这个extend，代码如下：
