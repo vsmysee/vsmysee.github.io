@@ -151,23 +151,4 @@ hr {
     margin-bottom: 20px;
 }
 
-.highlight {
-font-size: 0.8em;
-line-height: 1.5;
-font-weight: bold;
-padding: 0.3em 0.5em;
-margin-top: 0.6em;
-margin-bottom: 2em;
-}
-.highlight, p code, h4 code, li code {
-word-wrap: break-word;
-font-family: Monaco, Monospace;
-font-weight: 700;
-}
-.highlight {
-background: #151515;
-color: #E6E1DC;
-background-color: #151515;
-border-radius: 5px;
-}
 
