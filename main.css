@@ -143,6 +143,10 @@ hr {
     text-indent: 2em;
 }
 
+#article h2 {
+    margin-bottom: 40px;
+}
+
 #article h3 {
     margin-bottom: 20px;
 }
