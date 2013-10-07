@@ -1,4 +1,4 @@
-baseurl: http://oojdon.github.io
+baseurl: http://www.codingbaby.com
 permalink: /blog/:year/:month/:day/:title
 markdown: rdiscount
 pygments: true
