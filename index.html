@@ -2,11 +2,35 @@
 layout: default
 title: 停下来，思考是人进步的本质
 ---
+<div class="wp">
 
+    <div id="content" class="fl">
 
-<ul>
-　　{% for post in site.posts %}
-　　　　<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-　　{% endfor %}
-</ul>
+        <ul>
+            　{% for post in site.posts %}
+            　　　　
+            <li><h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
 
+                <p>{{post.topic}}</p></li>
+            　　{% endfor %}
+        </ul>
+
+    </div>
+
+    <aside id="aside" class="fr">
+        <div class="widget">
+            <h2>Follow me</h2>
+            <ul>
+                <li><a href="http://weibo.com/u/1894517483">微博</a></li>
+                <li><a href="https://github.com/oojdon">github</a></li>
+            </ul>
+        </div>
+        <div class="widget">
+            <h2>Email & QQ</h2>
+            <ul>
+                <li>vsmysee@gmail.com</li>
+                <li>839159420</li>
+            </ul>
+        </div>
+    </aside>
+</div>
