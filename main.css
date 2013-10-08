@@ -76,6 +76,37 @@ h4 {
 }
 
 
+.postion_control span {
+    display: block;
+    background: #fff url("up.png");
+    width: 32px;
+    height: 32px;
+    position:absolute;
+    right:-100px;
+    top:-30px;
+    cursor: pointer;
+    border-radius:50%;
+    -webkit-transition: -webkit-transform .5s ease-in,background .5s ease-in;
+    -moz-transition:    -moz-transform .5s ease-in,background .5s ease-in;
+    -o-transition:      -o-transform .5s ease-in,background .5s ease-in;
+    transition:         transform .5s ease-in,background .5s ease-in;
+}
+
+.postion_control div {
+    position:relative;
+}
+
+
+.postion_control span.hover {
+
+
+
+-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+
+}
+
 /**----------------- common ------------------------*/
 
 
