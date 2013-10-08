@@ -78,7 +78,7 @@ h4 {
 
 .postion_control span {
     display: block;
-    background: #fff url("up.png");
+    background: #fff url("images/up.png");
     width: 32px;
     height: 32px;
     position:absolute;
