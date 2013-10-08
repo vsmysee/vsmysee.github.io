@@ -92,6 +92,17 @@ h4 {
     transition:         transform .5s ease-in,background .5s ease-in;
 }
 
+.postion_control a {
+    display: block;
+    background: #fff url("index.png");
+    width: 48px;
+    height: 48px;
+    position:absolute;
+    left:-120px;
+    top:-30px;
+    cursor: pointer;
+}
+
 .postion_control div {
     position:relative;
 }
