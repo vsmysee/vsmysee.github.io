@@ -15,7 +15,6 @@ desc: 继承是面向对象的核心概念，在js中来实现很有意思，我
 4， 字段是数据，方法在代码区，和类建立方法表，同一个类的对象有自己的数据但是共享方法代码
 
  
-
 比如有两个类，Plane和Space，Plane表示平面，Space表示空间，Space是Plane的子类，在java中
 {% highlight java %}
 /**
