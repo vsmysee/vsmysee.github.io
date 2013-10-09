@@ -169,6 +169,16 @@ hr {
     margin-bottom: 20px;
 }
 
+.book ul {
+    border: 2px solid rgb(124, 175, 60);
+    padding:10px;
+    text-align:center;
+}
+
+.book ul li {
+   margin-bottom:20px;
+}
+
 
 
 /**-----------------------article---------------------------- */
