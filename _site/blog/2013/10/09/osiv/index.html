@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/code.css"/>
+    <title>OSIV问题需要认知思考</title>
+    <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+
+<section id="head_section" class="wp clearfix">
+    <div id="photo-container" class="fl">
+        <a href="/"><img src="/images/baby.jpg"/></a>
+    </div>
+    <div class="theme-topic">在信息时代，如果你想研发什么新的技术，你不需要几百万美元的资金，你只需要在冰箱里放满比萨和可乐，再有一台便宜的计算机，和与之献身的决心，你即可拥有任何你想拥有的编程境界！</div>
+</section>
+
+<div class="postion_control"><hr id="line"><div class="wp"><a href="/"></a><span id="arrow_panel"></span></div></div>
+
+<article id="article" class="wp">
+
+<h1>OSIV问题需要认知思考</h1>
+
+<h2>SSH编程，或者SH编程会遇到OSIV</h2>
+
+<p>OSIV是Open Session In View的简写，这个东西如果项目使用Hibernate或者SSH肯定会遇到，这是一个反模式，它频繁的出现在SSH,和SH的框架组合中，虽然互联网上的讨论很多，如果结合用户友好角度和伸缩性角度来思考，有点自己的感想，OSIV分为两种：
+第一种OSIV: 在SH架构中，表现层打开session,表现层渲染页面，然后提交事务和关闭session,问题是如果在渲染完页面后发现数据库提交失败怎么办？
+第二种OSIV: 在SSH架构中，表现层打开session,然后在业务层提交事务，然后session继续保持打开，然后开始渲染页面，然后被表现层关闭，同学们，这个过程是在事务外面进行的，怎么保证数据隔离，你的数据库隔离级别有用吗？我们来看SSH在打开OSIV和没打开OSIV的日志</p>
+
+<p><img src="/images/osiv1.jpg" alt="osiv 日志" />
+<img src="/images/osiv1.jpg" alt="osiv 日志" /></p>
+
+<p>注意上面第一张图片，事务提交，然后表现层渲染，这里就是在事务控制能力之外的。
+顺便提一下banq老师(Jdon框架的作者)的CSIV解决方法，他有第一种OSIV的问题，但是少了无谓打开session的问题。 如果他的Session管理是在Domain Event监听器的执行周期之内，那么就可以回避OSIV问题。
+为什么有OSIV?
+因为扭曲的面向对象，因为扭曲的模式：对象被强制作为数据容器，数据重于行为，或者根本没有行为，对象编程是要严格管理状态的，在web开发中更是要考虑用户操作的工作单元。</p>
+
+<p>怎么解决？</p>
+
+<ul>
+<li>第一种：Gavin King，发明的Seam，支持用户工作空间和对话上下文，一次请求用两个事务，一个用于更新数据库，一个用于渲染页面时读取数据库。</li>
+<li>第二种：用DDD提升对象到业务层，不要被ORM挟持，异步加载，缓存，DTO等方案。</li>
+<li>第三种：用Ibatis等工具，直接用SQL定制数据返回</li>
+<li>第四种：CQRS架构，写和读完全两条路径，彻底解决，干干净净。</li>
+</ul>
+
+
+</article>
+
+<script>
+    $(function () {
+        $("#arrow_panel").bind("click", function () {
+            $("#head_section").slideToggle();
+            $(this).toggleClass("hover");
+        });
+    })
+</script>
+
+</body>
+</html>
