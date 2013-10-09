@@ -81,12 +81,12 @@ f.apply(oojdon,["java","js"]);
 ###javascript中的原型prototype
 刚才有提到对象的共性，我们把思维放开阔一点，生活中的对象有什么共性吗？共性包括用数据表示的特征和用代码来表示的行为服务，如果找到了这些共性，我们可以把它塞进一个人为创造的对象中，然后真实的对象通过某种机制来关联它，这样是不是很自然？ JS的设计者就是这样做的，它引入了prototype, prototype是一个对象，在JS中每一个对象都会关联一个prototype对象，由于prototype对象也是一个对象，所以就形成了一条链，链的根部就是JS设计者想出来的共性对象，显然这个对象就没有自己的prototype了，这个对象按照JS设计者的理念有如下属性和行为：
  
-1. constructor属性，它引用了初始化这个对象的构造函数
-2. toString方法，描述对象
-3. toLocaleString方法，让对象在世界各地描述自己
-4. valueOf方法，在javascript中，可以说一切皆数据，在个方法会在对象被当做数据时自动调用
-5. hasOwnProperty方法，判断是不是继承来的属性。
-6. propertyIsEnumerable方法，判断属性是否可用for/in循环枚举
+1，constructor属性，它引用了初始化这个对象的构造函数
+2，toString方法，描述对象
+3，toLocaleString方法，让对象在世界各地描述自己
+4，valueOf方法，在javascript中，可以说一切皆数据，在个方法会在对象被当做数据时自动调用
+5，hasOwnProperty方法，判断是不是继承来的属性。
+6，propertyIsEnumerable方法，判断属性是否可用for/in循环枚举
 
 
 ###Class的来历

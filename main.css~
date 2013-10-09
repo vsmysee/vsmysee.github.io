@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-ul, ol {
+ul {
     list-style-type: none;
 }
 
@@ -211,6 +211,12 @@ hr {
 
 #article ul {
     list-style:inside disc;
+    margin-bottom: 20px;
+}
+
+#article ol {
+    list-style:inside decimal;
+    margin-bottom: 20px;
 }
 
 #article p {
