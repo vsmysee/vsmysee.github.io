@@ -5,20 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html"/>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <link rel="stylesheet" href="http://www.codingbaby.com/main.css"/>
-    <link rel="stylesheet" href="http://www.codingbaby.com/code.css"/>
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/code.css"/>
     <title>{{page.title}}</title>
-    <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
 
 <body>
 
+<div id="head_wrapper">
 <section id="head_section" class="wp clearfix">
     <div id="photo-container" class="fl">
         <a href="/"><img src="/images/baby.jpg"/></a>
     </div>
     <div class="theme-topic">在信息时代，如果你想研发什么新的技术，你不需要几百万美元的资金，你只需要在冰箱里放满比萨和可乐，再有一台便宜的计算机，和与之献身的决心，你即可拥有任何你想拥有的编程境界！</div>
 </section>
+</div>
 
 <div class="postion_control"><hr id="line"><div class="wp"><a href="/"></a><span id="arrow_panel"></span></div></div>
 
@@ -31,14 +32,7 @@
 {{content}}
 </article>
 
-<script>
-    $(function () {
-        $("#arrow_panel").bind("click", function () {
-            $("#head_section").slideToggle();
-            $(this).toggleClass("hover");
-        });
-    })
-</script>
-
+<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/script.js"></script>
 </body>
 </html>
