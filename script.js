@@ -15,6 +15,16 @@ var modifySentence = function() {
 
 }
 
+
+var fuckScreen = function(){
+	$("#next_page").animate({
+		right:"40px",
+                opacity:1
+	},function(){
+		$(this).animate({right:"10px",opacity:0.2});
+	});
+}
+
 $(function () {
 
     $('.sentence_current').html(dataArray[0]); 
@@ -47,6 +57,9 @@ $(function () {
 				var scrollTop = $(document).scrollTop();
 					if(scrollTop>290&&pot_t==0){
 						$(toTop).stop().animate({"right":toright,"opacity":"1"},200);
+
+						fuckScreen();
+
 						pot_t=1;
 						pot_b=0;
 					}else if(scrollTop<290&&pot_b==0){
