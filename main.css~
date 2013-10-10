@@ -102,12 +102,12 @@ h4 {
 
 .postion_control a {
     display: block;
-    background: url("images/index.png") no-repeat center center;
-    width: 64px;
-    height: 64px;
+    background: url("images/left.png") no-repeat center center;
+    width: 48px;
+    height: 48px;
     position:absolute;
     left:-120px;
-    top:-45px;
+    top:-37px;
     cursor: pointer;
 }
 .postion_control a:hover {
@@ -242,17 +242,9 @@ hr {
     padding:10px;
 }
 
-.widget {
-    margin-bottom: 20px;
-}
-
 .contact {
   padding:20px;
   text-align:left;
-}
-
-.book ul li {
-   margin-bottom:20px;
 }
 
 
@@ -274,7 +266,6 @@ hr {
 
 #article p {
     margin-bottom: 27px;
-    text-indent: 2em;
 }
 
 #article h2 {

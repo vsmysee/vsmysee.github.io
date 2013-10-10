@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html"/>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <link rel="stylesheet" href="/main.css"/>
-    <link rel="stylesheet" href="/code.css"/>
-    <title>{{page.title}}</title>
-</head>
-
-<body>
-
-<div id="head_wrapper">
-<section id="head_section" class="wp clearfix">
-    <div id="photo-container" class="fl">
-        <a href="/"><img src="/images/baby.jpg"/></a>
-    </div>
-    <div class="theme-topic fl">
-        <p class="sentence_current"></p>
-        <p></p>
-    </div>
-</section>
-</div>
-
-<div class="postion_control"><hr id="line"><div class="wp"><span id="arrow_panel"></span></div></div>
+{% include head.html %}
 
 <article id="article" class="wp">
 
@@ -36,20 +11,4 @@
 </article>
 
 
-{% if paginator.previous_page %}
-{% if paginator.previous_page == 1 %}
-<div id="pre_page"><a title="上一页" href="/">上一页</a></div>
-{% else %}
-<div id="pre_page"><a title="上一页" href="/blog/page{{ paginator.previous_page }}">上一页</a></div>
-{% endif %}
-{% endif %}
-
-{% if paginator.next_page %}
-<div id="next_page"><a title="下一页" href="/blog/page{{ paginator.next_page }}">下一页</a></div>
-{% endif %}
-
-<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.7.js"></script>
-<script type="text/javascript" src="/sentence.js"></script>
-<script type="text/javascript" src="/script.js"></script>
-</body>
-</html>
+{% include foot.html %}

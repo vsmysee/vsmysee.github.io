@@ -1,0 +1,15 @@
+---
+layout: article
+title: 电商SKU笛卡尔
+desc: 电商系统，SKU由销售属性的笛卡尔乘机决定个数
+---
+
+
+1，定义函数
+{% highlight javascript %}
+function hello() {
+      return "hello oojdon";
+}
+{% endhighlight %}
+
+

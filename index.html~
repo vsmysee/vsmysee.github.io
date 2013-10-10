@@ -15,21 +15,14 @@ title: 停下来，思考是人进步的本质
     </div>
 
     <aside id="aside" class="fr">
-        <div class="widget contact">
+        <div class="contact">
             <h2><a href="http://weibo.com/u/1894517483">我的微博</a><h2>
             <h2><a href="https://github.com/oojdon">我的github</a><h2>
         </div>
-	<div class="widget book">
-            <ul> 
-		<li><img src="/images/songben.jpg"/></li>   
-		<li><img src="/images/geb.jpg"/></li>   
-		<li><img src="/images/ddd.jpg"/></li>   
-                <li><img src="/images/onetwo.jpg"/></li>   
-		<li><img src="/images/maohao.jpg"/></li>   
-		<li><img src="/images/bigdesign.jpg"/></li>      
-		<li><img src="/images/hack.jpg"/></li>   
-		<li><img src="/images/king.jpg"/></li>                  
-            </ul>
-        </div>
+
+{% for tag in site.tags.TAG %}
+            {{tag}}
+         {% endfor %}
+
     </aside>
 </div>
