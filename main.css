@@ -157,7 +157,8 @@ h4 {
 .theme-topic {
     font-size: 30px;
     color: rgb(51, 51, 50);
-    padding-top: 35px;
+    padding-top: 15px;
+    width:720px;
 }
 
 .theme-topic p {
