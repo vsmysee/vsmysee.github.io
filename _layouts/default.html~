@@ -29,6 +29,18 @@
 
 {{content}}
 
+{% if paginator.previous_page %}
+{% if paginator.previous_page == 1 %}
+<div id="pre_page"><a title="上一页" href="/">上一页</a></div>
+{% else %}
+<div id="pre_page"><a title="上一页" href="/blog/page{{ paginator.previous_page }}">上一页</a></div>
+{% endif %}
+{% endif %}
+
+{% if paginator.next_page %}
+<div id="next_page"><a title="下一页" href="/blog/page{{ paginator.next_page }}">下一页</a></div>
+{% endif %}
+
 
 <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.7.js"></script>
 <script type="text/javascript" src="/sentence.js"></script>

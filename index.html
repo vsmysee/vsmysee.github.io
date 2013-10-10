@@ -7,7 +7,7 @@ title: 停下来，思考是人进步的本质
     <div id="content" class="fl">
 
         <ul>
-         {% for post in site.posts %}
+         {% for post in paginator.posts %}
             <li><h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3><p>{{post.desc}}</p></li>
          {% endfor %}
         </ul>
@@ -15,31 +15,18 @@ title: 停下来，思考是人进步的本质
     </div>
 
     <aside id="aside" class="fr">
-        <div class="widget">
-            <h2>Follow me</h2>
-            <ul>
-                <li><a href="http://weibo.com/u/1894517483">微博</a></li>
-                <li><a href="https://github.com/oojdon">github</a></li>
-            </ul>
-        </div>
-        <div class="widget">
-            <h2>Email & QQ</h2>
-            <ul>
-                <li>vsmysee@gmail.com</li>
-                <li>839159420</li>
-            </ul>
+        <div class="widget contact">
+            <h2><a href="http://weibo.com/u/1894517483">我的微博</a><h2>
+            <h2><a href="https://github.com/oojdon">我的github</a><h2>
         </div>
 	<div class="widget book">
-            <h2>Love Book</h2>
             <ul> 
 		<li><img src="/images/songben.jpg"/></li>   
 		<li><img src="/images/geb.jpg"/></li>   
 		<li><img src="/images/ddd.jpg"/></li>   
                 <li><img src="/images/onetwo.jpg"/></li>   
 		<li><img src="/images/maohao.jpg"/></li>   
-		<li><img src="/images/bigdesign.jpg"/></li>      
-		<li><img src="/images/hack.jpg"/></li>   
-		<li><img src="/images/king.jpg"/></li>                  
+		<li><img src="/images/bigdesign.jpg"/></li>                 
             </ul>
         </div>
     </aside>

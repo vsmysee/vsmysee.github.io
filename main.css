@@ -86,12 +86,12 @@ h4 {
 }
 .postion_control span {
     display: block;
-    background: #fff url("images/up.png");
-    width: 48px;
-    height: 48px;
+    background: #fff url("images/folding.png");
+    width: 32px;
+    height: 32px;
     position:absolute;
     right:-100px;
-    top:-35px;
+    top:-28px;
     cursor: pointer;
     border-radius:50%;
     -webkit-transition: -webkit-transform .5s ease-in,background .5s ease-in;
@@ -147,6 +147,40 @@ h4 {
 .to-top:hover {
     box-shadow: 0 0 5px rgba(243, 156, 18, 0.9);
     background-position: 0 0;
+}
+
+
+
+#pre_page, #next_page {
+	width:64px;
+	height:64px;	
+	position:fixed;
+	bottom:100px;
+	opacity:0.2;
+}
+
+#pre_page:hover, #next_page:hover {
+    opacity:1;
+}
+
+#pre_page a, #next_page a {
+	display:block;
+        width:64px;
+	overflow:hidden;
+	line-height:200px;
+	height:64px;
+}
+
+
+#pre_page{
+        background:url("images/pre.png");
+	left:10px;
+}
+
+
+#next_page {
+	background:url("images/next.png");
+	right:10px;
 }
 
 /**----------------- common ------------------------*/
@@ -212,6 +246,15 @@ hr {
     margin-bottom: 20px;
 }
 
+.contact {
+  padding:20px;
+  text-align:left;
+}
+
+.book {
+   padding:10px;
+   text-align:center;
+}
 .book ul li {
    margin-bottom:20px;
 }

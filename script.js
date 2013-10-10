@@ -19,7 +19,7 @@ $(function () {
 
     $('.sentence_current').html(dataArray[0]); 
 	
-    setInterval(modifySentence,5000); 
+    setInterval(modifySentence,50000); 
 
 	//头部效果
     $("#arrow_panel").bind("click", function () {
