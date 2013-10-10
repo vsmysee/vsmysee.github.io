@@ -8,22 +8,22 @@ desc: 排序的实现是编程的基础，排序可以复杂可以简单，甚�
 排序算法的父类代码如下
 
 {% highlight java %}
-    public class SortBase {
+public class SortBase {
 
-        protected void swap(int[] array, int i, int j) {
-            int temp;
-            temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
+protected void swap(int[] array, int i, int j) {
+	int temp;
+	temp = array[i];
+	array[i] = array[j];
+	array[j] = temp;
+}
 
-        protected void printArray(int[] array) {
-            for (int i : array) {
-                System.out.print(i + " ");
-            }
-        }
+protected void printArray(int[] array) {
+	for (int i : array) {
+		System.out.print(i + " ");
+}
+}
 
-    }
+}
 {% endhighlight %}
 
  
@@ -31,68 +31,70 @@ desc: 排序的实现是编程的基础，排序可以复杂可以简单，甚�
 
 (1) 冒泡排序
 {% highlight java %}
-    public class BubbleSort extends SortBase {
+public class BubbleSort extends SortBase {
 
-        // 冒泡是一种简单的交换排序[O(n*n)]
-        public void bubbleSort(int[] array) {
-            for (int i = 0; i < array.length; i++)
-                for (int j = 0; j < array.length - i - 1; j++)
-                    if (array[j] < array[j + 1])// 小的往上冒,由大到小
-                        swap(array, j, j + 1);
-        }
+// 冒泡是一种简单的交换排序[O(n*n)]
+public void bubbleSort(int[] array) {
+	for (int i = 0; i < array.length; i++)
+	for (int j = 0; j < array.length - i - 1; j++)
+	if (array[j] < array[j + 1])// 小的往上冒,由大到小
+		swap(array, j, j + 1);
+	}
 
-    }
+}
 {% endhighlight %}
 
 (2) 插入排序
 {% highlight java %}
-    //复杂度平方阶
-    public class InsertSort extends SortBase {
+//复杂度平方阶
+public class InsertSort extends SortBase {
 
-        // 直接插入排序,默认第一个有序，然后像打扑克那样插入[O(n*n)]
-        public void insertSort(int[] array) {
-            for (int i = 1; i < array.length; i++) {
-                for (int j = 0; j < i; j++) {
-                    if (array[j] < array[i])
-                        swap(array, i, j);// 使用交换技术，也可依次后移
-                }
-            }
-        }
+// 直接插入排序,默认第一个有序，然后像打扑克那样插入[O(n*n)]
+public void insertSort(int[] array) {
+	for (int i = 1; i < array.length; i++) {
+	for (int j = 0; j < i; j++) {
+		if (array[j] < array[i])
+		swap(array, i, j);// 使用交换技术，也可依次后移
+	}
+}
+}
 
-        //另外一种实现,见shell插入部分
-        public void insertionSort(int[] a) {
-            for (int p = 1; p < a.length; p++) {
-                int tmp = a[p];
-                int j = p;
+//另外一种实现,见shell插入部分
+public void insertionSort(int[] a) {
+for (int p = 1; p < a.length; p++) {
+	int tmp = a[p];
+	int j = p;
 
-                for (; j > 0 && tmp < a[j - 1]; j--)
-                    a[j] = a[j - 1];//如果小就往后移动
-                a[j] = tmp;//将待插入元素插到移动完的空位处
-            }
-        }
+	for (; j > 0 && tmp<a[j - 1]; j--)
+		a[j] = a[j - 1];//如果小就往后移动
+		a[j] = tmp;//将待插入元素插到移动完的空位处
+	}
+}
 
-    }
+}
 {% endhighlight %}
 
 (3) 选择排序
 {% highlight java %}
-    //复杂度，平方阶
-    public class SelectSort extends SortBase {
 
-        // 直接选择排序，先默认第一个最大，然后在后面的序列中找出比他大的来交换，这样不停的重复
-        public void selectSort(int[] array) {
-            for (int i = 0; i < array.length; i++) {
-                int max_potion = i;
-                for (int j = i + 1; j < array.length; j++)
-                    if (array[max_potion] < array[j])
-                        max_potion = j;
-                if (i != max_potion)// 如果默认失效
-                    swap(array, i, max_potion);
+//复杂度，平方阶
+public class SelectSort extends SortBase {
 
-            }
-        }
+// 直接选择排序，先默认第一个最大，然后在后面的序列中找出比他大的来交换，这样不停的重复
+public void selectSort(int[] array) {
+	for (int i = 0; i < array.length; i++) {
+	int max_potion = i;
+	for (int j = i + 1; j < array.length; j++)
+		if (array[max_potion] < array[j])
+		max_potion = j;
+		if (i != max_potion)// 如果默认失效
+		swap(array, i, max_potion);
 
-    }
+	}
+}
+
+}
+
 {% endhighlight %}
 
 (4) 快速排序

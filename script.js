@@ -1,5 +1,25 @@
 
+//动态修改头的文字内容
+var modifySentence = function() {
+  var randomItem = dataArray[Math.floor(Math.random()*dataArray.length)],
+      that = $('.theme-topic .sentence_current'),
+      next = that.siblings('p').eq(0);
+
+  that.slideUp(400, function(){
+     $(this).removeClass('sentence_current');
+  });
+
+  next.html(randomItem).slideDown(600, function(){
+     $(this).addClass('sentence_current');
+  });
+
+}
+
 $(function () {
+
+    $('.sentence_current').html(dataArray[0]); 
+	
+    setInterval(modifySentence,5000); 
 
 	//头部效果
     $("#arrow_panel").bind("click", function () {
