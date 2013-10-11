@@ -29,7 +29,7 @@ $(function () {
 
     $('.sentence_current').html(dataArray[Math.floor(Math.random()*dataArray.length)]); 
 	
-    setInterval(modifySentence,20 * 1000); 
+    setInterval(modifySentence,20000); 
 
 	//头部效果
     $("#arrow_panel").bind("click", function () {
