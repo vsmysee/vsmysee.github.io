@@ -8,22 +8,25 @@ desc: 排序的实现是编程的基础，排序可以复杂可以简单，甚�
 排序算法的父类代码如下
 
 {% highlight java %}
-    public class SortBase {
 
-        protected void swap(int[] array, int i, int j) {
+class SortBase {
+
+    protected void swap(int[] array, int i, int j) {
+        if (i != j) {
             int temp;
             temp = array[i];
             array[i] = array[j];
             array[j] = temp;
         }
-
-        protected void printArray(int[] array) {
-            for (int i : array) {
-                System.out.print(i + " ");
-            }
-        }
-
     }
+
+    protected void printArray(int[] array) {
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+    }
+
+}
 {% endhighlight %}
 
  
@@ -97,32 +100,43 @@ desc: 排序的实现是编程的基础，排序可以复杂可以简单，甚�
 
 (4) 快速排序
 {% highlight java %}
-    //复杂度平方阶，平均是线性对数
-    public class QuickSort extends SortBase {
+class QuickSort extends SortBase {
 
-        // 快速排序时获取轴点
-        public int partition(int[] array, int low, int high) {
-            int compare = array[high];// 和最后一个high比较
-            int i = low - 1;
-            for (int j = low; j < high; j++)
-                // 扫描high之前的所有数据，把比high大的全部按顺序从低位排列
-                if (array[j] > compare)
-                    swap(array, ++i, j);
-            swap(array, ++i, high);// 将high处的值插入比他大的所有数据之后，这样就取到了轴点
-            return i;
+    // 快速排序时获取轴点
+    public int partition(int[] array, int left, int right) {
+
+        //假定第一个是轴点
+        int point = left;
+
+
+        int compare = array[left];
+
+
+        //从第二个开始向后看，如果发现比第一个小就要移动轴点同时做交换
+        for (int j = left + 1; j <= right; j++) {
+            if (array[j] < compare) {
+                point++;
+                swap(array, point, j);
+            }
         }
 
-        // 对冒泡的改进，快速排序,原理就是递归的分段，左端----轴点----右端,左<轴<右，或者左>轴>右
-        public void quickSort(int[] array, int low, int high) {
-            if (low < high) {
-                int pivot = partition(array, low, high);
-                quickSort(array, low, pivot - 1);
-                quickSort(array, pivot + 1, high);
-            }
+        //经过上述循环可能在其他地方找到了轴点,把第一个数交换到轴点处
+        swap(array, point, left);
 
+        return point;
+    }
+
+    // 对冒泡的改进，快速排序,原理就是递归的分段，左端----轴点----右端,左<轴<右，或者左>轴>右
+    public void quickSort(int[] array, int left, int right) {
+        if (left < right) {
+            int pivot = partition(array, left, right);
+            quickSort(array, left, pivot - 1);
+            quickSort(array, pivot + 1, right);
         }
 
     }
+
+}
 
 {% endhighlight %}
 
