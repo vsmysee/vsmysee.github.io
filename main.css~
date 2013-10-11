@@ -157,7 +157,7 @@ h4 {
 }
 
 #pre_page:hover, #next_page:hover {
-    opacity:1 !important;
+    opacity:1;
 }
 
 #pre_page a, #next_page a {
