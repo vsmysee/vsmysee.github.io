@@ -63,7 +63,7 @@ h4 {
 }
 
 .wp {
-    width: 960px;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -231,6 +231,10 @@ hr {
     margin-bottom: 25px;
 }
 
+.index-wrapper {
+	background: url("/images/index_bg.jpg") 620px 300px no-repeat;
+}
+
 
 
 #aside {
@@ -242,6 +246,19 @@ hr {
 .contact {
   padding:20px;
   text-align:left;
+}
+
+
+#bc_one {
+	position:absolute;
+	top:450px;
+	right:-200px;
+}
+
+#bc_two {
+	position:absolute;
+	top:1000px;
+	right:-200px;
 }
 
 

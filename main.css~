@@ -157,7 +157,7 @@ h4 {
 }
 
 #pre_page:hover, #next_page:hover {
-    opacity:1;
+    opacity:1 !important;
 }
 
 #pre_page a, #next_page a {
@@ -231,6 +231,10 @@ hr {
     margin-bottom: 25px;
 }
 
+.index-wrapper {
+	background: url("/images/index_bg.jpg") 550px 300px no-repeat;
+}
+
 
 
 #aside {
@@ -242,6 +246,19 @@ hr {
 .contact {
   padding:20px;
   text-align:left;
+}
+
+
+#bc_one {
+	position:absolute;
+	top:450px;
+	right:-200px;
+}
+
+#bc_two {
+	position:absolute;
+	top:1000px;
+	right:-200px;
 }
 
 
