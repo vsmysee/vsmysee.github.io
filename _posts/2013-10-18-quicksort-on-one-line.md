@@ -95,8 +95,14 @@ end
 
 {% highlight scala %}
 def sort(a: List[Int]): List[Int] = {
-  val pivot = a(a.length / 2)
-  sort(a.filter(_ < pivot)) ::: a.filter(_ == pivot) ::: sort(a.filter(_ > pivot))
+    if (a.length < 2)
+      a
+    else {
+      val pivot = a(a.length / 2)
+      sort(a.filter(_ < pivot)) :::
+           a.filter(_ == pivot) :::
+           sort(a.filter(_ > pivot))
+    }
 }
 {% endhighlight %}
 
