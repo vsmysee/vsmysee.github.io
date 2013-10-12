@@ -8,7 +8,7 @@ margin-bottom: 2em;
 }
 .highlight, p code, h4 code, li code {
 word-wrap: break-word;
-font-family: Monaco, Monospace;
+font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 font-weight: 700;
 }
 .highlight {
