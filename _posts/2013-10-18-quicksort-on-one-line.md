@@ -77,7 +77,7 @@ for (int j = left + 1; j <= right; j++) {
 
 为了实现我们刚才的想法，我们来设计一种语言，它实现的快速排序只需要一行代码
 {% highlight ruby %}
-{|array| that(array.select(_ < array[0])) + array.select(array[0]) + that(array.select(_>array[0]))}.run([3,0,1,2,3,6,7])
+{|array| that(array.select(_ < array[0])) + array.select(_ == array[0]) + that(array.select(_>array[0]))}.run([3,0,1,2,3,6,7])
 {% endhighlight %}
 
 {}表示一个函数，函数有个方法叫做run，把数组[]传递给函数，|array|是函数参数，array就引用数组，array.select(array[0])表示从数组选出第一个元素得到[3]，array.select(_ < array[0])得到[0,1,2,3]，然后再传给that(),that表示函数本身，这就表示把小于基准的数的子数组再递归，同理递归比基准大的数组是相同的道理，最后把数组用 + 加起来就是一个有序数组。
