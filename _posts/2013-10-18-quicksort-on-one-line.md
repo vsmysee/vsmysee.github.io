@@ -51,8 +51,8 @@ public void quickSort(int[] array, int left, int right) {
 /**
 
 外部的调用如下
-int[] array;
-quick(array,0,array.length - 1);
+int[] array = {4,0,1,2,3,6,9};
+quicSortk(array,0,array.length - 1);
 */
 {% endhighlight %}
 
@@ -72,41 +72,40 @@ for (int j = left + 1; j <= right; j++) {
 }
 {% endhighlight %}
 上面这个代码的真正核心其实是那个if语句，swap甚至也应是数组的方法。
-上面的快速排序还有一个复杂性就是我们不断的修改数组，始终要关注数组的下标位置，partition函数废那么大力气就是在数组中把数组分割成两个子数组，如果数组也自己有一个方法来完成选取子数组，那么这个函数也将相当简单而不出错。
+上面的快速排序还有一个复杂性就是我们不断的修改数组，始终要关注数组的下标位置，partition函数废那么大力气就是在数组中把数组分割成两个子数组，如果数组也自己有一个方法来完成选取子数组，那么这个函数也将相当简单而不出错。那么程序该怎么写呢？在java中实现是不可能的，我们来用ruby和scala语言，他们都提供了我们完成数组选取和遍历的的库函数,ruby的写法是array.select{|i| i < pivot}，scala的写法是a.filter(_ < pivot)，所以用这两种语言实现的代码如下：
 
-
-为了实现我们刚才的想法，我们来设计一种语言，它实现的快速排序只需要一行代码
-{% highlight ruby %}
-{|array| that(array.select(_ < array[0])) + array.select(_ == array[0]) + that(array.select(_>array[0]))}.run([3,0,1,2,3,6,7])
-{% endhighlight %}
-
-{}表示一个函数，函数有个方法叫做run，把数组[]传递给函数，|array|是函数参数，array就引用数组，array.select(_ == array[0])表示从数组选出第一个元素得到[3]，_这个下划线表示array迭代过程中传递进来的元素，array.select(_ < array[0])得到[0,1,2,3]素，然后再传给that(),that表示函数本身，这就表示把小于基准的数的子数组再递归，同理递归比基准大的数组是相同的道理，最后把数组用 + 加起来就是一个有序数组。
-
-这一切都是声明式的，没有修改内存，没有移动和交换，就这么简单，这就是面向函数的编程，但是又结合了面向对象，因为array.select()这种代码是调用对象的方法。
-
-
-上面的语言是我们假设的，那么来看看ruby和scala的版本吧
+Ruby:
 {% highlight ruby %}
 def quicksort a
-  (pivot = a.pop) ? quicksort(a.select{|i| i <= pivot}) + [pivot] + quicksort(a.select{|i| i > pivot}) : []
+  (pivot = a.pop) ? quicksort(a.select{|i| i < pivot}) + [pivot] + quicksort(a.select{|i| i > pivot}) : []
 end
 {% endhighlight %}
 
-
+Scala:
 {% highlight scala %}
 def sort(a: List[Int]): List[Int] = {
     if (a.length < 2)
       a
     else {
       val pivot = a(a.length / 2)
-      sort(a.filter(_ < pivot)) :::
-           a.filter(_ == pivot) :::
-           sort(a.filter(_ > pivot))
+      sort(a.filter(_ < pivot)) ::: a.filter(_ == pivot) ::: sort(a.filter(_ > pivot))
     }
 }
 {% endhighlight %}
 
-### 为什么这是可行的？
+这一切都是声明式的，没有修改内存，没有移动和交换，就这么简单，这就是面向函数的编程，但是又结合了面向对象，因为array.select()这种代码是调用对象的方法，假如一个完全不懂编程的人来写快速排序，是这个程序好懂呢还是上面开始的那个版本好懂？
+
+用scala和ruby实现的快速排序都需要声明一个命名函数，所以我在设想我自己的语言，直接用没有名字的函数来写，如下：
+{% highlight ruby %}
+{|array| that(array.select(it < array[0])) + [array[0]] + that(array.select(it > array[0]))}.run([3,0,1,2,3,6,7])
+{% endhighlight %}
+
+{}表示一个函数，函数有个方法叫做run，把数组[]传递给函数，|array|是函数参数，array就引用数组，array.select(it < array[0])得到[0,1,2,3]子数组，然后再传给that(),it表示遍历中的元素,that表示函数本身，在函数内调用that就表示把小于基准的数的子数组再递归，同理递归比基准大的数组是相同的道理，最后把数组用 + 加起来就是一个有序数组。
+
+为了追求一行代码，上面我DIY的语言真正运行起来是有问题的，你能发现问题是什么吗？
+
+
+### 总结：为什么这是可行的？
 
 为什么解决一个问题存在两个完全不同的方式？我们从最开始非常繁琐的版本可以简化到只要一行代码，这其中到底做了什么事情？我们可以发现几个东西
 
