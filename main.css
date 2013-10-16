@@ -76,11 +76,11 @@ h4 {
     background: #e8edf1;
 }
 
-.postion_control {
+.position_control {
     margin-top: 20px;
 }
 
-.postion_control span {
+.position_control span {
     display: block;
     background: #fff url("images/folding.png");
     width: 32px;
@@ -96,7 +96,7 @@ h4 {
     transition: transform .5s ease-in, background .5s ease-in;
 }
 
-.postion_control a {
+.position_control a {
     display: block;
     background: url("images/left.png") no-repeat center center;
     width: 48px;
@@ -107,11 +107,11 @@ h4 {
     cursor: pointer;
 }
 
-.postion_control div {
+.position_control div {
     position: relative;
 }
 
-.postion_control span.hover {
+.position_control span.hover {
     -webkit-transform: rotate(-180deg);
     -moz-transform: rotate(-180deg);
     -o-transform: rotate(-180deg);
@@ -170,18 +170,18 @@ h4 {
     right: 10px;
 }
 
-.theme-topic {
+.theme_topic {
     font-size: 30px;
     color: rgb(51, 51, 50);
     padding-top: 15px;
     width: 720px;
 }
 
-.theme-topic p {
+.theme_topic p {
     display: none;
 }
 
-.theme-topic .sentence_current {
+.theme_topic .sentence_current {
     display: block;
 }
 
@@ -192,7 +192,7 @@ hr {
     border-top-width: 4px;
 }
 
-#photo-container {
+#photo_container {
     border-radius: 50%;
     overflow: hidden;
     width: 220px;
@@ -200,7 +200,7 @@ hr {
     margin-right: 20px;
 }
 
-#photo-container img {
+#photo_container img {
     max-width: 100%;
     height: auto;
 }
