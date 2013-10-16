@@ -2,25 +2,17 @@
 layout: default
 title: 停下来，思考是人进步的本质
 ---
-<div class="wp index-wrapper clearfix">
+<div class="wp clearfix">
 
-    <div id="content" class="fl">
+    <div id="content">
 
         <ul>
          {% for post in paginator.posts %}
-            <li><h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3><p>{{post.desc}}</p></li>
+            <li><h3 class="clearfix"><span class="fr">发布于</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3><a class="content-link" href="{{ site.baseurl }}{{ post.url }}"><p>{{post.excerpt}}</p></a></li>
          {% endfor %}
         </ul>
 
     </div>
-
-    <aside id="aside" class="fr">
-        <div class="contact">
-            <h2><a href="http://weibo.com/u/1894517483">我的微博</a><h2>
-            <h2><a href="https://github.com/oojdon">我的github</a><h2>
-        </div>
-    </aside>
-
 
 </div>
 

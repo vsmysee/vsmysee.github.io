@@ -222,19 +222,37 @@ hr {
     height: auto;
 }
 
-#content {
-    width: 700px;
+#content h3 {
+margin-bottom: 10px;
 }
-
 
 #content li {
-    margin-bottom: 25px;
+margin-bottom: 25px;
+background: #eee;
+padding: 10px;
 }
 
-.index-wrapper {
-	background: url("/images/index_bg.jpg") 620px 300px no-repeat;
+#content li:hover {
+background: rgb(211, 216, 202);
 }
 
+
+#content li p {
+	text-indent:2em;    
+}
+
+#content li .content-link {
+	color:#333332;
+}
+
+#content li .content-link:hover {
+text-decoration: none;
+}
+
+#content h3 span {
+	font-size:14px;
+	color:#aaa;
+}
 
 
 #aside {
