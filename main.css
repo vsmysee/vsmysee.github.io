@@ -10,7 +10,7 @@ ul {
 }
 
 a {
-    color: rgb(124, 175, 60);
+    color: #7CAF3C;
     text-decoration: none;
 }
 
@@ -23,7 +23,6 @@ body {
     color: #333332;
     line-height: 1.428;
     font-size: 18px;
-    font-family: "microsoft yahei", "瀹嬩綋";
 }
 
 .clearfix:after, .clearfix:before {
@@ -45,11 +44,11 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 25px;
 }
 
 h3 {
@@ -79,7 +78,6 @@ h4 {
 
 .postion_control {
     margin-top: 20px;
-
 }
 
 .postion_control span {
@@ -114,11 +112,9 @@ h4 {
 }
 
 .postion_control span.hover {
-
     -webkit-transform: rotate(-180deg);
     -moz-transform: rotate(-180deg);
     -o-transform: rotate(-180deg);
-
 }
 
 .to-top {
@@ -139,6 +135,10 @@ h4 {
     box-shadow: 0 0 5px rgba(243, 156, 18, 0.9);
     background-position: 0 0;
 }
+
+/**----------------- common ------------------------*/
+
+/** ----------- index -------------------*/
 
 #pre_page, #next_page {
     width: 64px;
@@ -170,9 +170,6 @@ h4 {
     right: 10px;
 }
 
-/**----------------- common ------------------------*/
-
-/** ----------- index -------------------*/
 .theme-topic {
     font-size: 30px;
     color: rgb(51, 51, 50);
@@ -190,7 +187,7 @@ h4 {
 
 hr {
     margin: 10px 0;
-    border-top-color: rgb(124, 175, 60);
+    border-top-color: #7CAF3C;
     border-top-style: solid;
     border-top-width: 4px;
 }
@@ -219,7 +216,7 @@ hr {
 }
 
 #content li:hover {
-    background: rgb(211, 216, 202);
+    background: #D3D8CA;
 }
 
 #content li p {
@@ -237,29 +234,6 @@ hr {
 #content h3 span {
     font-size: 14px;
     color: #aaa;
-}
-
-#aside {
-    width: 220px;
-    background: #DAD8D2;
-    padding: 10px;
-}
-
-.contact {
-    padding: 20px;
-    text-align: left;
-}
-
-#bc_one {
-    position: absolute;
-    top: 450px;
-    right: -200px;
-}
-
-#bc_two {
-    position: absolute;
-    top: 1000px;
-    right: -200px;
 }
 
 /**-----------------------article---------------------------- */
@@ -281,6 +255,10 @@ hr {
     margin-bottom: 27px;
 }
 
+#article h1 {
+    margin-bottom: 15px;
+}
+
 #article h2 {
     margin-bottom: 40px;
 }
@@ -288,5 +266,3 @@ hr {
 #article h3 {
     margin-bottom: 20px;
 }
-
-
