@@ -9,7 +9,6 @@ ul {
     list-style-type: none;
 }
 
-
 a {
     color: rgb(124, 175, 60);
     text-decoration: none;
@@ -40,8 +39,7 @@ body {
     zoom: 1;
 }
 
-
-h1,h2,h3,h4,h5 {
+h1, h2, h3, h4, h5 {
     font-weight: 700;
     color: #333332;
 }
@@ -76,28 +74,28 @@ h4 {
 }
 
 #head_wrapper {
-	background: #e8edf1;
+    background: #e8edf1;
 }
-
 
 .postion_control {
-  margin-top:20px;
+    margin-top: 20px;
 
 }
+
 .postion_control span {
     display: block;
     background: #fff url("images/folding.png");
     width: 32px;
     height: 32px;
-    position:absolute;
-    right:-100px;
-    top:-28px;
+    position: absolute;
+    right: -100px;
+    top: -28px;
     cursor: pointer;
-    border-radius:50%;
-    -webkit-transition: -webkit-transform .5s ease-in,background .5s ease-in;
-    -moz-transition:    -moz-transform .5s ease-in,background .5s ease-in;
-    -o-transition:      -o-transform .5s ease-in,background .5s ease-in;
-    transition:         transform .5s ease-in,background .5s ease-in;
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .5s ease-in, background .5s ease-in;
+    -moz-transition: -moz-transform .5s ease-in, background .5s ease-in;
+    -o-transition: -o-transform .5s ease-in, background .5s ease-in;
+    transition: transform .5s ease-in, background .5s ease-in;
 }
 
 .postion_control a {
@@ -105,25 +103,21 @@ h4 {
     background: url("images/left.png") no-repeat center center;
     width: 48px;
     height: 48px;
-    position:absolute;
-    left:-120px;
-    top:-37px;
+    position: absolute;
+    left: -120px;
+    top: -37px;
     cursor: pointer;
 }
 
-
 .postion_control div {
-    position:relative;
+    position: relative;
 }
-
 
 .postion_control span.hover {
 
-
-
--webkit-transform: rotate(-180deg);
-	-moz-transform: rotate(-180deg);
-	-o-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
 
 }
 
@@ -146,61 +140,53 @@ h4 {
     background-position: 0 0;
 }
 
-
-
 #pre_page, #next_page {
-	width:64px;
-	height:64px;	
-	position:fixed;
-	bottom:100px;
-	opacity:0.2;
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    bottom: 100px;
+    opacity: 0.2;
 }
 
 #pre_page:hover, #next_page:hover {
-    opacity:1 !important;
+    opacity: 1 !important;
 }
 
 #pre_page a, #next_page a {
-	display:block;
-        width:64px;
-	overflow:hidden;
-	line-height:200px;
-	height:64px;
+    display: block;
+    width: 64px;
+    overflow: hidden;
+    line-height: 200px;
+    height: 64px;
 }
 
-
-#pre_page{
-        background:url("images/pre.png");
-	left:10px;
+#pre_page {
+    background: url("images/pre.png");
+    left: 10px;
 }
-
 
 #next_page {
-	background:url("images/next.png");
-	right:10px;
+    background: url("images/next.png");
+    right: 10px;
 }
 
 /**----------------- common ------------------------*/
-
-
 
 /** ----------- index -------------------*/
 .theme-topic {
     font-size: 30px;
     color: rgb(51, 51, 50);
     padding-top: 15px;
-    width:720px;
+    width: 720px;
 }
 
 .theme-topic p {
-    display:none;
+    display: none;
 }
 
-.theme-topic .sentence_current{
-    display:block;
+.theme-topic .sentence_current {
+    display: block;
 }
-
-
 
 hr {
     margin: 10px 0;
@@ -223,63 +209,58 @@ hr {
 }
 
 #content h3 {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #content li {
-margin-bottom: 25px;
-background: #eee;
-padding: 10px;
+    margin-bottom: 25px;
+    background: #eee;
+    padding: 10px;
 }
 
 #content li:hover {
-background: rgb(211, 216, 202);
+    background: rgb(211, 216, 202);
 }
 
-
 #content li p {
-	text-indent:2em;    
+    text-indent: 2em;
 }
 
 #content li .content-link {
-	color:#333332;
+    color: #333332;
 }
 
 #content li .content-link:hover {
-text-decoration: none;
+    text-decoration: none;
 }
 
 #content h3 span {
-	font-size:14px;
-	color:#aaa;
+    font-size: 14px;
+    color: #aaa;
 }
-
 
 #aside {
     width: 220px;
-    background:#DAD8D2;
-    padding:10px;
+    background: #DAD8D2;
+    padding: 10px;
 }
 
 .contact {
-  padding:20px;
-  text-align:left;
+    padding: 20px;
+    text-align: left;
 }
 
-
 #bc_one {
-	position:absolute;
-	top:450px;
-	right:-200px;
+    position: absolute;
+    top: 450px;
+    right: -200px;
 }
 
 #bc_two {
-	position:absolute;
-	top:1000px;
-	right:-200px;
+    position: absolute;
+    top: 1000px;
+    right: -200px;
 }
-
-
 
 /**-----------------------article---------------------------- */
 #article {
@@ -287,12 +268,12 @@ text-decoration: none;
 }
 
 #article ul {
-    list-style:inside disc;
+    list-style: inside disc;
     margin-bottom: 20px;
 }
 
 #article ol {
-    list-style:inside decimal;
+    list-style: inside decimal;
     margin-bottom: 20px;
 }
 

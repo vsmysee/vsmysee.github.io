@@ -1,21 +1,20 @@
 .highlight {
-font-size: 0.8em;
-line-height: 1.5;
-font-weight: bold;
-padding: 0.3em 0.5em;
-margin-top: 0.6em;
-margin-bottom: 2em;
-background: #151515;
-color: #E6E1DC;
-border-radius: 5px;
+    font-size: 0.8em;
+    line-height: 1.5;
+    font-weight: bold;
+    padding: 0.3em 0.5em;
+    margin-top: 0.6em;
+    margin-bottom: 2em;
+    background: #151515;
+    color: #E6E1DC;
+    border-radius: 5px;
 }
 
 .highlight, .highlight code {
-word-wrap: break-word;
-font-family: Monaco,Menlo,"Ubuntu Mono",consolas,source-code-pro,"Courier New",monospace;
-font-weight: 700;
+    word-wrap: break-word;
+    font-family: Monaco, Menlo, "Ubuntu Mono", consolas, source-code-pro, "Courier New", monospace;
+    font-weight: 700;
 }
-
 
 .highlight .hll {
     background-color: #ffc
