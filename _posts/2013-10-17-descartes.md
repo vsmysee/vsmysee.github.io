@@ -1,7 +1,6 @@
 ---
 layout: article
 title: 电商SKU笛卡尔
-desc: 电商系统，SKU组合由销售属性的笛卡尔乘积决定，比如颜色2个，尺寸2个，那么就有4个SKU
 ---
 
 笛卡尔（Descartes）积的定义：

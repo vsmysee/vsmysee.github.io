@@ -1,7 +1,6 @@
 ---
 layout: article
 title: 写代码原则性问题
-desc: 遵守原则可使自己保持高效，代码会变得清晰，也让别人能够理解
 ---
 
 ### Don’t Repeat Yourself (DRY) 

@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Java1.5的并发库
-desc: Doug Lea并发编程专家贡献给jdk的库，简化了Java的并发编程
 ---
 
 并发编程是困难的，即便是专家也不能保证自己可以很容易的写出没有问题的并发程序，那么编程模型的简化就是一个必须要研究的问题，就像google发明map-reduce来简化分布式编程一样.

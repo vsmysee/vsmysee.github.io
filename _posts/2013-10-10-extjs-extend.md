@@ -1,7 +1,6 @@
 ---
 layout: article
 title: 从Java角度理解ExtJs的extend函数
-desc: 继承在OO语言中可以很自然的表达，但是在Js这种原型语言中表达需要有另类的方式
 ---
 
 在Java中，我们在实现继承的时候存在下面几个事实：

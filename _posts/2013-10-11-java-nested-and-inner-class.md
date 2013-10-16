@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Java嵌套类和内部类
-desc: Java的内部类模拟了动态语言的闭包，导致语法看起来比较复杂
 ---
 
 

@@ -1,7 +1,6 @@
 ---
 layout: article
 title: GUI编程框架的思考
-desc: UI编程从计算机真正面对用户而不是程序员开始进化
 ---
 
 

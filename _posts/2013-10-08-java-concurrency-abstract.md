@@ -1,7 +1,6 @@
 ---
 layout: article
 title: 并发编程的Java抽象 
-desc: 每种语言都对并发做了编程抽象，我是这样总结Java语言的 
 ---
 
 ###一、机器级别抽象

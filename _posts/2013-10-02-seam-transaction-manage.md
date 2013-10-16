@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Seam的事务管理
-desc: Seam是Gavin King创造的框架，和Spring有着完全不同的设计哲学
 ---
 
 分析Seam的事务管理之前有必要先写点SSH中的事务管理，Spring靠什么起家？靠IOC和AOP，通过这个IOC，Spring整合了大堆大堆的框架，于是成为了一个平台，让SSH程序员到处都是，但是我用Spring始终觉得有疙瘩，即便Spring是一个音乐家写的，Spring的源码很漂亮，测试代码很漂亮，用它也做了N多项目。

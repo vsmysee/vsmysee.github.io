@@ -1,7 +1,6 @@
 ---
 layout: article
 title: 面向对象中的对象是可以生长的
-desc: 对象如果有生命它是要生长的，而且活在不同的场景中还应该多态出不同行为
 tags:
 - jekyll
 - code
