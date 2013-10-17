@@ -6,7 +6,7 @@ title: 各种语言的的四则运算AST实现
 四则运算表达式，比如 12 * （24 - 5 ) / (17 + 6) 会得到如下的一个语法树
 ![抽象语法树](/images/ast.jpg)
 
-我们可以用字母代替部分数字，比如 a + b * 2，这个表达式给一个环境,比如a =1,b=2 就可以得到最终运算结果,我们省略对语法树的构建，而是直接用语言支持的结构写出来，比如在ruby中，我们可以通过[:add, [:variable, :a], [:multiply, [:number, 2], [:variable, :b]]]数组来表达a + b * 2，现在让我们来看看各种语言怎么执行这些表达式，这个程序包括了结构，运算，递归。
+我们可以用字母代替部分数字，比如 a + b * 2，给这个表达式一个环境,比如a =1,b=2 就可以得到最终运算结果,我们省略对语法树的构建，而是直接用语言支持的结构写出来，比如在ruby中，我们可以通过数组[:add, [:variable, :a], [:multiply, [:number, 2], [:variable, :b]]]来表达a + b * 2，现在让我们来看看各种语言怎么执行这些表达式，这些程序都包括了结构，运算，递归,函数语言还有模式匹配。
 
 ruby的第一版本，通过符号匹配，然后运算
 {% highlight ruby %}
@@ -26,7 +26,7 @@ Env = { a: 3, b: 4, c: 5 }
 puts evaluate(Env, ExpressionTree)
 {% endhighlight %}
 
-ruby的第二版本，通过lambda表达式自执行
+上面第一个版本是通过case来寻找什么符号，然后再去找相应的运算，为何不去掉符号而直接把运算写在语法树中呢？那么有了ruby的第二版本，通过lambda表达式自执行
 {% highlight ruby %}
 Number   = lambda { |env, num| num }
 Variable = lambda { |env, var| env[var] }
@@ -34,8 +34,8 @@ Add      = lambda { |env, a, b| evaluate(env, a) + evaluate(env, b) }
 Multiply = lambda { |env, a, b| evaluate(env, a) * evaluate(env, b) }
  
 def evaluate(env, exp)
-  op, *args = exp
-  op.(env, *args)
+  op, *args = exp #并行赋值
+  op.(env, *args) #执行
 end
  
 ExpressionTree = [Add, [Variable, :a], [Multiply, [Number, 2], [Variable, :b]]]
@@ -44,7 +44,7 @@ Env = { a: 3, b: 4, c: 5 }
 puts evaluate(Env, ExpressionTree)
 {% endhighlight %}
 
-ruby的第三版本，通过闭包，语法树不再是一个结构，而是一个闭包函数
+一个表达式的本质就是求值，它捕获环境，然后从环境中取值来计算，表达式应该是自封装的，比如a+b这个表达式应该封装运算和取值，至于是取a,取b还是取c由使用者决定，外部使用者通过指定取值key，比如a,b来创建一个封装体，封装体内部保存a和b，外部得到这个封装之后把它保存起来，这个封装体如果得到了环境就可以直接运行出结果，由于在编程语言中能够直接跑的就是函数，所以我们程序需要创建一个函数，同时这个函数有个环境保存取值key。由此，我们得到ruby实现的第三个版本，通过闭包，语法树不再是一个结构，而是一个闭包函数
 {% highlight ruby %}
 def Number(num)      ->(env){ num } end
 def Variable(var)    ->(env){ env[var] } end
@@ -58,7 +58,7 @@ puts ExpressionTree.(Env)
 {% endhighlight %}
 
 
-JS版本，和上面类似
+用JavaScript翻译上面Ruby的实现，得到如下程序
 {% highlight javascript %}
 var Number = function(n) { return function(env) { return n }};
 var Add = function(e1, e2) { return function(env) { return e1(env) + e2(env) }};
