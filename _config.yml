@@ -3,5 +3,5 @@ permalink: /blog/:year/:month/:day/:title
 markdown: rdiscount
 pygments: true
 date_format: "ordinal"
-paginate: 15
+paginate: 10
 paginate_path: "blog/page:num"
