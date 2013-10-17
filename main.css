@@ -15,8 +15,8 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
     color: #000;
+    text-decoration: underline;
 }
 
 body {
@@ -117,7 +117,7 @@ h4 {
     -o-transform: rotate(-180deg);
 }
 
-.to-top {
+.to_top {
     width: 48px;
     height: 48px;
     background: url("images/up.png") 0 48px;
@@ -131,7 +131,7 @@ h4 {
     z-index: 200;
 }
 
-.to-top:hover {
+.to_top:hover {
     box-shadow: 0 0 5px rgba(243, 156, 18, 0.9);
     background-position: 0 0;
 }

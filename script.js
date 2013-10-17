@@ -54,8 +54,8 @@ $(function () {
                 pot_t = 0,
                 pot_b = 1;
 
-            toTop.id = "to-top";
-            toTop.className = "to-top";
+            toTop.id = "to_top";
+            toTop.className = "to_top";
             var toright = (winWidth - 1000) / 2 - 40 - 10;
 
             $(window).bind("scroll.toTop", function () {
