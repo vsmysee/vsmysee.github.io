@@ -84,7 +84,7 @@ Lisp方言racket的实现，它可以直接解析表达式，但是要写成前�
 {% endhighlight %}
 
 
-Erlang语言虚拟机上的语言Elixir，看看那个case
+Erlang VM 上的的语言Elixir，看看那个case
 {% highlight elixir %}
 defmodule Ast do
 
