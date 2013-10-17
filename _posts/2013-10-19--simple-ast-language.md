@@ -69,7 +69,7 @@ var result = Add(Variable("a"), Multiply(Number(2), Variable("b")))(env);
 {% endhighlight %}
 
 
-lisp方言racket的实现，它可以直接解析表达式，但是要写成前缀表达式，这是lisp方言的S表达式写法
+Lisp方言racket的实现，它可以直接解析表达式，但是要写成前缀表达式，这是lisp方言的S表达式写法
 {% highlight racket %}
 (define (evaluate env exp)
   (match exp
@@ -84,7 +84,7 @@ lisp方言racket的实现，它可以直接解析表达式，但是要写成前�
 {% endhighlight %}
 
 
-erlang语言虚拟机上的语言elixir，看看那个case
+Erlang语言虚拟机上的语言Elixir，看看那个case
 {% highlight elixir %}
 defmodule Ast do
 
