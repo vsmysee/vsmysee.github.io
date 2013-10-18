@@ -1,7 +1,7 @@
 {% include head.html %}
 
 <article id="article" class="wp">
-    <h1>{{page.title}}</h1>
+    <h1 class="clearfix"><span class="date fr">{{ page.date | date: "%Y年/%m月/%d日" }}</span>{{page.title}}</h1>
     {{content}}
 </article>
 

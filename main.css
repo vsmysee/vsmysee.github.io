@@ -189,6 +189,11 @@ h4 {
     z-index: 9999;
 }
 
+.date {
+    font-size: 14px;
+    color: #aaa;
+}
+
 /**----------------- common ------------------------*/
 
 /** ----------- index -------------------*/
@@ -293,10 +298,7 @@ hr {
     text-decoration: none;
 }
 
-#content h3 span {
-    font-size: 14px;
-    color: #aaa;
-}
+
 
 /**-----------------------article---------------------------- */
 #article {
