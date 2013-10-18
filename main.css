@@ -82,18 +82,17 @@ h4 {
 
 .position_control span {
     display: block;
-    background: #fff url("images/folding.png");
+    background: url("images/folding.png");
     width: 32px;
-    height: 32px;
+    height: 16px;
     position: absolute;
     right: -100px;
-    top: -28px;
+    top: -26px;
     cursor: pointer;
-    border-radius: 50%;
-    -webkit-transition: -webkit-transform .5s ease-in, background .5s ease-in;
-    -moz-transition: -moz-transform .5s ease-in, background .5s ease-in;
-    -o-transition: -o-transform .5s ease-in, background .5s ease-in;
-    transition: transform .5s ease-in, background .5s ease-in;
+    -webkit-transition: -webkit-transform .1s ease-in;
+    -moz-transition: -moz-transform .1s ease-in;
+    -o-transition: -o-transform .1s ease-in;
+    transition: transform .1s ease-in;
 }
 
 .position_control a {
@@ -115,6 +114,7 @@ h4 {
     -webkit-transform: rotate(-180deg);
     -moz-transform: rotate(-180deg);
     -o-transform: rotate(-180deg);
+    top: -14px;
 }
 
 .to_top {
@@ -194,6 +194,14 @@ h4 {
     color: #aaa;
 }
 
+hr {
+    margin: 10px 0;
+    border-top-color: #7CAF3C;
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-bottom-width: 0;
+}
+
 /**----------------- common ------------------------*/
 
 /** ----------- index -------------------*/
@@ -243,13 +251,6 @@ h4 {
     display: block;
 }
 
-hr {
-    margin: 10px 0;
-    border-top-color: #7CAF3C;
-    border-top-style: solid;
-    border-top-width: 4px;
-}
-
 #photo_container {
     border-radius: 50%;
     overflow: hidden;
@@ -297,8 +298,6 @@ hr {
 #content li .content-link:hover {
     text-decoration: none;
 }
-
-
 
 /**-----------------------article---------------------------- */
 #article {
