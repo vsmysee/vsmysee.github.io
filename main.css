@@ -136,6 +136,59 @@ h4 {
     background-position: 0 0;
 }
 
+.contact {
+    padding: 10px;
+    width: 200px;
+    background: #ccc
+}
+
+.profile_pop {
+    width: 1000px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -500px;
+    z-index: 10000;
+    border: 10px solid rgba(0, 0, 0, 0.5);
+}
+
+.profile_pop .wrapper {
+    background: #fff;
+    height: 100%;
+    position: relative;
+}
+
+.profile_pop .close_tag {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 26px;
+    height: 26px;
+    background: url(images/close.png) no-repeat;
+    cursor: pointer;
+}
+
+.profile_pop .content {
+    padding: 25px;
+}
+
+.profile_img img {
+    height: 500px;
+}
+
+.pop_shadow {
+    opacity: 0.5;
+    background: #000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 9999;
+}
+
 /**----------------- common ------------------------*/
 
 /** ----------- index -------------------*/
@@ -198,6 +251,15 @@ hr {
     width: 220px;
     height: 220px;
     margin-right: 20px;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .3s ease-in, opacity .5s ease-in;
+    -moz-transition: -moz-transform .3s ease-in, opacity .5s ease-in;
+    -o-transition: -o-transform .3s ease-in, opacity .5s ease-in;
+    transition: transform .3s ease-in, opacity .5s ease-in;
+}
+
+#photo_container:hover {
+    opacity: 0.5;
 }
 
 #photo_container img {

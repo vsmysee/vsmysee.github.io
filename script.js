@@ -30,6 +30,58 @@ var fuckScreen = function () {
     });
 }
 
+
+var Pop = function () {
+    this.box = document.createElement("div");
+    this.init();
+}
+
+
+Pop.prototype = {
+
+    init: function () {
+        this.box.id = "profile_pop";
+        this.box.className = "profile_pop";
+
+        this.shadow = document.createElement("div");
+        this.shadow.className = "pop_shadow";
+
+
+        var wrapper = document.createElement("div");
+        wrapper.className = "wrapper";
+        this.box.appendChild(wrapper);
+
+
+        var close_tag = document.createElement("div");
+        close_tag.className = "close_tag";
+        wrapper.appendChild(close_tag);
+
+        this.profile_content = document.createElement("div");
+        this.profile_content.className = "content";
+        wrapper.appendChild(this.profile_content);
+
+        var root = this;
+        close_tag.onclick = function () {
+            root.close();
+        };
+    },
+
+    show: function () {
+        document.body.appendChild(this.shadow);
+        document.body.appendChild(this.box);
+    },
+
+    close: function () {
+        document.body.removeChild(this.box);
+        document.body.removeChild(this.shadow);
+    },
+
+    setContent: function (text) {
+        this.profile_content.innerHTML = text;
+    }
+};
+
+
 $(function () {
 
     $('.sentence_current').html(dataArray[Math.floor(Math.random() * dataArray.length)]);
@@ -81,6 +133,21 @@ $(function () {
         }
 
     })();
+
+
+    var profile_one_frame =
+        '<div class="contact fl">' +
+            '<h2><a href="http://weibo.com/u/1894517483">我的微博</a></h2>' +
+            '<h2><a href="https://github.com/oojdon">我的github</a></h2>' +
+            '</div>' +
+            '<div class="profile_img fr"><img src="/images/me.png"/></div>';
+
+
+    $("#photo_container").click(function () {
+        var profile_pop = new Pop();
+        profile_pop.setContent(profile_one_frame);
+        profile_pop.show();
+    });
 
 })
 
