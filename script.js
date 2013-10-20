@@ -14,7 +14,7 @@ var modifySentence = function () {
 
 }
 
-
+//无节操函数
 var fuckScreen = function () {
     $("#next_page").animate({
         right: "40px",
@@ -33,16 +33,15 @@ var fuckScreen = function () {
 
 var Pop = function () {
     this.box = document.createElement("div");
-    this.init();
+    this.box.id = "profile_pop";
+    this.box.className = "profile_pop";
+    this.initChild();
 }
 
 
 Pop.prototype = {
 
-    init: function () {
-        this.box.id = "profile_pop";
-        this.box.className = "profile_pop";
-
+    initChild: function () {
         this.shadow = document.createElement("div");
         this.shadow.className = "pop_shadow";
 
