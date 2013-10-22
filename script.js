@@ -20,15 +20,21 @@ var fuckScreen = function () {
         right: "40px",
         opacity: 1
     }, function () {
-        $(this).animate({right: "10px", opacity: 0.2});
+        $(this).animate({right: "10px"});
     });
     $("#pre_page").animate({
         left: "40px",
         opacity: 1
     }, function () {
-        $(this).animate({left: "10px", opacity: 0.2});
+        $(this).animate({left: "10px"});
     });
 }
+
+//收起头部
+var slideSection = function () {
+    $("#head_section").slideToggle();
+    $(this).toggleClass("hover");
+};
 
 
 var Pop = function () {
@@ -148,10 +154,7 @@ $(function () {
     setInterval(modifySentence, 20 * 1000);
 
     //头部效果
-    $("#arrow_panel").bind("click", function () {
-        $("#head_section").slideToggle();
-        $(this).toggleClass("hover");
-    });
+    $("#arrow_panel").bind("click", slideSection);
 
     //返回顶部
     (function () {
@@ -181,6 +184,9 @@ $(function () {
                     $(toTop).stop().animate({"right": "-60px", "opacity": "0"}, 200);
                     pot_t = 0;
                     pot_b = 1;
+
+                    $("#next_page").animate({opacity: 0.2});
+                    $("#pre_page").animate({opacity: 0.2});
                 }
             });
 
@@ -199,6 +205,14 @@ $(function () {
         pop.show();
         var slideBox = new SlideBox(document.getElementById("profile_wp"));
     });
+
+
+    //非首页执行折叠
+    (function () {
+        if (location.href.indexOf("blog") != -1) {
+            slideSection.call($("#arrow_panel"));
+        }
+    })();
 
 
 })
