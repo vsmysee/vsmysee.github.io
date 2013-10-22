@@ -33,8 +33,8 @@ var fuckScreen = function () {
 
 var Pop = function () {
     this.box = document.createElement("div");
-    this.box.id = "profile_pop";
-    this.box.className = "profile_pop";
+    this.box.id = "pop";
+    this.box.className = "pop";
     this.initChild();
 }
 
@@ -81,6 +81,66 @@ Pop.prototype = {
 };
 
 
+var SlideBox = function (obj) {
+    this.obj = obj;
+    this.pot = 0;
+    this.num = $(this.obj).find(".frame").length;
+    this.frameWidth = $(this.obj).find(".frame:eq(0)").width();
+    this.init();
+
+    $(".profile").css("width", this.num * 1000);
+}
+
+SlideBox.prototype = {
+
+    init: function () {
+        this.createArrow();
+        this.bindEvent();
+    },
+
+    createArrow: function () {
+        this.pre = document.createElement("div");
+        this.pre.className = "slide_pre";
+
+        this.next = document.createElement("div");
+        this.next.className = "slide_next";
+
+        this.obj.appendChild(this.pre);
+        this.obj.appendChild(this.next);
+    },
+
+    bindEvent: function () {
+        var root = this;
+        this.next.onclick = function () {
+            root.pot++;
+            root.fixPot();
+            root.animate();
+        };
+        this.pre.onclick = function () {
+            root.pot--;
+            root.fixPot();
+            root.animate();
+        };
+    },
+
+
+    animate: function () {
+        $(this.obj).find("ul").stop().animate({'left': -this.frameWidth * this.pot})
+    },
+
+
+    fixPot: function () {
+        if (this.pot > this.num - 1) {
+            this.pot = 0;
+        }
+
+        if (this.pot == -1) {
+            this.pot = this.num - 1;
+        }
+    }
+}
+
+
 $(function () {
 
     $('.sentence_current').html(dataArray[Math.floor(Math.random() * dataArray.length)]);
@@ -96,7 +156,6 @@ $(function () {
     //返回顶部
     (function () {
         var domHeight = $(document).height(),
-            scrollTop = $(document).scrollTop(),
             winWidth = $(window).width(),
             winHeight = $(window).height();
 
@@ -134,19 +193,13 @@ $(function () {
     })();
 
 
-    var profile_one_frame =
-        '<div class="contact fl">' +
-            '<h2><a href="http://weibo.com/u/1894517483">我的微博</a></h2>' +
-            '<h2><a href="https://github.com/oojdon">我的github</a></h2>' +
-            '</div>' +
-            '<div class="profile_img fr"><img src="/images/me.png"/></div>';
-
-
     $("#photo_container").click(function () {
-        var profile_pop = new Pop();
-        profile_pop.setContent(profile_one_frame);
-        profile_pop.show();
+        var pop = new Pop();
+        pop.setContent(document.getElementById("profile_html").innerHTML);
+        pop.show();
+        var slideBox = new SlideBox(document.getElementById("profile_wp"));
     });
+
 
 })
 
