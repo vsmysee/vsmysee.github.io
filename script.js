@@ -185,8 +185,8 @@ $(function () {
                     pot_t = 0;
                     pot_b = 1;
 
-                    $("#next_page").animate({opacity: 0.2});
-                    $("#pre_page").animate({opacity: 0.2});
+                    $("#next_page,#pre_page").animate({opacity: 0.01});
+
                 }
             });
 
