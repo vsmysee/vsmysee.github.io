@@ -36,6 +36,24 @@ var slideSection = function () {
     $(this).toggleClass("hover");
 };
 
+//执行图片加载
+var asyLoadImg = function (option) {
+
+    function createImg(url) {
+        new Image().src = url;
+    }
+
+
+    if (typeof option == "String") {
+        createImg(option);
+    } else if (Array.isArray(option)) {
+        for (var i = 0; i < option.length; i++) {
+            createImg(option[i]);
+        }
+    }
+
+}
+
 
 var Pop = function () {
     this.box = document.createElement("div");
@@ -216,9 +234,12 @@ $(function () {
 
 
     //先把图片加载一把利用浏览器缓存
-    (function(){
-        var img = new Image();
-        img.src = "/images/me.jpg"
+    (function () {
+        var matches = [];
+        document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
+            matches.push($1);
+        });
+        asyLoadImg(matches);
     })()
 
 
