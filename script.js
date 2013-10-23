@@ -242,7 +242,7 @@ $(function () {
         asyLoadImg(matches);
     }
 
-    setTimeout(loadMyImg, 1000);
+    setTimeout(loadMyImg, 5000);
 
 
 })
