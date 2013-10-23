@@ -46,7 +46,7 @@ var asyLoadImg = function (option) {
 
     if (typeof option == "String") {
         createImg(option);
-    } else if (Array.isArray(option)) {
+    } else if (option instanceof  Array) {
         for (var i = 0; i < option.length; i++) {
             createImg(option[i]);
         }
@@ -234,13 +234,15 @@ $(function () {
 
 
     //先把图片加载一把利用浏览器缓存
-    (function () {
+    var loadMyImg = function () {
         var matches = [];
         document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
             matches.push($1);
         });
         asyLoadImg(matches);
-    })()
+    }
+
+    window.onload = loadMyImg;
 
 
 })
