@@ -215,6 +215,13 @@ $(function () {
     })();
 
 
+    //先把图片加载一把利用浏览器缓存
+    (function(){
+        var img = new Image();
+        img.src = "/images/me.jpg"
+    })()
+
+
 })
 
 
