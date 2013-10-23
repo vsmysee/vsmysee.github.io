@@ -233,16 +233,19 @@ $(function () {
     })();
 
 
-    //先把图片加载一把利用浏览器缓存
-    var loadMyImg = function () {
-        var matches = [];
+    //先把个人信息图片加载一把利用浏览器缓存
+    var loadMyProfileImg = function () {
+        var forload = [];
         document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
-            matches.push($1);
+            forload.push($1);
         });
-        asyLoadImg(matches);
+
+        forload.push("/images/slide_left.png","/images/slide_right.png");
+
+        asyLoadImg(forload);
     }
 
-    setTimeout(loadMyImg, 5000);
+    setTimeout(loadMyProfileImg, 5000);
 
 
 })
