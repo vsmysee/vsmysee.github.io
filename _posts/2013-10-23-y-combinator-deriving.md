@@ -15,7 +15,7 @@ title: 我来推导Y combinator
 我们写了一个函数然后让它立即执行，减少了对这个函数命名的步骤，因为这个快速排序要用递归来实现，那么我怎么在函数没有名字的前提下引用当前函数呢，这就是那个that在起作用，在JavaScript中我们
 可以用arguments.callee来引用当前函数以实现递归，可是假如有一种语言没有提供这样的机制从函数内部引用自己，我们怎么实现这个快速排序？或者怎么实现匿名函数递归？
 
-比如，ruby的快速排序，你可以给写一个匿名版本吗？
+比如，ruby的快速排序，你可以写一个匿名版本吗？
 {% highlight java%}
 def quicksort a
   (pivot = a.pop) ? quicksort(a.select{|i| i < pivot}) + [pivot] + quicksort(a.select{|i| i > pivot}) : []
@@ -33,45 +33,18 @@ var factorial = function(x) {
 factorial(3)
 {% endhighlight %}
 
-阶乘函数的本质运算是x == 0 ? 1 : x * factorial(x-1)，我们最终目的是不要在这个运算体中通过名字factorial来引用函数本身，我们引入间接层，写成这样:x == 0 ? 1 : x * that(x-1),你只要记住that表示函数本身
-你可以理解为这是一个语言的关键字,它的语义就是在函数内部引用函数自身，那么怎么让一个表达式能够引用一个值呢？那就是闭包，我们只要通过某种机制，把x == 0 ? 1 : x * that(x-1)放进闭包，然后闭包环境中放入一个变量that表示这个函数本身就可以了，
-这个变换机制我们通过一个函数来实现，它大概就可以这样写：
-
+这种递归之所以可行，是因为js全局环境中有一个变量factorial指向了函数，现在我们假设没有这个变量，那么这段程序要执行必须外面传入函数自身，所以代码也很简单，我们用一个单词that表示外部传入的函数自身
 {% highlight javascript%}
-
-var Y = function(f) {
+var f = function(that,x) {
+  return x == 0 ? 1 : x * that(that,x-1)
 };
 
-var factorial = Y(function(that){
-    return function(x){
-        return x == 0 ? 1: x * that(x-1)
-    }
-})
-{% endhighlight %}
-
-我们把阶乘传递给了一个叫做Y的函数，它返回了函数，这个函数内部通过闭包又引用到了自身，我们只要想办法在Y里面完成这个变换就行了，我们把焦点放到如下这个函数上
-{% highlight javascript%}
-function(x){
-   return x == 0 ? 1: x * that(x-1)
-}
-{% endhighlight %}
-它如果要成功执行，必须要在参数中有that,于是我们变换一下，让这个函数参数里面接收自身，每次函数的执行都需要传入自身
-{% highlight javascript%}
-function(that,x){
-   return x == 0 ? 1: x * that(that,x-1)
-}
-{% endhighlight %}
-那么我们就可以实现函数不依赖函数名字来实现递归，请看如下代码，我们每次调用函数的时候把函数传进去
-{% highlight javascript%}
-var f = function(that,x){
-   return x == 0 ? 1: x * that(x-1)
-}
+//调用的时候必须把自己当作参数传进去
 f(f,3)
 f(f,4)
 f(f,5)
-{% endhighlight %}
-但是每次都要传入f是个重复代码，我们可以利用函数curry化这样写：
-{% highlight javascript%}
+
+//把函数curry一下我们得到这样一种方式
 var f = function(that) {
     return function(x) {
         return x ==0 ? 1 : x * that(that)(x-1)
@@ -83,20 +56,49 @@ f(f)(4)
 f(f)(5)
 {% endhighlight %}
 
-好，到了这里我们发现这个阶乘函数和我们传给Y的那个函数有点相似了,所以Y函数只要把传进来的f函数变换成内部用that(that)来引用自身的函数，然后返回一个自身调用自身的结果给客户端就可以了。所以Y的伪代码应该这样写：
+奇迹在出现，如果语言不支持函数内部引用函数自身，我们可以通过把递归变换一种写法，然后就可以顺利的使用递归函数了，比如阶乘函数我们就可以这样写了:
+{% highlight javascript%}
+var f = function(that) {
+    return function(x) {
+        return x ==0 ? 1 : x * that(that)(x-1)
+    }
+}
+var factorial = f(f);
+factorial(5)
+{% endhighlight %}
+我们现在只是在函数内部摆脱了依赖函数名字，可是外部又引入新的名字，比如var f，也就是说我们每写一个递归函数，必须在外部命名，然后自己把自己当作一个参数传入返回另一个函数，换汤不换药，我们还是在不断的取名字，
+通过观察我们发现每写一种递归都要遵从相同的模式，是不是可以通过写一个工厂函数来来生产呢？假设我们有个函数叫做RecursiveFactory,它负责生产递归函数，参数是正常的但是不能执行的递归版本，比如阶乘我们希望这样写：
 
 {% highlight javascript%}
-var Y = function(f){
 
-   //变化成g函数
-    var g = doSth(f);
+var RecursiveFactory = function(inputFunc) {
 
-    return g(g)
-}
+};
+
+RecursiveFactory( function(that){
+                      return function(x){
+                          return x == 0 ? 1: x * that(x-1)
+                      }
+                  })
+
 {% endhighlight %}
 
-我们又把中心放到that(that)这里，把它想像成一个整体通过外部传入，于是又得到这样的代码
+注意看阶乘的变换模式:
 {% highlight javascript%}
+
+var f = function(that) {
+    return function(x) {
+        return x ==0 ? 1 : x * that(that)(x-1)
+    }
+}
+
+//f(f) 就表示RecursiveFactory要返回的结果
+
+{% endhighlight %}
+
+通过反curry它等价于如下的写法：
+{% highlight javascript%}
+
 var f = function(that) {
     return function(x) {
         var baby = function(q,x) {
@@ -106,7 +108,13 @@ var f = function(that) {
     }
 }
 
-//把中间的baby函数curry一下得到
+//f(f) 就表示RecursiveFactory要返回的结果
+
+{% endhighlight %}
+
+再把里面的baby函数curry化又得到：
+{% highlight javascript%}
+
 var f = function(that) {
     return function(x) {
         var baby = function(q) {
@@ -117,37 +125,61 @@ var f = function(that) {
         return baby(that(that))(x)
     }
 }
-
-f(f)(3)
-f(f)(4)
-f(f)(5)
+//f(f) 就表示RecursiveFactory要返回的结果
 
 {% endhighlight %}
 
-奇迹产生了，在f函数内部，我们发现出现了阶乘函数的本质定义,也就是我们传递给Y的那个函数，所以我们便得到了Y函数的实现
+奇迹产生了,变换代码出现了原始函数的样子，其他都是一样的写法，这也就是RecursiveFactory的实现，让我们把它写出来吧
 {% highlight javascript%}
-var Y = function(f){
-    var g = function(that){
+var RecursiveFactory = function(inputFunc) {
+    var f = function(that) {
         return function(x) {
-            return f(that(that))(x);
+            return inputFunc(that(that))(x)
         }
     }
-    return g(g);
+    return f(f)
 }
 {% endhighlight %}
 
-那么一个阶乘函数不依赖于函数名字的递归就可以通过Y函数来变换了
+
+这个RecursiveFactory便是计算机科学中的Y combinator，也是黑客与画家的作者Paul Graham创建的一个公司。更标准的写法:
 {% highlight javascript%}
-var factorial = Y(function(that) {
+var Y = function(f) {
+  var g = function(h) {
+    return function(x) {
+      return f(h(h))(x);
+    };
+  };
+  return g(g);
+};
+
+var factorial = Y(function(recurse) {
   return function(x) {
-    return x == 0 ? 1 : x * that(x-1);
+    return x == 0 ? 1 : x * recurse(x-1);
   };
 });
 
-factorial(5); // -> 120
+factorial(5)  // -> 120
 {% endhighlight %}
 
-这便是计算机科学中的Y combinator，也是黑客与画家的作者Paul Graham创建的一个公司。
+由于代码中我们有一个x变量，只是因为我们用阶乘来推导的，所以一直用一个参数，其实函数是可以有很多参数的，那么更一般的版本就是把所有参数都要传递给f(h(h))函数，看看ruby的实现吧：
+{% highlight ruby%}
+def y(&f)
+  lambda { |g| g[g] } [
+    lambda do |h|
+      lambda { |*args| f[h[h]][*args] }
+    end
+  ]
+end
+
+factorial = y do |recurse|
+  lambda do |x|
+    x.zero? ? 1 : x * recurse[x-1]
+  end
+end
+
+{% endhighlight %}
+
 
 为什么可以这样，我们需要追究内部是什么在起作用?就像牛顿发现了重力公式，但是爱因斯坦却要问为什么会产生重力，我们要向爱因斯坦学习，所以让我来揭开Y的神秘面纱，甚至可以用更简单的方式来推导它
 待续.........
