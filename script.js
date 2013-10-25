@@ -56,17 +56,36 @@ var asyLoadImg = function (option) {
 }
 
 
-var Pop = function () {
+var getWindowHeight = function () {
+    return $(window).height();
+};
+
+
+var getWindowWidth = function () {
+    return $(window).width();
+};
+
+
+var Pop = function (cfg) {
+
     this.box = document.createElement("div");
-    this.box.id = "pop";
     this.box.className = "pop";
-    this.initChild();
+    this.cfg = cfg;
+    this.init();
+
 }
 
 
 Pop.prototype = {
 
-    initChild: function () {
+    init: function () {
+        this.box.style.width = this.cfg.w + "px";
+        this.box.style.height = this.cfg.h + "px";
+
+        this.box.style.marginTop = -this.cfg.h / 2 + "px";
+        this.box.style.marginLeft = -this.cfg.w / 2 + "px";
+
+
         this.shadow = document.createElement("div");
         this.shadow.className = "pop_shadow";
 
@@ -219,10 +238,10 @@ $(function () {
 
 
     $("#photo_container").click(function () {
-        var pop = new Pop();
+        var pop = new Pop({w: "1000", h: "600"});
         pop.setContent(document.getElementById("profile_html").innerHTML);
         pop.show();
-        var slideBox = new SlideBox(document.getElementById("profile_wp"));
+        new SlideBox(document.getElementById("profile_wp"));
     });
 
 
@@ -231,7 +250,21 @@ $(function () {
         if (location.href.indexOf("blog") != -1) {
             slideSection.call($("#arrow_panel"));
         }
-    },1000);
+    }, 1000);
+
+
+    //给代码段加入放大图标
+    (function () {
+        if ($(".highlight").length != 0) {
+            $(".highlight").append("<div class='codezoom'></div>");
+            $(".codezoom").click(function () {
+
+                var pop = new Pop({w: getWindowWidth() * 0.8, h: getWindowHeight() * 0.8 });
+                pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
+                pop.show();
+            });
+        }
+    })()
 
 
     //先把个人信息图片加载一把利用浏览器缓存
@@ -241,7 +274,7 @@ $(function () {
             forload.push($1);
         });
 
-        forload.push("/images/slide_left.png","/images/slide_right.png");
+        forload.push("/images/slide_left.png", "/images/slide_right.png");
 
         asyLoadImg(forload);
     }

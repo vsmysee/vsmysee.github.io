@@ -1,12 +1,35 @@
+.codezoom {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 24px;
+    height: 24px;
+    background: url(images/codezoom.png) no-repeat;
+    cursor: pointer;
+}
+
 .highlight {
     font-size: 0.8em;
     line-height: 1.5;
     font-weight: bold;
     padding: 0.3em 0.5em;
     margin-top: 0.6em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     background: #151515;
     color: #E6E1DC;
+    position: relative;
+}
+
+.pop_highlight {
+    font-size: 1.5em;
+    overflow-y: scroll;
+    margin: 0;
+    height: 100%;
+    padding: 0;
+}
+
+.pop_highlight .codezoom {
+    display: none;
 }
 
 .highlight, .highlight code {
