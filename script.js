@@ -33,6 +33,7 @@ var fuckScreen = function () {
 //收起头部
 var slideSection = function () {
     $("#head_section").slideToggle();
+    $("#head_top").slideToggle();
     $(this).toggleClass("hover");
 };
 
@@ -226,11 +227,11 @@ $(function () {
 
 
     //非首页执行折叠
-    (function () {
+    setTimeout(function () {
         if (location.href.indexOf("blog") != -1) {
             slideSection.call($("#arrow_panel"));
         }
-    })();
+    },1000);
 
 
     //先把个人信息图片加载一把利用浏览器缓存
