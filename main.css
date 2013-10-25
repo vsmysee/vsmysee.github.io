@@ -136,6 +136,10 @@ hr {
     margin-top: 20px;
 }
 
+.position_control div {
+    position: relative;
+}
+
 .position_control span {
     display: block;
     background: url("images/folding.png");
@@ -162,9 +166,6 @@ hr {
     cursor: pointer;
 }
 
-.position_control div {
-    position: relative;
-}
 
 .position_control span.hover {
     -webkit-transform: rotate(-180deg);
