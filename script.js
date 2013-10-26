@@ -253,7 +253,7 @@ $(function () {
                 var codeHeight = $(this).parent().height();
                 var popHeight = getWindowHeight() * 0.8;
                 if (codeHeight <= popHeight) {
-                    popHeight = codeHeight;
+                    popHeight = codeHeight + 20;
                 }
                 var pop = new Pop({w: getWindowWidth() * 0.8, h: popHeight });
                 pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
