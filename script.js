@@ -250,7 +250,7 @@ $(function () {
 
             $(".highlight").append("<div class='codezoom'></div>");
             $(".codezoom").click(function () {
-                var pop = new Pop({w: getWindowWidth() * 0.9, h: getWindowHeight() * 0.9 });
+                var pop = new Pop({w: getWindowWidth() * 0.95, h: getWindowHeight() * 0.95 });
                 pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
                 pop.show();
             });
