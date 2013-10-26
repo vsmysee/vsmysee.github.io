@@ -44,7 +44,6 @@ var asyLoadImg = function (option) {
         new Image().src = url;
     }
 
-
     if (typeof option == "String") {
         createImg(option);
     } else if (option instanceof  Array) {
@@ -65,14 +64,16 @@ var getWindowWidth = function () {
     return $(window).width();
 };
 
+var getDocumentHeight = function () {
+    return $(document).height();
+}
+
 
 var Pop = function (cfg) {
-
     this.box = document.createElement("div");
     this.box.className = "pop";
     this.cfg = cfg;
     this.init();
-
 }
 
 
@@ -196,18 +197,15 @@ $(function () {
 
     //返回顶部
     (function () {
-        var domHeight = $(document).height(),
-            winWidth = $(window).width(),
-            winHeight = $(window).height();
 
-        if (domHeight > winHeight + 500) {
+        if (getDocumentHeight() > getWindowHeight() + 500) {
             var toTop = document.createElement("div"),
                 pot_t = 0,
                 pot_b = 1;
 
             toTop.id = "to_top";
             toTop.className = "to_top";
-            var toright = (winWidth - 1000) / 2 - 40 - 10;
+            var toright = (getWindowWidth() - 1000) / 2 - 40 - 10;
 
             $(window).bind("scroll.toTop", function () {
                 var scrollTop = $(document).scrollTop();
@@ -258,7 +256,6 @@ $(function () {
         if ($(".highlight").length != 0) {
             $(".highlight").append("<div class='codezoom'></div>");
             $(".codezoom").click(function () {
-
                 var pop = new Pop({w: getWindowWidth() * 0.8, h: getWindowHeight() * 0.8 });
                 pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
                 pop.show();
@@ -273,9 +270,7 @@ $(function () {
         document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
             forload.push($1);
         });
-
         forload.push("/images/slide_left.png", "/images/slide_right.png");
-
         asyLoadImg(forload);
     }
 
