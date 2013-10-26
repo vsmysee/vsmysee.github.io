@@ -162,7 +162,7 @@ h4 {
     -webkit-transform: rotate(-180deg);
     -moz-transform: rotate(-180deg);
     -o-transform: rotate(-180deg);
-    top:0px;
+    top: 0px;
     background-position: 0px -16px;
 }
 
@@ -182,12 +182,7 @@ h4 {
     top: 50%;
     left: 50%;
     z-index: 10000;
-    border: 10px solid rgba(0, 0, 0, 0.5);
-}
-
-.pop .wrapper {
-    height: 100%;
-    position: relative;
+    border: 5px solid #000;
     background: #fff;
 }
 
@@ -202,10 +197,6 @@ h4 {
     z-index: 300;
 }
 
-.pop .content {
-    height: 100%;
-}
-
 #profile_wp {
     position: relative;
     height: 550px;
@@ -216,8 +207,6 @@ h4 {
 .profile {
     height: 100%;
     position: absolute;
-    top: 0px;
-    left: 0px;
 }
 
 .profile .frame {
@@ -268,25 +257,22 @@ h4 {
     background: #7CAF3C;
 }
 
-.slide_pre {
+.slide_pre, .slide_next {
     position: absolute;
     top: 50%;
     margin-top: -24px;
-    left: -80px;
     width: 48px;
     height: 48px;
     cursor: pointer;
+}
+
+.slide_pre {
+    left: -80px;
     background: url("images/slide_left.png");
 }
 
 .slide_next {
-    position: absolute;
-    top: 50%;
-    margin-top: -24px;
     right: -80px;
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
     background: url("images/slide_right.png");
 }
 

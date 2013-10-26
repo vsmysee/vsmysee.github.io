@@ -86,23 +86,16 @@ Pop.prototype = {
         this.box.style.marginTop = -this.cfg.h / 2 + "px";
         this.box.style.marginLeft = -this.cfg.w / 2 + "px";
 
-
         this.shadow = document.createElement("div");
         this.shadow.className = "pop_shadow";
 
-
-        var wrapper = document.createElement("div");
-        wrapper.className = "wrapper";
-        this.box.appendChild(wrapper);
-
-
         var close_tag = document.createElement("div");
         close_tag.className = "close_tag";
-        wrapper.appendChild(close_tag);
+        this.box.appendChild(close_tag);
 
         this.profile_content = document.createElement("div");
         this.profile_content.className = "content";
-        wrapper.appendChild(this.profile_content);
+        this.box.appendChild(this.profile_content);
 
         var root = this;
         close_tag.onclick = function () {
