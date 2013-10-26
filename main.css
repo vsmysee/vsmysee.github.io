@@ -272,7 +272,7 @@ h4 {
     position: absolute;
     top: 50%;
     margin-top: -24px;
-    left: -100px;
+    left: -80px;
     width: 48px;
     height: 48px;
     cursor: pointer;
@@ -283,7 +283,7 @@ h4 {
     position: absolute;
     top: 50%;
     margin-top: -24px;
-    right: -100px;
+    right: -80px;
     width: 48px;
     height: 48px;
     cursor: pointer;
