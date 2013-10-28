@@ -89,6 +89,11 @@ Pop.prototype = {
         this.shadow = document.createElement("div");
         this.shadow.className = "pop_shadow";
 
+        if (this.cfg.b) {
+            this.shadow.style.backgroundColor = this.cfg.b;
+            this.shadow.style.opacity = 1;
+        }
+
         var close_tag = document.createElement("div");
         close_tag.className = "close_tag";
         this.box.appendChild(close_tag);
@@ -250,7 +255,7 @@ $(function () {
 
             $(".highlight").append("<div class='codezoom'></div>");
             $(".codezoom").click(function () {
-                var pop = new Pop({w: getWindowWidth() * 0.98, h: getWindowHeight() * 0.98 });
+                var pop = new Pop({w: getWindowWidth() * 0.98, h: getWindowHeight() * 0.95, b: "#FFF"});
                 pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
                 pop.show();
             });
