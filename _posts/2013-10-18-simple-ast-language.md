@@ -88,6 +88,17 @@ Lisp方言racket的实现，它可以直接解析表达式，但是要写成前�
 (define result (evaluate environment expression-tree))
 {% endhighlight %}
 
+对于上面的写法，引入大侠[wangyin](http://www.yinwang.org/)的言论很好解释(分割线内)：
+
+----------------------------
+你必须从最简单的语言开始，逐步增加语言的复杂度，才能构造出正确的解释器。这篇文章就是告诉你如何写出一个最简单的语言 (lambda calculus) 的解释器，并且带有基本的的算术功能，可以作为一个高级计算器来使用。
+
+一般的程序语言课程往往从语法分析(parsing)开始，折腾 lex 和 yacc 等麻烦却不中用的工具，解决一些根本不需要存在的问题。Parsing 的作用其实只是把字符串解码成程序的语法树（AST）结构。麻烦好久得到了 AST 之后，真正的困难才开始！而很多人在写完 parser 之后就已经倒下了。鉴于这个原因，这里我用所谓的“S-expression”来表示程序的语法树（AST）结构。S-expression （加上 Lisp 对它发自“本能”的处理能力）让我们可以直接跳过 parse 的步骤，进入关键的主题：语义(semantics)。
+
+这里用的 Scheme 实现是 Racket。为了让程序简洁，我使用了 Racket 的模式匹配（pattern matching）。我对 Racket 没有特别的好感。但它安装比较方便，而且是免费的。如果你用其它的 Scheme 实现的话，恐怕要自己做一些调整。
+
+-------------------------
+
 
 Erlang VM 上的的语言Elixir，看看那个case
 {% highlight elixir %}
