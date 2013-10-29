@@ -60,6 +60,8 @@ h4 {
 .wp {
     width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 #baby {
@@ -70,7 +72,7 @@ h4 {
     position: fixed;
     left: 10px;
     top: 30%;
-    z-index: 200;
+    z-index: 0;
 }
 
 .to_top {
