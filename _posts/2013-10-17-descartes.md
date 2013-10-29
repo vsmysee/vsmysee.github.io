@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 电商SKU笛卡尔
+title: 电商SKU笛卡尔乘积
 ---
 
 笛卡尔（Descartes）积的定义：

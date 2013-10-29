@@ -1,18 +1,3 @@
-//动态修改头的文字内容
-var modifySentence = function () {
-    var randomItem = dataArray[Math.floor(Math.random() * dataArray.length)],
-        that = $('.theme_topic .sentence_current'),
-        next = that.siblings('p').eq(0);
-
-    that.slideUp(400, function () {
-        $(this).removeClass('sentence_current');
-    });
-
-    next.html(randomItem).slideDown(600, function () {
-        $(this).addClass('sentence_current');
-    });
-
-}
 
 //无节操函数
 var fuckScreen = function () {
@@ -30,12 +15,7 @@ var fuckScreen = function () {
     });
 }
 
-//收起头部
-var slideSection = function () {
-    $("#head_section").slideToggle();
-    $("#head_top").slideToggle();
-    $(this).toggleClass("hover");
-};
+
 
 //执行图片加载
 var asyLoadImg = function (option) {
@@ -186,13 +166,6 @@ SlideBox.prototype = {
 
 $(function () {
 
-    $('.sentence_current').html(dataArray[Math.floor(Math.random() * dataArray.length)]);
-
-    setInterval(modifySentence, 20 * 1000);
-
-    //头部效果
-    $("#arrow_panel").bind("click", slideSection);
-
     //返回顶部
     (function () {
 
@@ -233,20 +206,12 @@ $(function () {
     })();
 
 
-    $("#photo_container").click(function () {
+    $("#baby").click(function () {
         var pop = new Pop({w: "1000", h: "600"});
         pop.setContent(document.getElementById("profile_html").innerHTML);
         pop.show();
         new SlideBox(document.getElementById("profile_wp"));
     });
-
-
-    //非首页执行折叠
-    setTimeout(function () {
-        if (location.href.indexOf("blog") != -1) {
-            slideSection.call($("#arrow_panel"));
-        }
-    }, 1000);
 
 
     //给代码段加入放大图标
