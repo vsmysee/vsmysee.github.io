@@ -1,4 +1,3 @@
-
 //无节操函数
 var fuckScreen = function () {
     $("#next_page").animate({
@@ -231,10 +230,10 @@ $(function () {
     //先把个人信息图片加载一把利用浏览器缓存
     var loadMyProfileImg = function () {
         var forload = [];
+        forload.push("/images/slide_left.png", "/images/slide_right.png", "/images/close.png");
         document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
             forload.push($1);
         });
-        forload.push("/images/slide_left.png", "/images/slide_right.png", "/images/close.png");
         asyLoadImg(forload);
     }
 
