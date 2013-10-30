@@ -15,7 +15,6 @@ var fuckScreen = function () {
 }
 
 
-
 //执行图片加载
 var asyLoadImg = function (option) {
 
@@ -168,6 +167,10 @@ $(function () {
     //返回顶部
     (function () {
 
+        if (getDocumentHeight() - getWindowHeight() < 290) {
+            $("#next_page,#pre_page").css({opacity: 1});
+        }
+
         if (getDocumentHeight() > getWindowHeight() + 500) {
             var toTop = document.createElement("div"),
                 pot_t = 0,
@@ -176,6 +179,7 @@ $(function () {
             toTop.id = "to_top";
             toTop.className = "to_top";
             var toright = (getWindowWidth() - 1000) / 2 - 40 - 10;
+
 
             $(window).bind("scroll.toTop", function () {
                 var scrollTop = $(document).scrollTop();
