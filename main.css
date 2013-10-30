@@ -6,9 +6,12 @@
 }
 
 body {
-    color: #333332;
     line-height: 1.428;
     font-size: 18px;
+    color: #333332;
+    background-color: #d0d0d0;
+    background-image: url("images/shadow.png"), url("images/bg_grid.png");
+    background-repeat: repeat-x, repeat;
 }
 
 ul {
@@ -70,9 +73,15 @@ h4 {
     background: url("images/baby.jpg");
     cursor: pointer;
     position: fixed;
+    border-radius: 50%;
+    overflow: hidden;
     left: 10px;
     top: 30%;
     z-index: 0;
+}
+
+#baby:hover {
+    opacity: 0.5;
 }
 
 .to_top {
@@ -90,93 +99,6 @@ h4 {
 .date {
     font-size: 14px;
     color: #aaa;
-}
-
-#head_wrapper {
-    background: #e8edf1;
-}
-
-#head_wrapper #head_top {
-    background: #e8edf1;
-    height: 20px;
-    display: none;
-}
-
-#head_wrapper #photo_container {
-    border-radius: 50%;
-    overflow: hidden;
-    width: 220px;
-    height: 220px;
-    margin: 5px 20px 5px 0px;
-    cursor: pointer;
-    -webkit-transition: -webkit-transform .3s ease-in, opacity .5s ease-in;
-    -moz-transition: -moz-transform .3s ease-in, opacity .5s ease-in;
-    -o-transition: -o-transform .3s ease-in, opacity .5s ease-in;
-    transition: transform .3s ease-in, opacity .5s ease-in;
-}
-
-#head_wrapper #photo_container:hover {
-    opacity: 0.5;
-}
-
-#head_wrapper .theme_topic {
-    font-size: 30px;
-    color: rgb(51, 51, 50);
-    padding-top: 15px;
-    width: 760px;
-}
-
-#head_wrapper .theme_topic p {
-    display: none;
-}
-
-#head_wrapper .theme_topic .sentence_current {
-    display: block;
-}
-
-.position_control {
-    background: #7CAF3C;
-    height: 4px;
-    border: 0px;
-    margin-bottom: 25px;
-}
-
-.position_control div {
-    position: relative;
-}
-
-.position_control a {
-    display: block;
-    background: url("images/left.png") no-repeat center center;
-    width: 48px;
-    height: 48px;
-    position: absolute;
-    left: -120px;
-    top: -22px;
-    cursor: pointer;
-}
-
-.position_control span {
-    display: block;
-    background: url("images/folding.png");
-    width: 32px;
-    height: 16px;
-    position: absolute;
-    right: -100px;
-    top: -12px;
-    cursor: pointer;
-    -webkit-transition: -webkit-transform .1s ease-in;
-    -moz-transition: -moz-transform .1s ease-in;
-    -o-transition: -o-transform .1s ease-in;
-    transition: transform .1s ease-in;
-}
-
-.position_control span.hover {
-    -webkit-transform: rotate(-180deg);
-    -moz-transform: rotate(-180deg);
-    -o-transform: rotate(-180deg);
-    top: 0px;
-    background-position: 0px -16px;
 }
 
 .pop_shadow {
