@@ -4,12 +4,15 @@ title: 停下来，思考是人进步的本质
 ---
 <div class="wp">
 
+    <div class="index_head"><img src="/images/mybelief.png"/></div>
+
     <div id="post_list">
 
         <ul>
             {% for post in paginator.posts %}
             <li>
-                <h3 class="clearfix"><span class="date fr">发布于{{ post.date | date: "%Y年/%m月/%d日" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+                <h3 class="clearfix"><span class="date fr">发布于{{ post.date | date: "%Y年/%m月/%d日" }}</span><a
+                        href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
                 </h3>
                 <a class="post_link" href="{{ site.baseurl }}{{ post.url }}"><p>{{post.excerpt}}</p>
                 </a>
