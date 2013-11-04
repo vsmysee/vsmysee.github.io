@@ -215,7 +215,7 @@ $(function () {
         new SlideBox(document.getElementById("profile_wp"));
     };
 
-    if (getWindowWidth() < 800) {
+    if (getWindowWidth() < 1400) {
         $("#baby").css({display: "none"});
         $(".index_head").css({cursor: "pointer"});
         $(".index_head").click(showProfile);
