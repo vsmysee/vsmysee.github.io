@@ -208,13 +208,20 @@ $(function () {
 
     })();
 
-
-    $("#baby").click(function () {
+    var showProfile = function () {
         var pop = new Pop({w: "1000", h: "600"});
         pop.setContent(document.getElementById("profile_html").innerHTML);
         pop.show();
         new SlideBox(document.getElementById("profile_wp"));
-    });
+    };
+
+    if (getWindowWidth() < 1400) {
+        $("#baby").css({display: "none"});
+        $(".index_head").css({cursor:"pointer"});
+        $(".index_head").click(showProfile);
+    } else {
+        $("#baby").click(showProfile);
+    }
 
 
     //给代码段加入放大图标
