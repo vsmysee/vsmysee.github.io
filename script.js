@@ -215,12 +215,15 @@ $(function () {
         new SlideBox(document.getElementById("profile_wp"));
     };
 
-    if (getWindowWidth() < 1400) {
+    if (getWindowWidth() < 800) {
         $("#baby").css({display: "none"});
-        $(".index_head").css({cursor:"pointer"});
+        $(".index_head").css({cursor: "pointer"});
         $(".index_head").click(showProfile);
     } else {
         $("#baby").click(showProfile);
+        if (location.href.indexOf("blog") != -1) {
+            $("#baby").animate({left:"-300px"});
+        }
     }
 
 
@@ -236,7 +239,6 @@ $(function () {
             });
         }
     })()
-
 
     //先把个人信息图片加载一把利用浏览器缓存
     var loadMyProfileImg = function () {
