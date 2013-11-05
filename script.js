@@ -222,7 +222,7 @@ $(function () {
     } else {
         $("#baby").click(showProfile);
         if (location.href.indexOf("blog") != -1) {
-            $("#baby").animate({left:"-300px"});
+            $("#baby").delay(1500).animate({left:"-300px"});
         }
     }
 
