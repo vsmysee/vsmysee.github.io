@@ -4,7 +4,7 @@ title: Extjs和Prototype的类实现对比
 ---
 
 通过对javascript原型链条的深入分析，我已经明白了Brendan Eich表达这个世界的方式，各大js框架都基于原型链设计了自己的api来帮助用户建立类以及类与类的继承，本文主要对比extjs和prototype的实现方式，extjs在4.0版本之前使用
-传统了单根继承，也就是java的方式，但是通过阅读代码，我总感觉这种继承方式不能很好的表达对象自然继承关系，感觉设计者必须扭曲某些抽象，到了extjs4版本，extjs团队去掉了单根继承，而是引入了混入法，这样才得到了更加可维护和可理解的代码，
+传统的单根继承，也就是java的方式，但是通过阅读代码，我总感觉这种继承方式不能很好的表达对象自然继承关系，感觉设计者必须扭曲某些抽象，到了extjs4版本，extjs团队去掉了单根继承，而是引入了混入法，这样才得到了更加可维护和可理解的代码，
 至于prototype框架，它是伴随Ruby On Rails诞生的，从它可以看到大量的ruby元素。
 
 首先我们看看两个框架在做类和继承的代码，他们分别必须表达构造函数，类函数，以及如何调用超类方法。
@@ -33,7 +33,7 @@ SubClass = Class.create(SuperClass, {
     }
 });
 {% endhighlight %}
-调用超类方法的代码我们在后面再写，我们发现两种写法神奇的相似，只不过是把Ext.extend替换为Class.create而已，但是要注意在Prototype中，每一个类都需要用Class对象创造出来，但是在Extjs中，一个类可以自己手写，然后要用到继承的时候才用Ext.extend函数，比如extjs中有一个类是这样手写的：
+调用超类方法的代码我们在后面再写，我们发现两个框架的写法神奇的相似，只不过是把Ext.extend替换为Class.create而已，但是要注意在Prototype中，每一个类都需要用Class对象创造出来，但是在Extjs中，一个类可以自己手写，然后要用到继承的时候才用Ext.extend函数，比如extjs中有一个类是这样手写的：
 {% highlight javascript %}
 Ext.util.Observable = function(){
     var me = this, e = me.events;
