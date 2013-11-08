@@ -78,6 +78,7 @@ h4 {
     left: 10px;
     top: 30%;
     z-index: 0;
+    display: none;
 }
 
 #baby:hover {
