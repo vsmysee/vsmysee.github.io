@@ -78,7 +78,6 @@ h4 {
     left: 10px;
     top: 30%;
     z-index: 0;
-    display: none;
 }
 
 #baby:hover {
@@ -224,6 +223,7 @@ h4 {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    display: none;
 }
 
 #pre_page, #next_page {
