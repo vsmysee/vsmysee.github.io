@@ -273,6 +273,7 @@ h4 {
 }
 
 #post_list li {
+    margin-top: 20px;
     margin-bottom: 25px;
     background: #eee;
     padding: 10px;
