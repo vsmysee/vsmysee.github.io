@@ -84,6 +84,10 @@ Pop.prototype = {
         close_tag.onclick = function () {
             root.close();
         };
+
+        this.shadow.onclick = function () {
+            root.close();
+        };
     },
 
     show: function () {
@@ -222,7 +226,7 @@ $(function () {
     } else {
         $("#baby").click(showProfile);
         if (location.href.indexOf("blog") != -1) {
-            $("#baby").delay(1500).animate({left:"-300px"});
+            $("#baby").delay(1500).animate({left: "-300px"});
         }
     }
 
