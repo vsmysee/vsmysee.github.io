@@ -14,7 +14,6 @@ var fuckScreen = function () {
     });
 }
 
-
 //执行图片加载
 var asyLoadImg = function (option) {
 
@@ -35,12 +34,13 @@ var asyLoadImg = function (option) {
 
 var getWindowHeight = function () {
     return $(window).height();
-};
+}
 
 
 var getWindowWidth = function () {
     return $(window).width();
-};
+}
+
 
 var getDocumentHeight = function () {
     return $(document).height();
@@ -48,73 +48,86 @@ var getDocumentHeight = function () {
 
 
 var Pop = function (cfg) {
-    this.box = document.createElement("div");
-    this.box.className = "pop";
-    this.cfg = cfg;
-    this.close = function () {
-        document.body.removeChild(this.shadow);
-        document.body.removeChild(this.box);
-    };
-
+    this.el = document.createElement("div");
+    this.el.className = "pop";
     cfg.close && (this.close = cfg.close);
 
-    this.init();
+    this.init(cfg);
 }
-
 
 Pop.prototype = {
 
-    init: function () {
-        this.box.style.width = this.cfg.w + "px";
-        this.box.style.height = this.cfg.h + "px";
+    init: function (cfg) {
 
-        this.box.style.marginTop = -this.cfg.h / 2 + "px";
-        this.box.style.marginLeft = -this.cfg.w / 2 + "px";
+        var me = this;
 
-        this.shadow = document.createElement("div");
-        this.shadow.className = "pop_shadow";
+        me.width = cfg.w;
+        me.height = cfg.h;
 
-        if (this.cfg.b) {
-            this.shadow.style.backgroundColor = this.cfg.b;
-            this.shadow.style.opacity = 1;
+        me.el.style.width = cfg.w + "px";
+        me.el.style.height = cfg.h + "px";
+
+        me.el.style.marginTop = -cfg.h / 2 + "px";
+        me.el.style.marginLeft = -cfg.w / 2 + "px";
+
+        me.shadow = document.createElement("div");
+        me.shadow.className = "pop_shadow";
+
+        if (cfg.b) {
+            me.shadow.style.backgroundColor = cfg.b;
+            me.shadow.style.opacity = 1;
         }
 
         var close_tag = document.createElement("div");
         close_tag.className = "close_tag";
-        this.box.appendChild(close_tag);
+        me.el.appendChild(close_tag);
 
-        this.profile_content = document.createElement("div");
-        this.profile_content.className = "content";
-        this.box.appendChild(this.profile_content);
+        me.profile_content = document.createElement("div");
+        me.profile_content.className = "content";
+        me.el.appendChild(me.profile_content);
 
-        var root = this;
-        close_tag.onclick = function () {
-            root.close();
-        };
+        var closeFunc = function () {
+            me.close();
+        }
 
-        this.shadow.onclick = function () {
-            root.close();
-        };
+        close_tag.onclick = me.shadow.onclick = closeFunc;
 
         $(document).keyup(function (event) {
             if (event.keyCode == 27) {
-                root.close();
+                closeFunc();
             }
         });
 
-        document.body.appendChild(this.shadow);
-        document.body.appendChild(this.box);
+        document.body.appendChild(me.shadow);
+        document.body.appendChild(me.el);
+    },
+
+    close: function () {
+        document.body.removeChild(this.shadow);
+        document.body.removeChild(this.el);
+    },
+
+    display: function () {
+        this.shadow.style.visibility = "visible";
+        this.el.style.visibility = "visible";
+    },
+
+    hidden: function () {
+        this.shadow.style.visibility = "hidden";
+        this.el.style.visibility = "hidden";
     },
 
     show: function (cb) {
-        this.shadow.style.visibility = "visible";
         //如果有显示定制，则执行传进来的函数
-        if (cb) {
-            cb.call(this);
-        } else {
-            this.box.style.visibility = "visible";
-        }
+        cb ? cb.call(this) : this.display();
+    },
 
+    setMarginTop: function (top) {
+        this.el.style.marginTop = top + "px";
+    },
+
+    getMarginTop: function () {
+        return this.el.style.marginTop;
     },
 
     setContent: function (text) {
@@ -230,16 +243,19 @@ $(function () {
     })();
 
 
-    var pop = new Pop({w: "1000", h: "600", close: function () {
-        var targetTop = -(getWindowHeight() - 600) / 2 - 600 - 320;
-        var root = this;
-        $(this.box).stop().animate({marginTop: parseInt(targetTop)}, 400, function () {
-            root.shadow.style.visibility = "hidden";
-            root.box.style.visibility = "hidden";
-            root.box.style.marginTop = "-300px";
-        });
+    var pop = new Pop({
+        w: 1000,
+        h: 600,
+        close: function () {
+            var height = this.height;
+            var targetTop = -(getWindowHeight() - height) / 2 - height - height / 2 - 20;
+            var root = this;
+            $(this.el).stop().animate({marginTop: parseInt(targetTop)}, 400, function () {
+                root.hidden();
+                root.setMarginTop(-height / 2);
+            });
 
-    }});
+        }});
 
     pop.setContent(document.getElementById("profile_html").innerHTML);
 
@@ -247,13 +263,11 @@ $(function () {
 
 
     var showProfile = function () {
-
         pop.show(function () {
-            var targetHeight = this.box.style.marginTop;
-            this.box.style.marginTop = -getWindowHeight() / 2 - this.cfg.h + "px";
-            this.box.style.visibility = "visible";
-            $(this.box).stop().animate({marginTop: targetHeight}, 800);
-
+            var oldTop = this.getMarginTop();
+            this.setMarginTop(-getWindowHeight() / 2 - this.height);
+            this.display();
+            $(this.el).stop().animate({marginTop: oldTop}, 800);
         });
     };
 
@@ -264,7 +278,10 @@ $(function () {
     } else {
         $("#baby").click(showProfile);
         if (location.href.indexOf("blog") != -1) {
-            $("#baby").delay(1500).animate({left: "-300px"});
+            $("#baby").css({left: 10});
+            $("#baby").delay(1500).animate({left: -300});
+        } else {
+            $("#baby").delay(1000).animate({left: 10});
         }
     }
 
@@ -272,7 +289,6 @@ $(function () {
     //给代码段加入放大图标
     (function () {
         if ($(".highlight").length != 0) {
-
             $(".highlight").append("<div class='codezoom'></div>");
             $(".codezoom").click(function () {
                 var pop = new Pop({w: getWindowWidth() * 0.98, h: getWindowHeight() * 0.95, b: "#FFF"});

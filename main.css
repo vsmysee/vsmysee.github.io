@@ -75,7 +75,7 @@ h4 {
     position: fixed;
     border-radius: 50%;
     overflow: hidden;
-    left: 10px;
+    left: -300px;
     top: 30%;
     z-index: 0;
 }
