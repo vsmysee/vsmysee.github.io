@@ -51,6 +51,13 @@ var Pop = function (cfg) {
     this.box = document.createElement("div");
     this.box.className = "pop";
     this.cfg = cfg;
+    this.close = function () {
+        document.body.removeChild(this.shadow);
+        document.body.removeChild(this.box);
+    };
+
+    cfg.close && (this.close = cfg.close);
+
     this.init();
 }
 
@@ -88,16 +95,26 @@ Pop.prototype = {
         this.shadow.onclick = function () {
             root.close();
         };
-    },
 
-    show: function () {
+        $(document).keyup(function (event) {
+            if (event.keyCode == 27) {
+                root.close();
+            }
+        });
+
         document.body.appendChild(this.shadow);
         document.body.appendChild(this.box);
     },
 
-    close: function () {
-        document.body.removeChild(this.box);
-        document.body.removeChild(this.shadow);
+    show: function (cb) {
+        this.shadow.style.visibility = "visible";
+        //如果有显示定制，则执行传进来的函数
+        if (cb) {
+            cb.call(this);
+        } else {
+            this.box.style.visibility = "visible";
+        }
+
     },
 
     setContent: function (text) {
@@ -212,11 +229,32 @@ $(function () {
 
     })();
 
+
+    var pop = new Pop({w: "1000", h: "600", close: function () {
+        var targetTop = -(getWindowHeight() - 600) / 2 - 600 - 320;
+        var root = this;
+        $(this.box).stop().animate({marginTop: parseInt(targetTop)}, 400, function () {
+            root.shadow.style.visibility = "hidden";
+            root.box.style.visibility = "hidden";
+            root.box.style.marginTop = "-300px";
+        });
+
+    }});
+
+    pop.setContent(document.getElementById("profile_html").innerHTML);
+
+    new SlideBox(document.getElementById("profile_wp"));
+
+
     var showProfile = function () {
-        var pop = new Pop({w: "1000", h: "600"});
-        pop.setContent(document.getElementById("profile_html").innerHTML);
-        pop.show();
-        new SlideBox(document.getElementById("profile_wp"));
+
+        pop.show(function () {
+            var targetHeight = this.box.style.marginTop;
+            this.box.style.marginTop = -getWindowHeight() / 2 - this.cfg.h + "px";
+            this.box.style.visibility = "visible";
+            $(this.box).stop().animate({marginTop: targetHeight}, 800);
+
+        });
     };
 
     if (getWindowWidth() < 1400) {
