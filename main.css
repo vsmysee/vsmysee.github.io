@@ -221,12 +221,6 @@ h4 {
 
 /** ----------- index -------------------*/
 
-.index_head {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: none;
-}
 
 #pre_page, #next_page {
     width: 64px;

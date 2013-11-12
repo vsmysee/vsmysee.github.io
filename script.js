@@ -273,8 +273,6 @@ $(function () {
 
     if (getWindowWidth() < 1400) {
         $("#baby").css({display: "none"});
-        $(".index_head").css({cursor: "pointer"});
-        $(".index_head").click(showProfile);
     } else {
         $("#baby").click(showProfile);
         if (location.href.indexOf("blog") != -1) {
