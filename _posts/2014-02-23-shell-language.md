@@ -8,11 +8,11 @@ title: Shell 编程
 
 
 ###Shell的分类
-最基本的shell是Bourne Shell和Bourne Again Shell，前者对应/bin/sh，后者对应/bin/bash，前者先出生，不过我们现在已不做区分，，bash shell是最快和轻便的shell所以最常用，后来出现了C shell，常用在交互模式下，而bash常用于系统
-管理，再后来出现了K shell，这中shell是bash的超集，它兼容bash程序，相比C shell又更加先进，本文主要学习的是bash。
+最基本的shell是Bourne Shell和Bourne Again Shell，前者对应/bin/sh，后者对应/bin/bash，前者先出生，不过我们现在已不做区分，bash shell是最快和轻便的shell所以最常用，后来出现了C shell，常用在交互模式下，而bash常用于系统
+管理，再后来出现了K shell，这中shell是bash的超集，它兼容bash程序，相比C shell又q更加先进，本文主要学习的是bash。
 
 ###基本概念
-shell是图灵完备的，她就是一种编程语言，同时它的主要工作就是组合系统的命令完成一个任务，所以必然也是命令式的，它有变量，有赋值，有分支，有循环,它是弱类型的。要编写一个shell程序，直接用vi建立一个文本文件，比如test.sh，程序第
+shell是图灵完备的，它就是一种编程语言，同时它的主要工作就是组合系统的命令完成一个任务，所以必然也是命令式的，它有变量，有赋值，有分支，有循环,它是弱类型的。要编写一个shell程序，直接用vi建立一个文本文件，比如test.sh，程序第
 一行必须写入#!/bin/bash或者#!/bin/sh，然后给这个文件加上执行权限chmod +x test.sh就可以执行了。我们学习任何一种语言，首先就是在终端打印一个hello world，比如java的System.out.print，ruby的puts，而shell就是echo，它其实
 就是系统的一个命令，负责打印文字到终端。语句是不需要分号的，注释采用#开始的文字
 
