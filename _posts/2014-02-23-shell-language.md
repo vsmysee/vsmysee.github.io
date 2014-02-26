@@ -66,6 +66,8 @@ if [ ${SHELL} = "/bin/bash" ]; then #使用方括号
 else
    echo "your login shell is not bash but ${SHELL}"
 fi
+
+if [ -z "$JDK" -a -x "$READLINK" ]; then #-a表示and
 {% endhighlight %}
 
 while do done: 如果参数个数大于0就打印参数列表，shift使得参数列表向左移动
@@ -129,7 +131,7 @@ help #这就是调用函数
 ###测试命令
 循环和分支都要用到测试，现在我们已经知道了控制结构的语法，那么测试条件的写法则有很多。
 测试文件就下面这些,注意测试都要写一个横线:
-
+{% highlight bash %}
 -b file 如果文件为一个块特殊文件，则为真
 -c file 如果文件为一个字符特殊文件，则为真
 -d file 如果文件为一个目录，则为真
@@ -147,28 +149,40 @@ help #这就是调用函数
 -u file 如果设置了文件的 SUID 位，则为真
 -w file 如果文件可写，则为真
 -x file 如果文件可执行，则为真
+{% endhighlight %}
 
 比较测试有：
-num1 –eq       num2                  如果num1等于 num2，测试结果为0
+{% highlight bash %}
+num1 –eq  num2                  如果num1等于 num2，测试结果为0
 num1 –ge num2                   如果num1大于或等于 num2，测试结果为0
-num1 –gt num2                    如果num1大于 num2，测试结果为0
-num1 –le num2                  如果num1小于或等于 num2，测试结果为0
+num1 –gt num2                   如果num1大于 num2，测试结果为0
+num1 –le num2                   如果num1小于或等于 num2，测试结果为0
 num1 –lt  num2                  如果num1小于 num2，测试结果为0
 num1 –ne num2                   如果num1不等于 num2，测试结果为0
+{% endhighlight %}
+
 例子：
 num1=13
 [ “$num1” –eq 13 ]     测试num1是否等于13
 
 字符串测试：
--n string                                     测试字符串string是否不为空
--z string                                     测试字符串string是否为空
-string1=string2                            测试字符串string1是否与字符串string2相同
+{% highlight bash %}
+-n string                                 测试字符串string是否不为空
+-z string                                 测试字符串string是否为空
+string1=string2                           测试字符串string1是否与字符串string2相同
 string1!=string2                          测试字符串string1是否与字符串string2不相同
+string1                                   is NOT NULL or not defined
+{% endhighlight %}
+
 
 逻辑运算：
-!expression                          如果expression为假，则测试结果为真
+{% highlight bash %}
+!expression                  如果expression为假，则测试结果为真
 expression1 –a expression2   如果expression1和expression2同时为真，则测试结果为真
 expression1 –o expression2   如果expression1和expression2有一个为真，则测试结果为真
+
+{% endhighlight %}
+
 其中expression为表达式，该表达式描述了一个测试条件。在逻辑运算符表达式中并不是所有的运算符都会被执行。
 例：expr1 –a expr2 –a expr3
 只有当expr1为真时，才会测试expr2，依次。逻辑或运算符类似。
@@ -274,11 +288,11 @@ fi
 #!/bin/bash
 for i in $(<project.txt)
 do
-if [ -d "$i" ]; then
-svn update $i
-else
-mkdir $i
-svn checkout svn://172.16.0.88/kariqu/$i/trunk/$i $i
-fi
+    if [ -d "$i" ]; then
+        svn update $i
+    else
+        mkdir $i
+        svn checkout svn://172.16.0.88/kariqu/$i/trunk/$i $i
+    fi
 done
 {% endhighlight %}
