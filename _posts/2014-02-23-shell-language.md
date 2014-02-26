@@ -90,6 +90,8 @@ for do done:
 for var in A B C ; do
    echo "var is $var"
 done
+
+for ((  i = 0 ;  i <= 5;  i++  )) #多条语句的写法
 {% endhighlight %}
 
 select表达式是bash的一种扩展应用，擅长于交互式场合。用户可以从一组不同的值中进行选择：
@@ -108,7 +110,7 @@ case表达式可以用来匹配一个给定的字符串，而不是数字，下�
  ftype="$(file "$1")"
  case "$ftype" in
  "$1: Zip archive"*)
-    unzip "$1" ;;
+    unzip "$1" ;; ##注意是两个分号
  "$1: gzip compressed"*)
     gunzip "$1" ;;
  "$1: bzip2 compressed"*)
