@@ -134,6 +134,29 @@ help()
    echo "help"
 }
 help #这就是调用函数
+
+
+#阶乘函数的例子
+
+factorial()
+{
+  if [ "$1" -gt "1" ]; then
+    i=`expr $1 - 1`
+    j=`factorial $i`
+    k=`expr $1 \* $j`
+    echo $k
+  else
+    echo 1
+  fi
+}
+
+
+while : #这是死循环的写法
+do
+  echo "Enter a number:"
+  read x
+  factorial $x
+done             
 {% endhighlight %}
 
 ###测试命令
