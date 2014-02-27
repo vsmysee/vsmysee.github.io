@@ -180,6 +180,8 @@ num1=13
 string1=string2                           测试字符串string1是否与字符串string2相同
 string1!=string2                          测试字符串string1是否与字符串string2不相同
 string1                                   is NOT NULL or not defined
+string="this is a substring test"
+substring=${string:10:9} #可以这样得到子串
 {% endhighlight %}
 
 
