@@ -82,6 +82,12 @@ do
     echo $*
     shift
 done
+
+n=1
+while [ $n -le 6 ]; do
+	echo $n
+	let n++ #注意要用let来运算，不能n++和$n++
+done
 {% endhighlight %}
 
 for do done:
