@@ -76,7 +76,7 @@ public class AppBootstrap extends Bootstrap {
  {% endhighlight %}
 
 
-###四、拦截器
+###五、拦截器
 
 任何一个设计优良的框架都会在重要的执行流程留下切入点让程序员可以自由发挥，有些框架叫拦截器，有些叫过滤器，当然和专业的aop都是差不多的意思，activeweb的实现依赖于ControllerFilter
 
@@ -95,7 +95,7 @@ public interface ControllerFilter {
  {% endhighlight %}
 
 
-###五、flash生命周期
+###六、flash生命周期
 flash貌似是ROR发明的，他得生命周期大于request但是小于session，我们为了防表单重复提交会在一个post完成之后重定向，如果重定向需要传点数据给页面就依赖于flash,flash中得数据被读取之后就消失，springmvc也在3.0之后支持这个周期，可是用起来不是那么好用,activeweb的写法如下
 {% highlight java %}
 
@@ -109,7 +109,7 @@ flash貌似是ROR发明的，他得生命周期大于request但是小于session�
 {% endhighlight %}
 
 
-###六、web中得layout
+###七、web中得layout
 奇怪的是，好多web框架这个非常重要的东西没有实现，我们的网页通常都是由头部，中部，尾部组成，每个页面其实本身就只应该包括中间那一段的dom,同时这段dom还可以自己声明css,script以插入到外层layout的css,script站位中，在activeweb中的写法非常好看
 {% highlight java %}
 //layout
@@ -142,7 +142,7 @@ ${page_content}
 
 
 
-###七、表单急速保存
+###八、表单急速保存
 数据库本质是kv,表单本质是kv，他们通过一个hash map映射一下不就行了？
 {% highlight java %}
  User user = new User();
