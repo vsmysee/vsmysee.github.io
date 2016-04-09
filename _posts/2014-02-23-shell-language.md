@@ -7,16 +7,16 @@ title: Shell 编程
 写shell脚本，解析shell脚本的有各种shell程序，在命令终端可以用$SHELL查看当前使用的何种sheel。
 
 
-###Shell的分类
+### Shell的分类
 最基本的shell是Bourne Shell和Bourne Again Shell，前者对应/bin/sh，后者对应/bin/bash，前者先出生，不过我们现在已不做区分，bash shell是最快和轻便的shell所以最常用，后来出现了C shell，常用在交互模式下，而bash常用于系统
 管理，再后来出现了K shell，这中shell是bash的超集，它兼容bash程序，相比C shell又q更加先进，本文主要学习的是bash。
 
-###基本概念
+### 基本概念
 shell是图灵完备的，它就是一种编程语言，同时它的主要工作就是组合系统的命令完成一个任务，所以必然也是命令式的，它有变量，有赋值，有分支，有循环,它是弱类型的。要编写一个shell程序，直接用vi建立一个文本文件，比如test.sh，程序第
 一行必须写入#!/bin/bash或者#!/bin/sh，然后给这个文件加上执行权限chmod +x test.sh就可以执行了。我们学习任何一种语言，首先就是在终端打印一个hello world，比如java的System.out.print，ruby的puts，而shell就是echo，它其实
 就是系统的一个命令，负责打印文字到终端。语句是不需要分号的，注释采用#开始的文字
 
-###普通变量
+### 普通变量
 变量是一个字符串，我们分配一个值。分配的值可以是一个数字，文本，文件名，设备，或任何其他类型的数据。
 变量是没有超过实际数据的指针。 shell可以创建，分配和删除变量。
 shell的变量没有var和类型声明，直接写一个标识符就可以了，标识符必须是以字母或者下划线开始，如果要取出某个变量的值，在前面加上$符号，类似velocity等模板引擎，如果$取值产生二义型就用${}选择边界，于是我们得到了第一个程序：
@@ -43,11 +43,11 @@ echo `expr 2+3` #5
 echo $((2+3)) #5
 {% endhighlight %}
 
-###特殊变量
+### 特殊变量
 shell中的变量有一部分是环境中的，我们需要用特殊的语法把它提取出来，对于已定义的比如$SHELL就用$取出就可以了，但是一般执行shell的时候需要提供一些参数，我们需要用$1,$2的语法来按位置取出这些参数，注意是从1开始，$0表示的当前执行shell的文件名，
 另外的就比较特殊，需要强制记住，$$表示当前shell的进程号，$#表示参数的个数，$*和$@会把参数转为列表结构,前者是("$1 $2")，后者是("$1""$2")，$?表示上一个命令的返回状态,$!表示一个后台命令的进程数。
 
-###控制结构
+### 控制结构
 程序不可能就是单条语句这样写下去，我们需要引入分支和循环结构，在shell中分支有if和case，循环有for,while,do while,select,循环支持break,continue。
 if和else,elif,fi形成边界，循环用do和done来表达边界,case用in和esac来表达边界，循环和if都涉及到条件判断，linux中有一个test命令专门来完成这个事，比如test -b test.sh测试文件是否是块设备，如果为真返回0，为假返回1，test的别名是方括号，所以刚才这个测试的简写就是[ -b test.sh ]，注意方括号中的空格。test命令有相当多的使用方法。
 有了真假判断我们就可以来写各种控制结构程序了
@@ -125,7 +125,7 @@ case表达式可以用来匹配一个给定的字符串，而不是数字，下�
  esac
 {% endhighlight %}
 
-###函数
+### 函数
 有了控制结构，我们可以开始编写模块化代码了，这个时候就必须使用函数了，函数的行为终于和js差不多一样了，但是没有关键字:
 {% highlight bash %}
 #!/bin/bash
@@ -159,7 +159,7 @@ do
 done
 {% endhighlight %}
 
-###测试命令
+### 测试命令
 循环和分支都要用到测试，现在我们已经知道了控制结构的语法，那么测试条件的写法则有很多。
 测试文件就下面这些,注意测试都要写一个横线:
 {% highlight bash %}
@@ -232,7 +232,7 @@ mailfolder=/var/spool/mail/james
 {% endhighlight %}
 
 
-###特殊符号
+### 特殊符号
 在向程序传递任何参数之前，程序会扩展通配符和变量。这里所谓的扩展是指程序会把通配符（比如*）替换成适当的文件名，把变量替换成变量值
 引号（单引号和双引号）可以防止通配符*的扩展：
 {% highlight bash %}
@@ -275,7 +275,7 @@ echo ${a[*]} #所有元素
 echo ${#a[@]} #数组长度
 {% endhighlight %}
 
-###实例1，启动tomcat，杀死进程
+### 实例1，启动tomcat，杀死进程
 {% highlight bash %}
 #!/bin/bash
 DEV_PROJECT_HOME="/home/asion/kariqu"
@@ -300,12 +300,12 @@ else
 fi
 
 
-###4.start tomcat
+### 4.start tomcat
 echo "starting tomcat ..."
 $APPSERVER_HOME/${appName}/bin/startup.sh
 sleep 3
 
-###5. check tomcat service
+### 5. check tomcat service
 newpid=`ps aux |grep ${appName} |grep -v "grep" | awk '{print $2}'`
 if [ -n "$newpid" ]; then
     echo -e "${appName} tomcat service  success !"
@@ -316,7 +316,7 @@ fi
 {% endhighlight %}
 
 
-###实例2，批量签出代码
+### 实例2，批量签出代码
 {% highlight bash %}
 #!/bin/bash
 for i in $(<project.txt)
