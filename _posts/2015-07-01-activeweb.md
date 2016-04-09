@@ -91,11 +91,9 @@ public interface ControllerFilter {
 
     void onException(Exception e);//在action执行报错之后
 }
-
-其实更完美的做法应该是在action执行完在提供一个切入点，比如我希望写一个filter在action执行完之后关闭连接就实现不了，按照目前的做法，连接会在after之后关闭，页面渲染期间连接也是打开的，如果渲染期间发生异常我的连接可能关闭不掉，不过数据库的连接管理在web层来做本身可能就是一个问题，我们从spring的osiv,seam的有状态session管理就可以看到复杂性。
-
  {% endhighlight %}
-
+ 
+其实更完美的做法应该是在action执行完在提供一个切入点，比如我希望写一个filter在action执行完之后关闭连接就实现不了，按照目前的做法，连接会在after之后关闭，页面渲染期间连接也是打开的，如果渲染期间发生异常我的连接可能关闭不掉，不过数据库的连接管理在web层来做本身可能就是一个问题，我们从spring的osiv,seam的有状态session管理就可以看到复杂性。
 
 ###六、flash生命周期
 flash貌似是ROR发明的，他得生命周期大于request但是小于session，我们为了防表单重复提交会在一个post完成之后重定向，如果重定向需要传点数据给页面就依赖于flash,flash中得数据被读取之后就消失，springmvc也在3.0之后支持这个周期，可是用起来不是那么好用,activeweb的写法如下
@@ -157,13 +155,9 @@ ${page_content}
 {% highlight java %}
 public class User extends Model {
     static {
-
         validatePresenceOf("company_name", "user_name").message("此项必填");
-
         validateRegexpOf("user_name", "(?!^\\d[A-Za-z0-9]*$)^[A-Za-z0-9_-]{6,25}$").message("用户名格式不对");
-
         validateWith(new UniquenessValidator("user_name","user_id")).message("用户名重复");
-
     }
  }
 {% endhighlight %}
