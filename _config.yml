@@ -1,7 +1,7 @@
 baseurl: http://www.codingbaby.com
 permalink: /blog/:year/:month/:day/:title
-markdown: rdiscount
-highlighter:       rouge
+markdown: kramdown
+highlighter: pygments
 pygments: true
 date_format: "ordinal"
 paginate: 15
