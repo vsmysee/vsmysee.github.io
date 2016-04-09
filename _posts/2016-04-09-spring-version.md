@@ -4,23 +4,23 @@ title: 追踪spring的各版本
 ---
 Spring已经是做项目的必选框架了，几年前还有SSH，Seam，现在似乎只有SpringMVC+Spring+Mybatis了，这样就只能简称SM,人们似乎已经淡忘Struts,没听说过JSF,Wicket,Vraptor，好吧，也许人们在这几年已经把焦点放到了新的SSH(Spark,Storm,Hadoop),或者Play,Grails，我还是希望能够好好掌握Spring，所以用这篇文章记录他的版本。
 
-###一、Spring1.x
+##Spring1.x
 这个版本持续到2006年，那时候我还在念大二，首先我们在这个版本总结spring的很多核心概念：
 
-##DTD配置
+###DTD配置
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 </beans>
 这是有严格按照dtd定义来配置的，不可扩展。
 
-##IOC
+###IOC
 从1.x时代开始，Spring的内核已经定格在了BeanFactory和ApplicationContext,这个时候Bean的生命周期只有Singleton和Prototype。生命周期回调接口是InitializingBean，DisposableBean.BeanPostProcessors。
 
-##资源抽象：
+###资源抽象：
 URL，Classpath,FileSytem,ServletContext,Inputstram,ByteArray,加载spring配置文件支持classpath*前缀.
 
-##AOP
+###AOP
 这个时候配置一个aop是这个样子的
 <bean id="petStore" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 <property name="transactionManager" ref="transactionManager"/>
@@ -42,7 +42,7 @@ factory-method="aspectOf"
 <property name="securityManager" ref="securityManager"/>
 </bean>
 
-##事务抽象
+###事务抽象
 org.springframework.transaction.PlatformTransactionManager
 
 • Transaction isolation:
@@ -53,18 +53,18 @@ org.springframework.transaction.PlatformTransactionManager
 本地事务class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 开始支持. The Transactional Annotation
 
-##Web MVC
+###Web MVC
 DispatcherServlet
 
 
-##远程调用
+###远程调用
 RMI，Hessian和Burlap通过Http,Http Invoker,Xfire WebService
 
 
-##Email和Schedule Job和TEST
+###Email和Schedule Job和TEST
 public abstract class AbstractClinicTests extends AbstractTransactionalDataSourceSpringContextTests
 
-###Spring2.x
+##Spring2.x
 不再支持jdk1.3, 在2006年的10月发布
 Spring 2.5 introduces support for a complete set of configuration annotations: @Autowired in combination with
 support for the JSR-250 annotations @Resource, @PostConstruct and @PreDestroy .
@@ -101,7 +101,7 @@ this theme of convention-over-configuration now has explicit support in Spring M
 Dynamic language support
 The Spring TaskExecutor abstraction
 
-###Spring3.x
+##Spring3.x
 全面泛型
 Not Using Commons Logging
 Using SLF4J
@@ -126,7 +126,7 @@ Flash Attributes and RedirectAttributes
 Support for Servlet 3 based asynchronous request processing
 New Gradle-based build and move to GitHub
 
-###Spring4.x
+##Spring4.x
 Java 8 (as well as 6 and 7)
 Groovy Bean Definition DSL
 WebSocket, SockJS, and STOMP Messaging
@@ -138,4 +138,4 @@ CGLIB-based proxy classes no longer require a default constructor
 OkHTTP integration with the RestTemplate.
 
 
-###Spring生态
+##Spring生态
