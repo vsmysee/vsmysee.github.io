@@ -41,8 +41,7 @@ activeweb的团队首先实现的是active record模式的持久框架activejdbc
         <filter-name>dispatcher</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
- {% endhighlight %}
+{% endhighlight %}
 
 root_controller表示默认的首页是哪个简写类名，上面我们配置的是home表示是HomeController，框架默认在app/controllers这个包中寻找控制器。
 
@@ -59,7 +58,6 @@ root_controller表示默认的首页是哪个简写类名，上面我们配置�
 在app/config下放一个AppBootstrap类并继承Bootstrap,可以在init和destroy这两个方法上重载以获得框架声明周期的回调，通过这个类我们可以在项目中集成spring等容器
 {% highlight java %}
 public class AppBootstrap extends Bootstrap {
-
     @Override
     public void init(AppContext context) {
         context.set("spring", new ClassPathXmlApplicationContext("spring.xml"));
@@ -73,9 +71,8 @@ public class AppBootstrap extends Bootstrap {
         }
         super.destroy(context);
     }
-
 }
- {% endhighlight %}
+{% endhighlight %}
 
 
 ###五、拦截器
@@ -84,15 +81,12 @@ public class AppBootstrap extends Bootstrap {
 
 {% highlight java %}
 public interface ControllerFilter {
-
     void before(); //在action调用之前
-
     void after(); //在action调用并渲染完页面之后
-
     void onException(Exception e);//在action执行报错之后
 }
- {% endhighlight %}
- 
+{% endhighlight %}
+
 其实更完美的做法应该是在action执行完在提供一个切入点，比如我希望写一个filter在action执行完之后关闭连接就实现不了，按照目前的做法，连接会在after之后关闭，页面渲染期间连接也是打开的，如果渲染期间发生异常我的连接可能关闭不掉，不过数据库的连接管理在web层来做本身可能就是一个问题，我们从spring的osiv,seam的有状态session管理就可以看到复杂性。
 
 ###六、flash生命周期

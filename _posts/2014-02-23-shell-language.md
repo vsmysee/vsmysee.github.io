@@ -156,7 +156,7 @@ do
   echo "Enter a number:"
   read x
   factorial $x
-done             
+done
 {% endhighlight %}
 
 ###测试命令
