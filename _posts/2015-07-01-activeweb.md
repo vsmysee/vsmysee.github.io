@@ -2,13 +2,15 @@
 layout: article
 title: 小清新框架activeweb
 ---
-项目趋于稳定，用spring+spring jdbc的时候为了实现一个新需求，需要写一大堆模板化代码，我始终坚信：消除重复是技术升级的重要要素，而懒的本性驱动优秀程序员的成长，activeweb为懒程序员而生
+项目趋于稳定，用spring+spring jdbc的时候为了实现一个新需求，需要写一大堆模板化代码，我始终坚信：消除重复是技术升级的重要要素，而懒的本性驱动优秀程序员的成长，activeweb为懒程序员而生。
 
 ###一、activeweb是什么
-这是一个full stack的java web框架，COC标配，类似的框架在java领域还有play,grails,scooter,stripes，我为什么喜欢activeweb呢? 这个框架把我们遇到的重复劳动编程问题简化到了极致，简单得你可以猜测到他得源码是如何实现的，以前我认为play已经做得很好了，可是基于jpa的play和最新的scala重度集成的play已经
-让我丧失了学习他得兴趣。
+这是一个full stack的java web框架，COC标配，类似的框架在java领域还有play,grails,scooter,stripes，我为什么喜欢activeweb呢? 这个框架把我们遇到的重复劳动编程问题简化到了极致，简单得你可以猜测到他得源码是如何实现的，以前我认为play已经做得很好了，可是基于jpa的play和最新的scala重度集成的play已经让我丧失了学习他得兴趣。
+
 
 activeweb的团队首先实现的是active record模式的持久框架activejdbc,使用方法就类似ruby on rails, 这个框架当然能够非常友好的在activeweb中使用， 模板使用的freemarker，通过自定义的部分指令来实现了web编程的各种必要组件，flash scope, restful, 上传，下载等都完美封装。
+
+这个框架比较适合一写小系统或者原型系统，如果系统是一个要强事务控制，可能进化出rpc,微服务的系统则不太适合，要么前期适合，后期改写。
 
 
 
