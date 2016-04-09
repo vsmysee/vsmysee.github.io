@@ -8,10 +8,12 @@ Spring已经是做项目的必选框架了，几年前还有SSH，Seam，现在�
 这个版本持续到2006年，那时候我还在念大二，首先我们在这个版本总结spring的很多核心概念：
 
 ### DTD配置
+{% highlight java %}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 </beans>
+{% endhighlight %}
 这是有严格按照dtd定义来配置的，不可扩展。
 
 ### IOC
@@ -22,6 +24,7 @@ URL，Classpath,FileSytem,ServletContext,Inputstram,ByteArray,加载spring配置
 
 ### AOP
 这个时候配置一个aop是这个样子的
+{% highlight java %}
 <bean id="petStore" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 <property name="transactionManager" ref="transactionManager"/>
 <property name="target" ref="petStoreTarget"/>
@@ -33,16 +36,18 @@ URL，Classpath,FileSytem,ServletContext,Inputstram,ByteArray,加载spring配置
 </props>
 </property>
 </bean
+{% endhighlight %}
 
-已经集成了aspectJ
+这个版本已经集成了aspectJ
+{% highlight java %}
 <bean id="securityAspect"
 class="org.springframework.samples.aspectj.bank.BalanceChangeSecurityAspect"
 factory-method="aspectOf"
 >
 <property name="securityManager" ref="securityManager"/>
 </bean>
-
-###事务抽象
+{% endhighlight %}
+### 事务抽象
 org.springframework.transaction.PlatformTransactionManager
 
 • Transaction isolation:
@@ -80,12 +85,15 @@ aspects as defined in AspectJ's META-INF/aop.xml descriptor
 Spring 2.5 introduces an annotation-based programming model for MVC controllers, using annotations such as
 @RequestMapping, @RequestParam, @ModelAttribute
 
+{% highlight java %}
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 </beans>
+{% endhighlight %}
+
 
 of Spring had IoC container level support for exactly two distinct bean scopes (singleton and
 prototype). Spring 2.0 improves on this by not only providing a number of additional scopes depending on the
@@ -103,9 +111,13 @@ The Spring TaskExecutor abstraction
 
 ## Spring3.x
 全面泛型
+
+慎重选择日志
+{% highlight java %}
 Not Using Commons Logging
 Using SLF4J
 Using Log4J
+{% endhighlight %}
 
 Spring's TaskExecutor abstraction has been updated for close integration with Java 5's java.util.concurrent facilities. We provide first-class support for Callables and Futures now, as well as ExecutorService adapters, ThreadFactory integration, etc. This has been aligned with JSR-236 (Concurrency Utilities for Java EE 6) as far as possible. Furthermore, we provide support for asynchronous method invocations through the use of the new @Async annotation (or EJB 3.1's @Asynchronous annotation).
 
