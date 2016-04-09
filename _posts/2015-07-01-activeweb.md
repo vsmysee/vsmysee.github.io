@@ -16,7 +16,7 @@ activeweb的团队首先实现的是active record模式的持久框架activejdbc
 
 ###二、如何启动框架
 通过一个filter全局拦截，静态资源放过，注意encoding参数避免乱码问题
-```java
+{% highlight java %}
  <filter>
         <filter-name>dispatcher</filter-name>
         <filter-class>org.javalite.activeweb.RequestDispatcher</filter-class>
@@ -40,7 +40,7 @@ activeweb的团队首先实现的是active record模式的持久框架activejdbc
         <filter-name>dispatcher</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-```
+{% endhighlight %}
 
 root_controller表示默认的首页是哪个简写类名，上面我们配置的是home表示是HomeController，框架默认在app/controllers这个包中寻找控制器。
 
