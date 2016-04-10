@@ -115,7 +115,7 @@ Introduction这个东西其实就是差不多动态语言的mixin，java需要�
 </bean>
 {% endhighlight %}
 
-SpringAOP的切入点只能在方法上，入股我们需要一个全功能的AOP则必须要使用Aspect，Spring这个版本已经集成了aspectJ
+SpringAOP的切入点只能在方法上，如果我们需要一个全功能的AOP则必须要使用Aspect，Spring这个版本已经集成了aspectJ
 {% highlight java %}
 <bean id="securityAspect"
 class="org.springframework.samples.aspectj.bank.BalanceChangeSecurityAspect"
@@ -128,9 +128,10 @@ factory-method="aspectOf"
 
 ### 事务抽象
 
-** 一般来说，只有当你需要支持多个事务性资源时，你才需要应用服务器的JTA功能。而大多数应用并不需要处理跨越多种资源。许多高端应用使用单一的、高伸缩性的数据库**
+**一般来说，只有当你需要支持多个事务性资源时，你才需要应用服务器的JTA功能。而大多数应用并不需要处理跨越多种资源。许多高端应用使用单一的、高伸缩性的数据库**
 
 我们做的互联网应用真的不需要分布式事务了，在CAP和BASE理论的指导下，现在笨重的应用服务器没有什么必要了。
+
 关键抽象：org.springframework.transaction.PlatformTransactionManager
 {% highlight java %}
 public interface PlatformTransactionManager {
