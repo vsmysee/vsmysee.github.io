@@ -22,10 +22,10 @@ Spring已经是做项目的必选框架了，几年前还有SSH，Seam，现在�
 
 ApplicationContext 相比BeanFactory多了很多特性，我们一般不会使用BeanFactory
 
-MessageSource, providing access to messages in, i18n-style
-Access to resources, such as URLs and files
-Event propagation to beans implementing the ApplicationListener interface
-Loading of multiple (hierarchical) contexts, allowing each to be focused on one particular layer, for example the web layer of an application
+* MessageSource, providing access to messages in, i18n-style
+* Access to resources, such as URLs and files
+* Event propagation to beans implementing the ApplicationListener interface
+* Loading of multiple (hierarchical) contexts, allowing each to be focused on one particular layer, for example the web layer of an application
 
 
 生命周期回调接口是InitializingBean，DisposableBean，BeanPostProcessors,BeanFactoryPostProcessor.
@@ -87,9 +87,8 @@ AOP代理,Spring用Cglib和JDK Proxy实现
 
 Introduction这个东西其实就是差不多动态语言的This illustrates a mixin
 
-
-Specify the target you want to proxy
-Specify whether to use CGLIB
+* Specify the target you want to proxy
+* Specify whether to use CGLIB
 
 这个时候配置一个aop是这个样子的,需要显式创建代理
 {% highlight java %}
@@ -142,10 +141,10 @@ factory-method="aspectOf"
 ### 事务抽象
 org.springframework.transaction.PlatformTransactionManager
 
-• Transaction isolation:
-• Transaction propagation:
-• Transaction timeout:
-• Read-only status:
+* Transaction isolation:
+* Transaction propagation:
+* Transaction timeout:
+* Read-only status:
 
 本地事务class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 开始支持. The Transactional Annotation
@@ -187,20 +186,19 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 </beans>
 {% endhighlight %}
 
-
 of Spring had IoC container level support for exactly two distinct bean scopes (singleton and
 prototype). Spring 2.0 improves on this by not only providing a number of additional scopes depending on the
 environment in which Spring is being deployed (for example, request and session scoped beans in a web
 environment), but also by providing 'hooks' (for want of a better word) so that Spring users can create their own
 scopes.
 
-Extensible XML authoring
-Spring 2.0 integrates with the AspectJ
-pointcut language and @AspectJ aspect declaration style
-NamedParameterJdbcTemplate
-this theme of convention-over-configuration now has explicit support in Spring MVC
-Dynamic language support
-The Spring TaskExecutor abstraction
+* Extensible XML authoring
+* Spring 2.0 integrates with the AspectJ
+* pointcut language and @AspectJ aspect declaration style
+* NamedParameterJdbcTemplate
+* this theme of convention-over-configuration now has explicit support in Spring MVC
+* Dynamic language support
+* The Spring TaskExecutor abstraction
 
 ## Spring3.x
 全面泛型
@@ -212,35 +210,47 @@ Using SLF4J
 Using Log4J
 {% endhighlight %}
 
-Spring's TaskExecutor abstraction has been updated for close integration with Java 5's java.util.concurrent facilities. We provide first-class support for Callables and Futures now, as well as ExecutorService adapters, ThreadFactory integration, etc. This has been aligned with JSR-236 (Concurrency Utilities for Java EE 6) as far as possible. Furthermore, we provide support for asynchronous method invocations through the use of the new @Async annotation (or EJB 3.1's @Asynchronous annotation).
+* Spring's TaskExecutor abstraction has been updated for close integration with Java 5's java.util.concurrent facilities. We provide first-class support for Callables and Futures now, as well as ExecutorService adapters, ThreadFactory integration, etc. This has been aligned with JSR-236 (Concurrency Utilities for Java EE 6) as far as possible. Furthermore, we provide support for asynchronous method invocations through the use of the new @Async annotation (or EJB 3.1's @Asynchronous annotation).
 
-Spring Expression Language
-Comprehensive REST support
+* Spring Expression Language
+* Comprehensive REST support
 
-Embedded database support
-New Java 5 based converter API and SPI:
-Java based bean metadata
-Web Tier is the support for building RESTful web services and web applications.
-RestTemplate
-Cache Abstraction
-TestContext framework support for @Configuration classes and bean definition profiles
+* Embedded database support
+* New Java 5 based converter API and SPI:
+* Java based bean metadata
+* Web Tier is the support for building RESTful web services and web applications.
+* RestTemplate
+* Cache Abstraction
+* TestContext framework support for @Configuration classes and bean definition profiles
 
-Support for Servlet 3 code-based configuration of Servlet Container
-Support for Servlet 3 MultipartResolver
-Flash Attributes and RedirectAttributes
-Support for Servlet 3 based asynchronous request processing
-New Gradle-based build and move to GitHub
+* Support for Servlet 3 code-based configuration of Servlet Container
+* Support for Servlet 3 MultipartResolver
+* Flash Attributes and RedirectAttributes
+* Support for Servlet 3 based asynchronous request processing
+* New Gradle-based build and move to GitHub
 
 ## Spring4.x
-Java 8 (as well as 6 and 7)
-Groovy Bean Definition DSL
-WebSocket, SockJS, and STOMP Messaging
-Async RestTemplate has been added, allowing non-blocking asynchronous support when developing REST clients.
-AMQP
-Scripted Spring MVC Controllers
-CGLIB-based proxy classes no longer require a default constructor
-@RestController annotation
-OkHTTP integration with the RestTemplate.
+* Java 8 (as well as 6 and 7)
+* Groovy Bean Definition DSL
+* WebSocket, SockJS, and STOMP Messaging
+* Async RestTemplate has been added, allowing non-blocking asynchronous support when developing REST clients.
+* AMQP
+* Scripted Spring MVC Controllers
+* CGLIB-based proxy classes no longer require a default constructor
+* @RestController annotation
+* OkHTTP integration with the RestTemplate.
 
 
 ## Spring生态
+* Spring Boot
+* Spring Web Flow
+* Spring Security
+* Spring Batch
+* Spring AMQP
+* Spring Data
+* Spring WebService
+* Spring Session
+* Spring Shell
+* Spring Mobile
+* Spring Integration
+* Spring Cloud
