@@ -6,6 +6,7 @@ Spring已经是做项目的必选框架了，几年前还有SSH，Seam，现在�
 
 ## Spring1.x
 这个版本持续到2006年，那时候我还在念大二，首先我们在这个版本总结spring的很多核心概念：
+![Spring](http://docs.spring.io/spring/docs/1.2.x/reference/images/spring-overview.gif)
 
 ### DTD配置
 {% highlight java %}
@@ -17,28 +18,117 @@ Spring已经是做项目的必选框架了，几年前还有SSH，Seam，现在�
 这是有严格按照dtd定义来配置的，不可扩展。
 
 ### IOC
-从1.x时代开始，Spring的内核已经定格在了BeanFactory和ApplicationContext,这个时候Bean的生命周期只有Singleton和Prototype。生命周期回调接口是InitializingBean，DisposableBean.BeanPostProcessors。
+从1.x时代开始，Spring的内核已经定格在了BeanFactory和ApplicationContext,这个时候Bean的生命周期只有Singleton和Prototype。配置方式为<bean id="exampleBean" class="examples.ExampleBean"/> singleton="false"/>
 
-### 资源抽象：
+ApplicationContext 相比BeanFactory多了很多特性，我们一般不会使用BeanFactory
+
+MessageSource, providing access to messages in, i18n-style
+Access to resources, such as URLs and files
+Event propagation to beans implementing the ApplicationListener interface
+Loading of multiple (hierarchical) contexts, allowing each to be focused on one particular layer, for example the web layer of an application
+
+
+生命周期回调接口是InitializingBean，DisposableBean，BeanPostProcessors,BeanFactoryPostProcessor.
+
+对属性文件的站位符支持PropertyPlaceholderConfigurer
+
+如果想在Web容器中使用Spring
+
+{% highlight java %}
+<context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>/WEB-INF/daoContext.xml /WEB-INF/applicationContext.xml</param-value>
+</context-param>
+<listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+{% endhighlight %}
+
+### 资源抽象
+
+{% highlight java %}
+public interface Resource extends InputStreamSource {
+    boolean exists();
+    boolean isOpen();
+    URL getURL() throws IOException;
+    File getFile() throws IOException;
+    Resource createRelative(String relativePath) throws IOException;
+    String getFilename();
+    String getDescription();
+}
+public interface InputStreamSource {
+    InputStream getInputStream() throws IOException;
+}
+{% endhighlight %}
+
 URL，Classpath,FileSytem,ServletContext,Inputstram,ByteArray,加载spring配置文件支持classpath*前缀.
 
-### AOP
-这个时候配置一个aop是这个样子的
+我们可以便捷的加载资源
+
 {% highlight java %}
+Resource template = ctx.getResource("classpath:some/resource/path/myTemplate.txt);
+￼￼￼￼￼Resource template = ctx.getResource("file:/some/resource/path/myTemplate.txt);
+Resource template = ctx.getResource("http://myhost.com/resource/path/myTemplate.txt);
+{% endhighlight %}
+￼￼
+
+### AOP
+
+{% highlight java %}
+切面(Aspect) 一个关注点，比如事务管理
+连接点(JoinPoint) Spring AOP只能作用在方法调用
+通知(Advise) 连接点上执行的动作
+切入点(PointCut) 一个在连接点上的匹配，比如某个方法执行
+引入（Introduction） Spring可以给代理类引入一个接口
+目标对象(Target Object) 代理对象
+AOP代理,Spring用Cglib和JDK Proxy实现
+织入(Weaving) 编译期或者运行期
+{% endhighlight %}
+
+Introduction这个东西其实就是差不多动态语言的This illustrates a mixin
+
+
+Specify the target you want to proxy
+Specify whether to use CGLIB
+
+这个时候配置一个aop是这个样子的,需要显式创建代理
+{% highlight java %}
+
+<bean id="personTarget" class="com.mycompany.PersonImpl">
+    <property name="name"><value>Tony</value></property>
+    <property name="age"><value>51</value></property>
+</bean>
+<bean id="myAdvisor" class="com.mycompany.MyAdvisor">
+    <property name="someProperty"><value>Custom string property value</value></property>
+</bean>
+<bean id="debugInterceptor" class="org.springframework.aop.interceptor.DebugInterceptor">
+</bean>
+<bean id="person"
+    class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="proxyInterfaces"><value>com.mycompany.Person</value></property>
+    <property name="target"><ref local="personTarget"/></property>
+    <property name="interceptorNames">
+        <list>
+            <value>myAdvisor</value>
+            <value>debugInterceptor</value>
+        </list>
+    </property>
+</bean>
+
 <bean id="petStore" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-<property name="transactionManager" ref="transactionManager"/>
-<property name="target" ref="petStoreTarget"/>
-<property name="transactionAttributes">
-<props>
-<prop key="insert*">PROPAGATION_REQUIRED</prop>
-<prop key="update*">PROPAGATION_REQUIRED</prop>
-<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
-</props>
-</property>
+  <property name="transactionManager" ref="transactionManager"/>
+  <property name="target" ref="petStoreTarget"/>
+  <property name="transactionAttributes">
+  <props>
+    <prop key="insert*">PROPAGATION_REQUIRED</prop>
+    <prop key="update*">PROPAGATION_REQUIRED</prop>
+    <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+    </props>
+    </property>
 </bean
 {% endhighlight %}
 
-这个版本已经集成了aspectJ
+AspectJ是一个全功能的AOP实现，Spring这个版本已经集成了aspectJ
 {% highlight java %}
 <bean id="securityAspect"
 class="org.springframework.samples.aspectj.bank.BalanceChangeSecurityAspect"
@@ -47,6 +137,8 @@ factory-method="aspectOf"
 <property name="securityManager" ref="securityManager"/>
 </bean>
 {% endhighlight %}
+
+
 ### 事务抽象
 org.springframework.transaction.PlatformTransactionManager
 
@@ -57,6 +149,7 @@ org.springframework.transaction.PlatformTransactionManager
 
 本地事务class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 开始支持. The Transactional Annotation
+
 
 ### Web MVC
 DispatcherServlet
