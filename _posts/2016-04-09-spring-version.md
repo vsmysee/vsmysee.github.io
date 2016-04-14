@@ -22,7 +22,7 @@ Spring已经是做项目的必选框架了，几年前起码有SSH，Seam等全�
 ### IOC
 从1.x时代开始，Spring的内核已经定格在了BeanFactory和ApplicationContext,这个时候Bean的生命周期只有Singleton和Prototype。配置方式为<bean id="exampleBean" class="examples.ExampleBean"/> singleton="false"/>
 
-ApplicationContext 相比BeanFactory多了很多特性，我们一般不会使用BeanFactory
+ApplicationContext相比BeanFactory多了很多特性，我们一般不会使用BeanFactory
 
 * MessageSource, providing access to messages in, i18n-style
 * Access to resources, such as URLs and files
@@ -31,7 +31,7 @@ ApplicationContext 相比BeanFactory多了很多特性，我们一般不会使�
 
 
 生命周期回调接口是InitializingBean，DisposableBean，BeanPostProcessors，BeanFactoryPostProcessor.
-对属性文件的站位符支持PropertyPlaceholderConfigurer
+对属性文件的站位符PropertyPlaceholderConfigurer已经存在
 
 如果想在Web容器中使用Spring
 {% highlight java %}
@@ -61,7 +61,7 @@ public interface InputStreamSource {
 }
 {% endhighlight %}
 
-URL，Classpath,FileSytem,ServletContext,Inputstram,ByteArray,加载spring配置文件支持classpath*前缀.
+URL，Classpath,FileSytem,ServletContext,InputStream,ByteArray,加载spring配置文件支持classpath*前缀.
 
 我们可以便捷的加载资源
 
@@ -132,7 +132,11 @@ factory-method="aspectOf"
 
 我们做的互联网应用真的不需要分布式事务了，在CAP和BASE理论的指导下，现在笨重的应用服务器没有什么必要了。
 
-关键抽象：org.springframework.transaction.PlatformTransactionManager
+关键抽象：
+
+org.springframework.transaction.PlatformTransactionManager,TransactionDefinition,TransactionDefinition,SavepointManager
+
+
 {% highlight java %}
 public interface PlatformTransactionManager {
     TransactionStatus getTransaction(TransactionDefinition definition)
@@ -151,6 +155,18 @@ public interface PlatformTransactionManager {
 开始支持. The Transactional Annotation
 
 Spring不提供高端应用服务器提供的跨越远程调用的事务上下文传播。如果你需要这些特性，我们推荐你使用EJB。然而，不要轻易使用这些特性。通常我们并不希望事务跨越远程调用。
+
+事务传播
+
+* PROPAGATION_REQUIRED--支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。
+* PROPAGATION_SUPPORTS--支持当前事务，如果当前没有事务，就以非事务方式执行。
+* PROPAGATION_MANDATORY--支持当前事务，如果当前没有事务，就抛出异常。
+* PROPAGATION_REQUIRES_NEW--新建事务，如果当前存在事务，把当前事务挂起。
+* PROPAGATION_NOT_SUPPORTED--以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。
+* PROPAGATION_NEVER--以非事务方式执行，如果当前存在事务，则抛出异常。
+* PROPAGATION_NESTED--如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与PROPAGATION_REQUIRED类似的操作。
+
+
 
 对EJB来说，默认的行为是EJB容器在遇到系统异常（通常指运行时异常）时自动回滚当前事务。EJB CMT遇到应用异常（例如，除了java.rmi.RemoteException外别的checked exception）时并不会自动回滚。默认式Spring处理声明式事务管理的规则遵守EJB习惯（只在遇到unchecked exceptions时自动回滚），但通常定制这条规则会更有用。
 
