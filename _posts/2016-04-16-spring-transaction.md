@@ -2,7 +2,8 @@
 layout: article
 title: spring的事务管理
 ---
-一直比较好奇spring是如何在数据库连接上实现各种事务传播行为的,最近抽空看了他的源码,做个简单的笔记.
+一直比较好奇spring是如何在数据库连接上实现各种事务传播行为的,最近抽空看了他的源码,做个简单的笔记,spring是一个典型的无状态事务管理框架,在一次请求过程中
+事务被界定在业务service的执行边界,这个和数据源配合得很好,可是类似hibernate和jpa的事务会破坏这个抽象,有osiv等问题,发现大量的公司都是采用mybatis或者jdbc template,所以很少有人知道这些问题了.
 
 ## 无框架事务
 首先我们看看在不用任何框架的前提下,如果使用原生的jdbc api实现事务代码的编写,jdbc规范是一个典型的API和SPI设计,代码中省去try catch,第一步是加载驱动
@@ -102,7 +103,7 @@ ThreadLocal<Boolean> actualTransactionActive =
 			new NamedThreadLocal<Boolean>("Actual transaction active");
 {% endhighlight %}
 
-## 传播行为的实现
+### 传播行为的实现
 
 {% highlight java %}
 int PROPAGATION_REQUIRED = 0;
@@ -151,12 +152,12 @@ doBegin(transaction, definition);
 {% endhighlight %}
 
 ## 陷阱
+
 ### 注解指向Manager
 @Transactional注解可以标注在类和方法上，也可以标注在定义的接口和接口方法上。
 如果我们在接口上标注@Transactional注解，会留下这样的隐患：因为注解不能被继承，所以业务接口中标注的@Transactional注解不会被业务实现类继承。所以可能会出现不启动事务的情况。所以，Spring建议我们将@Transaction注解在实现类上
 
 @Transactional在配置文件中，默认情况下，<tx:annotation-driven>会自动使用名称为transactionManager的事务管理器。所以，如果定义的事务管理器名称为transactionManager，那么就可以直接使用<tx:annotation-driven/>
-
 如果我们要程序中使用多个事务管理器（主要是针对多数据源的情况）,要在注解上指定事务管理器
 
 ### 异常回滚行为
