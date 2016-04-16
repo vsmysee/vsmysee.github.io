@@ -2,7 +2,7 @@
 layout: article
 title: 追踪spring的各版本
 ---
-Spring已经是做项目的必选框架了，几年前起码有SSH，Seam等全栈框架，现在似乎只有SpringMVC+Spring+Mybatis了，这样就只能简称SM,人们似乎已经淡忘Struts,没听说过JSF,Wicket,Vraptor，好吧，也许人们在这几年已经把焦点放到了新的SSH(Spark,Storm,Hadoop),或者Play,Grails，我还是希望能够好好掌握Spring，所以用这篇文章记录他的版本。
+Spring已经是做项目的必选框架了，几年前起码有SSH，Seam等全栈框架可选，现在面试个程序员都清一色的SpringMVC+Spring+Mybatis了，这样就只能简称SM,人们似乎已经淡忘Struts,没听说过JSF,Wicket,Vraptor，好吧，也许人们在这几年已经把焦点放到了新的SSH(Spark,Storm,Hadoop),或者Play,Grails上了，我还是希望能够好好掌握Spring，所以用这篇文章记录他的版本。
 
 **先感叹下我们的吃饭工具:Java，她是一个平易近人的语言，其足够呆板适用的语法相比其他语言表现力低下，当你的代码量足够大，会发现大量的重复，仅仅异常处理，IO操作就会有无数的语法噪音，这也是一度出现大批java程序员转向动态语言的原因，所以我们急需要一些库来简化，急需要如Intellij IDEA这样的IDE来加速我们的代码编写，Spring的出现拯救了大量的java程序员，但是也在毁掉一些程序员，因为好多程序员再也不知道数据库连接是怎么被管理的，事务的本质是什么。**
 
