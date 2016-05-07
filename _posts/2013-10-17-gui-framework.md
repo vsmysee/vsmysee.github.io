@@ -3,7 +3,6 @@ layout: article
 title: GUI编程框架的思考
 ---
 
-
 GUI，用户界面，对于终端用户非常重要，它已经延伸到心理学，美学等领域,苹果就是一个极佳的例子，所以即便是程序员自己，对于哪个工具的GUI是否做的优秀也还比较挑剔，爱美之心人皆有之嘛！
 
 记得上大学的适合，用过汇编语言写了一个windows程序hello wolrd，即便这个小小小的程序都写了大量的代码，窗口句柄，消息循环等等概念都要熟悉，然后开始接触QT,MFC，他们必然会比汇编高端，但是
@@ -82,35 +81,33 @@ GUI编程，这种编程把大量的工作转移到了浏览器或者解释器�
 
 Android的编程模型
 {% highlight java %}
-public class HelloWorld extends Activity { 
-    /** Called when the activity is first created. */ 
-    @Override 
-    public void onCreate(Bundle savedInstanceState) { 
-        super.onCreate(savedInstanceState); 
-        setContentView(R.layout.main); 
-    } 
-} 
+public class HelloWorld extends Activity {
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
+}
 {% endhighlight %}
 
 代码中的R引用到了声明式的xml
 {% highlight xml %}
-<?xml version="1.0" encoding="utf-8"?> 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:orientation="vertical" 
-    android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-    > 
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
 <TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello" 
-    /> 
-</LinearLayout> 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/hello"
+    />
+</LinearLayout>
 {% endhighlight %}
 
 GUI编程还有一个问题那就是多线程，几乎所有的GUI工具都是单线程的，浏览器是，Swing是，Android UI也是，所以在编写GUI编程的时候一定要注意它的线程模型。多线程GUI框架试图被发明，但是它极易受到死锁的困扰，
 多线程GUI框架成为了计算机科学史上的一场梦。
 
 GUI编程大概走的路线就是声明+部分代码+样式隔离，html+css+js很多年了，不知以后会如何进化......
-
-
