@@ -1,0 +1,91 @@
+---
+layout: article
+title: 打造你的mac
+---
+Mac是目前为止桌面操作系统设计中最棒的,图形和命令都是非常有效的人机交互手段,只有mac osx完美融合了二者,关于程序员为什么要用mac,互联网上已经有很多文章,生命短暂,请用最好的工具节省
+你的时间,请把时间花在美好的事物上,花在创造美好的事物上,Mac生态很多软件是需要购买的,所以请准备能力内的银子.
+
+### 硬件准备
+首先你需要一个mac,内存越大越好,硬盘越快越好,然后需要买显示器转接线将屏幕扩展出多个,最好三个或者四个,当然显示器越大越好,然后你需要一个移动硬盘
+这样可以用mac的时间机器软件对你的系统进行备份以便用于"穿越",最后你需要一个机械键盘,最好是蓝牙的
+
+**如果你是一个果粉，请安装mactracker以跟踪苹果公司的所有产品。**
+
+### 装系统和备份
+* 刻录启动盘
+* 时间机器与系统恢复
+
+你可以按 ***Command + R***进入恢复模式,这样你可以插上上面提到的移动硬盘来恢复系统.
+
+
+### 系统快捷
+
+优雅使用触控
+
+系统启动之后
+
+* Command-Option-D 显示和隐藏dock
+* Command + TAB 切换应用
+* Command + 波浪号 切换同一个应用的窗口mactracker
+* Command + W 关闭最前段的窗口
+* Command + Q 退出当前应用
+
+处于编辑模式时，比如浏览器地址，记事本，终端时，mac使用emacs的控制模式
+
+* Control-A 移至行或段落的开头。
+* Control-E 移至行或段落的末尾。
+* Control-F 向前移动一个字符。
+* Control-B 向后移动一个字符。
+* Control-L 将光标或所选内容置于可见区域中央。
+* Control-P 上移一行。
+* Control-N 下移一行。
+* Control-O 在插入点后插入一行。
+* Control-T 将插入点后面的字符与插入点前面的字符交换。
+
+需要截屏时
+
+* Cmd+Shift+3：全屏截图；截取整个屏幕，保存截图至桌面文件夹。
+* Cmd+Shift+4：区域截图；鼠标光标变成带坐标的小十字，通过拖拽截取特定区域，保存截图至桌面文件夹。
+* Cmd+Shift+4 - 单击空格键 - 鼠标单击指定窗口：窗口截图；出现小十字光标后对指定窗口按空格键，鼠标光标变成照相机，鼠标单击截取指定窗口，保存截图至桌面文件夹。
+
+### 管理MAC
+首先我们需要安装Homebrew,Homebrew Cask来安装软件，然后用AppZapper来卸载软件
+
+* ForkLift
+* Karabiner + Seil 修改键盘(比如将CapsLock修改为delete)
+* Keyboard Maestro 键盘大师
+* F.lux
+
+### 效率工具
+
+1. 首先你应该会用vim或者emacs
+2. go2shell融合图形和终端,在终端输入open .
+
+* 安装xcode，然后自动获得很多工具比如git，gcc, xcode-select -p检查是否安装,xcode-select --install为安装命令
+
+* Alfred2
+* iTerm + Zsh
+* Chrome插件Vimium,Vimari对应Safari
+* Manico
+* PopClip
+* aText
+* MWeb
+* BetterSnapTool
+* Atom
+* Dash
+* Sequel Pro
+* Mindnode
+* Parallels Desktop
+* VMware fusion
+* VirtualBox
+* Contexts - 窗口切换软件
+* Shortcat
+* Keymo
+* MacID
+
+
+### 善用JetBrians
+oh my zsh是在站在zsh的肩膀上的工具，oh my idea是站在intellij的肩膀上的工具，这是我个人作品，可以让你编写java代码的运键如飞。
+
+
+
