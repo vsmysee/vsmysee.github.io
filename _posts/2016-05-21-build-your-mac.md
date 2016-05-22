@@ -50,6 +50,8 @@ sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstal
 * Control-L 将光标或所选内容置于可见区域中央。
 * Control-P 上移一行。
 * Control-N 下移一行。
+* Control-U 清除当前行。
+* Control-K 清除至行尾。
 * Control-O 在插入点后插入一行。
 * Control-T 将插入点后面的字符与插入点前面的字符交换。
 
