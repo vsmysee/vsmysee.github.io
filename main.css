@@ -7,7 +7,7 @@
 
 body {
     line-height: 1.428;
-    font-size: 18px;
+    font-size: 16px;
     color: #333332;
     background-color: #d0d0d0;
     background-image: url("images/shadow.png"), url("images/bg_grid.png");
@@ -24,19 +24,19 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 h2 {
-    font-size: 25px;
+    font-size: 23px;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 h4 {
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .clearfix:after, .clearfix:before {
