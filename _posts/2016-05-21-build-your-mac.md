@@ -117,9 +117,14 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 * Shortcat
 * Keymo
 * MacID
+* Key Cue 显示当前你应用的快捷键
+* Vgrant + Docker
+
+
+### 编写AppleScript
 
 
 ### 善用JetBrians
 oh my zsh是在站在zsh的肩膀上的工具，oh my idea是站在intellij的肩膀上的工具，这是我个人作品，可以让你编写java代码的运键如飞。
 
-
+oh my idea的理念是组合Intellij内部的action,然后将这些命令按照类似vim的模式概念进行组织，但是整个操作过程尽量不用控制键而是只使用字母区域的键位，这样可以完全保持手型不动迅捷的编码，此插件内部实现了atext的代码片段。
