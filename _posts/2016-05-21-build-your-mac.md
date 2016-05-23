@@ -16,7 +16,8 @@ Mac是目前为止桌面操作系统中设计最棒的,图形和命令都是非�
 * 刻录启动盘
 {% highlight java %}
 准备一个U盘,在AppStore里下载最新的系统
-sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --nointeraction
+sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume 
+/Volumes/Untitled --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --nointeraction
 
 启动时按住 option 键，然后选择通过U盘启动
 {% endhighlight %}
@@ -80,7 +81,7 @@ brew install brew-cask
 ### 效率工具
 
 1. 首先你应该会用vim或者emacs
-2. go2shell融合图形和终端,在终端输入open .
+2. 安装go2shell,按住command将应用拖放到finder的工具栏，融合图形和终端,在终端输入open . 如果希望打开的是iterm2，则在go2shell的窗口中执行open -a Go2Shell --args config
 
 * 安装xcode，然后自动获得很多工具比如git，gcc
 {% highlight java %}
@@ -90,7 +91,7 @@ xcode-select --install 为安装命令
 
 
 * Alfred2
-* iTerm + Zsh
+* iTerm + Zsh + z(zsh自带这个插件，打开即可)
 {% highlight java %}
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 {% endhighlight %}
@@ -99,7 +100,10 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 * Chrome插件Vimium,Vimari对应Safari
 * Manico
 * PopClip
+
 * aText
+代码模板，代码片段通过这个软件快捷输入
+
 * MWeb
 * BetterSnapTool
 * Atom
