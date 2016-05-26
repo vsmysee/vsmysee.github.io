@@ -273,6 +273,7 @@ $(function () {
 
     if (getWindowWidth() < 1400) {
         $("#baby").css({display: "none"});
+        $("#left-nav").css({display:"none"});
     } else {
         $("#baby").click(showProfile);
         if (location.href.indexOf("blog") != -1) {
