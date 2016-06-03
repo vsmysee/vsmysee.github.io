@@ -37,13 +37,41 @@ public interface ComponentVisitor extends Serializable{
 
 
 ### 郑晖
+
 * 冒号课堂一书作者
+* 个人博客(http://blog.zhenghui.org/)
+
+{% highlight javascript %}
+var app = {
+    name: "1Pass4All",
+    // the following may be modified by Makefile
+    version: "0.2.x",
+    homeUrl: "http://hzheng.github.com/1pass4all"
+};
+var debug = true; // will be turned off by make
+{% endhighlight %}
+
 
 ### 郑晔
-Mocker框架作者
+见过真人
+
+* Moco框架作者
+* http://dreamhead.blogbus.com/
+
+{% highlight java %}
+public final class Moco {
+    public static HttpServer httpServer(final int port, final MocoConfig... configs) {
+        checkArgument(port > 0, "Port must be greater than zero");
+        return ActualHttpServer.createQuietServer(of(port), configs);
+    }
+}
+{% endhighlight %}
+
 
 ### 王保平
-阿里花名玉伯，Seajs作者
+见过真人,阿里花名玉伯，是淘宝前端类库 KISSY 的创始人，也是前端模块化开发框架 SeaJS 的创始人
+
+* https://github.com/lifesinger
 
 {% highlight javascript %}
 var seajs = global.seajs = {
@@ -83,10 +111,77 @@ dev_t ROOT_DEV;
 
 ### 司徒正美
 
+* JavaScript框架设计作者
+* https://github.com/RubyLouvre
+
+{% highlight javascript %}
+var VText = require('../vdom/VText')
+var parseView = require('../strategy/parser/parseView')
+var resolvedComponents = avalon.resolvedComponents
+var skipArray = require('../vmodel/parts/skipArray')
+
+var componentContainers = {wbr: 1, xmp: 1, template: 1}
+var events = 'onInit,onReady,onViewChange,onDispose'
+var componentEvents = avalon.oneObject(events)
+var protected = events.split(',').concat('is','diff','define','cached')
+{% endhighlight %}
+
+
 ### 温少
 
+* 数据库连接池Druid
+* Fastjson作者
+
+{% highlight java %}
+protected SQLTableConstraint parseConstraint() {
+        if (lexer.token() == Token.CONSTRAINT) {
+            lexer.nextToken();
+        }
+
+        if (lexer.token() == Token.IDENTIFIER) {
+            this.exprParser.name();
+            throw new ParserException("TODO");
+        }
+
+        if (lexer.token() == Token.PRIMARY) {
+            lexer.nextToken();
+            accept(Token.KEY);
+
+            throw new ParserException("TODO");
+        }
+
+        throw new ParserException("TODO");
+}
+{% endhighlight %}
+
+
 ### 王志亮
+
+* https://github.com/Qieqie
 * Rose框架作者
+
+{% highlight java %}
+protected void supportsRosepipe(final HttpServletRequest httpRequest) {
+        // 这个代码为rosepipe所用，以避免rosepipe的"Cannot forward after response has been committed"异常
+        // @see net.paoding.rose.web.portal.impl.PortalWaitInterceptor
+        Object window = httpRequest.getAttribute(RoseConstants.WINDOW_ATTR);
+        if (window != null && window.getClass().getName().startsWith("net.paoding.rose.web.portal")) {
+            httpRequest.setAttribute(RoseConstants.PIPE_WINDOW_IN, Boolean.TRUE);
+            if (logger.isDebugEnabled()) {
+                try {
+                    logger.debug("notify window '"
+                            + httpRequest.getAttribute("$$paoding-rose-portal.window.name") + "'");
+                } catch (Exception e) {
+                    logger.error("", e);
+                }
+            }
+            synchronized (window) {
+                window.notifyAll();
+            }
+        }
+}
+{% endhighlight %}
+
 
 ### 吴祖洋
 
@@ -94,19 +189,21 @@ dev_t ROOT_DEV;
 
 ### 梁飞
 
-### 赵姐夫
+### 赵劼
 
 ### 蔡景现
+
+### 阳振坤
+
+### 林昊
 
 ### 许世伟
 
 ### 林峰
 
 ### 李成银
-thinkjs
 
 ### 尤雨溪
-vue.js
 
 ### 阮一峰
 
@@ -121,14 +218,24 @@ vue.js
 
 ### 赵海平
 
-### 淘宝褚霸
+### 余锋
 
 ### 刘未鹏 
 
+### 王巍
+
+### 朱照远
+
+### 潘爱民
 
 
+### 四火的唠叨
 
+### 庄周梦蝶
 
+### 程序人生
+
+### James Zhan
 
 
 
