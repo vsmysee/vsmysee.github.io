@@ -271,7 +271,7 @@ $(function () {
         });
     };
 
-    if (getWindowWidth() < 1400) {
+    if (getWindowWidth() < 1500) {
         $("#baby").css({display: "none"});
         $("#left-nav").css({display:"none"});
     } else {
