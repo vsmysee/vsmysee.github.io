@@ -185,15 +185,127 @@ protected void supportsRosepipe(final HttpServletRequest httpRequest) {
 
 ### 吴祖洋
 
+* 懒投资CTO
+* SSDB NOSQL数据库作者
+
+{% highlight c++ %}
+backend_dump = new BackendDump(this->ssdb);
+backend_sync = new BackendSync(this->ssdb, sync_speed);
+expiration = new ExpirationHandler(this->ssdb);
+	
+cluster = new Cluster(this->ssdb);
+if(cluster->init() == -1){
+	log_fatal("cluster init failed!");
+	exit(1);
+}
+{% endhighlight %}
+
 ### 云风
+
+* 游戏界的大佬
+* 个人网站（http://blog.codingnow.com/）
+
+{% highlight c %}
+static void
+_save_stack(struct coroutine *C, char *top) {
+	char dummy = 0;
+	assert(top - &dummy <= STACK_SIZE);
+	if (C->cap < top - &dummy) {
+		free(C->stack);
+		C->cap = top-&dummy;
+		C->stack = malloc(C->cap);
+	}
+	C->size = top - &dummy;
+	memcpy(C->stack, &dummy, C->size);
+}
+
+{% endhighlight %}
+
 
 ### 梁飞
 
+* CT模板引擎作者，但是现在似乎不更新了
+* Dubbo服务化治理框架作者
+
+{% highlight java %}
+ List<Container> containers = new ArrayList<Container>();
+            for (int i = 0; i < args.length; i ++) {
+                containers.add(loader.getExtension(args[i]));
+            }
+            logger.info("Use container type(" + Arrays.toString(args) + ") to run dubbo serivce.");
+            
+            if ("true".equals(System.getProperty(SHUTDOWN_HOOK_KEY))) {
+	            Runtime.getRuntime().addShutdownHook(new Thread() {
+	                public void run() {
+	                    for (Container container : containers) {
+	                        try {
+	                            container.stop();
+	                            logger.info("Dubbo " + container.getClass().getSimpleName() + " stopped!");
+	                        } catch (Throwable t) {
+	                            logger.error(t.getMessage(), t);
+	                        }
+	                        synchronized (Main.class) {
+	                            running = false;
+	                            Main.class.notify();
+	                        }
+	                    }
+	                }
+           });
+ }
+{% endhighlight %}
+
 ### 赵劼
+
+* 被人贴上.net技术专家的标签
+* 个人网站(http://blog.zhaojie.me/)
+* 异步js库wind.js的作者
+
+{% highlight javascript %}
+var Wind = require("./wind-core");
+require("./wind-compiler");
+require("./wind-async");
+require("./wind-promise");
+module.exports = Wind;
+{% endhighlight %}
 
 ### 蔡景现
 
+* 淘宝花名多隆，被誉为扫地僧
+* tfs和tair的开发者
+
+
+{% highlight c++ %}
+ private:
+        int shutdown();
+        int wait_for_shutdown();
+        int start(int argc , char* argv[], const bool deamon);
+
+        int initialize_work_dir(const char* app_name);
+        int initialize_log_file(const char* app_name);
+        int initialize_pid_file(const char* app_name);
+{% endhighlight %}
+
 ### 阳振坤
+
+* 阿里花名正祥
+* OceanBase的开发者
+
+
+{% highlight c++ %}
+tbsys::CThreadMutex * ObArrayLock::acquire_lock(const uint64_t id)
+{
+   tbsys::CThreadMutex * ret = NULL;
+   if (id < lock_size_)
+   {
+      ret = &lock_holder_[id];
+   }
+   else
+   {
+     TBSYS_LOG(WARN, "acquire lock id failed:holder[%p], size[%lu], id[%lu]", lock_holder_, lock_size_, id);
+   }
+   return ret;
+}
+{% endhighlight %}
 
 ### 林昊
 
@@ -209,6 +321,7 @@ protected void supportsRosepipe(final HttpServletRequest httpRequest) {
 
 ### 陈硕
 
+### 刘奇
 
 ### 田春冰河
 
@@ -238,6 +351,8 @@ protected void supportsRosepipe(final HttpServletRequest httpRequest) {
 ### 程序人生
 
 ### James Zhan
+
+### 陈镇铖
 
 
 
