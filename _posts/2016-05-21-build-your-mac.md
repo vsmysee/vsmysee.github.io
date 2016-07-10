@@ -119,6 +119,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 * MacID
 * Key Cue 显示当前你应用的快捷键
 * Vgrant + Docker
+* Hammerspoon
 
 
 ### 编写AppleScript
