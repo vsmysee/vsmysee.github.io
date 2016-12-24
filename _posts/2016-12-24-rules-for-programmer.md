@@ -143,35 +143,6 @@ Kodo Sawaki说过：如果你需要睡觉，去睡吧。当你试图睡觉的时
 {% endhighlight %}
 
 
-{% highlight scheme %}
-{% endhighlight %}
-
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-{% highlight scheme %}
-{% endhighlight %}
-
-
 ## 学无止境。
 就算是你有了10年以上的程序员经历，你也得要使劲地学习，因为你在计算机这个充满一创造力的领域，每天都会有很多很多的新事物出现。你需要跟上时代的步伐。你需要去了解新的程序语言，以及了解正在发展中的程序语言，以及一些编程框架。还需要去阅读一些业内的新闻，并到一些热门的社区去参与在线的讨论，这样你才能明白和了解整个软件开发的趋势。在国内，一些著名的社区例如：CSDN，ITPUB，CHINAUINX等等，在国外，建议你经常上一上digg.com去看看各种BLOG的聚合。
 
@@ -353,12 +324,61 @@ BUG像幽灵一样，它是永远也改不完的，所以关键是要修复严�
 ## 不要心存侥幸
 可能出错的地方一定会出错，偶尔发生偶尔不发生的问题就是大问题。所以，对于一些常见的问题，一定做到防微杜渐：每个变量都做初始化；每个函数都做声明；引用每个参数都会做有效性检查；在可能出错的每个地方都会做边界条件检查等等。这样开发出来的程序一定会稳固很多，就是出错也会很容易修改。而一些没经过正规培训或是半路出家的所谓的高手，一般开发速度很快，三下两除二的就开发完成了，结果很可能出现“功能大体实现，bug总是在变”的情况，最后花费很长的时间来修改代码中的bug，总时间甚至会大大延期。而真正的高手，追求的境界是零缺陷代码。
 
-I am a person who tends to live by rules. Now granted, they are mostly rules I set for myself—but they are still rules.I find that creating rules for myself helps me to function better, because I pre-decide things ahead of time instead of making all kinds of decisions on the fly.
-Should I go to the gym this morning?Well, my rule says that on Wednesdays I go to the gym and today is Wednesday, so I am going to the gym—that settles it.
 
-This week, as I was thinking about some of the kinds of rules I impose on myself, I thought it might be a good idea to come up with a set of rules that I think all software developers should live by.
+## Remove distractions form your environment
+Plenty of time in work is spend on facebook, twitter, hallway discussion, etc Get rid of this and focus on work only. Avoid meetings as well. When work make breaks, but use them to standup a move around a bit. That will keep you more focused and therefore better performing.
 
-Now, I’ll admit, most of these rules are more of guidelines, but anyway, here they are:
+## Work less
+Once you focus better, you don't need to work that much. In many companies you can actually work for less then 8 hours if you perform well. It is best to work 3-4 hours in row (in high focus state), in practice 5-7 hours day of work is a huge improvement over 8+ hour day of work. Once you have more time, take better care of yourself (see next point).
+
+## Stay fit
+Stay in good shape, sleep enough, exercise, meet with friends. Programming is a cognitive skill and your body and mind state will affect your performance.
+
+
+## Don't under or overdesign
+Don't spend too much time on simplifying or complicating design (playing with a code; play a little bit with it, but not too much). Web is not a rocket science and at all times just keep it simple (take a look at next point).
+
+## Keep the code simple
+Less code is less opportunity for making a bug.
+Don't code frameworks, don't extract level of abstractions when you need to get simple work done.
+
+## Stay on technological edge
+Use new technologies. New libs, coding environments, frameworks, deployment tools etc. They will save your time and effort. Note: It doesn't mean use unstable versions.
+
+
+## Make stable moves and remove blockers
+Check if you're on the right track every couple minutes. You can use TDD, you can print how the function works, or you can just check if the screen you're coding looks like the one on design. Just make sure you have a short feedback loop for yourself. If you have a problem, take a break, discuss it with a friend, take another approach. Don't dig into it for to long.
+
+## Fix the bugs immediately when they are reported
+That is the simplest way to make sure, you stay on good quality code.
+If you have to many bugs to fix or they take too much time - stop coding and figure out why they are showing up. You might need to take significant effort over time to remove technical debt, but do it if you need.
+
+
+## Establish good communication with your management/customer
+The worst you can do is to reimplement same features over and over again, just because there is a bad communication in your work environment. Make sure both sides understand what needs to be done (sometimes PO might think he/she understands, but developer can show him consequences that he is not able to see by himself).
+
+
+## Be agile
+Agile practises already solve a bunch of problems for you. Just use it to your benefit.
+
+
+{% highlight scheme %}
+ Use your keyboard, not your mouse: The mouse is for designers, not programmers. Learn your shortcuts.
+
+ Automate: If you find yourself doing a set of steps all the time, see if you can find a way to automate that. If there's a tool that automate that, prefer to use that tool instead of wasting your time re-inventing the wheel.
+
+ Close unnecessary windows and tabs: Only have the windows and tabs open in front of you that you really need. You won't need more than 5 browser tabs, or 5 code windows at a time in 90% of the cases. The more windows and tabs you have open, the more distractions you'll have, plus more chance for errors.
+
+ Aim for simplicity: If your application requires a reference list that gets updated once a year, you can write a SQL script to update the reference data. No need to waste your time creating an administration panel with security that's going to be used once a year! If your website requires a page to display the list of recent news, no need to go down the route of using design patterns to design something like Facebook's news feed, with lots of flexibility! A simple flat list would do the job.
+
+ Use design patterns "wisely": I've made this mistake numerous times for the sake of "flexibility". Flexibility comes at a cost. Not every application requires flexibility. Add that when it's required. Refactor with design patterns only when required, not right from the get go!
+
+ Use TDD "wisely": TDD is great, but it's very costly if done the wrong way. If you do it religiously, you'll get distracted from the original problem at hand and get obsessed with modifying and refactoring your tests more than the production code.
+
+ Reduce distractions: switch off your mobile, close your email client, don't answer phone calls, don't go to meetings, etc.
+{% endhighlight %}
+
+
 
 ## Technology is how you get to the solution, it is not THE solution
 We can get really carried away with the latest JavaScript framework—ahem, Angular—IoC container, programming language or even operating system, but all of these things are not actually solutions to the problems we are trying to solve as programmers, instead they are simply tools that help us solve the problems.
@@ -510,12 +530,3 @@ Believe me, this isn’t an easy task.
 Any fool can create a complex solution to a problem. It takes extra effort and care to refine a solution to make it simple, but still correct.
 
 Take the time. Put forth the effort. Strive for simplicity.
-
-What rules do you live by?
-So, those are my rules, but what about yours?
-
-What rules do you personally live by?
-
-What do you think is important to remember every day?
-
-Leave a comment below, and also, take a second to join over 10,000 other software developers who are part of the Simple Programmer community.
