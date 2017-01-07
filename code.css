@@ -24,15 +24,12 @@ pre {
 }
 
 .highlight {
-    font-size: 0.8em;
-    line-height: 1.5;
-    font-weight: bold;
-    padding: 0.3em 0.5em;
-    margin-top: 0.6em;
-    margin-bottom: 1em;
-    background: #151515;
-    color: #E6E1DC;
-    position: relative;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
 }
 
 .pop_highlight {
