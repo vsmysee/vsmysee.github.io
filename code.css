@@ -1,17 +1,4 @@
-pre {
-    display: block;
-    padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.42857143;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    background: #151515;
-    color: #151515;
-    border: 1px solid #151515;
-    border-radius: 4px;
-}
+
 
 .codezoom {
     position: absolute;
@@ -23,7 +10,7 @@ pre {
     cursor: pointer;
 }
 
-.highlight {
+.highlight pre {
     padding: 16px;
     overflow: auto;
     font-size: 85%;
