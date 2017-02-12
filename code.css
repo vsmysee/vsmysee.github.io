@@ -10,13 +10,18 @@
     cursor: pointer;
 }
 
+.highlight {
+    position: relative;
+}
+
 .highlight pre {
     padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #444343;
+    background-color: #020202;
     border-radius: 3px;
+
 }
 
 .pop_highlight {

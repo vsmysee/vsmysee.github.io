@@ -23,7 +23,7 @@ var asyLoadImg = function (option) {
 
     if (typeof option == "String") {
         createImg(option);
-    } else if (option instanceof  Array) {
+    } else if (option instanceof Array) {
         for (var i = 0; i < option.length; i++) {
             createImg(option[i]);
         }
@@ -198,51 +198,6 @@ SlideBox.prototype = {
 
 $(function () {
 
-    //返回顶部
-    (function () {
-
-        if (getDocumentHeight() - getWindowHeight() < 290) {
-            $("#next_page,#pre_page").css({opacity: 1});
-        }
-
-        if (getDocumentHeight() > getWindowHeight() + 500) {
-            var toTop = document.createElement("div"),
-                pot_t = 0,
-                pot_b = 1;
-
-            toTop.id = "to_top";
-            toTop.className = "to_top";
-            var toright = (getWindowWidth() - 1000) / 2 - 40 - 10;
-
-
-            $(window).bind("scroll.toTop", function () {
-                var scrollTop = $(document).scrollTop();
-                if (scrollTop > 290 && pot_t == 0) {
-                    $(toTop).stop().animate({"right": toright, "opacity": "1"}, 200);
-
-                    fuckScreen();
-
-                    pot_t = 1;
-                    pot_b = 0;
-                } else if (scrollTop < 290 && pot_b == 0) {
-                    $(toTop).stop().animate({"right": "-60px", "opacity": "0"}, 200);
-                    pot_t = 0;
-                    pot_b = 1;
-
-                    $("#next_page,#pre_page").animate({opacity: 0.01});
-
-                }
-            });
-
-            document.body.appendChild(toTop);
-            toTop.onclick = function () {
-                $("html,body").animate({scrollTop: 0}, 500);
-            };
-        }
-
-    })();
-
-
     var pop = new Pop({
         w: 1000,
         h: 600,
@@ -255,7 +210,8 @@ $(function () {
                 root.setMarginTop(-height / 2);
             });
 
-        }});
+        }
+    });
 
     pop.setContent(document.getElementById("profile_html").innerHTML);
 
@@ -271,18 +227,66 @@ $(function () {
         });
     };
 
-    if (getWindowWidth() < 1500) {
-        $("#baby").css({display: "none"});
-        $("#left-nav").css({display:"none"});
-    } else {
-        $("#baby").click(showProfile);
-        if (location.href.indexOf("blog") != -1) {
-            $("#baby").css({left: 10});
-            $("#baby").delay(1500).animate({left: -300});
-        } else {
-            $("#baby").delay(1000).animate({left: 10});
+    //返回顶部
+    (function () {
+
+        if (getDocumentHeight() - getWindowHeight() < 290) {
+            $("#next_page,#pre_page").css({opacity: 1});
         }
-    }
+
+        if (getDocumentHeight() > getWindowHeight() + 500) {
+
+
+            var toTop = document.createElement("div"), aboutMe = document.createElement("div"),
+                pot_t = 0,
+                pot_b = 1;
+
+            toTop.id = "to_top";
+            toTop.className = "to_top";
+
+            aboutMe.id = "me";
+            aboutMe.className = "me";
+
+
+            var toright = (getWindowWidth() - 1000) / 2 - 40 - 20;
+
+
+            $(window).bind("scroll.toTop", function () {
+                var scrollTop = $(document).scrollTop();
+                if (scrollTop > 290 && pot_t == 0) {
+                    $(toTop).stop().animate({"right": toright, "opacity": "1"}, 200);
+                    $(aboutMe).stop().animate({ "opacity": "0"}, 200);
+
+
+                    fuckScreen();
+
+                    pot_t = 1;
+                    pot_b = 0;
+                } else if (scrollTop < 290 && pot_b == 0) {
+                    $(toTop).stop().animate({"right": "-60px", "opacity": "0"}, 200);
+                    $(aboutMe).stop().animate({"opacity": "1"}, 200);
+
+                    pot_t = 0;
+                    pot_b = 1;
+
+                    $("#next_page,#pre_page").animate({opacity: 0.01});
+
+                }
+            });
+
+            document.body.appendChild(toTop);
+            document.body.appendChild(aboutMe);
+
+
+
+            toTop.onclick = function () {
+                $("html,body").animate({scrollTop: 0}, 500);
+            };
+
+            aboutMe.onclick = showProfile;
+        }
+
+    })();
 
 
     //给代码段加入放大图标
