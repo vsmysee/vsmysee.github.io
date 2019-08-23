@@ -1,4 +1,4 @@
-url: "http://www.codingbaby.com"
+url: "http://vsmysee.github.io"
 baseurl: ""
 permalink: /blog/:year/:month/:day/:title
 markdown: kramdown
