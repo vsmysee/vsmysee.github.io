@@ -2,7 +2,7 @@ url: "http://vsmysee.github.io"
 baseurl: ""
 permalink: /blog/:year/:month/:day/:title
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 date_format: "ordinal"
 paginate: 15
 paginate_path: "blog/page:num"
