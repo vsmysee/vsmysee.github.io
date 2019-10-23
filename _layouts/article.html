@@ -1,8 +1,11 @@
 {% include head.html %}
 
 <article id="article" class="wp">
-    <h1 style="text-align: center;margin: 20px 0;border-bottom: 2px #000 solid" class="clearfix"><span class="date fr">{{ page.date | date: "%Y年/%m月/%d日" }}</span><a
-            class="fl" href="/">回首页</a>{{page.title}}</h1>
+    <h1 style="text-align: center;margin: 20px 0;border-bottom: 2px #000 solid" class="clearfix">
+        <span class="date fr">{{ page.date | date: "%Y年/%m月/%d日" }}</span>
+        <a class="fl ba" href="/">返回</a>
+        {{page.title}}
+    </h1>
     {{content}}
 </article>
 
