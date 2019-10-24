@@ -3,11 +3,12 @@ layout: article
 title: 和httpclient玩耍
 ---
 本文是对各种httpclient的玩耍总结，不同的client表现出来的是不同的使用风格，我们在使用时需要注意对client对象生命周期和线程安全性的关注
-文中包含使用代码和对于源码的部分提取
+文中包含部分使用代码和对于库源码的部分提取
 
 ## Java Lib
 {% highlight java %}
 
+//最原始的调用
 URL url = new URL(urlStr);
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 conn.setConnectTimeout(3000);
@@ -33,8 +34,26 @@ HttpResponse<String> response = client.send(request, HttpResponse.BodyHandler.as
 ## Jodd
 没有连接池，直接在socket上解析
 {% highlight java %}
+
 String text = HttpRequest.get(urlStr).timeout(3000).connectionTimeout(3000).send().bodyText();
 System.out.println(text);
+
+
+HttpRequest httpRequest = HttpRequest
+        .post("http://srv:8080/api/dlapp/add-file-entry")
+        .form(
+            "repositoryId", "10178",
+            "folderId", "11219",
+            "sourceFileName", "a.zip",
+            "mimeType", "application/zip",
+            "title", "test",
+            "description", "Upload test",
+            "changeLog", "testing...",
+            "file", new File("d:\\a.jpg.zip")
+        );
+
+HttpResponse httpResponse = httpRequest.send();
+    
 {% endhighlight %}
 
 ## Apache
@@ -49,6 +68,7 @@ HttpGet httpGet = new HttpGet(urlStr);
 httpGet.setConfig(config);
 HttpEntity entity = client.execute(httpGet).getEntity();
 System.out.println(EntityUtils.toString(entity));
+
 {% endhighlight %}
 
 ## Apache fluent
@@ -65,6 +85,16 @@ System.out.println(Request.Get(urlStr).connectTimeout(3000).socketTimeout(3000).
 这个库是对apache的封装
 {% highlight java %}
 System.out.println(Unirest.get(urlStr).connectTimeout(3000).socketTimeout(3000).asString().getBody());
+
+CompletableFuture<HttpResponse<JsonNode>> future = Unirest.post("http://httpbin.org/post")
+  .header("accept", "application/json")
+  .field("param1", "value1")
+  .field("param2", "value2")
+  .asJsonAsync(response -> {
+        int code = response.getStatus();
+        JsonNode body = response.getBody();
+    });
+    
 {% endhighlight %}
 
 
@@ -84,6 +114,17 @@ try (Response response = client.newCall(request).execute()) {
 } catch (IOException e) {
     e.printStackTrace();
 }
+
+
+RequestBody body = RequestBody.create(JSON, json);
+Request request = new Request.Builder()
+  .url(url)
+  .post(body)
+  .build();
+try (Response response = client.newCall(request).execute()) {
+return response.body().string();
+}
+
 {% endhighlight %}
 
 
@@ -94,6 +135,17 @@ Future<Response> responseFuture = Dsl.asyncHttpClient()
         .prepareGet(urlStr)
         .execute();
 String res = responseFuture.get().getResponseBody();
+
+
+CompletableFuture<Response> whenResponse = asyncHttpClient
+            .prepareGet("http://www.example.com/")
+            .execute()
+            .toCompletableFuture()
+            .exceptionally(t -> { /* Something wrong happened... */  } )
+            .thenApply(response -> { /*  Do something with the Response */ return resp; });
+whenResponse.join(); 
+
+
 {% endhighlight %}
 
 ## ApacheHttpAsyncClient
@@ -131,6 +183,11 @@ RestTemplate是线程安全的
 RestTemplate restTemplate = new RestTemplate();
 String forObject = restTemplate.getForObject(urlStr, String.class);
 System.out.println(forObject);
+
+//Template with Apache Http
+HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
+clientHttpRequestFactory.setHttpClient(httpClient);
+RestTemplate restTemplate = new RestTemplate(clientHttpRequestFactory());
 
 //异步
 Mono<String> mono = WebClient.create().method(HttpMethod.GET).uri(urlStr).retrieve().bodyToMono(String.class);
