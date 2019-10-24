@@ -3,9 +3,9 @@ layout: article
 title: 和httpclient玩耍
 ---
 本文是对各种httpclient的玩耍总结，不同的client表现出来的是不同的使用风格，我们在使用时需要注意对client对象生命周期和线程安全性的关注
-文中包含部分使用代码和对于库源码的部分提取
+文中包含部分使用代码和对于库源码的部分提取。推荐一个测试http的站点:https://httpbin.org/headers
 
-## Java Lib
+## JDK自带
 {% highlight java %}
 
 //最原始的调用
@@ -34,6 +34,12 @@ HttpResponse<String> response = client.send(request, HttpResponse.BodyHandler.as
 ## Jodd
 没有连接池，直接在socket上解析
 {% highlight java %}
+
+<dependency>
+    <groupId>org.jodd</groupId>
+    <artifactId>jodd-http</artifactId>
+    <version>5.0.13</version>
+</dependency>
 
 String text = HttpRequest.get(urlStr).timeout(3000).connectionTimeout(3000).send().bodyText();
 System.out.println(text);
