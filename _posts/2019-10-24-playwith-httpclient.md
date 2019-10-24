@@ -84,6 +84,13 @@ System.out.println(Request.Get(urlStr).connectTimeout(3000).socketTimeout(3000).
 ## Unirest
 这个库是对apache的封装
 {% highlight java %}
+
+<dependency>
+    <groupId>com.konghq</groupId>
+    <artifactId>unirest-java</artifactId>
+    <version>3.1.02</version>
+</dependency>
+        
 System.out.println(Unirest.get(urlStr).connectTimeout(3000).socketTimeout(3000).asString().getBody());
 
 CompletableFuture<HttpResponse<JsonNode>> future = Unirest.post("http://httpbin.org/post")
@@ -128,9 +135,18 @@ return response.body().string();
 {% endhighlight %}
 
 
-## asynchttpclient
+## AsynchttpClient
 Dsl类创建出来的DefaultAsyncHttpClient是线程安全的
 {% highlight java %}
+
+
+<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.4</version>
+</dependency>
+
+
 Future<Response> responseFuture = Dsl.asyncHttpClient()
         .prepareGet(urlStr)
         .execute();
@@ -150,6 +166,7 @@ whenResponse.join();
 
 ## ApacheHttpAsyncClient
 {% highlight java %}
+        
 CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
 client.start();
 
@@ -187,7 +204,7 @@ System.out.println(forObject);
 //Template with Apache Http
 HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
 clientHttpRequestFactory.setHttpClient(httpClient);
-RestTemplate restTemplate = new RestTemplate(clientHttpRequestFactory());
+RestTemplate restTemplate = new RestTemplate(clientHttpRequestFactory);
 
 //异步
 Mono<String> mono = WebClient.create().method(HttpMethod.GET).uri(urlStr).retrieve().bodyToMono(String.class);
