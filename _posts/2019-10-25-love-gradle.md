@@ -15,7 +15,7 @@ task onetask {
 }
 {% endhighlight %}
 
-有了Project和Task，剩下的就是如何协调Task的问题，Gradle里存在一个核心数据结构：Directed acyclic graph (有向五环图),所有的Task会被编排到这个数据结构上进行调度执行。
+有了Project和Task，剩下的就是如何协调Task的问题，Gradle里存在一个核心数据结构：Directed acyclic graph (有向无环图),所有的Task会被编排到这个数据结构上进行调度执行。
 build.gradle是一个DSL，本身就是代码，所以Gradle可以实现任何你想到的构建模型。
 
 在maven里，我们需要pom.xml和一个约定的文件夹结构，在gradle里只需要一个build.gradle,而把文件夹的结构解析交给了另一个模型：Plugin（插件），所以你会发现Gradle把组件抽象得单一和内聚。
@@ -26,6 +26,7 @@ build.gradle是一个DSL，本身就是代码，所以Gradle可以实现任何�
 
 ## 如何构建
 构建的过程其实就是编写一系列的Task，你可以在Task里对工程的目录进行约定，调用javac,jar等命令进行打包操作，Gradle的内核只是执行这些Task
+
 定义：
 {% highlight groovy %}
 task helloWorld << {
@@ -49,13 +50,29 @@ plugins {
     id 'java'
 }
 {% endhighlight %}
-有了这个java插件之后，就自动获取了一系列好用的Task,比如build,clean,jar,assemble
+有了这个java插件之后，就自动获取了一系列好用的Task,比如build,clean,jar,assemble，自动获得了约定，比如src/main,src/test, 各种语言的编译都可以采用自己独立的约定结构，这绝对是对Maven来说最大的打击。
+
+多项目构建时就在settings.gradle中声明子文件夹：include 'projectA','projectB','projectC'
 
 ## 生命周期
-不同于maven，gradle没有在对项目进行构建时约定固定的生命周期，这里的生命周期是gradle自身运行的几个阶段，可以理解为对于构建过程透明，不做逻辑干涉。
+不同于maven，gradle没有构建时约定固定的生命周期，这里的生命周期是gradle自身运行的几个阶段，可以理解为对于构建过程透明，不做逻辑干涉, 一共有三个：
 
 Initialization初始化：创建项目(Project)实例,执行settings.gradle
 
 Configuration配置：配置Project对象
 
 Execution执行：执行Task
+
+## 依赖管理
+真实的项目我们常常需要依赖第三方库，gradle直接利用现在的生态，声明仓库即可,然后再声明你要依赖的包
+{% highlight groovy %}
+
+repositories {
+          mavenCentral()
+}
+
+dependencies {
+          implementation("org.springframework:spring-web:5.0.2.RELEASE")
+}
+
+{% endhighlight %}
