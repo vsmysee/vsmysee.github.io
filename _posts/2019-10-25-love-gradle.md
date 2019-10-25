@@ -6,7 +6,7 @@ title: 好喜欢gradle
 如果以这个观点来审视gradle，我觉得也非常的合适，模块化，概念简单，组合性都是那么的美妙
 
 ## 特征
-Gradle出现在Ant，Maven之后，这个时Groovy动态语言已经足够成熟，业界已经开始被DSL语言推动，比如Ruby，所以在继承前构建工具的优点前提下可以毫无负担的大胆设计，这种感觉在我喜欢的另一个测试框架Spock
+Gradle出现在Ant，Maven之后，这时Groovy动态语言已经足够成熟，业界已经开始被DSL语言推动，比如Ruby，所以在继承前构建工具的优点前提下可以毫无负担的大胆设计，这种感觉在我喜欢的另一个测试框架Spock
 上也体验到了,根据官网文档描述，有如下特征
 
 1. 声明式构建
@@ -70,6 +70,26 @@ plugins {
 有了这个java插件之后，就自动获取了一系列好用的Task,比如build,clean,jar,assemble，自动获得了约定，比如src/main,src/test, 各种语言的编译都可以采用自己独立的约定结构，这绝对是对Maven来说最大的打击。
 
 多项目构建时就在settings.gradle中声明子文件夹：include 'projectA','projectB','projectC'
+
+当项目没有生命任何插件的时候，Gradle默认加载了一些插件，可以直接使用的一些Task如下
+{% highlight groovy %}
+
+Build Setup tasks:
+init
+wrapper
+
+Help tasks:
+dependencies
+projects
+properties
+tasks
+help
+model
+buildEnvironment
+components
+dependentComponents
+{% endhighlight %}
+
 
 ## 生命周期
 不同于maven，gradle没有构建时约定固定的生命周期，这里的生命周期是gradle自身运行的几个阶段，可以理解为对于构建过程透明，不做逻辑干涉, 一共有三个：
