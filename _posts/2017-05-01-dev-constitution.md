@@ -8,6 +8,53 @@ title: 收集的开发章程
 
 [开源行为准侧](https://www.contributor-covenant.org/)
 
+
+## Unix
+
+```
+
+Write programs that do one thing and do it well.
+Write programs to work together.
+Write programs to handle text streams, because that is a universal interface.
+
+
+Rule of Modularity: Write simple parts connected by clean interfaces.
+Rule of Clarity: Clarity is better than cleverness.
+Rule of Composition: Design programs to be connected to other programs.
+Rule of Separation: Separate policy from mechanism; separate interfaces from engines.
+Rule of Simplicity: Design for simplicity; add complexity only where you must.
+Rule of Parsimony: Write a big program only when it is clear by demonstration that nothing else will do.
+Rule of Transparency: Design for visibility to make inspection and debugging easier.
+Rule of Robustness: Robustness is the child of transparency and simplicity.
+Rule of Representation: Fold knowledge into data so program logic can be stupid and robust.
+Rule of Least Surprise: In interface design, always do the least surprising thing.
+Rule of Silence: When a program has nothing surprising to say, it should say nothing.
+Rule of Repair: When you must fail, fail noisily and as soon as possible.
+Rule of Economy: Programmer time is expensive; conserve it in preference to machine time.
+Rule of Generation: Avoid hand-hacking; write programs to write programs when you can.
+Rule of Optimization: Prototype before polishing. Get it working before you optimize it.
+Rule of Diversity: Distrust all claims for “one true way”.
+Rule of Extensibility: Design for the future, because it will be here sooner than you think.
+
+```
+
+
+## Xwindow
+
+```
+Small is beautiful.
+Make each program do one thing well.
+Build a prototype as soon as possible.
+Choose portability over efficiency.
+Store data in flat text files.
+Use software leverage to your advantage.
+Use shell scripts to increase leverage and portability.
+Avoid captive user interfaces.
+Make every program a filter.
+
+```
+
+
 ## Elasticsearch
 
 [原文](https://github.com/elastic/engineering/blob/master/development_constitution.md)
@@ -111,6 +158,67 @@ Namespaces are one honking great idea -- let's do more of those!	Namespaces are 
 始终避免复杂化，我们认为设计一个系统的本质，就是与复杂化作战
 支持两个层面的 API，第一个层面包含部分操作 API，但它支持用于分布式环境下的 Redis。第二个层面的 API 支持更复杂的 multi-key 操作
 我们以优化代码为乐，我们相信编码是一件辛苦的工作，唯一对得起这辛苦的就是去享受它
+
+
+```
+
+
+## Paul Merlyn 的观点
+
+[英文](https://www.infoq.com/articles/simplicity-manifesto-development)
+
+复杂
+```
+复杂度是软件公司成长和盈利的最大障碍。
+开发成本随代码库的复杂度增加呈指数增长。
+在进度和简洁之间做选择是一个错误的二分法。对简洁的投资就是对进度的投资。
+很少有高管认识到复杂度的代价，因为他们不了解其销售的产品的性质。
+软件是一种比较特殊的产品，它混合了产品和服务，带有非常独特的质保。
+
+```
+
+简洁
+```
+学习
+领导力
+重新评估
+有策略地招聘
+知识管理
+脚踏实地
+
+```
+
+
+## TIDB
+
+[原文](https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&mid=2247484474&idx=1&sn=0d9a5ab3beb2783cfca3d3b22a567dfc&chksm=eb162350dc61aa46dfc8156b5b92d404d0785b5dff60bd1e6bca42a60109cf1dc30857f1e811#rd)
+
+```
+所有计算机科学里面的问题都可以把它不停地抽象，抽象到另外一个层次上去解决
+Talk is cheap，show me the tests
+对于一个架构师来说，所有的工作都是在去规避复杂度，提升开发效率和稳定性
+Where there’s a metric there’s a way
+做基础软件的工程师，最好的方式就是润物细无声
+不要意外
+悲观预设 永远都会有各种各样的恶心事情和异常的状况发生
+```
+
+
+## Tobias Günther的观点
+
+[原文](https://www.git-tower.com/blog/dev-philosophy-1/)
+
+```
+Applications Need Solid Foundations
+Choosing the Boring Solution
+Coding the Lego Way
+Aiming for Simplicity
+Constantly Redefining the Term "Edge Case"
+Creating Good APIs
+Design Patterns
+Embrace Best Practices
+Fashion-Driven Development
+Stack-Overflow-Driven Development
 
 
 ```

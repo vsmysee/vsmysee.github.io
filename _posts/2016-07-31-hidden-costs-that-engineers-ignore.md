@@ -2,8 +2,10 @@
 layout: article
 title: 工程师忽略的隐形成本
 ---
-拷贝自[互联网](http://www.labazhou.net/2015/01/hidden-costs-that-engineers-ignore),[英文版](http://www.theeffectiveengineer.com/blog/hidden-costs-that-engineers-ignore)
 有时候我们说，“实现这个功能，我只花了几个小时”。但是完成之后，我们发现每隔几周，我们要么在修复该功能的bug、向另一个工程师解释，要么做客服回答问题、以解释其工作原理。维护该功能总的投入时间要远远超过最初开发的几个小时
+
+
+[英文版](http://www.theeffectiveengineer.com/blog/hidden-costs-that-engineers-ignore)
 
 
 软件开发中内化的最艰难教训之一就是额外复杂度所带来的隐形成本。有时候，复杂度在问题领域只是固有的。为了匹配乘客和司机，通过调整价格来平衡供求是一个复杂和痛苦的问题。因此，在扩大一个社区和维护社区质量的时候，把问题和答案疏通到喜欢回答和看问题的人们那里，也是如此。
