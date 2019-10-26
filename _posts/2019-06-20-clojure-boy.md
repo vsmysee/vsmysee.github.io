@@ -2,7 +2,7 @@
 layout: article
 title: 一个clojure大师
 ---
-Clojure这个语言值得学到东西非长多，其作者的很多软件设计理念也非常值得研究，比如rich hickey说SCIP的学习其实对于你学习clojure帮助不大
+Clojure这个语言值得学到东西非常多，其作者的很多软件设计理念也非常值得研究，比如rich hickey说SCIP的学习其实对于你学习clojure帮助不大
 本文是摘取了一个国内clojure程序员的一个文章，貌似这个大哥对clojure的理解非常的深入
 
 大家可以follow下他的github
