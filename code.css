@@ -1,5 +1,4 @@
 
-
 .codezoom {
     position: absolute;
     right: 0px;
@@ -40,6 +39,10 @@
     word-wrap: break-word;
     font-family: Monaco, Menlo, "Ubuntu Mono", consolas, source-code-pro, "Courier New", monospace;
     font-weight: 700;
+}
+
+.language-plaintext highlighter-rouge {
+    color: white;
 }
 
 .highlight .hll {
