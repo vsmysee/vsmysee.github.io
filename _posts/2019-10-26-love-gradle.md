@@ -67,6 +67,13 @@ plugins {
     id 'java'
 }
 {% endhighlight %}
+或者:
+
+{% highlight groovy %}
+apply plugin: 'java'
+{% endhighlight %}
+
+
 有了这个java插件之后，就自动获取了一系列好用的Task,比如build,clean,jar,assemble，自动获得了约定，比如src/main,src/test, 各种语言的编译都可以采用自己独立的约定结构，这绝对是对Maven来说最大的打击。
 
 多项目构建时就在settings.gradle中声明子文件夹：include 'projectA','projectB','projectC'
@@ -89,6 +96,23 @@ buildEnvironment
 components
 dependentComponents
 {% endhighlight %}
+
+由于build.gradle本身就是一个构建程序，加入你自己的Task需要依赖一些第三方包怎么办？这时你需要声明依赖：
+
+{% highlight groovy %}
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.14'
+    }
+}
+{% endhighlight %}
+
 
 
 ## 生命周期
