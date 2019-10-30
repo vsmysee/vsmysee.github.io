@@ -5,6 +5,16 @@ title: 文本相似度和距离
 最近在做文本比较相关的工作，接触到了如下一些算法，每一种算法都有它自身的优点和缺陷，没有一种算法能够完全满足业务的要求
 所以我们所需要做的工作就是如何取舍
 
+
+来源于两个库
+
+```
+compile group: 'info.debatty', name: 'java-string-similarity', version: '1.2.1'
+compile group: 'org.apache.commons', name: 'commons-text', version: '1.8'
+```
+
+
+
 ## 相似度
 
 Cosine
