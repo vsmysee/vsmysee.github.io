@@ -2,7 +2,7 @@
 layout: article
 title: François Chollet的观点
 ---
-François Chollet是Python人工神经网络库的作者，本文是他多年来目睹、亲身经历的软件工程师经验总结。虽然在实际操作中，不少人会被公司管理层的各种要求逼上歧途，但凡事重在不忘初心
+François Chollet是Python人工神经网络库keras的作者，本文是他多年来目睹、亲身经历的软件工程师经验总结。虽然在实际操作中，不少人会被公司管理层的各种要求逼上歧途，但凡事重在不忘初心
 
 
 [原文](https://medium.com/s/story/notes-to-myself-on-software-engineering-c890f16f4e4d)
