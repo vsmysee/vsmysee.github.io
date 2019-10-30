@@ -30,6 +30,7 @@ The similarity between the two strings is the cosine of the angle between
 these two vectors representation. It is computed as V1 . V2 / (|V1| * |V2|)
 The cosine distance is computed as 1 - cosine similarity.
 ```
+
 {% highlight java %}
 
 Cosine cos = new Cosine(3);
@@ -41,7 +42,7 @@ Cosine cos = new Cosine(3);
         // => similarity = .71
 System.out.println(cos.similarity("ABC", "ABCE"));
         
-% endhighlight %}
+{% endhighlight %}
 
 
 JaroWinkler(基于字符)
@@ -78,6 +79,7 @@ Jaccard j2 = new Jaccard(2);
         // 1  1  1  0  1
         // => 3 / 5 = 0.6
 System.out.println(j2.similarity("ABCDE", "ABCDF"));
+
 {% endhighlight %}
 
 
