@@ -13,20 +13,38 @@ compile group: 'info.debatty', name: 'java-string-similarity', version: '1.2.1'
 compile group: 'org.apache.commons', name: 'commons-text', version: '1.8'
 ```
 
+这个领域的算法的分类:
+- 基于词向量
+- 基于具体字符
+- 基于概率统计
+- 基于词嵌入的
+
 
 
 ## 相似度
 
-Cosine
+Cosine (余弦向量)
 
 ```
 The similarity between the two strings is the cosine of the angle between
 these two vectors representation. It is computed as V1 . V2 / (|V1| * |V2|)
 The cosine distance is computed as 1 - cosine similarity.
 ```
+{% highlight java %}
+
+Cosine cos = new Cosine(3);
+
+        // ABC BCE
+        // 1  0
+        // 1  1
+        // angle = 45°
+        // => similarity = .71
+System.out.println(cos.similarity("ABC", "ABCE"));
+        
+% endhighlight %}
 
 
-JaroWinkler
+JaroWinkler(基于字符)
 
 
 ```
@@ -41,7 +59,7 @@ The distance is computed as 1 - Jaro-Winkler similarity.
 ```
 
 
-Jaccard
+Jaccard(基于集合)
 
 ```
 Each input string is converted into a set of n-grams, the Jaccard index is
@@ -52,16 +70,38 @@ the cardinality of each n-gram is not taken into account.
 Distance is computed as 1 - cosine similarity.
 ```
 
+{% highlight java %}
 
-SorensenDice
+Jaccard j2 = new Jaccard(2);
+        // AB BC CD DE DF
+        // 1  1  1  1  0
+        // 1  1  1  0  1
+        // => 3 / 5 = 0.6
+System.out.println(j2.similarity("ABCDE", "ABCDF"));
+{% endhighlight %}
+
+
+SorensenDice (Jaccard相似)
 
 ```
 Similar to Jaccard index, but this time the similarity is computed as 2 * |V1
 inter V2| / (|V1| + |V2|). Distance is computed as 1 - cosine similarity.
 ```
 
+{% highlight java %}
 
-NormalizedLevenshtein
+SorensenDice sd = new SorensenDice(2);
+
+        // AB BC CD DE DF FG
+        // 1  1  1  1  0  0
+        // 1  1  1  0  1  1
+        // => 2 x 3 / (4 + 5) = 6/9 = 0.6666
+System.out.println(sd.similarity("ABCDE", "ABCDFG"));
+
+{% endhighlight %}
+
+
+NormalizedLevenshtein(基于字符)
 
 ```
 This distance is computed as levenshtein distance divided by the length of
@@ -70,7 +110,7 @@ but it is not a metric anymore! The similarity is computed as 1 - normalized
 distance.
 ```
 
-IntersectionSimilarity
+IntersectionSimilarity(基于集合)
 
 ```
 Measures the intersection of two sets created from a pair of character sequences
@@ -101,7 +141,7 @@ Distance metric based on Longest Common Subsequence, from the notes "An
 LCS-based string metric" by Daniel Bakkelund.
 ```
 
-Damerau
+Damerau(基于字符)
 
 ```
 Implementation of Damerau-Levenshtein distance with transposition (also
@@ -118,7 +158,7 @@ is an extension where no substring can be edited more than once.
 
 
 
-Levenshtein
+Levenshtein(基于字符)
 
 ```
 The Levenshtein distance between two words is the minimum number of
@@ -126,7 +166,7 @@ single-character edits (insertions, deletions or substitutions) required to
 change one string into the other.
 ```
 
-LongestCommonSubsequence
+LongestCommonSubsequence(基于字符)
 
 
 ```
@@ -148,7 +188,7 @@ is the double of the cost of an insertion or deletion.
 a space requirement O(m * n)!
 ```
 
-NGram
+NGram(基于统计)
 
 ```
 N-Gram Similarity as defined by Kondrak, "N-Gram Similarity and Distance",
@@ -160,7 +200,7 @@ weight of first characters. The normalization is achieved by dividing the
 total similarity score the original length of the longest word.
 ```
 
-OptimalStringAlignment
+OptimalStringAlignment(字符串对齐)
 
 ```
 Implementation of the the Optimal String Alignment (sometimes called the
@@ -172,7 +212,7 @@ strings equal under the condition that no substring is edited more than once,
 whereas Damerau-Levenshtein presents no such restriction.
 ```
 
-QGram
+QGram(基于统计)
 
 
 ```
@@ -191,7 +231,7 @@ Implementation of Levenshtein that allows to define different weights for
 different character substitutions.
 ```
 
-HammingDistance
+HammingDistance(相等长度字符串)
 
 ```
 The hamming distance between two strings of equal length is the number of
