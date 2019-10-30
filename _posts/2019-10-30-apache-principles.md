@@ -2,7 +2,8 @@
 layout: article
 title: Apache架构师带给你的原则
 ---
-本文作者是Srinath Perera，Apache架构师，是Axis2, WSO2 Stream Processor的设计师，看看他的带给我们的原则
+本文作者是Srinath Perera，Apache架构师，是Axis2, WSO2 Stream Processor的设计师，看看他的带给我们的原则，特别喜欢这些老程序员
+经过了岁月历练之后带给我们的尊尊教诲.
      
      
 [原文](https://medium.com/hackernoon/first-do-no-harm-30-principles-that-helped-me-avoid-fly-by-architecture-reviews-e8952ac632a)

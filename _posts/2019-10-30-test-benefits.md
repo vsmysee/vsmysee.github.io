@@ -2,8 +2,9 @@
 layout: article
 title: 单元测试的好处
 ---
-这所以一篇很老的文章，写于2006年，关于要写测试这个习惯我悲观的估计在国内可能再过十年都未必能流行起来
+这是一篇很老的文章，写于2006年，关于要写测试这个习惯我悲观的估计在国内可能再过十年都未必能流行起来
 观念不改，止步不前
+
 
 [原文](http://sd.jtimothyking.com/2006/07/11/twelve-benefits-of-writing-unit-tests-first/)
 
