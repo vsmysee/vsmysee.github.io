@@ -5,7 +5,8 @@ title: 十年学会编程
 这又是一篇古老的文章，作者是google工程师Peter Norvig, 文章警告，你可能需要十年的编码才入门，只可惜，在这个浮躁的圈子里，十年之后是大量
 的人开始放弃，开始管理别人，而殊不知自己还是个外行，以至于恶性循环
 
-【原文](http://norvig.com/21-days.html)
+[原文](http://norvig.com/21-days.html)    
+[翻译](http://daiyuwen.freeshell.org/gb/misc/21-days-cn.html)
 
 ## 为何人人都这么着急？
 因为太多人想走捷径，其实没有捷径，不需要相信21天学通某门学问的鬼话
