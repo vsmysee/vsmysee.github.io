@@ -1,8 +1,9 @@
 ---
 layout: article
-title: Apache架构带给你的原则
+title: Apache架构师带给你的原则
 ---
 本文作者是Srinath Perera，Apache架构师，是Axis2, WSO2 Stream Processor的设计师，看看他的带给我们的原则
+     
      
 [原文](https://medium.com/hackernoon/first-do-no-harm-30-principles-that-helped-me-avoid-fly-by-architecture-reviews-e8952ac632a)
 
@@ -11,8 +12,14 @@ title: Apache架构带给你的原则
 我把最后的总结提前了：
 
 ```
-Finally, let me talk about something that I have changed my mind about over time. In an ideal world, a platform must be composed of orthogonal components — components where each handles one aspect (e.g., security, messaging, registry, mediation, analytics). A system built with such features would be optimal.
-Unfortunately, it is hard to get to that state. It is even hard to stay there. It could be a mistake to enforce this rigidly, especially at the initial state of new features where simple features can cascade into big changes because we try to make everything orthogonal. Sometimes we find that the feature we added was not useful after all and then all the additional work is spent for nothing. Finally, if this lead to negotiations between multiple teams, the feature might never get done.
+Finally, let me talk about something that I have changed my mind about over time. In an ideal world, 
+a platform must be composed of orthogonal components — components where each handles one aspect (e.g., security, messaging, registry, mediation, analytics). 
+A system built with such features would be optimal.
+
+Unfortunately, it is hard to get to that state. It is even hard to stay there. It could be a mistake to enforce this rigidly, 
+especially at the initial state of new features where simple features can cascade into big changes because we try to make everything orthogonal. 
+Sometimes we find that the feature we added was not useful after all and then all the additional work is spent for nothing. Finally, 
+if this lead to negotiations between multiple teams, the feature might never get done.
 With hindsight, now I am willing to live with duplication when trying to remove it lead to significant complexity. The cure can be worse than the disease.
 
 ```
