@@ -47,6 +47,7 @@ Send packet CA->Netherlands->CA ................ 150,000,000 ns = 150 ms
 
 
 ```
+执行一条指令 1ns
 TCP包重传1到3秒
 局域网ping一台主机百微秒
 Redis一次查询百微秒
