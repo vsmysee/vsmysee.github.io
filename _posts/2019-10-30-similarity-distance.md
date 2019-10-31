@@ -6,7 +6,7 @@ title: 文本相似度和距离
 所以我们所需要做的工作就是如何取舍
 
 
-来源于两个库
+参考两个库
 
 ```
 compile group: 'info.debatty', name: 'java-string-similarity', version: '1.2.1'
@@ -117,6 +117,12 @@ IntersectionSimilarity(基于集合)
 ```
 Measures the intersection of two sets created from a pair of character sequences
 ```
+
+SimpleHash
+
+[谷歌使用的算法](http://www.lanceyan.com/tech/arch/simhash_hamming_distance_similarity.html)
+
+将文本分词，然后压缩到一个01串上进行距离比较
 
 
 ## 距离
