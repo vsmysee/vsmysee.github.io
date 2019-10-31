@@ -21,6 +21,19 @@ Gradle出现在Ant，Maven之后，这时Groovy动态语言已经足够成熟，
 10. Grooy语言
 11. 包装器
 12. 自由开源
+13. 高性能
+14. 基于JVM
+15. 约定
+16. 强大的IDE支持
+17. 洞察力
+
+## 扩展方式
+1. 定制任务类型
+2. 定制任务动作
+3. 属性控制
+4. 定制约定
+5. 定制模型
+
 
 ## 核心概念
 Gradle的核心概念只有两个，一个是项目Project，一个是任务Task, 用领域驱动的说法，这就是它的核心领域模型，一个项目对应一个build.gradle文件，这个文件叫构建脚本，然后文件中包含各种
@@ -55,6 +68,13 @@ org.gradle.parallel=true
 
 定义：
 {% highlight groovy %}
+
+task myTask {
+   doLast {
+   }
+}
+
+//<<写法新版已经废弃
 task helloWorld << {
     println "Hello World!"
 }
@@ -124,6 +144,116 @@ buildscript {
 }
 {% endhighlight %}
 
+执行./gradlew properties我们会得到这个项目的所有属性，这些属性我们都可以在Task中访问到
+
+```
+allprojects: [root project 'demogradle']
+ant: org.gradle.api.internal.project.DefaultAntBuilder@7bb1604c
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@6e27e546
+archivesBaseName: demogradle
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@44294f96
+asDynamicObject: DynamicObject for root project 'demogradle'
+assemble: task ':assemble'
+baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@609e0e6a
+buildDependents: task ':buildDependents'
+buildDir: /Volumes/data/awesome-demo/demogradle/build
+buildFile: /Volumes/data/awesome-demo/demogradle/build.gradle
+buildNeeded: task ':buildNeeded'
+buildPath: :
+buildScriptSource: org.gradle.groovy.scripts.TextResourceScriptSource@105db135
+buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@41816bad
+check: task ':check'
+childProjects: {}
+class: class org.gradle.api.internal.project.DefaultProject_Decorated
+classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@4f5ad9f4
+classes: task ':classes'
+compileJava: task ':compileJava'
+compileTestJava: task ':compileTestJava'
+components: SoftwareComponentInternal set
+configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@5f27632b
+configurationTargetIdentifier: org.gradle.configuration.ConfigurationTargetIdentifier$1@220eb5e3
+configurations: configuration container
+convention: org.gradle.api.internal.plugins.DefaultConvention@68186e0c
+defaultArtifacts: org.gradle.api.internal.plugins.DefaultArtifactPublicationSet_Decorated@71149f82
+defaultTasks: []
+deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@15ce94b0
+dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@42388a47
+depth: 0
+description: null
+displayName: root project 'demogradle'
+distsDir: /Volumes/data/awesome-demo/demogradle/build/distributions
+distsDirName: distributions
+docsDir: /Volumes/data/awesome-demo/demogradle/build/docs
+docsDirName: docs
+ext: org.gradle.api.internal.plugins.DefaultExtraPropertiesExtension@697bf402
+extensions: org.gradle.api.internal.plugins.DefaultConvention@68186e0c
+fileOperations: org.gradle.api.internal.file.DefaultFileOperations@3c468e20
+fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@5dccf60c
+gradle: build 'demogradle'
+group: 
+hello: task ':hello'
+identityPath: :
+inheritedScope: org.gradle.api.internal.ExtensibleDynamicObject$InheritedDynamicObject@5ba03540
+jar: task ':jar'
+javadoc: task ':javadoc'
+layout: org.gradle.api.internal.file.DefaultProjectLayout@6d4d11d2
+libsDir: /Volumes/data/awesome-demo/demogradle/build/libs
+libsDirName: libs
+logger: org.gradle.internal.logging.slf4j.OutputEventListenerBackedLogger@4b90c0c1
+logging: org.gradle.internal.logging.services.DefaultLoggingManager@6572b5d5
+modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@5fb443e1
+modelSchemaStore: org.gradle.model.internal.manage.schema.extract.DefaultModelSchemaStore@68bec060
+module: org.gradle.api.internal.artifacts.ProjectBackedModule@1d0446b9
+name: demogradle
+normalization: org.gradle.normalization.internal.DefaultInputNormalizationHandler_Decorated@5647762
+objects: org.gradle.api.internal.model.DefaultObjectFactory@22259d
+parent: null
+parentIdentifier: null
+path: :
+pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@708ee451
+plugins: [org.gradle.api.plugins.HelpTasksPlugin@520ccf76, org.gradle.language.base.plugins.LifecycleBasePlugin@6d27e91, org.gradle.api.plugins.BasePlugin@58e068dc, org.gradle.api.plugins.ReportingBasePlugin@5a1815c1, org.gradle.platform.base.plugins.ComponentBasePlugin@7cd51bd8, org.gradle.language.base.plugins.LanguageBasePlugin@4a260c0, org.gradle.platform.base.plugins.BinaryBasePlugin@dd80aea, org.gradle.api.plugins.JavaBasePlugin@2ba1a354, org.gradle.api.plugins.JavaPlugin@3abe6570]
+processOperations: org.gradle.api.internal.file.DefaultFileOperations@3c468e20
+processResources: task ':processResources'
+processTestResources: task ':processTestResources'
+project: root project 'demogradle'
+projectConfigurator: org.gradle.api.internal.project.BuildOperationCrossProjectConfigurator@3d15a21a
+projectDir: /Volumes/data/awesome-demo/demogradle
+projectEvaluationBroadcaster: ProjectEvaluationListener broadcast
+projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@70d77008
+projectPath: :
+projectRegistry: org.gradle.api.internal.project.DefaultProjectRegistry@564ac645
+properties: {...}
+providers: org.gradle.api.internal.provider.DefaultProviderFactory@2e4fe3bd
+reporting: org.gradle.api.reporting.ReportingExtension_Decorated@1f16bc19
+reportsDir: /Volumes/data/awesome-demo/demogradle/build/reports
+repositories: repository container
+resourceLoader: org.gradle.internal.resource.transfer.DefaultUriTextResourceLoader@f83d893
+resources: org.gradle.api.internal.resources.DefaultResourceHandler@441fbe5b
+rootDir: /Volumes/data/awesome-demo/demogradle
+rootProject: root project 'demogradle'
+script: false
+scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@44673073
+scriptPluginFactory: org.gradle.configuration.ScriptPluginFactorySelector@6ebbaa92
+serviceRegistryFactory: org.gradle.internal.service.scopes.ProjectScopeServices$4@7fedb096
+services: ProjectScopeServices
+sourceCompatibility: 1.8
+sourceSets: SourceSet container
+standardOutputCapture: org.gradle.internal.logging.services.DefaultLoggingManager@6572b5d5
+state: project state 'EXECUTED'
+status: integration
+subprojects: []
+targetCompatibility: 1.8
+tasks: task set
+test: task ':test'
+testClasses: task ':testClasses'
+testReportDir: /Volumes/data/awesome-demo/demogradle/build/reports/tests
+testReportDirName: tests
+testResultsDir: /Volumes/data/awesome-demo/demogradle/build/test-results
+testResultsDirName: test-results
+version: unspecified
+
+```
+
 ## 一般构建结构
 
 一般来说我们使用的构建结构如下，当然由于构建脚本本身就是程序，你可以比较灵活的写代码来编写自己的结构
@@ -134,6 +264,8 @@ build.gradle //根
 settings.gradle
 gradle.properties
 
+
+buildSrc //用于插件开发
 
 //wrapper
 gradle
@@ -158,6 +290,30 @@ apply plugin: ''
 
 ```
 对于include进去的子项目的文件结构我们前面说了，取决于你使用的插件如何理解
+
+虽然build.gradle本身就是代码，但是gradle的最佳实践建议不要在构建脚本里放入太多命令式逻辑
+
+```
+There is a common misconception that Gradle’s power and flexibility come from the
+fact that its build scripts are code. This couldn’t be further from the truth. It’s the
+underlying model and API that provide the power. As we recommend in our best practices, 
+you should avoid putting much, if any, imperative logic in your build
+scripts.
+```
+
+## 版本变化
+
+0.7
+
+1.0
+
+2.0
+
+3.0
+
+4.0
+
+5.0
 
 
 
