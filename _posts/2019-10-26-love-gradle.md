@@ -108,8 +108,8 @@ apply plugin: 'java'
 多项目构建时就在settings.gradle中声明子文件夹：include 'projectA','projectB','projectC'
 
 当项目没有声明任何插件的时候，Gradle默认加载了一些插件，可以直接使用的一些Task如下
-{% highlight groovy %}
 
+```
 Build Setup tasks:
 init
 wrapper
@@ -124,7 +124,7 @@ model
 buildEnvironment
 components
 dependentComponents
-{% endhighlight %}
+```
 
 比如我们经常要用的依赖分析：./gradlew dependencies
 
@@ -254,6 +254,14 @@ version: unspecified
 
 ```
 
+假如你想看到Project的所有方法，即便默认插件没有提供这个Action，你可以理解写一段代码自己实现
+
+```
+task showProjectMethod {
+    project.getClass().getMethods().each{m -> println(m.getName()) }
+}
+```
+
 ## 一般构建结构
 
 一般来说我们使用的构建结构如下，当然由于构建脚本本身就是程序，你可以比较灵活的写代码来编写自己的结构
@@ -331,7 +339,8 @@ Execution执行：执行Task
 {% highlight groovy %}
 
 repositories {
-          mavenCentral()
+        mavenCentral()
+   		maven { url 'https://repo.spring.io/libs-release' }
 }
 
 dependencies {
@@ -340,10 +349,30 @@ dependencies {
 
 {% endhighlight %}
 
+依赖的类型如下：
+
+测试和正式
+编译，运行，编译运行得到六种组合
+
+```
+compileOnly
+implementation 老版本叫做compile
+runtimeOnly 老版本叫做runtime
+
+
+testCompileOnly
+testImplementation
+testRuntimeOnly
+
+```
+
 其内部的结构如下图：
 ![](/images/gradle_depend.png)
 
 在一个依赖图结构上，肯定会出现冲突，我们不希望在生产包里存在同一个jar多个版本，gradle这一冲突的解决策略是用最新的那个版本，这个切记，和maven的策略不一样
+
+
+## Kotlin支持
 
 
 ## 待续..
