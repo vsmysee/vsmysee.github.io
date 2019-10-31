@@ -49,7 +49,16 @@ task onetask {
 build.gradle是一个DSL，本身就是代码，所以Gradle可以实现任何你想到的构建模型。
 
 在maven里，我们需要pom.xml和一个约定的文件夹结构，在gradle里只需要一个build.gradle,而把文件夹的结构解析交给了另一个模型：Plugin（插件），所以你会发现Gradle把组件抽象得单一和内聚。
-另外对于构建的设置独立到了settings.gradle，对于settings.gradle，在单项目构建时是可选的。
+另外对于构建的设置独立到了settings.gradle，对于settings.gradle，在单项目构建时是可选的，对于多项目构建需要在里面用include语法包含进来，另外settings.gradle还有可设置插件仓库
+
+```
+pluginManagement {
+          resolutionStrategy {
+          }
+          repositories {
+          }
+}
+```
 
 在maven中我们经常用的属性设置，gradle是用一个叫做gradle.properties的文件来完成的，比如你可以用这个文件来控制一些行为，比如
 
@@ -62,6 +71,9 @@ org.gradle.parallel=true
 
 有了build.gradle和settings.gradle,我们就可以构建项目了，那么我们需要类似maven那样先安装吗？答案是NO，这也是我最喜欢它的地方，Gradle提供了一个机制叫Wrapper，可以把gradle本身放在项目里
 这样就实现了各个项目的构建高度的内聚，你可以在新项目里用新的gradle版本而不会对其他项目产生影响，一个项目的一切的一切都包含在了源代码管理中，不存在泄露，不存在生产和测试的环境不一致。
+
+
+gradle也提供了一个叫做init.gradle来完成maven的settings.xml的功能，但是我建议不要用
 
 ## 如何构建
 构建的过程其实就是编写一系列的Task，你可以在Task里对工程的目录进行约定，调用javac,jar等命令进行打包操作，Gradle的内核只是执行这些Task
@@ -309,23 +321,9 @@ you should avoid putting much, if any, imperative logic in your build
 scripts.
 ```
 
-## 版本变化
-
-0.7
-
-1.0
-
-2.0
-
-3.0
-
-4.0
-
-5.0
-
-
 
 ## 生命周期
+
 不同于maven，gradle没有构建时约定固定的生命周期，这里的生命周期是gradle自身运行的几个阶段，可以理解为对于构建过程透明，不做逻辑干涉, 一共有三个：
 
 Initialization初始化：创建项目(Project)实例,执行settings.gradle
@@ -372,7 +370,77 @@ testRuntimeOnly
 在一个依赖图结构上，肯定会出现冲突，我们不希望在生产包里存在同一个jar多个版本，gradle这一冲突的解决策略是用最新的那个版本，这个切记，和maven的策略不一样
 
 
+## 如何使用插件
+
+Gradle的内核非常小，所有丰富的功能都是通过插件来扩展的，所以我们在真实项目中必须要和各种各样的插件配合
+插件能做的，理论上你完全可以在build.gradle里通过写代码来做，但是为了重用，内聚和保持build.gradle的干净，我们需要把插件独立打包
+
+插件也分为两种类型：script plugins 和 binary plugins, 后者通常是实现为Plugin这个类的二进制文件,一个插件早期可以是一个脚本，然后发现价值大了之后才转为二进制格式
+
+使用一个插件需要两个步骤，第一个是解析，第二个是应用
+
+应用一个脚本插件:
+```
+apply from: 'other.gradle'
+```
+可以从本地加载，也可以从远程url加载
+
+
+二进制插件如果放在官方portal，都有一个全局的ID，当然获取一个二进制插件有下面几种方式：
+
+1. 通过插件DSL从portal里下载
+2. 如果是外部的jar，需要在buildscript里声明仓库和依赖
+3. 定义插件在本地的buidSrc目录
+4. 定义一个插件作为build script的内部类
+
+
+插件DSL的格式是plugins{},有如下一些限制
+
+1. 语法限制 (必须是顶级语句，不能出现在if或者for里)
+2. 只能用在build script里
+
+但是可能由于版本的升级会有改变
+所以建议在项目中还是使用语法：apply plugin:''
+
+我们可以通过在build.gradle里直接编写一个插件来体验下插件的开发
+
+{% highlight groovy %}
+
+
+class GreetingPlugin implements Plugin<Project> {
+    void apply(Project project) {
+        project.task('hello') {
+            doLast {
+                println 'Hello from the GreetingPlugin'
+            }
+        } }
+}
+
+// Apply the plugin
+apply plugin: GreetingPlugin
+
+{% endhighlight %}
+
+
+
 ## Kotlin支持
+
+
+
+## 版本变化
+
+0.7
+
+1.0
+
+2.0
+
+3.0
+
+4.0
+
+5.0
+
 
 
 ## 待续..
