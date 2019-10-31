@@ -38,6 +38,15 @@ build.gradle是一个DSL，本身就是代码，所以Gradle可以实现任何�
 在maven里，我们需要pom.xml和一个约定的文件夹结构，在gradle里只需要一个build.gradle,而把文件夹的结构解析交给了另一个模型：Plugin（插件），所以你会发现Gradle把组件抽象得单一和内聚。
 另外对于构建的设置独立到了settings.gradle，对于settings.gradle，在单项目构建时是可选的。
 
+在maven中我们经常用的属性设置，gradle是用一个叫做gradle.properties的文件来完成的，比如你可以用这个文件来控制一些行为，比如
+
+```
+org.gradle.daemon=true
+org.gradle.parallel=true
+
+```
+
+
 有了build.gradle和settings.gradle,我们就可以构建项目了，那么我们需要类似maven那样先安装吗？答案是NO，这也是我最喜欢它的地方，Gradle提供了一个机制叫Wrapper，可以把gradle本身放在项目里
 这样就实现了各个项目的构建高度的内聚，你可以在新项目里用新的gradle版本而不会对其他项目产生影响，一个项目的一切的一切都包含在了源代码管理中，不存在泄露，不存在生产和测试的环境不一致。
 
@@ -112,6 +121,41 @@ buildscript {
     }
 }
 {% endhighlight %}
+
+## 一般构建结构
+
+一般来说我们使用的构建结构如下，当然由于构建脚本本身就是程序，你可以比较灵活的写代码来编写自己的结构
+
+```
+
+build.gradle //根
+settings.gradle
+gradle.properties
+
+
+//wrapper
+gradle
+    wrapper
+gradlew
+gradlew.bat
+
+
+//settings.gradle内容：
+include "subProject"
+
+//build.gradle的内容
+
+buildscript {}
+plugins {}
+ext {}
+allprojects {}
+subprojects {}
+task {}
+dependencies {}
+apply plugin: ''
+
+```
+对于include进去的子项目的文件结构我们前面说了，取决于你使用的插件如何理解
 
 
 
