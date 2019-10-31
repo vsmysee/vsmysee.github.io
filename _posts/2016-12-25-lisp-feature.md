@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Lisp的就中思想
+title: Lisp的九种思想
 ---
 这段文字节选自《黑客与画家》，作者从绘画到编码，再到Lisp，到设计，到品味写了很多东西，建议你阅读
 
