@@ -106,7 +106,9 @@ components
 dependentComponents
 {% endhighlight %}
 
-由于build.gradle本身就是一个构建程序，加入你自己的Task需要依赖一些第三方包怎么办？这时你需要声明依赖：
+比如我们经常要用的依赖分析：./gradlew dependencies
+
+由于build.gradle本身就是一个构建程序，假如你自己的Task需要依赖一些第三方包怎么办？这时你需要声明依赖：
 
 {% highlight groovy %}
 buildscript {
@@ -181,5 +183,11 @@ dependencies {
 }
 
 {% endhighlight %}
+
+其内部的结构如下图：
+![](/images/gradle_depend.png)
+
+在一个依赖图结构上，肯定会出现冲突，我们不希望在生产包里存在同一个jar多个版本，gradle这一冲突的解决策略是用最新的那个版本，这个切记，和maven的策略不一样
+
 
 ## 待续..
