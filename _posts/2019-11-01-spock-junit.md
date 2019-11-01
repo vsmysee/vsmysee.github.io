@@ -6,7 +6,7 @@ Gradle和Spock都是我特别喜欢的软件，他们的共同点都是站在巨
 Inspired by JUnit, jMock, RSpec, Groovy, Scala and Vulcans
 
 ## 基础
-Spock本后的测试理论叫做BDD
+Spock背后的测试理论叫做BDD
 
 ```
 行为驱动开发是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA和非技术人员或商业参与者之间的协作。
@@ -23,7 +23,6 @@ BDD最初是由Dan North在2003年命名，它包括验收测试和客户测试�
 
 ```
 testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
-testCompile "org.spockframework:spock-spring:1.0-groovy-2.4"
 ```
 
 
@@ -92,6 +91,16 @@ import org.junit.runners.Suite
 class TestSuite {}
 {% endhighlight %}
 
+为什么说Spock本身就是Junit呢，因为核心父类Specification本身就是一个带有@RunWith的注解
+
+{% highlight groovy %}
+
+@RunWith(Sputnik.class)
+@SuppressWarnings("UnusedDeclaration")
+public abstract class Specification extends MockingApi {
+}
+
+{% endhighlight %}
 
 ## 参数化
 {% highlight groovy %}
@@ -355,6 +364,82 @@ Title
 Unroll
 ```
 
+## 和Spring一起用
+
+使用之前加入依赖：
+
+```
+testCompile "org.spockframework:spock-spring:1.0-groovy-2.4"
+```
+
+{% highlight groovy %}
+ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
+class CustomerServiceTest extends Specification {
+ 
+ @Autowired
+ CustomerService customerService
+  
+  
+ def setup() {
+  customerService.dropCustomerCollection()
+ }
+  
+ def "insert customer"() {
+   
+  setup:
+   
+  Address address = new Address()
+  address.setNumber("81")
+  address.setStreet("Mongo Street")
+  address.setTown("City")
+  address.setPostcode("CT81 1DB")
+  
+  Account account = new Account()
+  account.setAccountName("Personal Account")
+  List<Account> accounts = new ArrayList<Account>()
+  accounts.add(account)
+   
+  Customer customer = new Customer()
+  customer.setAddress(address)
+  customer.setName("Mr Bank Customer")
+  customer.setAccounts(accounts)
+ 
+  when:
+  customerService.insertCustomer(customer)
+   
+  then:
+  def customers = customerService.findAllCustomers()
+  customers.size == 1
+  customers.get(0).name == "Mr Bank Customer"
+  customers.get(0).address.street == "Mongo Street"
+   
+ }
+}
+{% endhighlight %}
+
+
+Boot的方式：
+
+{% highlight groovy %}
+
+@AutoConfigureMockMvc
+@WebMvcTest
+class WebControllerTest extends Specification {
+
+    @Autowired
+    private MockMvc mvc
+
+    def "when get is performed then the response has status 200 and content is 'Hello world!'"() {
+        expect: "Status is 200 and the response is 'Hello world!'"
+        mvc.perform(get("/hello"))
+          .andExpect(status().isOk())
+          .andReturn()
+          .response
+          .contentAsString == "Hello world!"
+    }
+}
+{% endhighlight %}
+
 
 ## 良好的单元测试
 
@@ -368,5 +453,7 @@ Unroll
 
 
 [参考](https://www.blazemeter.com/blog/spock-vs-junit-which-one-should-you-choose/)
+
 [参考](https://www.baeldung.com/spock-stub-mock-spy)
+
 [参考](https://www.schibsted.pl/blog/testing-java-kotlin-code-spock/)
