@@ -26,7 +26,7 @@ NIO就一定比BIO高级？
 我一直讨厌SpringBoot和Mybatis，也是因为受到这个定律的影响，因为抽象必然泄露。
 
 这个定律的提出者是：Joel Spolsky, 出自于他的书：Joel on Software，中文《软件随想录》
-一下是[原文](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)的摘取，发表于2002年，要二十年了。
+以下是[原文](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)的摘取，发表于2002年，要二十年了。
 
 ***
 
