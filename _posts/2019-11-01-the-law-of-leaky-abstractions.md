@@ -26,6 +26,11 @@ NIO就一定比BIO高级？
 这个列表还有很长，等我退休了把他全部打印出来回忆，哈哈.
 
 我一直讨厌SpringBoot和Mybatis，也是因为受到这个定律的影响，因为抽象必然泄露。
+Effective Java整本书，都是在警告我们，需要不做什么，类似这样的书还有《Java安全编码标准》，这些书背后都是抽象泄露定律作怪。
+
+```
+怎么办呢？我们只能寻找简洁东西，因为越简洁泄露可能才会越少，不做什么比做什么更有学问
+```
 
 这个定律的提出者是：Joel Spolsky, 出自于他的书：Joel on Software，中文《软件随想录》
 以下是[原文](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)的摘取，发表于2002年，要二十年了。
