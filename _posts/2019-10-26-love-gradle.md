@@ -122,6 +122,24 @@ apply plugin: 'java'
 
 有了这个java插件之后，就自动获取了一系列好用的Task,比如build,clean,jar,assemble，自动获得了约定，比如src/main,src/test, 各种语言的编译都可以采用自己独立的约定结构，这绝对是对Maven来说最大的打击。
 
+对于常见的一些乱码问题，如果你遇到了，可以这样设置:
+
+```
+apply plugin: 'java'
+
+compileJava.options.encoding = 'UTF-8'
+
+// or
+
+tasks.withType(Compile) {
+    options.encoding = 'UTF-8'
+}
+
+```
+ 
+
+
+
 多项目构建时就在settings.gradle中声明子文件夹：include 'projectA','projectB','projectC'
 
 当项目没有声明任何插件的时候，Gradle默认加载了一些插件，可以直接使用的一些Task如下
