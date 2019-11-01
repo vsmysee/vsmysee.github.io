@@ -21,6 +21,7 @@ NIO就一定比BIO高级？
 一个logger.debug("")可以把系统弄挂掉
 为什么大量的开发不知道equlas和hashcode的关系？
 @Transactional标在方法上的巨大恐怖性
+啥叫伪共享？
 你看到的真的是事实吗？
 ```
 
