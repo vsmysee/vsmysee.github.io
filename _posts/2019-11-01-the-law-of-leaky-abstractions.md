@@ -26,8 +26,9 @@ NIO就一定比BIO高级？
 我一直讨厌SpringBoot和Mybatis，也是因为受到这个定律的影响，因为抽象必然泄露。
 
 这个定律的提出者是：Joel Spolsky, 出自于他的书：Joel on Software，中文《软件随想录》
-本文的[原文](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)发表于2002年，要二十年了。
+一下是[原文](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)的摘取，发表于2002年，要二十年了。
 
+***
 
 TCP协议的神奇之处，计算机科学家们通常会将其称作为“抽象”：将复杂的问题用简单的方式表现出来。事实上，很多计算机编程工作都是在进行抽象。字符串库做了什么？
 它能让我们觉得计算机可以像处理数字那样处理文字。
