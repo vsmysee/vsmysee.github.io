@@ -135,6 +135,8 @@ title:  设计飞机
 
 前不久,波音的737Max坠机了，调查出来是软件问题，这里有一篇别人写的文章，你可以继续[阅读](https://insights.thoughtworks.cn/architecture/)，摘录如下
 
+短粗的发动机
+![](https://insights.thoughtworks.cn/wp-content/uploads/2019/09/737-MAX8.png)
 
 ### 什么是架构？
 软件架构是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计
