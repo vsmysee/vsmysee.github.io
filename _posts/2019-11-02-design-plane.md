@@ -4,6 +4,7 @@ title:  设计飞机
 ---
 这篇文章是我看了一本书之后的笔记和感想，这本书叫《我是怎样设计飞机的》，作者是美国飞机设计师凯利，本书是他的自传。因为工作阅历的关系，我现在比较喜欢看自传，唯自传方可洞察内心。
 
+作者1910年生，1990年去世
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/KellyJohnsonandGaryPowers.jpg/440px-KellyJohnsonandGaryPowers.jpg)
 
@@ -132,7 +133,7 @@ title:  设计飞机
 5、...
 ```
 
-前不久,波音的737Max坠机了，调查出来是软件问题，这里有一篇别人写的文章，你可以继续[阅读](https://insights.thoughtworks.cn/architecture/),摘录如下
+前不久,波音的737Max坠机了，调查出来是软件问题，这里有一篇别人写的文章，你可以继续[阅读](https://insights.thoughtworks.cn/architecture/)，摘录如下
 
 
 ### 什么是架构？
