@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 关于境界
+title: 关于境界之说
 ---
 我们读到过太多的关于境界的句子，大部分时候我们都需要经历过各种苦难和挫败之后才能体会到它们的深意
 
@@ -100,3 +100,5 @@ title: 关于境界
 品高
 
 ```
+
+一个程序员的修炼境界，我之前有一篇文章:[JavaScript王者](https://vsmysee.github.io/blog/2013/10/09/js-king-back)
