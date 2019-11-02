@@ -4,6 +4,9 @@ title:  设计飞机
 ---
 这篇文章是我看了一本书之后的笔记和感想，这本书叫《我是怎样设计飞机的》，作者是美国飞机设计师凯利，本书是他的自传。因为工作阅历的关系，我现在比较喜欢看自传，唯自传方可洞察内心。
 
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/KellyJohnsonandGaryPowers.jpg/440px-KellyJohnsonandGaryPowers.jpg)
+
 凯利家一共九个孩子，人穷志坚，受父亲的影响，从小动手能力极强，有一天他走进镇上的一所图书馆，开始疯狂的阅读关于飞机的书籍，从此迷恋上了它，于是开始立志要做飞机设计师，这一信念让他仅仅在12岁的时候就写了一本关于航空领域的书。
 但是命运第一次给他开了玩笑，玩耍时被妹妹射出的一支箭击伤了左眼，失明了，虽然后面慢慢恢复了，可还是影响了他以后的人生轨迹，然后就是二个玩笑，高中时，患上胃溃疡，这个病伴随了他一生。
 
@@ -33,6 +36,8 @@ title:  设计飞机
 描述凯利的生活，只是想让你我感知一个有血有肉的人所经历的悲欢，接下来的文字描述的是凯利的工作哲学："臭鼬工厂", 这个工厂的运转高效，生产的产品质量可靠，其工作法则是很多高科技公司的学习对象，为什么？
 飞机是工程作品，需要理论，需要实践，需要人人的协同配合，需要高效的管理。"臭鼬工厂"里，他们能够快速的决定，快速的实施，
 
+管理规则:
+
 - “臭鼬工场”的经理必须有对项目的各个方面都有完整控制权，他直接向部门总裁或更高的领导负责。
 - 军方和企业的参与者都应当专业而精干。
 - 必须严格控制参与项目的人员。只使用少量优秀人才，大约为所谓的“正常”情况人数的 10%到25%。
@@ -49,8 +54,24 @@ title:  设计飞机
 - 项目外的人员要接触项目或者项目成员，都必须有合适的保密措施严格控制。
 - 因为只有少数人参与工程设计和大多数其它领域，必须对绩效好的人提供足够的激励，而不能根据人数来确定奖金。
 
+英文版：
 
-格言：
+- The Skunk Works manager must be delegated practically complete control of his program in all aspects. He should report to a division president or higher.
+- Strong but small project offices must be provided both by the military and industry.
+- The number of people having any connection with the project must be restricted in an almost vicious manner. Use a small number of good people (10% to 25% compared to the so-called normal systems).
+- A very simple drawing and drawing release system with great flexibility for making changes must be provided.
+- There must be a minimum number of reports required, but important work must be recorded thoroughly.
+- There must be a monthly cost review covering not only what has been spent and committed but also projected costs to the conclusion of the program. Don't have the books 90 days late, and don't surprise the customer with sudden overruns.
+- The contractor must be delegated and must assume more than normal responsibility to get good vendor bids for subcontract on the project. Commercial bid procedures are very often better than military ones.
+- The inspection system as currently used by the Skunk Works, which has been approved by both the Air Force and Navy, meets the intent of existing military requirements and should be used on new projects. Push more basic inspection responsibility back to subcontractors and vendors. Don't duplicate so much inspection.
+- The contractor must be delegated the authority to test his final product in flight. He can and must test it in the initial stages. If he doesn't, he rapidly loses his competency to design other vehicles.
+- The specifications applying to the hardware must be agreed to well in advance of contracting. The Skunk Works practice of having a specification section stating clearly which important military specification items will not knowingly be complied with and reasons therefore is highly recommended.
+- Funding a program must be timely so that the contractor doesn't have to keep running to the bank to support government projects.
+- There must be mutual trust between the military project organization and the contractor with very close cooperation and liaison on a day-to-day basis. This cuts down misunderstanding and correspondence to an absolute minimum.
+- Access by outsiders to the project and its personnel must be strictly controlled by appropriate security measures.
+- Because only a few people will be used in engineering and most other areas, ways must be provided to reward good performance by pay not based on the number of personnel supervised.
+
+书中格言
 ```
 如果用脑力都无法完成的话，只靠体力加班也是完成不了的
 ```
@@ -111,11 +132,12 @@ title:  设计飞机
 5、...
 ```
 
-前不久,波音的737Max坠机了，调查出来是软件问题，这里有一篇别人写的文章，你可以[阅读](https://insights.thoughtworks.cn/architecture/),摘录如下
+前不久,波音的737Max坠机了，调查出来是软件问题，这里有一篇别人写的文章，你可以继续[阅读](https://insights.thoughtworks.cn/architecture/),摘录如下
 
 
 ### 什么是架构？
 软件架构是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计
+
 记下两个关键词：整体和抽象
 
 架构为什么重要？最简单的答案是：因为它真的很值钱
