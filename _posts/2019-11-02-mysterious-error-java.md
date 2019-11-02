@@ -41,11 +41,9 @@ public class Hello {
 
 ```
 Hello.java:14: 错误: 不兼容的类型: Object无法转换为String
-        for (String src : existingRelativePaths(getTestSrcDirs())) {
-                                               ^
+        for (String src : getList(getAnotherList())) {
+                                 ^
 注: Hello.java使用了未经检查或不安全的操作。
 注: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
 1 个错误
-
 ```
-
