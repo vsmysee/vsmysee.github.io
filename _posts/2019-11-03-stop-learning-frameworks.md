@@ -19,6 +19,7 @@ title:  框架中迷失
 
 
 所有的项目都是不同的，除非越过表象：
+
 All projects seem different unless you look under the surface:
 
 - Programming languages are different, but design smells are alike.
@@ -26,11 +27,12 @@ All projects seem different unless you look under the surface:
 - Developers are different, but rules of dealing with people are uniform.
 
 技术来来去去，时间太珍贵
+
 Remember – frameworks, libraries and tools come and go. Time is precious.
 
-~~Microservices frameworks~~  Evolutionary Architecture
-~~New programming language~~ Clean Code, Design Patterns, DDD
-~~LeSS, SAFe~~ Lean manufacturing principles
-~~Hystrix~~ Fault Tolerance Patterns
-~~Docker~~ Continuous Delivery
-~~Angular~~ Web, HTTP and REST
+- ~~Microservices frameworks~~  Evolutionary Architecture
+- ~~New programming language~~ Clean Code, Design Patterns, DDD
+- ~~LeSS, SAFe~~ Lean manufacturing principles
+- ~~Hystrix~~ Fault Tolerance Patterns
+- ~~Docker~~ Continuous Delivery
+- ~~Angular~~ Web, HTTP and REST
