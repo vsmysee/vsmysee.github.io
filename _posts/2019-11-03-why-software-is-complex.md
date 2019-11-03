@@ -65,6 +65,21 @@ I don’t need to elaborate because you know what I am talking about.
 It is far easier for a single programmer to pick a problem and solve it than for a huge team to define the problem and set about to find a solution to it.
 
 
+[十个观点](https://www.ics.uci.edu/~ziv/ooad/intro_to_se/tsld009.htm)
+
+- The field is young and there is little consensus and few standards
+- Software is irregular, intangible, invisible
+- Software is malleable -- we can modify the product itself
+- Software construction is human-intensive
+- Software application horizons expand with hardware capabilities
+- Software problems are unprecedentedly complex
+- Software solutions require unusual rigor
+- Software has discontinuous operational nature
+- No two parts or two systems are alike
+- Scaling up the system causes a nonlinear increase in complexity
+
+
+
 ## Erlang 之父 Joe Armstrong 的感触
 
 多年前我曾一度认为编程很简单，然而随着岁月的流逝，我终于意识到编程并不是件容易的事。
