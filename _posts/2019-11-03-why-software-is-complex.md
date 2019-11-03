@@ -38,6 +38,23 @@ title:  好难
 另一方面，软件的需求会以各种方式来变化，而且往往会以开发者没有预料到的方向
 ```
 
+[工程本质](https://www.cnblogs.com/feng9exe/p/9949906.html)
+
+```
+复杂性有三类
+1，问题域本身的复杂性
+2，采用的技术方案引入的额外复杂性
+3，涉及到的人和组织再引入的额外复杂性
+```
+```
+所以，软件工程必须管理复杂性
+1，技术熵越少越好
+2，组织熵越少越好
+3，良好的领域抽象，是真正的关键
+4，如何去控制变化，隔离变化，适应变化
+```
+
+
 [七个理由](https://www.finextra.com/blogs/fullblog.aspx?blogid=6836)
 
 - The software industry is young
@@ -119,3 +136,41 @@ It is far easier for a single programmer to pick a problem and solve it than for
 ### 莫名其妙
 
 我的emacs拼写检查器在这台机器上忠实的工作了好几年了。就在我抱怨花费半生时间修复本不应该出问题的程序的时候，我的emacs拼写检查器坏掉了。
+
+
+[复杂](https://itnext.io/the-origin-of-complexity-8ecb39130fc)
+
+- Don’t repeat yourself — because that adds coordination.
+- Make it small — because that reduces coordination.
+- Avoid mutable state — because it adds coordination.
+- Use pure functions — because they reduce coordination.
+- Use interfaces — because they reduce coordination.
+- Use polymorphism — because it reduces coordination.
+- Prefer composition — because it reduces coordination.
+- Use declarative style — because it reduces coordination.
+- Avoid temporal coupling — because it introduces coordination
+- Work in small teams — because it reduces coordination.
+- Make small commits — because it reduces coordination.
+- Avoid long lived branches — because they increase coordination.
+- Test your code — to catch coordination that wasn’t done correctly!
+
+我们需要coordination
+
+- Hardware & network are affected by the reality so that they sometimes break and need to be repaired or replaced.
+- Concepts from the world become models in our code.
+- People are affected by the world and the environment they live and work in.
+- People leave teams/projects and new people appear.
+- Tools & services are used to manage hardware & network. Sometimes manually by people that use tools and sometimes automated.
+- Tools are used to execute or debug runtime code.
+- Tools & services are made up of runtime code so that they can be executed.
+- Hardware is needed to execute runtime code.
+- Source code is transformed into runtime code.
+- Tools are used to work with source code.
+- Tools are used by other tools & services.
+- People create tools & services.
+- People interact with other people.
+- Models affect how the source code is written.
+- Tools are used to create models.
+- Tools and services are used by people to perform tasks: 5 ) manage hardware & network, 6) execute or debug code, 10) work with source code, 15) create models, 16) organise people.
+
+最后又提到了: talk Simple Made Easy by Rich Hickey
