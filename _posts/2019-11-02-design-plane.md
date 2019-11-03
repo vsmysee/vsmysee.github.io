@@ -162,3 +162,15 @@ title:  设计飞机
 如果往简历中写进一个先进的技术，意味着可能给雇主或客户带来灾难，那么，放弃这种冲动。设计经典级架构的机会可遇而不可求
 
 
+[来自Bob大叔的文章](https://blog.cleancoder.com/uncle-bob/2019/05/18/737-Max-8.html)
+
+This is a fundamental issue of software. Programmers must not be treated as requirement robots. Rather, programmers must hae intimate knowledge of the domain they are programming in.
+If you are writing code for aviation, you’d better know a lot about the culture, disciplines, and practices of aviation.
+
+
+- We have to know the business domains we are coding for.
+- We need to have the knowledge and insight to foresee and manage the risks our code might incur.
+- We need to employ the practices and disciplines that keep our users, our customers, and our employers safe.
+- We need to have the courage to say “No” when we assess that the risk of deploying our code is too high.
+
+
