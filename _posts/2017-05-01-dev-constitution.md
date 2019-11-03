@@ -9,6 +9,9 @@ title: 收集的开发章程
 [开源行为准侧](https://www.contributor-covenant.org/)
 
 
+
+[开发哲学](https://swathimystery.github.io/software-development-philosophy/)
+
 ## Unix
 
 ```
