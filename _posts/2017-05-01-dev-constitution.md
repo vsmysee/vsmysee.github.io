@@ -247,3 +247,20 @@ Clojure 为代码的清晰做着努力，提供了一些工具规避几种不同
 Clojure 在两个具体的方面提供了一致性：语法和数据结构。
 语法一致性指的是，相关的概念在形式上是类似的。有个简洁有力的例子，for 和 doseq 这两个宏之间的语法是一样的。
 它们做的事情不尽相同——for 返回的是一个惰性 seq，而 doseq 只是为了产生副作用——但二者支持相同的迷你语言（mini-language）：嵌套迭代、解构、:when 和:while 卫语句。比较下面这个例子就不难看出相似性：
+
+
+[某个wiki](https://github.com/appleseedhq/appleseed/wiki/Coding-Philosophy-and-Guidelines)
+
+- We believe in collective code ownership. All the code belongs to everyone. Feel free to fix or improve any part of the code.
+
+- We believe in continuous refactoring. If you come across something that you feel is not as good as it could be (be it code, documentation, test data...) make a note to yourself or open an issue in the tracker and come back to it later, or improve it right away.
+
+- We believe in clean code. Code quality and readability is of utmost importance. Choose your class, method and variable names carefully, keep the code concise, respect the coding conventions, pay attention to formatting and to the order of declarations, etc.
+
+- We believe in code reviews. We need to share the knowledge of the code, and make sure it is as good as it can possibly be. We'll ask you to review our code and we'll review yours.
+
+- We believe in fearless coding. Don't get scared of experimenting and hacking your way around. Unit tests, integration tests and Git are all here to make sure you don't break things.
+
+- For documentation like for code: don't repeat yourself.
+
+- Know when to break these rules. Software development cannot be reduced to a strict set of rules. Be measured and reasonable.
