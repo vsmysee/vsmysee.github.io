@@ -4,25 +4,38 @@ title:  好难
 ---
 软件开发真的很难，你有这个感觉吗？看看他们都怎么说的
 
+复杂度的象限：
+
 [ThoughtWorks工程师](http://icodeit.org/2017/01/why-software-is-complex/)
 
 ![复杂象限](http://icodeit.org/images/2017/01/cynefin-resized.png)
 
-- 简单（Simple）问题，该域中的因果关系非常明显，解决这些问题的方法是 感知-分类-响应（Sense-Categorise-Respond），有对应的最佳实践
+- 简单（Simple）问题
 
-- 复合（Complicated）问题，该域中的因果关系需要分析，或者需要一些其他形式的调查和/或专业知识的应用，解决这些问题的方法是感知-分析-响应（Sense-Analyze-Respond），有对应的好的实践
+该域中的因果关系非常明显，解决这些问题的方法是 感知-分类-响应（Sense-Categorise-Respond），有对应的最佳实践
 
-- 复杂（Complex）问题，该域中的因果关系仅能够从回顾中发现，解决这些问题的方法是探索-感知-响应（Probe-Sense-Respond），我们能够感知涌现实践（emergent practice）
+- 复合（Complicated）问题
 
-- 混乱（Chaotic）问题，该域中没有系统级别的因果关系，方法是行动-感知-响应（Act-Sense-Respond），我们能够发现新颖实践（novel practice）
+该域中的因果关系需要分析，或者需要一些其他形式的调查和/或专业知识的应用，解决这些问题的方法是感知-分析-响应（Sense-Analyze-Respond），有对应的好的实践
 
-- 失序（Disorder）问题，该域中没有因果关系，不可感知，其中的问题也无法被解决
+- 复杂（Complex）问题
+
+该域中的因果关系仅能够从回顾中发现，解决这些问题的方法是探索-感知-响应（Probe-Sense-Respond），我们能够感知涌现实践（emergent practice）
+
+- 混乱（Chaotic）问题
+
+该域中没有系统级别的因果关系，方法是行动-感知-响应（Act-Sense-Respond），我们能够发现新颖实践（novel practice）
+
+- 失序（Disorder）问题
+
+该域中没有因果关系，不可感知，其中的问题也无法被解决
 
 显然，软件开发过程更多地是一个复杂（Complex）问题。在一个产品被开发出来之前，不确定性非常高，团队（包括业务人员和技术人员）对产品的知识也是最少的，而且需要大量的学习和尝试才可以明确下一步可能的方向。
 不幸的是，很多时候我们需要在一开始（不确定性最高的时候）就为项目做计划。这种从传统行业中非常适合的方法在软件开发领域不再适用，这也是敏捷开发、精益等方法论在软件开发中更加适合的原因。
 
 ```
-软件的复杂性来自于大量的不确定性，而这个不确定性事实上是无法避免的，而且每个软件都是独一无二的。另一方面，软件的需求会以各种方式来变化，而且往往会以开发者没有预料到的方向
+软件的复杂性来自于大量的不确定性，而这个不确定性事实上是无法避免的，而且每个软件都是独一无二的。
+另一方面，软件的需求会以各种方式来变化，而且往往会以开发者没有预料到的方向
 ```
 
 [七个理由](https://www.finextra.com/blogs/fullblog.aspx?blogid=6836)
@@ -35,12 +48,11 @@ title:  好难
 - All software is affected by external factors
 - Estimating is an art not a science
 
-```
 A software application is like an iceberg – 90% of it is not visible. 
 The major complexity in the application lies below the waterline and is invisible to the user. 
 The next time you are wondering why software projects appear so difficult to get right you might perhaps spare a thought for the developers. 
 They are generally working hard to deliver on time against a tidal wave of challenges and complexity.
-```
+
 
 [写点代码简单，可做软件难](http://www.thoughtclusters.com/2011/01/programming-is-easy-software-development-is-hard/)
 
