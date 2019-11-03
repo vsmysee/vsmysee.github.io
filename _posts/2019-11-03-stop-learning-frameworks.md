@@ -18,7 +18,7 @@ title:  框架中迷失
 - Continuous Delivery
 
 
-所想的项目都是不同的，除非越过表象：
+所有的项目都是不同的，除非越过表象：
 All projects seem different unless you look under the surface:
 
 - Programming languages are different, but design smells are alike.
