@@ -35,3 +35,9 @@ title: 关注技术之外
 这个道理放在编程的世界里，植物可以是一种框架或一种新的编程语言——不要只是读它们，因为你会把刚读到的忘得一干二净。安装这些框架，开发一个简单的应用，使用它。这种经历会让你余下一生都记住，迟早，你会从中受益。
 
 不要非技术不闻。在非技术书里寻找灵感。隔一段时间读一本。
+
+
+
+还有一篇老长的文章[People Who Have “Too Many Interests” Are More Likely To Be Successful According To Research](People Who Have “Too Many Interests” Are More Likely To Be Successful According To Research)
+
+[翻译](https://36kr.com/p/5129242)
