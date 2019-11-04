@@ -53,3 +53,15 @@ Bug 越早发现就越容易修复。Bug 较晚被发现通常是由多个变化
 
 测试一小部分代码迫使你定义这些代码要负责什么。如果你可以容易地做到这点，就意味着代码的职责是定义良好的。因此，它具有高内聚的特性。如果你可以对你的代码进行单元测试，那么就意味着你可以像绑定到测试一样容易地将它与系统的其他部分进行绑定。所以，它与它周围的其他部分是低耦合的。高内聚低耦合是优秀的、可维护的设计的定义。那些容易进行单元测试的代码也是易于维护的。
 它比没有测试地写代码更快！ 或者换种方式来说，除非你真的需要代码正常工作，否则跳过单元测试是更快的。我们在代码上花费的大多数工夫花在了将它提交到源码仓库之后修复它。但是测试先行通过允许我们从一开始就获得更多正确的信息，并使错误更容易修复，消除了许多的浪费。
+
+
+
+
+[另一篇](https://dave.cheney.net/2019/05/14/why-bother-writing-tests-at-all)
+
+- Even if you don’t, someone will test your software
+- The majority of testing should be performed by development teams
+- Manual testing should not be the majority of your testing because manual testing is O(n)
+- Tests are the critical component that ensure you can always ship your master branch
+- Tests lock in behaviour
+- Tests give you confidence to change someone else’s code

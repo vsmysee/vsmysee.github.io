@@ -63,3 +63,21 @@ Java程序本地方法调用:几微秒
 10000转/分的STAT硬盘平均物理寻道时间是6ms
 15000转/分的SAS硬盘平均物理寻道时间是4ms
 ```
+
+
+```
+Operation                        	Time (nsec)
+System call overhead	400
+Context switch between processes	3000
+fork() (statically-linked binary)	70,000
+fork() (dynamically-linked binary)	160,000
+```
+
+[参考](https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
+
+
+
+
+
+
+[参考](https://gist.github.com/hellerbarde/2843375)

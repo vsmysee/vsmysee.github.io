@@ -25,6 +25,9 @@ title:  阅读列表
 
 
 
+[基础](https://github.com/keithnull/TeachYourselfCS-CN/blob/master/TeachYourselfCS-CN.md)
+
+
 其他：
 
 
@@ -93,3 +96,5 @@ title:  阅读列表
 
 
 [全技能](https://dev.to/bosepchuk/29-must-read-programming-books-2n45)
+
+[好多Paper](https://github.com/papers-we-love/papers-we-love)
