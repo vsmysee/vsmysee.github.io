@@ -28,6 +28,9 @@ title:  阅读列表
 其他：
 
 
+[专业开发](https://mixmastamyk.bitbucket.io/pro_soft_dev/)
+
+
 [必读上](https://www.jianshu.com/p/e500003a1258)
 
 [必读下](https://www.jianshu.com/p/d2499b8f0c81)
@@ -39,9 +42,9 @@ title:  阅读列表
 
 [狠毒一](https://www.douban.com/doulist/1534859/)
 
-[狠毒一](https://www.douban.com/doulist/2503829/)
+[狠毒二](https://www.douban.com/doulist/2503829/)
 
-[狠毒一](https://www.douban.com/doulist/1170434/)
+[狠毒三](https://www.douban.com/doulist/1170434/)
 
 
 
