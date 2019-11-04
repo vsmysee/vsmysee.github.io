@@ -17,6 +17,7 @@ title: 关注技术之外
 
 下面这篇文章是一个老外写的：
 
+
 [原文](https://chodounsky.net/2013/11/22/read-a-non-technical-book/)
 
 
@@ -38,6 +39,8 @@ title: 关注技术之外
 
 
 
-还有一篇老长的文章[People Who Have “Too Many Interests” Are More Likely To Be Successful According To Research](People Who Have “Too Many Interests” Are More Likely To Be Successful According To Research)
+还有一篇老长的文章:
+
+[People Who Have “Too Many Interests” Are More Likely To Be Successful According To Research](People Who Have “Too Many Interests” Are More Likely To Be Successful According To Research)
 
 [翻译](https://36kr.com/p/5129242)
