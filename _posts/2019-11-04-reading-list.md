@@ -18,8 +18,7 @@ title:  阅读列表
 ![](https://swdraft.files.wordpress.com/2014/01/100_0263.jpg?w=1800)
 
 
-[https://stevewedig.com/2014/02/03/software-developers-reading-list/]()
-
+[https://stevewedig.com/2014/02/03/software-developers-reading-list/](https://stevewedig.com/2014/02/03/software-developers-reading-list/)
 
 
 [必读上](https://www.jianshu.com/p/e500003a1258)
