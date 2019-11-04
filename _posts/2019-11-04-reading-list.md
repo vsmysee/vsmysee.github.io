@@ -14,11 +14,18 @@ title:  阅读列表
 ![](https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/107/10708/10708f1.inline.jpg)
 
 
+>"书山有路勤为径"
 
 ![](https://swdraft.files.wordpress.com/2014/01/100_0263.jpg?w=1800)
 
 
+如果你有选择恐惧症，那么只读下面的这一个链接
+
 [https://stevewedig.com/2014/02/03/software-developers-reading-list/](https://stevewedig.com/2014/02/03/software-developers-reading-list/)
+
+
+
+其他：
 
 
 [必读上](https://www.jianshu.com/p/e500003a1258)
