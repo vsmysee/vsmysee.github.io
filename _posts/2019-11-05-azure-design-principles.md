@@ -4,7 +4,6 @@ title:  Azure应用的设计原则
 ---
 遵循这些设计原则可以提高应用程序的可伸缩性、复原能力和易管理性
 
-
 Design for self healing. In a distributed system, failures happen. Design your application to be self healing when failures occur.
 自我修复设计。 在分布式系统中，故障时有发生。 设计应用程序以在故障发生时进行自我修复。
 
