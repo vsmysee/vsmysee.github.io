@@ -5,6 +5,7 @@ title:  SpringBoot压测基准
 对springboot的一个简单接口做的压测数据，作为基准参考
 
 机器配置: 4 core, 16G
+
 JVM: -Xms2G -Xmx2G
 
 
@@ -70,3 +71,8 @@ public class StatusController {
 
 jvm:
 ![](/images/perf-jvm.png)
+
+
+## 结论
+
+接近 10000 QPS
