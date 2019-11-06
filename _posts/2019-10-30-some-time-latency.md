@@ -76,8 +76,4 @@ fork() (dynamically-linked binary)	160,000
 [参考](https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
 
 
-
-
-
-
 [参考](https://gist.github.com/hellerbarde/2843375)
