@@ -40,21 +40,31 @@ If you can afford SSDs, they are by far superior to any spinning media. SSD-back
 
 ```
 Check Your I/O Scheduler
-If you are using SSDs, make sure your OS I/O scheduler is configured correctly. When you write data to disk, the I/O scheduler decides when that data is actually sent to the disk. The default under most *nix distributions is a scheduler called cfq (Com‐ pletely Fair Queuing).
-This scheduler allocates time slices to each process, and then optimizes the delivery of these various queues to the disk. It is optimized for spinning media: the nature of rotating platters means it is more efficient to write data to disk based on physical lay‐ out.
-This is inefficient for SSD, however, since there are no spinning platters involved. Instead, deadline or noop should be used instead. The deadline scheduler optimizes based on how long writes have been pending, while noop is just a simple FIFO queue.
+If you are using SSDs, make sure your OS I/O scheduler is configured correctly. 
+When you write data to disk, the I/O scheduler decides when that data is actually sent to the disk. 
+The default under most *nix distributions is a scheduler called cfq (Com‐ pletely Fair Queuing).
+This scheduler allocates time slices to each process, and then optimizes the delivery of 
+these various queues to the disk. It is optimized for spinning media: the nature of rotating 
+platters means it is more efficient to write data to disk based on physical lay‐ out.
+This is inefficient for SSD, however, since there are no spinning platters involved. Instead, 
+deadline or noop should be used instead. The deadline scheduler optimizes based on 
+how long writes have been pending, while noop is just a simple FIFO queue.
 
-This simple change can have dramatic impacts. We’ve seen a 500-fold improvement to write throughput just by using the correct scheduler.
+This simple change can have dramatic impacts. We’ve seen a 500-fold improvement 
+to write throughput just by using the correct scheduler.
 ```
 
 ```
 检查你的 I/O 调度程序
 
-如果你正在使用 SSDs，确保你的系统 I/O 调度程序是配置正确的。 当你向硬盘写数据，I/O 调度程序决定何时把数据实际发送到硬盘。 大多数默认 *nix 发行版下的调度程序都叫做 cfq（完全公平队列）。
+如果你正在使用 SSDs，确保你的系统 I/O 调度程序是配置正确的。 
+当你向硬盘写数据，I/O 调度程序决定何时把数据实际发送到硬盘。 大多数默认 *nix 发行版下的调度程序都叫做 cfq（完全公平队列）。
 
-调度程序分配 时间片 到每个进程。并且优化这些到硬盘的众多队列的传递。但它是为旋转介质优化的： 机械硬盘的固有特性意味着它写入数据到基于物理布局的硬盘会更高效。
+调度程序分配 时间片 到每个进程。并且优化这些到硬盘的众多队列的传递。
+但它是为旋转介质优化的： 机械硬盘的固有特性意味着它写入数据到基于物理布局的硬盘会更高效。
 
-这对 SSD 来说是低效的，尽管这里没有涉及到机械硬盘。但是，deadline 或者 noop 应该被使用。deadline 调度程序基于写入等待时间进行优化， noop 只是一个简单的 FIFO 队列。
+这对 SSD 来说是低效的，尽管这里没有涉及到机械硬盘。但是，deadline 或者 noop 应该被使用。
+deadline 调度程序基于写入等待时间进行优化， noop 只是一个简单的 FIFO 队列。
 
 这个简单的更改可以带来显著的影响。仅仅是使用正确的调度程序，我们看到了500倍的写入能力提升。
 ```
