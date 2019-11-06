@@ -6,6 +6,22 @@ title:  Elasticsearch 硬件
 
 节选自书籍[Elasticsearch: The Definitive Guide](https://www.amazon.com/dp/1449358543/ref=sr_1_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&keywords=elasticsearch&qid=1573019262&sr=8-1)
 
+## 我的摘要
+
+> 内存大了不好
+
+> 机器好了不好
+
+> 不要相信网络盘
+
+> 不要信心网络
+
+> 如果不是旋转盘，要注意操作系统的IO设置
+
+> CPU要求不高
+
+
+
 If you’ve been following the normal development path, you’ve probably been playing with Elasticsearch on your laptop or on a small cluster of machines laying around. But when it comes time to deploy Elasticsearch to production, there are a few recom‐ mendations that you should consider. Nothing is a hard-and-fast rule; Elasticsearch is used for a wide range of tasks and on a bewildering array of machines. But these rec‐ ommendations provide good starting points based on our experience with produc‐ tion clusters.
 
 按照正常的流程，你可能已经在自己的笔记本电脑或集群上使用了 Elasticsearch。 但是当要部署 Elasticsearch 到生产环境时，有一些建议是你需要考虑的。这里没有什么必须要遵守的准则，Elasticsearch 被用于在众多的机器上处理各种任务。基于我们在生产环境使用 Elasticsearch 集群的经验，这些建议可以为你提供一个好的起点。
