@@ -8,13 +8,14 @@ title:  Elasticsearch 硬件
 
 ## 我的摘要
 
-> 内存大了不好
-> 机器好了不好
-> 不要相信网络盘
-> 不要信心网络
-> 如果不是旋转盘，要注意操作系统的IO设置
-> CPU要求不高
-
+```
+内存大了不好
+机器好了不好
+不要相信网络盘
+不要相信网络
+如果不是旋转盘，要注意操作系统的IO设置
+CPU要求不高
+```
 
 
 If you’ve been following the normal development path, you’ve probably been playing with Elasticsearch on your laptop or on a small cluster of machines laying around. But when it comes time to deploy Elasticsearch to production, there are a few recom‐ mendations that you should consider. Nothing is a hard-and-fast rule; Elasticsearch is used for a wide range of tasks and on a bewildering array of machines. But these rec‐ ommendations provide good starting points based on our experience with produc‐ tion clusters.
