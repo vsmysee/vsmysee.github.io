@@ -73,6 +73,40 @@ jvm:
 ![](/images/perf-jvm.png)
 
 
+## 单独压测ng的静态页
+
+```
+location / {
+            root   html;
+            index  index.html index.htm;
+}
+```
+
+
+```
+================================================================================
+---- Global Information --------------------------------------------------------
+> request count                                     963338 (OK=963338 KO=0     )
+> min response time                                      0 (OK=0      KO=-     )
+> max response time                                    275 (OK=275    KO=-     )
+> mean response time                                    19 (OK=19     KO=-     )
+> std deviation                                          8 (OK=8      KO=-     )
+> response time 50th percentile                         17 (OK=17     KO=-     )
+> response time 75th percentile                         19 (OK=19     KO=-     )
+> response time 95th percentile                         28 (OK=28     KO=-     )
+> response time 99th percentile                         53 (OK=53     KO=-     )
+> mean requests/sec                                15792.426 (OK=15792.426 KO=-     )
+---- Response Time Distribution ------------------------------------------------
+> t < 800 ms                                        963338 (100%)
+> 800 ms < t < 1200 ms                                   0 (  0%)
+> t > 1200 ms                                            0 (  0%)
+> failed                                                 0 (  0%)
+================================================================================
+```
+
+
 ## 结论
 
 接近 10000 QPS
+
+
