@@ -41,6 +41,7 @@ Summary
 
 In doing a code review, you should make sure that:
 
+```
 The code is well-designed.
 The functionality is good for the users of the code.
 Any UI changes are sensible and look good.
@@ -53,7 +54,7 @@ The developer used clear names for everything.
 Comments are clear and useful, and mostly explain why instead of what.
 Code is appropriately documented (generally in g3doc).
 The code conforms to our style guides.
-
+```
 
 
 
