@@ -5,6 +5,8 @@ title:  读过几次人月神话
 最近和公司有两个伙伴聊天，我问他们知道人月神话是什么吗？他们说不知道，汗！这本书都出40周年纪念版了
 
 
+![](https://i0.wp.com/shepwayvox.org/wp-content/uploads/2017/03/no_silver_bullet.jpg?zoom=2&resize=609%2C264&ssl=1)
+
 ### 再论没有银弹
 
 完美无瑕的作品，过去不存在，将来也不会出现
