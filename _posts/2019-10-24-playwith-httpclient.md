@@ -248,3 +248,6 @@ HttpRequest request = requestFactory.buildGetRequest(
 String rawResponse = request.execute().parseAsString();
 System.out.println(rawResponse);
 {% endhighlight %}
+
+
+[参考](https://github.com/eugenp/tutorials/tree/master/libraries-http)
