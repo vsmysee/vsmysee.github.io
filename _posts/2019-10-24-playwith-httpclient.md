@@ -227,3 +227,24 @@ RestTemplate restTemplate = new RestTemplate(clientHttpRequestFactory);
 Mono<String> mono = WebClient.create().method(HttpMethod.GET).uri(urlStr).retrieve().bodyToMono(String.class);
 System.out.println(mono.block());
 {% endhighlight %}
+
+
+## Google http
+
+```
+ <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client</artifactId>
+            <version>1.23.0</version>
+ </dependency>
+```
+
+{% highlight java %}
+HttpRequestFactory requestFactory
+                = new NetHttpTransport().createRequestFactory();
+HttpRequest request = requestFactory.buildGetRequest(
+        new GenericUrl("https://httpbin.org/headers"));
+
+String rawResponse = request.execute().parseAsString();
+System.out.println(rawResponse);
+{% endhighlight %}
