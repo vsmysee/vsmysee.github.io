@@ -64,8 +64,10 @@ HttpResponse httpResponse = httpRequest.send();
 
 ## Apache
 安全性，可单例
+```
 @Contract(threading = ThreadingBehavior.SAFE)
 public abstract class CloseableHttpClient implements HttpClient, Closeable
+```
 
 {% highlight java %}
 RequestConfig config = RequestConfig.custom().setConnectTimeout(3000).setSocketTimeout(3000).setConnectionRequestTimeout(3000).build();
@@ -80,8 +82,10 @@ System.out.println(EntityUtils.toString(entity));
 ## Apache fluent
 
 默认的连接池
+```
 final static PoolingHttpClientConnectionManager CONNMGR;
 final static HttpClient CLIENT;
+```
     
 {% highlight java %}
 System.out.println(Request.Get(urlStr).connectTimeout(3000).socketTimeout(3000).execute().returnContent().asString());
@@ -146,11 +150,12 @@ Dsl类创建出来的DefaultAsyncHttpClient是线程安全的
 {% highlight java %}
 
 
-<dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpasyncclient</artifactId>
-            <version>4.1.4</version>
+ <dependency>
+            <groupId>org.asynchttpclient</groupId>
+            <artifactId>async-http-client</artifactId>
+            <version>2.2.0</version>
 </dependency>
+
 
 
 Future<Response> responseFuture = Dsl.asyncHttpClient()
@@ -172,6 +177,12 @@ whenResponse.join();
 
 ## ApacheHttpAsyncClient
 {% highlight java %}
+
+<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.4</version>
+</dependency>
         
 CloseableHttpAsyncClient client = HttpAsyncClients.createDefault();
 client.start();
