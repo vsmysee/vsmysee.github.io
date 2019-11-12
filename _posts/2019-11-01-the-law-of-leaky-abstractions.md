@@ -31,6 +31,13 @@ NIO就一定比BIO高级？
 如果你还没觉得抽象泄露有多可怕，看看CPU的bug:[链接](https://www.infoq.cn/article/BRebwaBfJ9eP28X9wQQc)
 
 
+你被浮点折磨过吗？ 
+```
+Double.MAX_VALUE == Double.MAX_VALUE + 100 //true
+0.99999999f==1f //true
+0.9f==1f //false
+```
+
 我一直讨厌SpringBoot和Mybatis，也是因为受到这个定律的影响，因为抽象必然泄露。
 Effective Java整本书，都是在警告我们，需要不做什么，类似这样的书还有《Java安全编码标准》，这些书背后都是抽象泄露定律作怪。
 
