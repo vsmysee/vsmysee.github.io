@@ -2,7 +2,7 @@
 layout: article
 title:  到底啥叫软件开发
 ---
-嗯？到底啥叫软件开发？看这个老外的总结,观点犀利
+嗯？到底啥叫软件开发？看这个老外的总结，观点犀利
 
 
 [原文](https://stevewedig.com/2014/02/03/software-developers-reading-list/)
