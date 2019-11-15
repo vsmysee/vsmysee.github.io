@@ -257,14 +257,13 @@ h4 {
 }
 
 #post_list a {
-    color: #7CAF3C;
+    color: #040404;
     text-decoration: none;
 }
 
 #post_list a:hover {
     color: #fff;
-    text-decoration: none;
-    background: #7CAF3C;
+    text-decoration: underline;
 }
 
 #post_list h3 {
