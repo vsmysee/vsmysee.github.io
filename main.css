@@ -332,8 +332,8 @@ h4 {
     width: 100%;
 }
 
-#article a {
-    color: #040404;
+#article p > a {
+    color: #db9734;
     text-decoration: none;
 }
 
