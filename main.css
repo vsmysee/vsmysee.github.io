@@ -210,12 +210,12 @@ h4 {
 
 .slide_pre {
     left: -60px;
-    background: url("images/slide_left.png");
+    background: url("images/pre.png");
 }
 
 .slide_next {
     right: -70px;
-    background: url("images/slide_right.png");
+    background: url("images/next.png");
 }
 
 /**----------------- common ------------------------*/
