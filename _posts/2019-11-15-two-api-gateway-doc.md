@@ -45,6 +45,9 @@ title:  两个api网关
 
 ## 阿里
 
+[链接](https://help.aliyun.com/document_detail/29468.html?spm=a2c4g.11186623.6.545.1a327c19MF8Js9)
+
+
 API 网关为您在各种场景下开放API 提供支撑，具体有：
 
 - 支持建立 API 生态，将 API 开放给合作伙伴、开发者，实现企业核心能力的货币化；
