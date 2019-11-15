@@ -203,13 +203,13 @@ h4 {
     position: absolute;
     top: 50%;
     margin-top: -24px;
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 59px;
     cursor: pointer;
 }
 
 .slide_pre {
-    left: -60px;
+    left: -72px;
     background: url("images/pre.png");
 }
 
