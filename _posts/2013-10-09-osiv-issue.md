@@ -20,10 +20,9 @@ OSIV是Open Session In View的简写，这个东西如果项目使用Hibernate�
 
 怎么解决？
 
-
-{% highlight java %}
+```
 1. 第一种：Gavin King，发明的Seam，支持用户工作空间和对话上下文，一次请求用两个事务，一个用于更新数据库，一个用于渲染页面时读取数据库。
 2. 第二种：用DDD提升对象到业务层，不要被ORM挟持，异步加载，缓存，DTO等方案。
 3. 第三种：用Ibatis等工具，直接用SQL定制数据返回
 4. 第四种：CQRS架构，写和读完全两条路径，彻底解决，干干净净。
-{% endhighlight %}
+```
