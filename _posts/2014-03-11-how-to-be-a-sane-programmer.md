@@ -26,17 +26,24 @@ And learning to think properly–about abstractions, about composition, about in
 Paul Graham observed this in his amazing essay Hackers and Painters:
 
 ```
-I’ve found that the best sources of ideas are not the other fields that have the word “computer” in their names, but the other fields inhabited by makers. Painting has been a much richer source of ideas than the theory of computation.
+I’ve found that the best sources of ideas are not the other fields that have the word “computer” in their names, 
+but the other fields inhabited by makers. Painting has been a much richer source of ideas than the theory of computation.
 ```
 
 **可事实上问题不在于此。编程，就跟写作、绘画、作曲一样，首先是一种创造性的活动，而不是一个种技术工作** 
 
 当然，对一种技术或编程语言的不断练习和保持熟悉很重要，这其实就是在学习使用工具和技法，但它并不会让你本质上变成一名更优秀的程序员。
 它只是让你能更熟练的使用工具。而能让你成为更优秀的程序员的是学会如何思考问题，因为最终你是把脑子里思考出的逻辑转换成了一系列操作计算机的指令，让计算机遵照指令解决问题。
-而学习如何正确的思考—— 如何抽象归纳，如何组合，如何分析信息，如何自我反省——可以通过各种方式，远非只有编程一种。Paul Graham 在他的精彩著作《黑客与画家》一书中说：
+
+
+而学习如何正确的思考—— 如何抽象归纳，如何组合，如何分析信息，如何自我反省——可以通过各种方式，远非只有编程一种。
+
+
+Paul Graham 在他的精彩著作《黑客与画家》一书中说：
 
 ```
-我发现那些最有价值的灵感的源泉都不是那些跟“计算机”这个词相关的领域，而是那些跟动手创造相关的领域。绘画就是一个比计算机理论能提供更丰富灵感的思想源泉。
+我发现那些最有价值的灵感的源泉都不是那些跟“计算机”这个词相关的领域，
+而是那些跟动手创造相关的领域。绘画就是一个比计算机理论能提供更丰富灵感的思想源泉。
 ```
 
 Branching out into other fields, having hobbies other than programming can be a tremendous benefit to your day job. 
