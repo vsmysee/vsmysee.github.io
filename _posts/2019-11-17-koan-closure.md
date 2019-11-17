@@ -16,4 +16,5 @@ At that moment, Anton became enlightened.
 ```
 
 对象乃贫者之闭包
+
 闭包乃贫者之对象
