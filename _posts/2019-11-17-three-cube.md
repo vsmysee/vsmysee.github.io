@@ -13,9 +13,9 @@ title:  三个立方体
 [databases-scale-cube](https://akfpartners.com/growth-blog/splitting-databases-for-scale)
 
 
- - X-Axis: Horizontal Duplication and Cloning of services and data
- - Y-Axis: Functional Decomposition and Segmentation - Microservices (or micro-services)
- - Z-Axis: Service and Data Partitioning along Customer Boundaries - Shards/Pods
+- X-Axis: Horizontal Duplication and Cloning of services and data
+- Y-Axis: Functional Decomposition and Segmentation - Microservices (or micro-services)
+- Z-Axis: Service and Data Partitioning along Customer Boundaries - Shards/Pods
 
 - X轴：服务和数据的水平复制和克隆
 - Y轴：功能分解和分段 - 微服务（或微服务）
