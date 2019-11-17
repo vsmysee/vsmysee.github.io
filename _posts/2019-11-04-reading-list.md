@@ -33,6 +33,9 @@ title:  推荐阅读
 [专业开发](https://mixmastamyk.bitbucket.io/pro_soft_dev/)
 
 
+[AKF](https://akfpartners.com/books)
+
+
 [必读上](https://www.jianshu.com/p/e500003a1258)
 
 [必读下](https://www.jianshu.com/p/d2499b8f0c81)
