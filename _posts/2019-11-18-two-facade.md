@@ -2,9 +2,9 @@
 layout: article
 title:  两个Facade
 ---
-我们的系统，应该源源不断的把日志流进日志聚合平台，比如ELK,把度量数据流进时间序列存储，比如InfluxDB, 这样我们才能通过度量预警问题，通过日志查找证据
+我们的系统，应该源源不断的把日志流进日志聚合平台，比如ELK，把度量数据流进时间序列存储，比如InfluxDB, 这样我们才能通过度量预警问题，通过日志查找证据
 
-于是IT界在这两个领域会存在五花八门的技术组件
+于是IT界在这两个领域搞出来了五花八门的技术组件
 
 日志就有这么多：
 
@@ -65,7 +65,9 @@ Thus, using SLF4J in conjunction with logback involves strictly zero memory and 
 ![](http://www.slf4j.org/images/concrete-bindings.png)
 
 
-我们所熟悉的Spring框架，历史是一直都是使用Apache Commons Logging,到了5.0直接把它打包到了一起，剔除了很多类，只保留对其他日志实现的查找逻辑
+我们所熟悉的Spring框架，历史是上一直都是使用Apache Commons Logging，到了5.0直接把它打包到了一起，剔除了很多类，只保留对其他日志实现的查找逻辑
 
 
 而对于Micrometer，我推荐的是prometheus，因为它是Google血统，和现在几乎要统一天下的Kubernetes配合得极致顺滑，再加上Go语言实现出来的极简安装体验.
+
+![](https://grafana.com/api/dashboards/1860/images/1718/image)
