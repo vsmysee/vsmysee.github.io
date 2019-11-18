@@ -66,14 +66,33 @@ public class StatusController {
 
 
 结果：
-![](/images/boot-perf.png)
+```
+================================================================================
+---- Global Information --------------------------------------------------------
+> request count                                    3040769 (OK=3040769 KO=0     )
+> min response time                                      0 (OK=0      KO=-     )
+> max response time                                    436 (OK=436    KO=-     )
+> mean response time                                    15 (OK=15     KO=-     )
+> std deviation                                         19 (OK=19     KO=-     )
+> response time 50th percentile                         11 (OK=11     KO=-     )
+> response time 75th percentile                         16 (OK=16     KO=-     )
+> response time 95th percentile                         41 (OK=41     KO=-     )
+> response time 99th percentile                        113 (OK=113    KO=-     )
+> mean requests/sec                                10102.223 (OK=10102.223 KO=-     )
+---- Response Time Distribution ------------------------------------------------
+> t < 800 ms                                       3040769 (100%)
+> 800 ms < t < 1200 ms                                   0 (  0%)
+> t > 1200 ms                                            0 (  0%)
+> failed                                                 0 (  0%)
+================================================================================
+```
 
 
 jvm:
 ![](/images/perf-jvm.png)
 
 
-## 单独压测ng的静态页
+## 压测ng的静态页作为对比
 
 ```
 location / {
@@ -107,6 +126,6 @@ location / {
 
 ## 结论
 
-接近 10000 QPS
+10000 QPS左右
 
 
