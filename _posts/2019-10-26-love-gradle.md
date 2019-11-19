@@ -436,6 +436,8 @@ apply from: 'other.gradle'
 ```
 可以从本地加载，也可以从远程url加载
 
+apply from 不要仅仅理解为加载插件，可以理解为加载脚本，你可以把工程的公共通用的脚本模块化，然后用这个语句进行加载
+
 
 二进制插件如果放在官方portal，都有一个全局的ID，当然获取一个二进制插件有下面几种方式：
 
@@ -473,6 +475,27 @@ apply plugin: GreetingPlugin
 {% endhighlight %}
 
 
+## Wrapper
+
+对比你使用maven的经验，你从一个地方得到了一份源代码，是一个maven工程，你开始用你自己的机器构建这份代码，这里就有问题了，你怎么知道别人是用什么版本的maven来管理的？
+你可能凑巧能够把工程构建正确，但是可能哪一天就崩溃了，这就是maven没有做好整体构建模块化的问题，在Gradle里这个问题得到了很好解决，加入你现在本地是4.0的版本，然后开发了一个工程
+现在你不希望别人用5.0的gradle来构建，你只要创建一个Wrapper就行了：
+
+```
+gradle wrapper
+```
+
+命令执行完之后，在工程的根目录会多出几个文件，分别是gradlew,gradlew.bat,gradle文件夹, 文件夹里面有一个属性文件：gradle-wrapper.properties，里面包含了你的版本信息：
+```
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-bin.zip
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+```
+
+把这些生成的文件提交到版本控制，当别人迁出你的代码的时候，完全不用自己下载gradle，通过执行gradlew，整个构建过程和你原本的版本是一致的，当用IDEA导入工程的时候也可以直接选择这个Wrapper
+而不需要本地安装有Gradle
 
 ## Kotlin支持
 
