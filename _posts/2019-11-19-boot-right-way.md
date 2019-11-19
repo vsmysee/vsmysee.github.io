@@ -7,8 +7,10 @@ title:  使用boot的正确姿势
 [地址](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/gradle-plugin/reference/html/)
 
 ```
-Each Spring Boot release is designed and tested against a specific set of third-party dependencies. 
-Overriding versions may cause compatibility issues and should be done with care.
+Each Spring Boot release is designed
+and tested against a specific set of third-party dependencies. 
+Overriding versions may cause 
+compatibility issues and should be done with care.
 ```
 
 如果用中文来翻译，可以简洁的这样表达：
@@ -29,8 +31,8 @@ maven:
 </parent>
 
 <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 
 ```
@@ -78,3 +80,7 @@ dependencies {
             "Hoxton.BUILD-SNAPSHOT":"Spring Boot >=2.2.2.BUILD-SNAPSHOT"
 }
 ```
+
+## 总结
+
+软件开发真的越来越难
