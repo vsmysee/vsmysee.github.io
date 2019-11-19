@@ -44,7 +44,7 @@ Wavefront.
 
 # 你应该怎么选择呢？
 
-答案是SLF4j和Micrometer,他们都是两个门面，底层通过SPI来适配各种实现，这样让你的上层代码不变，底层随便切换
+答案是SLF4j和Micrometer，他们都是两个门面，底层通过SPI来适配各种实现，这样让你的上层代码不变，底层随便切换
 
 
 The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks (e.g. java.util.logging, logback, log4j) allowing the end user to plug in the desired logging framework at deployment time.
