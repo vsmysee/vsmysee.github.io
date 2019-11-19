@@ -13,6 +13,9 @@ title:  推荐阅读
 ![](https://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/107/10708/10708f1.inline.jpg)
 
 
+Jeff Atwood 的书柜
+![](https://blog.codinghorror.com/content/images/uploads/2008/04/6a0120a85dcdae970b012877703e47970c-pi.jpg )
+
 >"书山有路勤为径"
 
 ![](https://swdraft.files.wordpress.com/2014/01/100_0263.jpg?w=1800)
@@ -32,6 +35,7 @@ title:  推荐阅读
 
 [专业开发](https://mixmastamyk.bitbucket.io/pro_soft_dev/)
 
+[Jeff](https://blog.codinghorror.com/programmers-dont-read-books-but-you-should/)
 
 [AKF](https://akfpartners.com/books)
 
@@ -99,5 +103,7 @@ title:  推荐阅读
 
 
 [全技能](https://dev.to/bosepchuk/29-must-read-programming-books-2n45)
+
+[书单](https://simpleprogrammer.com/best-programming-books-2019/)
 
 [好多Paper](https://github.com/papers-we-love/papers-we-love)
