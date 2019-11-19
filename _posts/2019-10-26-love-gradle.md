@@ -446,6 +446,27 @@ apply from 不要仅仅理解为加载插件，可以理解为加载脚本，你
 3. 定义插件在本地的buidSrc目录
 4. 定义一个插件作为build script的内部类
 
+比如springboot的依赖管理插件，我们就可以这样写：
+
+```
+plugins {
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+}
+```
+
+```
+buildscript {
+    repositories {
+        maven { url 'https://repo.spring.io/plugins-snapshot' }
+    }
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.7.BUILD-SNAPSHOT'
+    }
+}
+
+apply plugin: "io.spring.dependency-management"
+```
+
 
 插件DSL的格式是plugins{},有如下一些限制
 
@@ -478,8 +499,8 @@ apply plugin: GreetingPlugin
 ## Wrapper
 
 对比你使用maven的经验，你从一个地方得到了一份源代码，是一个maven工程，你开始用你自己的机器构建这份代码，这里就有问题了，你怎么知道别人是用什么版本的maven来管理的？
-你可能凑巧能够把工程构建正确，但是可能哪一天就崩溃了，这就是maven没有做好整体构建模块化的问题，在Gradle里这个问题得到了很好解决，加入你现在本地是4.0的版本，然后开发了一个工程
-现在你不希望别人用5.0的gradle来构建，你只要创建一个Wrapper就行了：
+你可能凑巧能够把工程构建正确，但是可能哪一天就崩溃了，这就是maven没有做好整体构建模块化的问题，在Gradle里这个问题得到了很好解决，假如你现在本地是5.0的版本，然后开发了一个工程
+现在你不希望别人用4.0的gradle来构建，你只要创建一个Wrapper就行了：
 
 ```
 gradle wrapper
