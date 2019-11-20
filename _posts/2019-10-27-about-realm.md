@@ -102,3 +102,19 @@ title: 关于境界之说
 ```
 
 一个程序员的修炼境界，我之前有一篇文章:[JavaScript王者](https://vsmysee.github.io/blog/2013/10/09/js-king-back)
+
+
+## 做学问的八个境界
+
+[传送门](http://www.ruanyifeng.com/blog/2013/09/liang_shuming.html)
+
+```
+形成主见
+发现不能解释的事情
+融汇贯通
+知不足
+以简御繁
+运用自如
+一览众山小
+通透
+```

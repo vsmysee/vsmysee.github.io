@@ -94,6 +94,8 @@ Jeff Atwood 的书柜
 
 [跟踪刘未鹏](http://mindhacks.cn/)
 
+[阮一峰](http://www.ruanyifeng.com/blog/)
+
 [小土刀](https://book.douban.com/people/wdx/)
 
 [101本](https://www.whoishostingthis.com/resources/programming-books/)
