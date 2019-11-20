@@ -7,7 +7,11 @@ title:  美与物理学
 ## 物理学家也会有风格
 
 ```
-波耳兹曼曾经说过：一位音乐家在听到几个音节后，即能辨认出莫扎特（Mozart）、贝多芬（Beethoven）或舒伯特（Schubert）的音乐。
+波耳兹曼曾经说过：一位音乐家在听到几个音节后，即能辨认出
+莫扎特（Mozart）、
+贝多芬（Beethoven）
+或舒伯特（Schubert）的音乐。
+
 同样，一位数 学家或物理学家也能在读了数页文字后辨认出
 柯西（Cauchy）、
 高斯（Gauss）、
@@ -15,15 +19,17 @@ title:  美与物理学
 亥姆霍兹（Helmholtz）或克尔期豪（Kirchhoff）的工作
 ```
 
+狄拉克
 ```
-狄拉克，“秋水文章不染尘”，没有任何渣滓，直达深处，直达宇宙的奥秘。
+“秋水文章不染尘”，没有任何渣滓，直达深处，直达宇宙的奥秘。
 
 性灵出万象，
 风骨超常伦
 ```
 
+海森伯
 ```
-海森伯，朦胧、不清楚、有渣滓，惊叹他的独创力
+朦胧、不清楚、有渣滓，惊叹他的独创力
 ```
 
 对比我们程序员，由于每个人对于程序逻辑之美的理解不一样，所以一定会出现不同的风格，有的简洁，有的朦胧，有的像诗歌，比如Redis的代码
@@ -31,7 +37,7 @@ title:  美与物理学
 
 ## 爱因斯坦的过人之处
 
-![](http://mmbiz.qpic.cn/mmbiz/bLFz6wrJ7vItkHNURicFibJgKOB7ibPcjic1NxtC8y7yeUZ6bFd9pyv9NZpMObCEN01Hibb9fIJq1iatmmdibmWeFWFuw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://img.mp.itc.cn/upload/20160517/4c981452b6f34b1a9cff00e7c1b5b39e_th.jpg)
 
 
 ## 关于选择
