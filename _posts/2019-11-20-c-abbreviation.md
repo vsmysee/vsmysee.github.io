@@ -3,6 +3,11 @@ layout: article
 title:  几个C开头的缩写词
 ---
 
+## CS
+
+Computer Science
+
+
 ## CQRS
 
 这是一个架构风格，是重构原则-**读取和修改分离** 上升到架构级的描述
