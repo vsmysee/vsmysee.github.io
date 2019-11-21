@@ -1,5 +1,5 @@
 ---
 layout: article
-title: 知之与不知
+title: 知知与不知
 ---
 ![](/images/unknown.jpg)
