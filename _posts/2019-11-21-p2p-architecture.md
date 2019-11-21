@@ -8,7 +8,7 @@ title:  p2p架构的中间件
 
 
 ## Elasticsearch
-![https://miro.medium.com/max/1498/1*XRMj0T8OU_EdhLwg3JrdVw.png]
+![](https://miro.medium.com/max/1498/1*XRMj0T8OU_EdhLwg3JrdVw.png)
 
 
 由于这两个东西极度相似的架构，所以有人造了个Elassandra
