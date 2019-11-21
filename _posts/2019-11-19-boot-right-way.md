@@ -92,6 +92,22 @@ dependencies {
 }
 ```
 
+
+## 注意暴露自己
+
+actuator启动在不同的端口上，隐藏在内网，不然你的服务器是一个透明的裸体
+
+```
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  server:
+    port: 8090
+```
+
+
 ## 总结
 
 软件开发真的越来越难
