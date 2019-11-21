@@ -184,6 +184,72 @@ xml是一个配置语言，不是编程语言，mybatis是一个sql模板引擎�
 maven,ant这些用xml来控制逻辑的框架都在慢慢的被代码式，脚本式的gradle替代。
 
 
+对于代码声明式的数据库操作，业界有JOOQ的方案:
+
+```
+create.select(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, count())
+      .from(AUTHOR)
+      .join(BOOK).on(AUTHOR.ID.equal(BOOK.AUTHOR_ID))
+      .where(BOOK.LANGUAGE.eq("DE"))
+      .and(BOOK.PUBLISHED.gt(date("2008-01-01")))
+      .groupBy(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME)
+      .having(count().gt(5))
+      .orderBy(AUTHOR.LAST_NAME.asc().nullsFirst())
+      .limit(2)
+      .offset(1)
+
+```
+
+可以对比现在spring体系的实现形式
+```
+http
+                .authorizeRequests()
+                .antMatchers("/static/**", "/public/**", "/bower_components/**","/actuator/**").permitAll()
+                .antMatchers("/user/**").hasRole("USER")
+                .anyRequest()
+                .authenticated()
+
+
+                .and()
+                .csrf().disable()
+
+
+                .formLogin()
+                .defaultSuccessUrl("/")
+                .loginPage("/login")
+                .failureUrl("/login?error=1")
+                .permitAll()
+
+                .and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400)
+
+                .and()
+                .logout()
+                .deleteCookies("JSESSIONID")
+                .permitAll();
+```
+
+Groovy SQL
+
+```
+sql.eachRow("SELECT * FROM PROJECT") { rs ->
+    assertNotNull(rs.name)
+    assertNotNull(rs.URL)
+}
+```
+
+Scala SQL
+
+```
+val name = "Alice"
+// implicit session represents java.sql.Connection
+val memberId: Option[Long] = DB readOnly { implicit session =>
+  sql"select id from members where name = ${name}" // don't worry, prevents SQL injection
+    .map(rs => rs.long("id")) // extracts values from rich java.sql.ResultSet
+    .single                   // single, list, traversable
+    .apply()                  // Side effect!!! runs the SQL using Connection
+}
+```
+
 如果你的公司必须要使用mybatis，可以，那么掌握好分寸，阉割式使用，绝对不要写出上面这种代码，并配合好强大的单元测试，不然你一定会在生产出故障
 
 
