@@ -32,6 +32,7 @@ HttpResponse<String> response = client.send(request, HttpResponse.BodyHandler.as
 {% endhighlight %}
 
 注意，HttpURLConnection是默认KeepAlive的，对一个目标地址默认5个复用连接
+具体细节看[官网](https://docs.oracle.com/javase/7/docs/technotes/guides/net/http-keepalive.html)
 
 
 ## Jodd
