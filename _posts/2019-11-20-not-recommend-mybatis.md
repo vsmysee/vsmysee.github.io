@@ -186,6 +186,8 @@ maven,ant这些用xml来控制逻辑的框架都在慢慢的被代码式，脚�
 
 对于代码声明式的数据库操作，业界有JOOQ的方案:
 
+[jooq](https://www.jooq.org/)
+
 ```
 create.select(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, count())
       .from(AUTHOR)
@@ -237,7 +239,7 @@ sql.eachRow("SELECT * FROM PROJECT") { rs ->
 }
 ```
 
-Scala SQL
+Scala SQL，[scalikejdbc](http://scalikejdbc.org/)
 
 ```
 val name = "Alice"
