@@ -36,7 +36,18 @@ maven:
 </dependency>
 
 ```
-注意依赖不要指定版本，要继承
+注意依赖不要指定版本，要继承，依赖是从继承的bom里获取的，版本号是在bom里，bom里也包括了插件的版本，属性继承了下面这些
+
+```
+<properties>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <resource.delimiter>@</resource.delimiter>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+</properties>
+```
 
 
 gradle:
@@ -53,7 +64,7 @@ dependencies {
 }
 
 ```
-要引入依赖插件，不要指定版本
+要引入依赖插件，不要指定版本，这些插件的内部实现又导入了maven的bom
 
 
 如果再加上spring cloud的依赖，则要明确boot的版本和cloud的版本是否能够愉快的玩耍
