@@ -31,6 +31,9 @@ HttpResponse<String> response = client.send(request, HttpResponse.BodyHandler.as
 
 {% endhighlight %}
 
+注意，HttpURLConnection是默认KeepAlive的，对一个目标地址默认5个复用连接
+
+
 ## Jodd
 没有连接池，直接在socket上解析
 {% highlight java %}
@@ -61,6 +64,29 @@ HttpRequest httpRequest = HttpRequest
 HttpResponse httpResponse = httpRequest.send();
     
 {% endhighlight %}
+
+但是如果你需要使用连接复用，使用下面这种方式
+
+{% highlight java %}
+
+HttpRequest request = HttpRequest.get("http://jodd.org");
+HttpResponse response = request.connectionKeepAlive(true).send();
+
+// next request
+request = HttpRequest.get("http://jodd.org/jodd.css");
+response = request.keepAlive(response, true).send();
+
+...
+
+// last request
+request = HttpRequest.get("http://jodd.org/jodd.png");
+response = request.keepAlive(response, false).send();
+
+// optionally
+//response.close();
+
+{% endhighlight %}
+
 
 ## Apache
 安全性，可单例
