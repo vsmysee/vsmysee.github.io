@@ -6,15 +6,15 @@ title:  RestTemplate负载均衡
 今天看了下SpringCloud的客户端负载均衡代码
 
 ```
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+@Bean
+@LoadBalanced
+RestTemplate restTemplate() {
+   return new RestTemplate();
+}
 ```
 我就纳闷了，RestTemplate是一个Spring自带的一个古老玩意，Cloud是什么魔法可以加个注解就具备了负载均衡能力的？
 
-通过过跟踪发现，在RestTemplate的3.1版本的时候加入了一个类:
+通过跟踪发现，在RestTemplate的3.1版本的时候加入了一个类:
 
 InterceptingHttpAccessor
 
