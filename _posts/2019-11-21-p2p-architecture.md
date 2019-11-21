@@ -20,3 +20,7 @@ title:  p2p架构的中间件
 
 ## Zeebe
 ![](https://docs.zeebe.io/basics/cluster.png)
+
+
+## Kafka
+![](https://dzone.com/storage/temp/1717220-apache-kafka.png)
