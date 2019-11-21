@@ -20,7 +20,9 @@ persistent connections may reduce the number of costly SSL/TLS handshake to esta
 
 ## 连接如何能重用
 
-Since TCP by its nature is a stream based protocol TCP本质上是一个流式协议
+Since TCP by its nature is a stream based protocol 
+
+TCP本质上是一个流式协议
 你必须有办法识别消息的结束,不管是Content-Length header,还是chunked transfer encoded entity body
 
 it is required that all messages on the connection MUST have a self-defined message length 
@@ -123,5 +125,5 @@ Now in JDK 6, the behavior is to read up to 512 Kbytes off the connection in a b
 
 
 ## 总结
-看懂了吗？太复杂了吧，所以对于如果使用http的核心原则就是不要使用原生http，一定要使用开源封装库，比如RestTemplate,Apache Http Components
-同样的道理，Jdbc连接也很复杂，一定要使用可靠的连接池，比如hikariCP，不要逞强，试图自己去发明连接管理的库，以为有太多太多的细节
+看懂了吗？太复杂了吧，所以使用http的核心原则就是不要使用原生http，一定要使用开源封装库，比如RestTemplate,Apache Http Components
+同样的道理，Jdbc连接也很复杂，一定要使用可靠的连接池，比如hikariCP，不要逞强，试图自己去发明连接管理的库，因为有太多太多的细节了。
