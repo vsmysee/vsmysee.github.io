@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 追踪spring的各版本
+title: spring的各版本
 ---
 
 ## Spring1.x
@@ -359,6 +359,23 @@ Using Log4J
 
 
 * 基于 Spring 5 构建，Spring 的新特性均可以在 Spring Boot 2.0 中使用
+* 基于 Java 8
+* 支持 Java 9；
+* 支持 Quartz 调度程序；
+* 支持嵌入式 Netty，Tomcat, Undertow 和 Jetty 均已支持 HTTP/2；
+* 执行器架构重构，支持 Spring MVC, WebFlux 和 Jersey；
+* 对响应式编程提供最大支持；
+* 引入对 Kotlin 1.2.x 的支持，并提供了一个 runApplication 函数，用Kotlin 通用的方式启动 Spring Boot 应用程序。
+
+
+## Boot 1.x TimeLine 
+
+* Spring boot 1.1 (June 2014) – improved templating support, gemfire support, auto configuration for elasticsearch and apache solr.
+* Spring boot 1.2 (March 2015) – upgrade to servlet 3.1/tomcat 8/jetty 9, spring 4.1 upgrade, support for banner/jms/SpringBootApplication annotation.
+* Spring boot 1.3 (December 2016) – spring 4.2 upgrade, new spring-boot-devtools, auto configuration for caching technologies(ehcache, hazelcast, redis, guava and infinispan) and fully executable jar support.
+* Spring boot 1.4 (January 2017) – spring 4.3 upgrade, couchbase/neo4j support, analysis of startup failures and RestTemplateBuilder.
+* Spring boot 1.5 (February 2017) – support for kafka/ldap, third party library upgrades, deprecation of CRaSH support and actuator loggers endpoint to modify application log levels on the fly.
+
 
 
 ## Spring生态
@@ -374,3 +391,7 @@ Using Log4J
 * Spring Mobile
 * Spring Integration
 * Spring Cloud
+
+
+
+[参考](https://www.quickprogrammingtips.com/spring-boot/history-of-spring-framework-and-spring-boot.html)
