@@ -3,7 +3,8 @@ layout: article
 title:  SAAS团队自检清单
 ---
 
-[](https://amazonaws-china.com/cn/blogs/apn/modeling-saas-tenant-profiles-on-aws/)
+来自：
+[AWS](https://amazonaws-china.com/cn/blogs/apn/modeling-saas-tenant-profiles-on-aws/)
 
 
 - What are some of the security considerations that might influence your customer’s willingness to run in a multi-tenant environment?
