@@ -20,7 +20,7 @@ title:  演进式陷阱与反模式
 
 越来越复杂的现代软件
 
-![](/images/complexity.jpg)
+![](/images/modern-soft.png)
 
 ## 最后10%
 
