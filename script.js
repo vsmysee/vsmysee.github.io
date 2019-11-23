@@ -289,18 +289,6 @@ $(function () {
     })();
 
 
-    //给代码段加入放大图标
-    (function () {
-        if ($(".highlight").length != 0) {
-            $(".highlight").append("<div class='codezoom'></div>");
-            $(".codezoom").click(function () {
-                var pop = new Pop({w: getWindowWidth() * 0.98, h: getWindowHeight() * 0.95, b: "#FFF"});
-                pop.setContent("<div class='highlight pop_highlight'>" + $(this).parent().html() + "</div>");
-                pop.show();
-            });
-        }
-    })()
-
     //先把个人信息图片加载一把利用浏览器缓存
     var loadMyProfileImg = function () {
         var forload = [];
