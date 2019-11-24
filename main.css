@@ -96,8 +96,17 @@ h4 {
     height: 48px;
     background: url("images/me.png");
     cursor: pointer;
-    bottom: 30px;
-    opacity: 1;
+    bottom: 300px;
+    position: fixed;
+    z-index: 200;
+}
+
+.home {
+    width: 48px;
+    height: 48px;
+    background: url("images/home.png");
+    cursor: pointer;
+    bottom: 360px;
     position: fixed;
     z-index: 200;
 }

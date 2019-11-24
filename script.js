@@ -238,7 +238,8 @@ $(function () {
 
 
             var toTop = document.createElement("div"), aboutMe = document.createElement("div"),
-                pot_t = 0,
+                backHome = document.createElement("div")
+            pot_t = 0,
                 pot_b = 1;
 
             toTop.id = "to_top";
@@ -246,6 +247,9 @@ $(function () {
 
             aboutMe.id = "me";
             aboutMe.className = "me";
+
+            backHome.id = "backhome"
+            backHome.className = "home";
 
 
             var toright = (getWindowWidth() - 1000) / 2 - 40 - 20;
@@ -255,7 +259,6 @@ $(function () {
                 var scrollTop = $(document).scrollTop();
                 if (scrollTop > 290 && pot_t == 0) {
                     $(toTop).stop().animate({"right": toright, "opacity": "1"}, 200);
-                    $(aboutMe).stop().animate({ "opacity": "0"}, 200);
 
 
                     fuckScreen();
@@ -264,7 +267,6 @@ $(function () {
                     pot_b = 0;
                 } else if (scrollTop < 290 && pot_b == 0) {
                     $(toTop).stop().animate({"right": "-60px", "opacity": "0"}, 200);
-                    $(aboutMe).stop().animate({"opacity": "1"}, 200);
 
                     pot_t = 0;
                     pot_b = 1;
@@ -275,8 +277,8 @@ $(function () {
             });
 
             document.body.appendChild(toTop);
+            document.body.appendChild(backHome);
             document.body.appendChild(aboutMe);
-
 
 
             toTop.onclick = function () {
@@ -284,6 +286,10 @@ $(function () {
             };
 
             aboutMe.onclick = showProfile;
+
+            backHome.onclick = function () {
+                window.location = "/";
+            }
         }
 
     })();
