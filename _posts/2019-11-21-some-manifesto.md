@@ -54,6 +54,8 @@ but also productive partnerships
 
 [GNU宣言](https://www.gnu.org/gnu/manifesto.zh-cn.html)
 
+[Redis](http://antirez.com/post/redis-manifesto.html)
+
 [Dev Ops](https://theagileadmin.com/2010/10/15/a-devops-manifesto/)
 
 ```
