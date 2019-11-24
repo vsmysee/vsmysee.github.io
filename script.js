@@ -248,7 +248,7 @@ $(function () {
             aboutMe.id = "me";
             aboutMe.className = "me";
 
-            backHome.id = "backhome"
+            backHome.id = "home"
             backHome.className = "home";
 
 
