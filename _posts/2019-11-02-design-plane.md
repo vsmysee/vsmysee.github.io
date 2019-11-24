@@ -174,3 +174,6 @@ If you are writing code for aviation, you’d better know a lot about the cultur
 - We need to have the courage to say “No” when we assess that the risk of deploying our code is too high.
 
 
+## 国内设计师的文章
+
+![](/images/design-plane.jpeg)
