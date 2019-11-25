@@ -87,19 +87,19 @@ context:annotation-config到底对你的代码做了什么黑魔法，有非常�
 @Configuration标记的类表示是一个配置类，负责生产出真正的Bean， @Bean标记在配置类的方法上，而Configuration又被Component标记了，所以配置类本身也是一个Bean，必须先注册到容器里
 可以显式配置，或者通过扫描。
 
-DependsOn可以用对Bean的加载定制依赖。
+DependsOn可以对Bean的加载定制依赖。
 
-既然有了配置的类，那么可以直接基于配置了启动一个上下文，所以有了：
+既然有了配置的类，那么可以直接基于配置类启动一个上下文，所以有了：
 
 AnnotationConfigApplicationContext
 
 
-从3.0开始，这个注解包开始不断的加入新成员，3.1加入了一个ComponentScans,这个标记可以让容器扫描各种注解的Bean，取代了context:component-scan，于是结合AnnotationConfigApplicationContext，xml的时代就可以结束了.
+从3.0开始，这个注解包开始不断的加入新成员，3.1加入了一个ComponentScans，这个标记可以让容器扫描各种注解的Bean，取代了context:component-scan，于是结合AnnotationConfigApplicationContext，xml的时代就可以结束了.
 
 
 前面提到的annotation-config的取代方式开始被Enable*这样的注解, 比如tx:annotation-config被EnableTransactionManagement取代了。
 
-@Enable这类的注解依赖一个Import注解，导入了一堆Bean,同样，这种方式没有使得透明性有改善，Import进来的那个类也极度复杂。
+@Enable这类的注解依赖一个Import注解，导入了一堆Bean，这种方式没有使得透明性有改善，Import进来的那个类也极度复杂。
 
 
 ## 4.0
@@ -115,13 +115,17 @@ AnnotationConfigApplicationContext
 
 2014年4月，Spring Boot 1.0.0发布，基于了spring4.0
 
-@SpringBootApplication本身是一个Configuration,同时还是ComponentScan，这是可以理解的，巨大的不透明在于EnableAutoConfiguration
+@SpringBootApplication本身是一个Configuration，同时还是ComponentScan，这是可以理解的，巨大的不透明在于EnableAutoConfiguration
 
+文档的注释这样写的:
 ```
 attempting to guess and configure beans that you are likely to need.
 ```
 
 **也就是说，我们已经进入了面向猜测编程的时代了。**
+
+
+至于面向猜测编程，是否好hold住，就得依靠team对于版本的管理是否严格，对于测试是否完整了。祝你SpringBoot用得顺畅
 
 
 
