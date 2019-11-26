@@ -3,6 +3,8 @@ layout: article
 title:  maven仓库列表
 ---
 
+## 中央
+
 ```
 http://repo.maven.apache.org/maven2
 ```
@@ -12,6 +14,7 @@ http://repo.maven.apache.org/maven2
 http://repo1.maven.org/maven2/
 ```
 
+## 地方镜像
 
 ```
 http://maven.aliyun.com/nexus/content/groups/public/
@@ -36,6 +39,11 @@ repositories {
 ```
 
 
+```
+https://repository.sonatype.org/content/groups/public/
+```
+
+
 
 ```
 repositories {
@@ -43,7 +51,7 @@ repositories {
 }
 ```
 
-
+## 私有
 
 ```
 http://repo.spring.io/release/
@@ -57,11 +65,6 @@ https://app.camunda.com/nexus/content/groups/public
 
 ```
 https://repository.jboss.org/nexus/content/repositories/
-```
-
-
-```
-https://repository.sonatype.org/content/groups/public/
 ```
 
 
@@ -99,3 +102,5 @@ group表示分组
 proxy表示代理
 hosted表示本地
 ```
+
+现在就可以使用本地私服地址了: http://localhost:8081/repository/maven-public/
