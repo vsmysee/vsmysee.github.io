@@ -106,6 +106,11 @@ hosted表示本地
 现在就可以使用本地私服地址了: http://localhost:8081/repository/maven-public/
 
 
+或者直接用docker启动:
+
+docker run -d -p 8081:8081  --name nexus sonatype/nexus3
+
+
 ## 如何deploy jar到私服
 
 maven:
