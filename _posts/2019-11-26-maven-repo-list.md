@@ -1,6 +1,6 @@
 ---
 layout: article
-title:  maven仓库列表
+title:  maven仓库与私服
 ---
 
 ## 中央
@@ -104,3 +104,76 @@ hosted表示本地
 ```
 
 现在就可以使用本地私服地址了: http://localhost:8081/repository/maven-public/
+
+
+## 如何deploy jar到私服
+
+maven:
+
+```
+<distributionManagement>
+    <repository>
+        <id>nexus-release</id>
+        <name>nexus-release</name>
+        <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>nexus-snapshot</id>
+        <name>nexus-snapshot</name>
+        <url>http://localhost:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
+```
+
+然后在settings.xml中加入认证
+
+```
+<servers>
+    <server>
+        <id>nexus-snapshot</id>
+        <username>admin</username>
+        <password>admin</password>
+    </server>
+    <server>
+        <id>nexus-release</id>
+        <username>admin</username>
+        <password>admin</password>
+    </server>
+</servers>
+```
+
+gradle:
+
+```
+
+plugins {
+	id 'maven-publish'
+}
+
+
+publishing {
+
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+		maven {
+		
+			credentials {
+				username "admin"
+				password "admin"
+			}
+
+			if (project.version.endsWith('-SNAPSHOT')) {
+				url "http://localhost:8081/repository/maven-snapshots/"
+			} else {
+				url "http://localhost:8081/repository/maven-releases/"
+			}
+		}
+	}
+}
+
+```
