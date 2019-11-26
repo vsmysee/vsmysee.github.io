@@ -20,7 +20,7 @@ title: 两个七个习惯
 
 ## 打字
 
-(原文)(https://www.moolenaar.net/habits.html)
+[原文](https://www.moolenaar.net/habits.html)
 
 ```
 习惯一：快速移动
