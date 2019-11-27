@@ -234,22 +234,34 @@ $(function () {
             $("#next_page,#pre_page").css({opacity: 1});
         }
 
+        var aboutMe = document.createElement("div"), backHome = document.createElement("div");
+
+        aboutMe.id = "me";
+        aboutMe.className = "me";
+
+        backHome.id = "home"
+        backHome.className = "home";
+
+
+        document.body.appendChild(backHome);
+        document.body.appendChild(aboutMe);
+
+
+        aboutMe.onclick = showProfile;
+
+        backHome.onclick = function () {
+            window.location = "/";
+        }
+
+
         if (getDocumentHeight() > getWindowHeight() + 500) {
 
 
-            var toTop = document.createElement("div"), aboutMe = document.createElement("div"),
-                backHome = document.createElement("div")
-            pot_t = 0,
-                pot_b = 1;
+            var toTop = document.createElement("div"),
+                pot_t = 0, pot_b = 1;
 
             toTop.id = "to_top";
             toTop.className = "to_top";
-
-            aboutMe.id = "me";
-            aboutMe.className = "me";
-
-            backHome.id = "home"
-            backHome.className = "home";
 
 
             var toright = (getWindowWidth() - 1000) / 2 - 40 - 20;
@@ -259,7 +271,6 @@ $(function () {
                 var scrollTop = $(document).scrollTop();
                 if (scrollTop > 290 && pot_t == 0) {
                     $(toTop).stop().animate({"right": toright, "opacity": "1"}, 200);
-
 
                     fuckScreen();
 
@@ -277,19 +288,13 @@ $(function () {
             });
 
             document.body.appendChild(toTop);
-            document.body.appendChild(backHome);
-            document.body.appendChild(aboutMe);
 
 
             toTop.onclick = function () {
                 $("html,body").animate({scrollTop: 0}, 500);
             };
 
-            aboutMe.onclick = showProfile;
 
-            backHome.onclick = function () {
-                window.location = "/";
-            }
         }
 
     })();
