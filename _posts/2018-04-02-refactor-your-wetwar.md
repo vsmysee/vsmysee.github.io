@@ -172,3 +172,7 @@ SMART:
 
 充满问题和惊讶
 
+
+![](/images/thinking-learn)
+
+![](/images/thinking-learn.jpg)
