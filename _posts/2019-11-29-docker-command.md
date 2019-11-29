@@ -52,13 +52,13 @@ docker commit 3ea7a99a0025 ubuntu/ruby:v2
 
 docker load < my_image.tar.gz
 
-docker save my_image:my_tag | gzip > my_image.tar.gz
-
-cat my_container.tar.gz | docker import - my_image:my_tag
-
-docker export my_container | gzip > my_container.tar.gz
-
 docker history ubuntu:16.04
+
+```
+docker save my_image:my_tag | gzip > my_image.tar.gz
+cat my_container.tar.gz | docker import - my_image:my_tag
+docker export my_container | gzip > my_container.tar.gz
+```
 
 
 ## 容器
@@ -133,9 +133,10 @@ docker rm CONTAINER_ID
 
 docker rm  $(docker ps -a -q)
 
+```
 docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm
-
 docker rm -v $(docker ps -a -q -f status=exited)
+```
 
 
 ## 网络
@@ -158,6 +159,10 @@ docker network create --subnet 203.0.113.0/24 --gateway 203.0.113.254 iptastic
 docker run --rm -it --net iptastic --ip 203.0.113.2 nginx
 
 
+
+docker network rm $(docker network ls -q) //clean up orphaned networks
+
+
 ## 卷
 
 docker volume create
@@ -168,6 +173,7 @@ docker volume ls
 
 docker volume inspect
 
+docker volume rm $(docker volume ls -qf dangling=true)  //clean up orphaned volumes
 
 ## 其他
 ```
