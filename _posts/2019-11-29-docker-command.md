@@ -209,5 +209,5 @@ docker-compose down
 docker-compose stop
 
 
-
+![](https://jrebel.com/wp-content/uploads/2016/03/Docker-cheat-sheet-by-RebelLabs.png)
 
