@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 微服务五大原则
+title: 微服务五大指导
 ---
 
 [原文](https://opensource.com/article/18/4/guide-design-microservices)
