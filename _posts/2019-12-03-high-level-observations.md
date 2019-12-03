@@ -30,10 +30,10 @@ Agile DevOps is a very interesting outcome of the engineering model's gradual ma
 [原文](https://opensource.com/article/19/8/mutation-testing-evolution-tdd)
 
 
-[Heisenberg's Uncertainty Principle](https://en.wikipedia.org/wiki/Uncertainty_principle)
+[海森堡的不确定性原理](https://en.wikipedia.org/wiki/Uncertainty_principle)
 
-[Wittgenstein's Tractatus Logico-Philosophicus](https://en.wikipedia.org/wiki/Tractatus_Logico-Philosophicus)
+[维特根斯坦的逻辑论哲学](https://en.wikipedia.org/wiki/Tractatus_Logico-Philosophicus)
 
-[Gödel's incompleteness theorems](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
+[哥德尔的不完全性定理](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
-[Second Law of Thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics)
+[热力学熵增定律](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics)
