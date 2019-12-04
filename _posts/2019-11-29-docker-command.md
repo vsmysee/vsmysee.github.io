@@ -3,7 +3,7 @@ layout: article
 title:  Docker命令集
 ---
 
-![](https://geekflare.com/wp-content/uploads/2019/09/docker-architecture-609x270.png)
+![](/images/docker-arch.png)
 
 
 ## 仓库
