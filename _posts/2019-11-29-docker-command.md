@@ -114,6 +114,8 @@ docker run -i -t -p 7000:22 centos:centos7 /bin/bash
 
 docker run -d  --net host -p 50001:22 my:my /usr/sbin/sshd -D
 
+docker run -it -v /Volumes/data:/data:rw node:8.16.2-jessie bash
+
 docker kill $(docker ps -q)
 
 资源限制:
