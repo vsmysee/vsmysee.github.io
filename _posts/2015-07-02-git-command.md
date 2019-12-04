@@ -6,6 +6,17 @@ title: git命令集
 ![](/images/git-arch.jpg)
 
 
+名词解释
+
+```
+HEAD始终指向当前分支的最新的提交点
+workspace：工作空间
+index：暂存区
+repository ： 本地仓库
+remote :远程仓库
+```
+
+
 ## 配置
 
 git config --list
@@ -30,6 +41,8 @@ git remote -v
 git remote add [name] [url]
 
 git remote rm [name]
+
+git remote rename [name] [newname]
 
 git remote set-url origin ssh://git@github.com/[username]/[repository-name].git
 
@@ -64,6 +77,8 @@ git checkout -b [branch name] origin/[branch name]
 git branch -m [old branch name] [new branch name]
 
 git branch -d [branch-name]
+
+git branch -D <branch name> //强制删除
 
 git checkout -
 
@@ -109,11 +124,13 @@ git add -A
 
 git rm
 
-git commit -m [message]
+git rm --cached <file>
+
+git commit -m [message]  // 需要先add
 
 git commit [file1] [file2] ... -m [message]
 
-git commit -a
+git commit -a -m // 合并了add
 
 git commit --amend -m [message]
 
@@ -134,24 +151,12 @@ git diff [source branch] [target branch]
 
 git diff HEAD
 
+git diff --cached  
 
 
 
 ## 撤销
 
-git checkout [file]
-
-git checkout [commit] [file]
-
-git checkout .
-
-git stash
-
-git stash pop
-
-git stash list
-
-git stash clear
 
 get reset [file]
 
@@ -161,18 +166,46 @@ git reset [commit]
 
 git reset --hard HEAD
 
-git reset –soft HEAD^
+git reset –-soft HEAD^
 
-git reset –hard HEAD^
+git reset –-hard HEAD^
+
+
+
+git checkout [file]
+
+git checkout [commit] [file]
+
+git checkout .
+
+
+
+
+git stash
+
+git stash pop
+
+git stash list
+
+git stash clear
+
+
+//git revert是用一次新的commit来回滚之前的commit
+
+get revert HEAD 
+
+git rebase -i HEAD~2
+
+
+
+// 也算一种撤销
+
+git commit --amend -m [message]
 
 
 ## 其他
 
 ssh-keygen -t rsa -C "youremail@example.com"
-
-get rebase
-
-get revert 
 
 git cherry-pick
 
