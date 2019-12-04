@@ -235,7 +235,7 @@ $(function () {
         }
 
         var aboutMe = document.createElement("div"), backHome = document.createElement("div"),
-            docker = document.createElement("div")
+            docker = document.createElement("div"), git = document.createElement("div");
 
         aboutMe.id = "me";
         aboutMe.className = "me";
@@ -244,12 +244,16 @@ $(function () {
         backHome.className = "home";
 
         docker.id = "docker";
-        docker.className = "docker"
+        docker.className = "docker";
+
+        git.id = "git";
+        git.className = "git";
 
 
         document.body.appendChild(backHome);
         document.body.appendChild(aboutMe);
         document.body.appendChild(docker);
+        document.body.appendChild(git);
 
 
         aboutMe.onclick = showProfile;
@@ -260,6 +264,10 @@ $(function () {
 
         docker.onclick = function () {
             window.location = "/blog/2019/11/29/docker-command";
+        }
+
+        git.onclick = function () {
+            window.location = "/blog/2015/07/02/git-command";
         }
 
 
