@@ -155,7 +155,11 @@ git stash clear
 
 get reset [file]
 
-git rest [commit]
+git reset HEAD [file]
+
+git reset [commit]
+
+git reset --hard HEAD
 
 git reset –soft HEAD^
 
