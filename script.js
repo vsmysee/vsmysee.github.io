@@ -234,7 +234,8 @@ $(function () {
             $("#next_page,#pre_page").css({opacity: 1});
         }
 
-        var aboutMe = document.createElement("div"), backHome = document.createElement("div");
+        var aboutMe = document.createElement("div"), backHome = document.createElement("div"),
+            docker = document.createElement("div")
 
         aboutMe.id = "me";
         aboutMe.className = "me";
@@ -242,15 +243,23 @@ $(function () {
         backHome.id = "home"
         backHome.className = "home";
 
+        docker.id = "docker";
+        docker.className = "docker"
+
 
         document.body.appendChild(backHome);
         document.body.appendChild(aboutMe);
+        document.body.appendChild(docker);
 
 
         aboutMe.onclick = showProfile;
 
         backHome.onclick = function () {
             window.location = "/";
+        }
+
+        docker.onclick = function () {
+            window.location = "/blog/2019/11/29/docker-command";
         }
 
 
