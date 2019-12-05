@@ -29,6 +29,7 @@ docker pull mysql:5.7.19
 
 docker login https://domian
 
+docker push daocloud.io/zter/hello-world:v1
 
 
 ## 镜像
@@ -50,6 +51,8 @@ image
 manifest
 trust
 ```
+
+docker tag hello-world:latest hello-world:v2 //latest这种tag可以省略
 
 docker build -t runoob/centos:6.7 .
 
