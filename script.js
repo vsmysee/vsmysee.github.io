@@ -235,7 +235,8 @@ $(function () {
         }
 
         var aboutMe = document.createElement("div"), backHome = document.createElement("div"),
-            docker = document.createElement("div"), git = document.createElement("div");
+            docker = document.createElement("div"), git = document.createElement("div"),
+            kubernetes = document.createElement("div");
 
         aboutMe.id = "me";
         aboutMe.className = "me";
@@ -249,11 +250,15 @@ $(function () {
         git.id = "git";
         git.className = "git";
 
+        kubernetes.id = "kubernetes";
+        kubernetes.className = "kubernetes";
+
 
         document.body.appendChild(backHome);
         document.body.appendChild(aboutMe);
         document.body.appendChild(docker);
         document.body.appendChild(git);
+        document.body.appendChild(kubernetes);
 
 
         aboutMe.onclick = showProfile;
@@ -268,6 +273,10 @@ $(function () {
 
         git.onclick = function () {
             window.location = "/blog/2015/07/02/git-command";
+        }
+
+        kubernetes.onclick = function () {
+            window.location = "/blog/2019/12/05/kubernetes-command"
         }
 
 
