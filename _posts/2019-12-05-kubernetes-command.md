@@ -254,3 +254,9 @@ volumeattachments                              storage.k8s.io                 fa
 
 ```
 
+![](/images/k8s-1.png)
+
+![](/images/k8s-2.png)
+
+
+[大视图](https://res.cloudinary.com/jimmysong/image/upload/images/kubernetes-kubectl-cheatsheet-blog.png)
