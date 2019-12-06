@@ -237,3 +237,5 @@ git fsck
 git prune
 
 
+
+![](/images/git-cheat.png)
