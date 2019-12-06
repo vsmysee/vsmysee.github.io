@@ -96,7 +96,7 @@ h4 {
     height: 48px;
     background: url("images/me.png");
     cursor: pointer;
-    bottom: 300px;
+    bottom: 280px;
     position: fixed;
     z-index: 200;
 }
@@ -106,7 +106,7 @@ h4 {
     height: 48px;
     background: url("images/home.png");
     cursor: pointer;
-    bottom: 360px;
+    bottom: 340px;
     position: fixed;
     z-index: 200;
 }
@@ -116,7 +116,7 @@ h4 {
     height: 48px;
     background: url("images/docker.png");
     cursor: pointer;
-    bottom: 420px;
+    bottom: 400px;
     position: fixed;
     z-index: 200;
 }
@@ -126,7 +126,7 @@ h4 {
     height: 48px;
     background: url("images/git.png");
     cursor: pointer;
-    bottom: 480px;
+    bottom: 460px;
     position: fixed;
     z-index: 200;
 }
@@ -136,7 +136,7 @@ h4 {
     height: 48px;
     background: url("images/kubernetes.png");
     cursor: pointer;
-    bottom: 560px;
+    bottom: 520px;
     position: fixed;
     z-index: 200;
 }
