@@ -68,7 +68,7 @@ kubectl exec -it mytest -- ls -l /etc/hosts
 
 kubectl get all --all-namespaces
 
-ubectl get services     
+kubectl get services     
 
 kubectl describe nodes
                      
