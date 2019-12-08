@@ -111,3 +111,5 @@ Jeff Atwood 的书柜
 [好多Paper](https://github.com/papers-we-love/papers-we-love)
 
 [Nelaford](http://nealford.com/books/)
+
+[Haskell趣学指南](http://learnyouahaskell.com/chapters)
