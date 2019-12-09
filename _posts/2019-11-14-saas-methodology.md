@@ -85,3 +85,26 @@ XII. 管理进程
 后台管理任务当作一次性进程运行
 
 ```
+
+2016年Beyond the Twelve-Factor App，讨论的列表
+
+```
+One codebase, one application
+API first
+Dependency management
+Design, build, release, and run
+Configuration, credentials, and code
+Logs
+Disposability
+Backing services
+Environment parity
+Administrative processes
+Port binding
+Stateless processes
+Concurrency
+Telemetry
+Authentication and authorization
+
+```
+
+[地址](https://content.pivotal.io/blog/beyond-the-twelve-factor-app)
