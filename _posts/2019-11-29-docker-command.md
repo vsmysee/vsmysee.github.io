@@ -56,6 +56,8 @@ docker tag hello-world:latest hello-world:v2 //latest这种tag可以省略
 
 docker build -t runoob/centos:6.7 .
 
+docker build -t bitnami/kubectl:latest 'https://github.com/bitnami/bitnami-docker-kubectl.git#master:1.15/debian-9'
+
 docker rmi IMAGE_ID
 
 docker rmi $(docker images -q)
