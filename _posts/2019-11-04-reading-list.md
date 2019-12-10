@@ -115,3 +115,6 @@ Jeff Atwood 的书柜
 [Haskell趣学指南](http://learnyouahaskell.com/chapters)
 
 [构建自己的lisp](http://www.buildyourownlisp.com/contents)
+
+
+[查理芒格书单](https://fs.blog/2014/06/charlie-munger-recommended-books/)
