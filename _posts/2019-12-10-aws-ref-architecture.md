@@ -23,6 +23,9 @@ CMS
 ![](https://miro.medium.com/max/2070/1*A1DtLRO3abrta6WprwcaKQ.png)
 
 
+EKS
+
+![](https://camo.githubusercontent.com/d03b474fab5944c7332263f0010f2c7136e51b24/68747470733a2f2f64302e6177737374617469632e636f6d2f706172746e65722d6e6574776f726b2f517569636b53746172742f646174617368656574732f616d617a6f6e2d656b732d6f6e2d6177732d6172636869746563747572652d6469616772616d2e706e67)
 
 
 
@@ -31,3 +34,7 @@ CMS
 [参考](https://medium.com/@pratheekhegde/my-first-simple-high-available-scalable-architecture-on-aws-ea1a2cba29c3)
 
 [参考](https://cloudacademy.com/blog/aws-vpc-with-high-availability-and-scalability-for-your-cms/)
+
+[参考](https://github.com/aws-quickstart/quickstart-amazon-eks)
+
+[参考](https://s3.amazonaws.com/aws-quickstart/quickstart-amazon-eks/doc/amazon-eks-architecture.pdf)
