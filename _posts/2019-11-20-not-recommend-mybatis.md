@@ -184,6 +184,9 @@ xml是一个配置语言，不是编程语言，mybatis是一个sql模板引擎�
 maven,ant这些用xml来控制逻辑的框架都在慢慢的被代码式，脚本式的gradle替代。
 
 
+或者你可以关注什么叫做基础设施即代码 [http://martinfowler.com/bliki/InfrastructureAsCode.html](http://martinfowler.com/bliki/InfrastructureAsCode.html)
+
+
 对于代码声明式的数据库操作，业界有JOOQ的方案:
 
 [jooq](https://www.jooq.org/)
