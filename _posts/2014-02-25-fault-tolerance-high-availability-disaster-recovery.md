@@ -3,6 +3,9 @@ layout: article
 title: 容错，高可用，灾备
 ---
 
+[原文](http://www.pbenson.net/2014/02/the-difference-between-fault-tolerance-high-availability-disaster-recovery/)
+
+
 容错
 
 ![](/images/FaultTolerant.png)
