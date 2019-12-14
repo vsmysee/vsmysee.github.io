@@ -10,4 +10,4 @@ title:  再论银弹
 
 ![](https://blog.ploeh.dk/content/binary/accidental-complexity-with-tiny-core-of-essential-complexity.png)
 
-我们发明很多可靠的技术，比如git,自动化测试，静态函数式语言。
+我们发明了很多可靠的技术，比如git，自动化测试，静态函数式语言。
