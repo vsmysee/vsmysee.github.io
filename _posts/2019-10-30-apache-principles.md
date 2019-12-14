@@ -136,3 +136,6 @@ With hindsight, now I am willing to live with duplication when trying to remove 
 
 
 原则30：复杂的拖拉拽的界面是艰难的，不要去尝试这样的效果，除非你准备好了10人年的团队。
+
+
+![](https://hackernoon.com/hn-images/1*sVbG7e6LmlaBohy6V0y0IQ.png)
