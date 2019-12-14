@@ -114,6 +114,8 @@ kubectl delete pod -l env=test
 
 kubectl delete pvc -l app=wordpress
 
+kubectl delete all -all
+
 ## 和pod交互
 
 kubectl logs my-pod                                
