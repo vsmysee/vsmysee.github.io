@@ -16,6 +16,18 @@ title:  Docker命令集
 19
 ```
 
+## 实践
+
+```
+容器应该短命
+慎用 docker commit
+每个容器一个程序
+最少化Layer
+注意继承和依赖
+保持简洁
+使用 COPY ，不要使用 ADD
+```
+
 
 ## 仓库
 
@@ -69,6 +81,8 @@ docker commit 3ea7a99a0025 ubuntu/ruby:v2
 docker load < my_image.tar.gz
 
 docker history ubuntu:16.04
+
+docker image ls -f dangling=true //虚悬镜像
 
 ```
 docker save my_image:my_tag | gzip > my_image.tar.gz
@@ -161,6 +175,10 @@ docker rm -v $(docker ps -a -q -f status=exited)
 
 ## 网络
 
+Docker 启动时，会自动在主机上创建一个 docker0 虚拟网桥
+
+Docker 的网络实现其实就是利用了 Linux 上的网络命名空间和虚拟网络设备（特别是 veth pair）
+
 docker network create -d bridge test-net
 
 docker network rm
@@ -178,9 +196,15 @@ docker network create --subnet 203.0.113.0/24 --gateway 203.0.113.254 iptastic
 
 docker run --rm -it --net iptastic --ip 203.0.113.2 nginx
 
-
+docker run -it --rm --name busybox1 --network my-net busybox sh
 
 docker network rm $(docker network ls -q) //clean up orphaned networks
+
+-P 标记时，Docker 会随机映射一个 49000~49900 的端口到内部容器开放的网络端口
+
+docker run -d -P training/webapp python app.py
+
+多个容器之间需要互相连接，推荐使用 Docker Compose
 
 
 ## 卷
@@ -192,6 +216,8 @@ docker volume rm
 docker volume ls
 
 docker volume inspect
+
+docker volume prune
 
 docker volume rm $(docker volume ls -qf dangling=true)  //clean up orphaned volumes
 
