@@ -28,6 +28,9 @@ title:  Docker命令集
 使用 COPY ，不要使用 ADD
 ```
 
+Docker 容器持久运行的基本条件是-进程的阻塞!
+
+
 
 ## 仓库
 

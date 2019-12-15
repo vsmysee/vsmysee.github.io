@@ -350,6 +350,7 @@ host www.example.com lookup hostname to resolve name to ip address and viceversa
 nslookup www.example.com lookup hostname to resolve name to ip address and viceversa 
 whois www.example.com lookup on Whois database 
 ss -s # 查看当前系统tcp、udp连接数
+ssh-keygen
 ```
 
 ## 进程
