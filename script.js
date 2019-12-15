@@ -234,49 +234,36 @@ $(function () {
             $("#next_page,#pre_page").css({opacity: 1});
         }
 
-        var aboutMe = document.createElement("div"), backHome = document.createElement("div"),
-            docker = document.createElement("div"), git = document.createElement("div"),
-            kubernetes = document.createElement("div");
-
-        aboutMe.id = "me";
-        aboutMe.className = "me";
-
-        backHome.id = "home"
-        backHome.className = "home";
-
-        docker.id = "docker";
-        docker.className = "docker";
-
-        git.id = "git";
-        git.className = "git";
-
-        kubernetes.id = "kubernetes";
-        kubernetes.className = "kubernetes";
-
-
-        document.body.appendChild(backHome);
-        document.body.appendChild(aboutMe);
-        document.body.appendChild(docker);
-        document.body.appendChild(git);
-        document.body.appendChild(kubernetes);
-
-
-        aboutMe.onclick = showProfile;
-
-        backHome.onclick = function () {
-            window.location = "/";
+        var menuArray = {
+            "me": showProfile,
+            "home": function () {
+                window.location = "/";
+            },
+            "docker": function () {
+                window.location = "/blog/2019/11/29/docker-command";
+            },
+            "git": function () {
+                window.location = "/blog/2015/07/02/git-command";
+            },
+            "kubernetes": function () {
+                window.location = "/blog/2019/12/05/kubernetes-command"
+            },
+            "mac": function () {
+                window.location = "/blog/2019/12/15/mac-command"
+            }
         }
 
-        docker.onclick = function () {
-            window.location = "/blog/2019/11/29/docker-command";
-        }
 
-        git.onclick = function () {
-            window.location = "/blog/2015/07/02/git-command";
-        }
+        for (var prop in menuArray) {
+            if (menuArray.hasOwnProperty(prop)) {
+                var e = document.createElement("div")
+                e.id = prop
+                e.className = prop
+                document.body.appendChild(e)
 
-        kubernetes.onclick = function () {
-            window.location = "/blog/2019/12/05/kubernetes-command"
+                e.onclick = menuArray[prop];
+
+            }
         }
 
 
