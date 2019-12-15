@@ -250,6 +250,9 @@ $(function () {
             },
             "mac": function () {
                 window.location = "/blog/2019/12/15/mac-command"
+            },
+            "linux": function () {
+                window.location = "/blog/2015-04-10-linux-command"
             }
         }
 

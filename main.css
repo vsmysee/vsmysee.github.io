@@ -91,6 +91,17 @@ h4 {
     z-index: 200;
 }
 
+.linux {
+    width: 48px;
+    height: 48px;
+    background: url("images/linux.png");
+    cursor: pointer;
+    bottom: 160px;
+    position: fixed;
+    z-index: 200;
+}
+
+
 .mac {
     width: 48px;
     height: 48px;
