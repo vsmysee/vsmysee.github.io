@@ -5,6 +5,8 @@ title:  Docker命令集
 
 ![](/images/docker-arch.png)
 
+![](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/media/docker-on-linux.png)
+
 
 ## 版本列表
 
