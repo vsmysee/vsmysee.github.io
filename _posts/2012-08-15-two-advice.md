@@ -6,6 +6,10 @@ title: 两个领悟
 [文章一](http://russolsen.com/articles/2012/08/09/the-best-programming-advice-i-ever-got.html)
 
 
+```
+“今后，千万别碰其他人的代码！（In the future, stay the Hell out of other people’s code.）”
+```
+
 In later years, as I found myself building and managing software teams, I've realized that there were probably a dozen programmers on that ancient project who knew why the system was so slow and how to fix it. They knew, but they kept it to themselves because in that organization, there were some things that were more important than making the system better. In the future, stay the Hell out of other people's code. assumes there will be a future. But the best way to have a future is to be part of a team that values progress over politics, ideas over territory and initiative over decorum.
 
 在后来的那些年里，随着我自己也在建立并管理软件开发团队，我已经意识到，对于那种古来的项目而言，可能会有整整一打程序员都知道系统到底为何如此缓慢，而且也知道该如何修复它。尽管他们心知肚明，但是他们却把解决方案烂在肚子里。因为在那种组织里，与让系统变得更好相比，还有一些更重要的事情（派系之争、办公室政治等等）要关注。“今后，千万别碰其他人的代码，”，这句话假设将会有未来。
