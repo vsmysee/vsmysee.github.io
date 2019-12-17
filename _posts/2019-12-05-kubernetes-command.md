@@ -65,6 +65,33 @@ sa	serviceaccounts
 svc	services
 ```
 
+## 一级命令
+
+```
+kubectl run
+kubectl expose
+kubectl annotte
+kubectl autoscale
+kubectl convert
+kubectl create
+kubectl apply
+kubectl delete
+kubectl edit
+kubectl get
+kubectl label
+kubectl patch
+kubectl replace
+kubectl rolling-update
+kubectl scale
+kubectl set
+kubectl rollout
+kubectl config
+kubectl explain
+kubectl exec
+kubectl describe
+kubectl logs
+```
+
 
 
 ## 配置
@@ -93,6 +120,7 @@ kubectl explain pods,svc
 
 kubectl exec -it mytest -- ls -l /etc/hosts
 
+kubectl exec -ti nginx-app-5jyvm -- /bin/sh
 
 kubectl get all --all-namespaces
 
@@ -115,7 +143,7 @@ kubectl get pod my-pod -o yaml --export
 
 ## 更新
 
-kubectl set image deployment/frontend www=image:v2   
+kubectl set image deployment nginx nginx=nginx:1.9.1
 
 kubectl rollout history deployment/frontend                    
 
@@ -124,6 +152,12 @@ kubectl rollout undo deployment/frontend
 kubectl rollout undo deployment/frontend --to-revision=2       
 
 kubectl rollout status -w deployment/frontend  
+
+kubectl rollout pause deployment nginx
+
+kubectl rollout resume deployment nginx
+
+kubectl rollout undo deployment nginx --to-revision 3
 
 kubectl label pods my-pod new-label=awesome                     
 
