@@ -49,7 +49,7 @@ Planning Extreme Programming
 ## Productivity & Critical Thinking
 
 ```
-ode Complete
+Code Complete
 Productive Programmer
 Harry Potter and the Methods of Rationality*†
 Growing Object-Oriented Software Guided by Tests
