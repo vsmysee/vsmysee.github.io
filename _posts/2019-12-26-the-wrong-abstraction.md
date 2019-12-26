@@ -13,7 +13,7 @@ duplication is far cheaper than the wrong abstraction
 
 ```
 prefer duplication over the wrong abstraction
-重复由于错误抽象
+重复优于错误抽象
 ```
 
 事情是如何做错的 
