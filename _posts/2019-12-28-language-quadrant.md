@@ -4,7 +4,8 @@ title:  语言象限
 ---
 
 静如处子
-动容脱兔
+
+动若脱兔
 
 
 ![](/images/language-quadrant.png)
