@@ -13,6 +13,7 @@ title:  VIM
 
 ```
 
+![](/images/vim_cheat_sheet_for_programmers_print.png)
 
 ## 启动
 
