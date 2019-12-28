@@ -3,9 +3,10 @@ layout: article
 title:  为什么不推荐@Transactional
 ---
 
-积郁心中久已，不吐不快，我们不应该用
+积郁心中久已，不吐不快，我们不应该使用Spring提供的这个注解:
 
-```
+{% highlight java %}
+
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
@@ -13,8 +14,7 @@ title:  为什么不推荐@Transactional
 public @interface Transactional {
 }
 
-```
-
+{% endhighlight %}
 
 人们常说，Spring的Sample是这样用的，所以需要这样用，Sample之所以为Sample，就是因为它太简单了，对比现实的复杂基本上不具备参考性。
 
@@ -24,8 +24,8 @@ public @interface Transactional {
 事务是一个业务边界，他等于类边界和方法边界吗？
 ```
 
-如果团队禁止在类上标记，获得了第一层进步，那么第二层进步就是禁止在方法上标记，理由是，事务边界往往不等于方法边界。事务是一个作用域，这个作用域需要精细管理。
-需要明确的处理起止范围，明确的处理异常，以及明确的和哪个事务管理器协调。而编程语言的方法只是一个技术概念。
+我认为如果团队禁止在类上标记，获得了第一层进步，第二层进步就是禁止在方法上标记，理由是，事务边界往往不等于方法边界。事务是一个作用域，这个作用域需要精细管理。
+需要明确的处理起止范围，明确的处理异常，以及明确的和哪个事务管理器协调。而编程语言的方法只是一个技术概念，我觉得事务控制更多的和我们的控制语句for,while相似。
 
 
 更何况@Transactional还有一堆的陷阱
@@ -51,7 +51,7 @@ Spring框架的事务基础架构代码将默认地只在抛出运行时和unche
 
 ## 该怎么办？
 
-使用TransactionTemplate，手动控制
+使用TransactionTemplate，手动控制:
 
 {% highlight java %}
 transactionTemplate.execute(t -> {
@@ -103,3 +103,6 @@ using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnectionString))
 } 
             
 {% endhighlight %}
+
+
+归根结底，这都是边界处理的艺术，需要去发现各种边界，明确的划分出来，而不是被框架或者语言绑架。
