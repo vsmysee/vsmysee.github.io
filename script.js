@@ -253,7 +253,11 @@ $(function () {
             },
             "linux": function () {
                 window.location = "/blog/2015/04/10/linux-command"
+            },
+            "vim": function () {
+                window.location = "/blog/2019/12/28/vim-command"
             }
+
         }
 
 
