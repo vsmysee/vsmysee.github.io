@@ -106,7 +106,7 @@ title: 关于境界之说
 
 ## 做学问的八个境界
 
-[传送门](http://www.ruanyifeng.com/blog/2013/09/liang_shuming.html)
+[链接](http://www.ruanyifeng.com/blog/2013/09/liang_shuming.html)
 
 ```
 形成主见
@@ -117,4 +117,12 @@ title: 关于境界之说
 运用自如
 一览众山小
 通透
+```
+
+习武的人有三个阶段
+
+```
+见自己
+见天地
+见众生
 ```

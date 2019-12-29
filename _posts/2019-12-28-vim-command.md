@@ -5,13 +5,15 @@ title:  VIM
 
 ## 历史
 
-
 ```
 1976 Bill Joy 发明 VI
 1991 Bram Moolenaar 发明 Vim
 2015 Thiago de Arruda Padilha 发明  Neovim
 
 ```
+
+![](http://cdn.kenblog.top/vim-his.png)
+
 
 ![](/images/vim_cheat_sheet_for_programmers_print.png)
 
@@ -21,14 +23,16 @@ title:  VIM
 vim [filename]
 ```
 
+“可组合性” 使得 Vim 在很大程度上区别于其他编辑器。它赋予了 Vim 独有的语言。
+
 
 ## 模式
 
 ```
-常规 ESC Ctrl+[ 
-插入 i a o O I A
+常规Normal ESC Ctrl+[ 
+插入Insert i a o O I A
 命令 : 
-可视模式 v V Ctrl+v
+可视模式Visual v V Ctrl+v
 ```
 
 ## 上下左右
@@ -46,11 +50,16 @@ l               右移。
 ctrl+f      在文件中前移一页（相当于 page down）；
 ctrl+b      在文件中后移一页（相当于 page up）；
 
+ctrl+d     半屏
+ctrl+u
+
+
 *         当光标停留在一个单词上，* 键会在文件内搜索该单词，并跳转到下一处；
 #         当光标停留在一个单词上，# 在文件内搜索该单词，并跳转到上一处；
 
 gg       将光标定位到文件第一行起始位置；
-G         将光标定位到文件最后一行起始位置；
+G        将光标定位到文件最后一行起始位置；
+80G      光标移动到第80行
 
 
 H               将光标移到屏幕上的起始行（或最上行）；
@@ -75,10 +84,13 @@ zb          把当前行移动到当前屏幕的尾部
 w               右移光标到下一个字的开头；
 e               右移光标到一个字的末尾；
 b               左移光标到前一个字的开头；
+
 0               数字０，左移光标到本行的开始；
 $               右移光标，到本行的末尾；
 
 fa              移动到本行下一个为 a 的字符处
+;               重复上一行当前搜索
+,               反向
 
 ^               移动光标，到本行的第一个非空字符。
 
@@ -163,6 +175,7 @@ S               删除当前行，并进入插入模式；
 
 :s/zempty/handsome/g
 :%s/zempty/handsome/g
+:50,100/old/new/g
 
 ```
 
