@@ -118,3 +118,5 @@ Jeff Atwood 的书柜
 
 
 [查理芒格书单](https://fs.blog/2014/06/charlie-munger-recommended-books/)
+
+[悟透JavaScript](https://www.cnblogs.com/leadzen/archive/2008/02/25/1073404.html)
