@@ -2,9 +2,9 @@
 
 <article id="article" class="wp">
     <h1 style="text-align: center;margin: 20px 0;border-bottom: 2px #000 solid" class="clearfix">
-        <span class="date fr ardate">{{ page.date | date: "%Y年/%m月/%d日" }}</span>
-        <a class="fl ba" href="/">首页</a><a class="fl ba" onclick="window.history.back()">回退</a>
-        {{page.title}}
+        <p style="overflow:hidden"><span class="date ardate">{{ page.date | date: "%Y年/%m月/%d日" }}</span>
+            <a class="fr ba" href="/">首页</a><a class="fl ba" onclick="window.history.back()">回退</a></p>
+        <p>{{page.title}}</p>
     </h1>
     {{content}}
 </article>
