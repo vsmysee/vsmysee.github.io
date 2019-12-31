@@ -58,6 +58,14 @@ Instead of encouraging more developers to join the industry, we need to start ed
 如果你做招聘，关注基本原理，不要白板面试
 ```
 
+```
+If you're a big company, stop doing whiteboard code interviews. 
+Whiteboard code interviews are not Test-Driven friendly and pose to the developer the needless challenge of finding a solution earlier without running it to check it's correctness first. 
+In a real development environment, there's no whiteboard and code must be run. 
+Tests need to be created to support that. 
+Believe it or not, the best developers can solve a problem with 100% of test coverage for most use cases, but white board interview and edge case testing does not provide a safe environment for doing that.
+```
+
 
 Learning fundamentals allows us to not rely on “magic” and instead think about the problem in a fundamental way instead of outsourcing it.
 
