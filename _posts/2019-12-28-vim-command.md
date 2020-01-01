@@ -202,3 +202,5 @@ ZZ
 
 
 [参考](http://tnerual.eriogerg.free.fr/vimqrc.html)
+
+[参考](https://github.com/skywind3000/awesome-cheatsheets/blob/master/editors/vim.txt)
