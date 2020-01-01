@@ -32,3 +32,7 @@ title:  学习Emacs的建议
 
 
 上面就是我学习Emacs十多年的经验分享, 希望可以给同学们一点参考.
+
+
+
+[著名的Emacs用户列表](http://wenshanren.org/?p=386)
