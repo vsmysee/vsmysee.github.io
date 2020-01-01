@@ -40,6 +40,19 @@ Every Access project will eventually fail because, while 80% of what the user wa
 每个Access项目最终都会失败，因为尽管用户想要的80％的内容快速且易于创建，而下一个10％的内容可能会遇到困难，但最终的10％的结果是不可能的，因为您在该项目下无法获得足够的距离内置抽象，用户总是想要他们想要的东西的100％。
 
 
+Unix Shell:
+
+```
+tr -cs A-Za-z '\n' |
+tr A-Z a-z |
+sort |
+uniq -c |
+sort -rn |
+sed ${1}q
+```
+
+
+
 I tend to prefer composable tools. They tend to have a steeper learning curve but deliver more power and scalability over time, which is why I’m a huge Emacs fan, and why Martin’s post on InternalReprogrammability struck a chord. Contextual tools are fantastic for the proper use; I use IntelliJ for Java coding, but Emacs for pretty much everything else, and I tend to seek out composable tools when there’s an option.
 
 我倾向于使用可组合工具。它们往往具有较陡的学习曲线，但是随着时间的推移会提供更多的功能和可伸缩性，这就是为什么我是Emacs的忠实粉丝，也是为什么Martin在InternalReProgrammability上发表文章的原因。上下文工具非常适合正确使用；我使用IntelliJ进行Java编码，但是使用Emacs进行几乎所有其他操作，并且我倾向于在有选择的情况下寻找可组合的工具。
