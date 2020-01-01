@@ -14,6 +14,9 @@ NealFord是函数式编程思维艺术的作者，在这本书中，有一章节
 
 Banq老师的翻译
 
+
+[地址](https://www.jdon.com/44914)
+
 ```
 Martin Fowler倡导一种内部可编程工具 InternalReprogrammability，并且分享了类似Emacs 和 Smalltalk让人心灵减少悲苦的工具。
 
