@@ -57,3 +57,7 @@ I tend to prefer composable tools. They tend to have a steeper learning curve bu
 
 我倾向于使用可组合工具。它们往往具有较陡的学习曲线，但是随着时间的推移会提供更多的功能和可伸缩性，这就是为什么我是Emacs的忠实粉丝，也是为什么Martin在InternalReProgrammability上发表文章的原因。上下文工具非常适合正确使用；我使用IntelliJ进行Java编码，但是使用Emacs进行几乎所有其他操作，并且我倾向于在有选择的情况下寻找可组合的工具。
 
+
+关于内部可编程:
+
+[InternalReprogrammability](https://martinfowler.com/bliki/InternalReprogrammability.html)
