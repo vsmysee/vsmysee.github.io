@@ -12,7 +12,7 @@ NealFord是函数式编程思维艺术的作者，在这本书中，有一章节
 [原文](http://nealford.com/memeagora/2013/01/22/why_everyone_eventually_hates_maven.html)
 
 
-Banq的翻译
+Banq老师的翻译
 
 ```
 Martin Fowler倡导一种内部可编程工具 InternalReprogrammability，并且分享了类似Emacs 和 Smalltalk让人心灵减少悲苦的工具。
