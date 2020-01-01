@@ -7,7 +7,7 @@ title:  Maven宿命
 
 为什么每个人（最终）讨厌（或者离开）Maven。
 
-NealFord是函数式编程思维艺术的作者，在这本书中，有一章节有论述了为什么应该抛弃Maven
+NealFord是函数式编程思维一书的作者，在这本书中，有一章节也论述了为什么应该抛弃Maven
 
 [原文](http://nealford.com/memeagora/2013/01/22/why_everyone_eventually_hates_maven.html)
 
