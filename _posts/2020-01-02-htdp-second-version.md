@@ -4,49 +4,45 @@ title:  HTDP第二版序
 ---
 
 ## Preface
+
 Many professions require some form of programming. Accountants program spreadsheets; musicians program synthesizers; authors program word processors; and web designers program style sheets. When we wrote these words for the first edition of the book (1995–2000), readers may have considered them futuristic; by now, programming has become a required skill and numerous outlets—books, on-line courses, K-12 curricula—cater to this need, always with the goal of enhancing people’s job prospects.
-
-The typical course on programming teaches a “tinker until it works” approach. When it works, students exclaim “It works!” and move on. Sadly, this phrase is also the shortest lie in computing, and it has cost many people many hours of their lives. In contrast, this book focuses on habits of good programming, addressing both professional and vocational programmers.
-
-By “good programming,” we mean an approach to the creation of software that relies on systematic thought, planning, and understanding from the very beginning, at every stage, and for every step. To emphasize the point, we speak of systematic program design and systematically designed programs. Critically, the latter articulates the rationale of the desired functionality. Good programming also satisfies an aesthetic sense of accomplishment; the elegance of a good program is comparable to time-tested poems or the black-and-white photographs of a bygone era. In short, programming differs from good programming like crayon sketches in a diner from oil paintings in a museum.
-
-No, this book won’t turn anyone into a master painter. But, we would not have spent fifteen years writing this edition if we didn’t believe that
-everyone can design programs
-
-and
-everyone can experience the satisfaction that comes with creative design.
-
-Indeed, we go even further and argue that
-program design—but not programming—deserves the same role in a liberal-arts education as mathematics and language skills.
-
-A student of design who never touches a program again will still pick up universally useful problem-solving skills, experience a deeply creative activity, and learn to appreciate a new form of aesthetic. The rest of this preface explains in detail what we mean with “systematic design,” who benefits in what manner, and how we go about teaching it all.
-
 
 许多职业需要某种形式的编程。会计师编程电子表格；音乐家编程声音合成器；作家编辑字处理器；网页设计师编程样式表。当我们为这本书的第一版 (1995-2000年) 写这些话的时候, 读者可能认为它们是未来主义的；到现在为止，编程已成为一项必要的技能，许多渠道--书籍、在线课程、k-12 课程--都能满足这一需要，其目标始终是提高人们的就业前景。
 
+The typical course on programming teaches a “tinker until it works” approach. When it works, students exclaim “It works!” and move on. Sadly, this phrase is also the shortest lie in computing, and it has cost many people many hours of their lives. In contrast, this book focuses on habits of good programming, addressing both professional and vocational programmers.
+
 典型的编程课程教授 "修补程序, 直到它工作" 的方法。当它起作用的时候，学生们惊呼 "它管用！" 然后继续前进。遗憾的是，这句话也是计算机中最短的谎言，它让许多人付出了数小时的生命代价。相反，这本书的重点是良好的编程习惯，针对的是专业和职业程序员。
+
+
+By “good programming,” we mean an approach to the creation of software that relies on systematic thought, planning, and understanding from the very beginning, at every stage, and for every step. To emphasize the point, we speak of systematic program design and systematically designed programs. Critically, the latter articulates the rationale of the desired functionality. Good programming also satisfies an aesthetic sense of accomplishment; the elegance of a good program is comparable to time-tested poems or the black-and-white photographs of a bygone era. In short, programming differs from good programming like crayon sketches in a diner from oil paintings in a museum.
 
 所谓 "好的编程"，我们指的是一种软件的创建方法，它从一开始、在每个阶段、在每一步都依赖于系统的思考、规划和理解。为了强调这一点，我们谈到了系统的程序设计和系统的设计程序。关键的是，后者阐明了所需功能的基本原理。好的编程也能满足审美成就感；一个好代码的优雅可以与久经考验的诗歌或过去时代的黑白照片相媲美。简而言之，代码和好代码之间的差别，就像餐馆里的蜡笔素描和博物馆里的油画之间的差别。
 
+
+No, this book won’t turn anyone into a master painter. But, we would not have spent fifteen years writing this edition if we didn’t believe that
+
 不, 这本书不会把任何人变成绘画大师。但是, 我们也不会花15年写这个版本, 如果我们不相信,
 
+everyone can design programs
 
 每个人都可以设计程序
 
-和
+and everyone can experience the satisfaction that comes with creative design.
 
-每个人都可以体验到创意设计带来的满足。
+和 每个人都可以体验到创意设计带来的满足。
 
 
+Indeed, we go even further and argue that
+
+program design—but not programming—deserves the same role in a liberal-arts education as mathematics and language skills.
 
 事实上, 我们走得更远, 并认为
 
 程序设计--而不是编程--应该在文科教育中扮演与数学和语言技能相同的角色。
 
-
+A student of design who never touches a program again will still pick up universally useful problem-solving skills, experience a deeply creative activity, and learn to appreciate a new form of aesthetic. The rest of this preface explains in detail what we mean with “systematic design,” who benefits in what manner, and how we go about teaching it all.
 
 一个学习了程序设计，并且之后再也不会接触编程的学生，仍然会获得普遍有用的解决问题的技能，依然会体验一个深刻的创造性活动，并学会欣赏一种新的审美形式。这个序言的其余部分详细解释了我们对 "系统设计" 的理解，谁以何种方式受益，以及我们如何去教授这一切。
-
 
 
 ## Systematic Program Design
