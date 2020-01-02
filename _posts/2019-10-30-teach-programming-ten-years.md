@@ -43,9 +43,11 @@ Fred Brooks在他的随笔 《没有银弹》 中定出了一个寻找优秀软�
 ```
 Scheme: Structure and Interpretation of Computer Programs (Abelson & Sussman)可能是最好 的计算机科学的入门书，
 而且它的确把讲授编程作为理解计算机科学的一种方法。 但它具有挑战性，会让许多通过其它方式可能成功的人望而却步。
-Scheme: How to Design Programs (Felleisen et al.)是关于如何用一种优美的、函数化的方式设 计程序的最好的书之一。
+
+Scheme: How to Design Programs (Felleisen et al.)是关于如何用一种优美的、函数化的方式设计程序的最好的书之一。
 
 Python: Python Programming: An Intro to CS (Zelle)是优秀的Python入门指导。
+
 Python: Python.org上有许多在线指导。
 
 Oz: Concepts, Techniques, and Models of Computer Programming (Van Roy & Haridi) 被视为Abelson & Sussman的当代继承者。它是对编程的高层次概念的巡视。 
