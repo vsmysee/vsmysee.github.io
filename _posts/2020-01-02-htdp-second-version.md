@@ -5,7 +5,7 @@ title:  HTDP第二版序
 
 first edition of the book (1995–2000)
 
-的一个版本过去了20年
+第一个版本过去了20年
 
 
 spent fifteen years writing this edition
