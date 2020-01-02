@@ -3,6 +3,16 @@ layout: article
 title:  HTDP第二版序
 ---
 
+first edition of the book (1995–2000)
+
+的一个版本过去了20年
+
+
+spent fifteen years writing this edition
+
+这个版本写了15年
+
+
 ## Preface
 
 Many professions require some form of programming. Accountants program spreadsheets; musicians program synthesizers; authors program word processors; and web designers program style sheets. When we wrote these words for the first edition of the book (1995–2000), readers may have considered them futuristic; by now, programming has become a required skill and numerous outlets—books, on-line courses, K-12 curricula—cater to this need, always with the goal of enhancing people’s job prospects.
@@ -11,7 +21,7 @@ Many professions require some form of programming. Accountants program spreadshe
 
 The typical course on programming teaches a “tinker until it works” approach. When it works, students exclaim “It works!” and move on. Sadly, this phrase is also the shortest lie in computing, and it has cost many people many hours of their lives. In contrast, this book focuses on habits of good programming, addressing both professional and vocational programmers.
 
-典型的编程课程教授 "修补程序, 直到它工作" 的方法。当它起作用的时候，学生们惊呼 "它管用！" 然后继续前进。遗憾的是，这句话也是计算机中最短的谎言，它让许多人付出了数小时的生命代价。相反，这本书的重点是良好的编程习惯，针对的是专业和职业程序员。
+典型的编程课程教授 "修补程序, 直到它工作" 的方法。当它能工作的时候，学生们惊呼 "跑起来了！" 然后继续前进。遗憾的是，这句话也是计算机中最短的谎言，它让许多人付出了数小时的生命代价。相反，这本书的重点是良好的编程习惯，针对的是专业和职业程序员。
 
 
 By “good programming,” we mean an approach to the creation of software that relies on systematic thought, planning, and understanding from the very beginning, at every stage, and for every step. To emphasize the point, we speak of systematic program design and systematically designed programs. Critically, the latter articulates the rationale of the desired functionality. Good programming also satisfies an aesthetic sense of accomplishment; the elegance of a good program is comparable to time-tested poems or the black-and-white photographs of a bygone era. In short, programming differs from good programming like crayon sketches in a diner from oil paintings in a museum.
@@ -29,7 +39,7 @@ everyone can design programs
 
 and everyone can experience the satisfaction that comes with creative design.
 
-和 每个人都可以体验到创意设计带来的满足。
+每个人都可以体验到创意设计带来的满足。
 
 
 Indeed, we go even further and argue that
@@ -356,15 +366,15 @@ Finally, this second edition differs from the first in a few aspects of terminol
 ```
 Second Edition  First Edition
 
-signature  contract
+signature         contract
 
-itemization  union
+itemization        union
 
-'()   empty
+'()                empty
 
-#true  true
+#true              true
 
-#false  false
+#false             false
 ```
 
 The last three differences greatly improve quotation for lists.
@@ -385,15 +395,15 @@ The last three differences greatly improve quotation for lists.
 ```
 Second Edition  First Edition
 
-signature  contract
+signature         contract
 
-itemization  union
+itemization        union
 
-'()   empty
+'()                empty
 
-#true  true
+#true              true
 
-#false  false
+#false             false
 ```
 
 
