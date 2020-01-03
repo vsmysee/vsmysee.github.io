@@ -151,7 +151,7 @@ void 'Using a memoized closure'() {
 
 互递归
 
-```
+{% highlight groovy %}
 
 void 'Trampoline: Adding up numbers recursively'() {
     given: 'a closure prepared to call itself recursively'
@@ -172,4 +172,4 @@ void 'Trampoline: Adding up numbers recursively'() {
         result == 50005000
 }
 
-```
+{% endhighlight %}
