@@ -10,3 +10,11 @@ j = """
 """
 
 
+g = """
+{% highlight groovy %}
+
+{% endhighlight %}
+"""
+
+
+a = "[原文]()"
