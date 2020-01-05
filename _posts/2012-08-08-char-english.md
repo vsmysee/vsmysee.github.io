@@ -13,7 +13,7 @@ title: 键盘字符英文
 | -  | dash|
 | /  | slash|
 | \  | backslash|
-| |  | vertical bar|
+| &#124; | vertical bar|
 | "  | quotation|
 | '  | apostrophe|
 | ^  | caret|
