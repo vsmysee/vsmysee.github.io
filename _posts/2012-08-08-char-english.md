@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 键盘字符英文
+title: 键盘字符英文单词
 ---
 
 |  字符   | 单词  |
@@ -18,7 +18,7 @@ title: 键盘字符英文
 | '  | apostrophe|
 | ^  | caret|
 | Esc  | Escape|
-| 上下左右  | arrow|
+| 方向  | arrow|
 | 删除  | Backspace|
 | ~  | Tilde|
 | `  | back quote|
