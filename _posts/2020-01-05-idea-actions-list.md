@@ -5,6 +5,8 @@ title:  IDEA Action List
 
 社区版本，通过IDEA VIM的命令行获得
 
+版本：2019.3
+
 
 ```
 $Copy                                              <M-C>
