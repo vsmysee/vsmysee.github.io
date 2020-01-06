@@ -1,6 +1,6 @@
 ---
 layout: article
-title:  stub-vs-fake-vs-spy-vs-mock
+title:  stub ake spy mock区别
 ---
 
 ![](https://aws1.discourse-cdn.com/standard10/uploads/ministryoftesting/original/2X/9/9a0fc261409b85a3492265ba4d84c3571703b5e5.png)

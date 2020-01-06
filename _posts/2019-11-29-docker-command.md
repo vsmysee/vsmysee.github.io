@@ -237,6 +237,8 @@ service
 
 docker --version
 
+docker system prune
+
 
 ## 集群
 
