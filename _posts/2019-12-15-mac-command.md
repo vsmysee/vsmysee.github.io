@@ -64,6 +64,9 @@ Option + →	光标向前移动一个单词
 Option + ←	光标向后移动一个单词
 Esc + T	将光标前的两个单词进行互换
 Tab	自动补全文件或文件夹的名称
+
+Command + ` 切换同一个应用的不同窗口
+
 ```
 
 ```
@@ -121,6 +124,14 @@ sudo find /dir -name ".svn" -exec rm -r {} \;
 find . -name "*.m" -or -name "*.h" -or -name "*.xib" -or -name "*.c" -or -name "*.storyboard"  |xargs wc -l
 
 ifconfig | grep "inet" | grep -v 127.0.0.1
+
+
+统计常用命令
+
+```
+history | awk '{CMD[$2]++;count++;} END { for (a in CMD )print CMD[ a ]" " CMD[ a ]/count*100 "% " a }' | grep -v "./" | column -c3 -s " " -t |sort -nr | nl | head -n10
+
+```
 
 
 
