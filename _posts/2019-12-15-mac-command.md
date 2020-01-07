@@ -3,6 +3,10 @@ layout: article
 title:  Mac命令
 ---
 
+
+[Setup](https://sourabhbajaj.com/mac-setup/)
+
+
 ## 工具
 
 ```
@@ -39,6 +43,16 @@ ttygif - 将终端录制转换为 GIF 动画。
 Zsh - 一个专为交互式使用而设计的命令行 shell。
 spaceship - 一个简约，功能强大且极易定制的Zsh提示。
 ```
+
+## 佳软
+
+```
+Karabiner
+Alfred 2
+Homebrew
+shortcatapp
+```
+
 
 
 ## 快捷键
