@@ -178,7 +178,7 @@ h4 {
     height: 48px;
     background: url("images/menu/re.png");
     cursor: pointer;
-    bottom: 660px;
+    bottom: 640px;
     position: fixed;
     z-index: 200;
 }
