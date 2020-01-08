@@ -94,7 +94,7 @@ h4 {
 .linux {
     width: 48px;
     height: 48px;
-    background: url("images/linux.png");
+    background: url("images/menu/linux.png");
     cursor: pointer;
     bottom: 160px;
     position: fixed;
@@ -105,7 +105,7 @@ h4 {
 .mac {
     width: 48px;
     height: 48px;
-    background: url("images/mac.png");
+    background: url("images/menu/mac.png");
     cursor: pointer;
     bottom: 220px;
     position: fixed;
@@ -115,7 +115,7 @@ h4 {
 .me {
     width: 48px;
     height: 48px;
-    background: url("images/me.png");
+    background: url("images/menu/me.png");
     cursor: pointer;
     bottom: 280px;
     position: fixed;
@@ -125,7 +125,7 @@ h4 {
 .home {
     width: 48px;
     height: 48px;
-    background: url("images/home.png");
+    background: url("images/menu/home.png");
     cursor: pointer;
     bottom: 340px;
     position: fixed;
@@ -135,7 +135,7 @@ h4 {
 .docker {
     width: 48px;
     height: 48px;
-    background: url("images/docker.png");
+    background: url("images/menu/docker.png");
     cursor: pointer;
     bottom: 400px;
     position: fixed;
@@ -145,7 +145,7 @@ h4 {
 .git {
     width: 48px;
     height: 48px;
-    background: url("images/git.png");
+    background: url("images/menu/git.png");
     cursor: pointer;
     bottom: 460px;
     position: fixed;
@@ -155,7 +155,7 @@ h4 {
 .kubernetes {
     width: 48px;
     height: 48px;
-    background: url("images/kubernetes.png");
+    background: url("images/menu/kubernetes.png");
     cursor: pointer;
     bottom: 520px;
     position: fixed;
@@ -165,9 +165,20 @@ h4 {
 .vim {
     width: 48px;
     height: 48px;
-    background: url("images/vim.png");
+    background: url("images/menu/vim.png");
     cursor: pointer;
     bottom: 580px;
+    position: fixed;
+    z-index: 200;
+}
+
+
+.regular {
+    width: 48px;
+    height: 48px;
+    background: url("images/menu/re.png");
+    cursor: pointer;
+    bottom: 660px;
     position: fixed;
     z-index: 200;
 }

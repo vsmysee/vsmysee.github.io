@@ -256,6 +256,9 @@ $(function () {
             },
             "vim": function () {
                 window.location = "/blog/2019/12/28/vim-command"
+            },
+            "regular": function () {
+                window.location = "/blog/2012/09/03/re"
             }
 
         }
