@@ -362,3 +362,7 @@ ps -ef|grep 进程名称 # 查看某个进程，一般用户找进程ID
 kill -9 进程ID # 停止某个进程
 jps # 查看所有java进程
 ```
+
+
+
+[参考](https://blog.fudenglong.site/2017/11/30/linux%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E6%95%B4%E7%90%86/)
