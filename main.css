@@ -91,97 +91,7 @@ h4 {
     z-index: 200;
 }
 
-.linux {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/linux.png");
-    cursor: pointer;
-    bottom: 160px;
-    position: fixed;
-    z-index: 200;
-}
 
-
-.mac {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/mac.png");
-    cursor: pointer;
-    bottom: 220px;
-    position: fixed;
-    z-index: 200;
-}
-
-.me {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/me.png");
-    cursor: pointer;
-    bottom: 280px;
-    position: fixed;
-    z-index: 200;
-}
-
-.home {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/home.png");
-    cursor: pointer;
-    bottom: 400px;
-    position: fixed;
-    z-index: 200;
-}
-
-.docker {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/docker.png");
-    cursor: pointer;
-    bottom: 340px;
-    position: fixed;
-    z-index: 200;
-}
-
-.git {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/git.png");
-    cursor: pointer;
-    bottom: 460px;
-    position: fixed;
-    z-index: 200;
-}
-
-.kubernetes {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/kubernetes.png");
-    cursor: pointer;
-    bottom: 520px;
-    position: fixed;
-    z-index: 200;
-}
-
-.vim {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/vim.png");
-    cursor: pointer;
-    bottom: 580px;
-    position: fixed;
-    z-index: 200;
-}
-
-
-.regular {
-    width: 48px;
-    height: 48px;
-    background: url("images/menu/re.png");
-    cursor: pointer;
-    bottom: 640px;
-    position: fixed;
-    z-index: 200;
-}
 
 .date {
     font-size: 14px;
@@ -373,11 +283,10 @@ h4 {
 
 /**-----------------------article---------------------------- */
 #article {
-    background-color: #F0EFE2;
+    background-color: #F3F3F3;
     padding: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
-    border: 1px solid #C8C7BC
 }
 
 #article ul {
