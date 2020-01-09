@@ -4,6 +4,6 @@ permalink: /blog/:year/:month/:day/:title
 markdown: kramdown
 highlighter: rouge
 date_format: "ordinal"
-paginate: 30
+paginate: 50
 paginate_path: "blog/page:num"
 gems: [jekyll-paginate]
