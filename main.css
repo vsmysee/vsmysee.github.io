@@ -127,7 +127,7 @@ h4 {
     height: 48px;
     background: url("images/menu/home.png");
     cursor: pointer;
-    bottom: 340px;
+    bottom: 400px;
     position: fixed;
     z-index: 200;
 }
@@ -137,7 +137,7 @@ h4 {
     height: 48px;
     background: url("images/menu/docker.png");
     cursor: pointer;
-    bottom: 400px;
+    bottom: 340px;
     position: fixed;
     z-index: 200;
 }
