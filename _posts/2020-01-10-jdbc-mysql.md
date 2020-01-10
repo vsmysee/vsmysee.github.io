@@ -3,6 +3,23 @@ layout: article
 title:  JDBC MYSQL属性
 ---
 
+语法
+
+```
+protocol//[hosts][/database][?properties]
+```
+
+
+协议列表
+```
+jdbc:mysql:
+jdbc:mysql:loadbalance:
+jdbc:mysql:replication: 
+```
+
+
+
+
 ## 连接和认证 
    
 
