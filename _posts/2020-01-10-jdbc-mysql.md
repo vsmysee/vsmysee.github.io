@@ -265,4 +265,4 @@ yearIsDateType
 zeroDateTimeBehavior
 ```
 
-
+[参考](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-url-format.html)
