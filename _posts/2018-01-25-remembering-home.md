@@ -19,3 +19,7 @@ title: 思故乡
 快八点
 闺女呼我快起床
 ```
+
+
+![](/images/village-old.jpg)
+
