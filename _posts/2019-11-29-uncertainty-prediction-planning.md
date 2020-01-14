@@ -185,63 +185,122 @@ Blinkered by confidence and faith in a charismatic leader, many in the company w
 
 Being Mistaken, Usually
 
+"Well, we won't make that mistake again. We even fired some people to make sure it never recurs." That's probably true. We won't make the same mistake because we are prepared for it on the next attempt. The problem is that the first mistake was unknowable before it occurred and the same thing will happen again but this time with a different set of mistakes. The set of new mistakes, to which we will fall victim, is an inexhaustible supply because they are always unknowable in advance. Winston Churchill perfectly described this scenario while addressing Parliament at the dawn of World War II. Members were concerned about repeating the mistakes of World War I and wanted assurance that they would be avoided. Churchill replied:
+
 “哎，我们将来不会再犯这样的错误了。我们甚至炒了某些人的鱿鱼，确保它不再出现。”也许如此。我们不会犯同样的错误，因为下一次我们就有所准备了。问题在于，第一个错误出现之前，没人知道它，同样的事情还会发生，不过这次是另一些错误了。使我们成为牺牲品的新的错误，将会不断出现，因为之前没有人知道它们。第二次世界大战即将开始之前，丘吉尔在对议会发言时完美描述了此种情形。当时议员们担心重复一战的错误，希望确保不要再犯。丘吉尔的回答是：
 
 ```
 我保证当时的错误不会再重复了；我们也许会犯下新的错误。
 ```
 
+```
+I am sure that the mistakes of that time will not be repeated; we should probably make another set of mistakes.
+```
+
+We are often mistaken and simply don't yet know it. And being wrong and not knowing it feels just like being right 4. Actually, being right and being wrong are indistinguishable until the moment we are proven wrong. That should sound a note of caution about the inevitability of mistakes.
 
 我们常常出错，而且不知道自己犯错。出了错还不知道，感觉上就像自己完全正确 [4]。实际上，对错常常无法区分，直到证明我们错了。这应该让人们警觉起来，明白错误的不可避免。
+
+There is an expression often heard in management meetings and boardrooms: "failure is not an option." While this is usually intended to discourage half-hearted efforts, it excludes learning and discovery because failure is a necessary ingredient in learning. It also suggests that to admit a mistake means to admit incompetence and possibly lose one’s job. Once this belief system is in place and cemented by financial incentives, it can lead to the idea that failure indicates a historically successful practice is going through a temporary rough patch and we simply need to redouble our efforts so it will once again be successful, even if the real lesson is that we need to change course. Under these conditions, admitting an error and changing course is a difficult thing to do because we are irreversibly invested in our belief system. History is filled with examples of businesses that failed to learn and continued to feed ever greater amounts of precious capital into failed strategies even as those strategies drove them right off a cliff. A moment’s reflection will disabuse us of the notion that we are somehow immune to such folly.
 
 在管理层会议和董事会中，常常能听到这样的说法：“决不允许失败。”虽然这么说常常是为了让人们不要敷衍工作，但的确排斥了学习和探索的机会，因为失败是学习的必要过程。这句话同时让人觉得，承认过程意味着承认能力不足，也许会导致失去工作。一旦这样的思考方式固定下来，再加上财务激励的巩固，就会让人们认为：失败，意味着过去一直成功的做法现在临时面临某些问题，我们只要付出双倍努力，它将来就能成功，即便真正的教训是，我们应该换条路走。在这些情形下，承认错误并改变做法，就变得很难了，因为我们坚持过去的思考方式，不可逆转。历史中充满了这样的例子，公司失去学习能力，持续投入越来越多宝贵资本到错误的策略中，即便这些策略把它们拖下悬崖。停下来反思一下，就能让我们醒悟，知道我们并非对此种愚蠢免疫。
 
 ## 利用学习的策略
 
+Strategies That Use Learning
+
+So that’s a rundown of some of the reasons why we are often unable to learn and continue with strategies that fail us. But what if we can avoid these pitfalls? Are there strategies that focus on learning? As it happens, there are.
+
 前面列举的这些原因，说明我们为什么无法学习，而且继续采取让我们失败的策略。但要是可以避免这些陷阱呢？是否有策略把学习作为重点呢？实际上，当然有。
 
 ### 决定性的方法
+
+A Deterministic Approach
+
+Historically, software projects used a Waterfall model of development. Requirements were gathered, estimates were made from the requirements, and schedules were created from the estimates. This approach is based on a deterministic view of software projects and that with enough upfront data and analysis, we can make accurate predictions about cost and delivery dates. These projects often began failing early, usually due to inadequate requirements and inaccurate estimates. In the latter case, estimates were often faulty because they were not based on statistically rigorous methods but instead gathered from methods that were little more than guessing.
+
 过去，软件项目使用瀑布开发模型。先收集需求，再根据需求做估算，再从估算创建时间表。这种方法以决定性的观点看待软件项目，认为只要收集足够的数据和分析，我们就能准确预测成本和交付日期。这些项目常常在早期就开始出问题了，需求不足和估算不准是主要原因。对于后者，估算常常出错，是因为它们不是根据严格的统计方法，而是从某些类似于拍脑袋的做法中收集得来。
 
+It turns out, though, that a deterministic view can succeed by using calibrated statistical models gathered from a company’s historical software projects. One common statistical method is a Monte Carlo analysis 5 6. The underlying mathematics are rather complicated but it boils down to this: we gather a set of historical data that typically include parameters like effort and duration. We then run scenarios thousands of times where we randomly vary input parameters to produce a probability distribution that a given amount of work will be completed in a given amount of time. For example, we might derive a distribution that indicates a certain amount of staff effort has a 25% probability of being completed within a month, a 50% probability within two months, and a 90% probability within five months. The key point is that we use historical data, unique to our organization, to calibrate our model and produce probability ranges for outcomes instead of single-point values. Notice how rigorous this approach is compared to someone’s unsubstantiated claim that "I can do that in a week."
+
 不过，决定性的观点也有可能成功，只要使用校准过的统计模型，并且从公司的历史软件项目中收集数据。蒙特卡洛分析是常见的统计方法。[5] [6] 该方法背后的数学原理非常复杂，不过可简单概括如下：我们收集一系列历史数据，其中常常包括诸如工作量和持续时间这样的参数。然后，我们模拟这个场景几千次，其中随机输入不同参数，以产生概率分布，表明给定数量的工作可以在给定的时间内完成。比如，我们会得到一个分布，表明某个定量工作有 25% 的机率在一个月内完成，50% 机率两个月内完成，90% 的机率在五个月内完成。这里的重点是：我们使用的历史数据，是我们这个组织独有的，用它来校准我们的模型，产生结果机率范围，而不是单一的值。注意，这种方法是很严谨的，而不是像某个人随口一说：“我一个星期就能做完。”
+
+With this approach, we are also choosing to learn. We gather data over time and use it iteratively to teach us about our organization’s capabilities and the cost and time required to perform work. Of course, our model is only as good as the data we use to calibrate it. Vague requirements specifications, poor record-keeping for completed work, and other such shortcomings will yield disappointing results.
 
 使用此方法，我们就是在选择学习。我们随时间推移收集数据，然后迭代地使用这些数据，并从中了解我们组织的能力如何，以及完成工作需要的成本和时间。当然，模型的准确性，与用来校准它的数据相关。模糊的需求说明、糟糕的工作完成记录，以及其他类似问题会产生让人失望的结果。
 
 ### 伪决定性方法
 
+A Pseudo-Deterministic Approach
+
+A fully-deterministic approach as described above works well if requirements can be specified in advance and are not subject to frequent revision but this type of project is rarely seen. What if we are working on more typical projects with unclear goals, uncertain specifications, and unknown market needs? Deterministic predictions under those conditions are unlikely to yield satisfactory results.
+
 上述这样的完全决定性的方法要想成功，前提条件是所有的需求都能提前说明，而且不会经常变更，不过这样的项目可不常见。如果我们开发的是更典型的项目，目标不是很明确，需求说明不确定，市场需求也未知，那该怎么办？这些条件下，决定性的预测不太可能产生让人满意的结果。
+
+Enter Agile methods.  
 
 这就要说到敏捷方法了。
 
+Agile methods take a pseudo-deterministic approach to software delivery. Born out of the frustration with repeated failures in traditional Waterfall projects, Agile methods abandon the belief in long-term predictions and planning and instead focus on short-term delivery of working software and adapting to change as it occurs. By using Agile methods, we adopt the philosophy that requirements cannot be determined far in advance but must instead emerge over time.
+
 敏捷方法采取伪决定性的手段来交付软件。它脱胎于传统瀑布项目反复失败带来的沮丧之中，放弃采信长期预测和规划，而是聚焦于短期内交付可以用的软件，同时适应不断出现的变化。使用敏捷方法，我们接受这样的思想：需求无法过于提前确定，但必须随着时间不断演化。
+
+One of the more popular Agile methods is Scrum 7. Its two-week sprint minimizes project tracking error and drift by shortening timeframes for releases. We reprioritize with every sprint and in so doing effectively reset our project clock, giving us the flexibility to adapt to change.
 
 Scrum [7] 是常见的敏捷方法。它的两周冲刺迭代缩短了发布的时间周期，从而将项目的错误和偏移降到最低。我们在每个冲刺前重新设定优先级，这么做有效地重置了项目的时钟，让我们可以灵活适应变化。
 
+We can still use Monte Carlo-type methods to predict the volume of stories we can produce 6 but we surrender our belief of one aspect of determinism: that we can generate long-term plans that determine project schedules. Instead, we once again focus on learning by iteratively discovering what we need to deliver.
+
 我们仍然可以使用蒙特卡洛方法，来预测蕴含需求的故事的大小 [9]，但我们放弃了决定主义的一个表现：用长期规划来决定项目日程。相反，我们用迭代方法发现需要交付的东西，从而再次将重点放在学习上。
+
+But have we actually solved the problem of predictions and plans or have we just minimized the impact of being wrong about them? It seems we might still carry with us the same problem but at a smaller scale.
 
 但这样做是不是就解决了预测和规划的问题？还是只是将错误预测和规划的影响最小化了？看上去我们还会有同样的问题，只是规模变小了。
 
+
 ### 演化式的方法
+
+An Evolutionary Approach
+
+We have progressed from the long-term release cycles of traditional methods to the much shorter cycles of Agile methods. We also abandoned the belief in long-term, fixed requirements and chose instead to focus on smaller stories. Both of these changes help us iteratively discover requirements and produce better results. This leads to an obvious question: if a little discovery is a good thing, is more discovery an even better thing?
 
 我们从传统方法的长发布周期出发，前进到了敏捷方法的短周期，而且短得多。我们还放弃了长期、固定需求的理念，转而选择关注更小的故事。这些改变可以帮我们迭代式地探索需求，得到更好的结果。这就带来一个明显的问题：如果一小点探索是好事，那么更多的探索是不是要好得多？
 
+Enter hypothesis testing.
+
 这就要说到假设检验。
+
+Hypothesis testing (also called Hypothesis-Driven Development) takes its cues from the greatest experimental laboratory ever devised: evolution. Evolution makes no pretense at being able to predict what the future holds. It simply responds to change by constant experimentation. An experiment that produces a better outcome is rewarded with longevity. A worse outcome is quickly subjected to an ignominious end. If we are willing to surrender our predictive beliefs then evolution has a lot to teach us.
 
 假设检验（又称为假设驱动测试）的灵感，来源于史上最伟大的实验室：自然演化。自然演化不会假装自己可以预测未来的样子。它只是以频繁实验来应对变化。产生好结果的实验，其奖赏是更长的寿命。糟糕的结果很快就会导致屈辱的灭绝。如果我们愿意放弃自己的预测式思维，就能从自然演化中学习到很多。
 
+With hypothesis testing, we take a slightly more deliberate approach than the pure randomness of evolution. We proceed as scientists do when faced with the unknown: formulate a hypothesis and subject it to measurement and failure in the real world. If it is falsifiable and can't be proven false, at least not yet, then it has merit.
+
 使用假设检验，我们就能采用更深思熟虑的做法，而不是单纯依赖演化的随机性。面对未知情况，我们就像科学家一样：形成某个假设，然后在真实世界中度量、失败。如果它是可以被证伪的，但还没有被证伪，至少目前如此，那么它就有价值。
+
+There are many ways to implement hypothesis testing 8 9 10 but here is a simple example. We formulate a hypothesis such as "We believe that our customers want a left-handed widget feature on our data portal. We declare our hypothesis to be true if traffic to our portal increases by 5% in one week." If our hypothesis is correct then we should see at least a 5% bump in traffic within a week. If not, we were wrong and reject our hypothesis and possibly remove the feature. We then reformulate our hypothesis or move on to another one. It’s beyond the scope of this article to provide a detailed how-to of hypothesis testing but the references provide links to articles with instructive examples and best-practices.
 
 实施假设检验有很多方法 [8] [9] [10]，不过这里有一个简单的例子。我们形成一个假设，比如“我们相信，客户在数据门户上需要方便左撇子可以用的小部件。如果一周内门户的流量可以增加 5%，我们就认为这个假设是正确的。”如果假设正确，那么我们就会在一周内看到至少 5% 的流量增加。如果没有，我们就错了，应该拒绝假设，同时有可能移除该功能。然后，我们调整该假设，或是考虑其他假设。讨论如何完成假设检验已经超出本文范围，不过文末的资源参考有一些文章链接，其中有手把手的例子和最佳实验。
 
+With hypothesis testing, we surrender our predictive beliefs that envision how the future will unfold. Instead, we build from the bottom up, testing each small piece as we go, minimizing the risk to capital and cutting losses early. In effect, we make ourselves intellectually humble and admit we have little knowledge of the future. We accept that we don’t know what we don’t know and are unlikely to ever really know much in advance. We can only discover it through experimentation.
+
 使用假设检验，我们放弃了预测将来的想法，不去想未来如何展开。相反，我们从底层开始，一边往前走，一边测试每个小部分，将资本风险降到最低，同时可以尽早减少损失。实际上，我们让自己在智识上更谦卑，承认自己对未来的了解不足。我们可以接受：我们不知道自己不知道的事物，而且不太可能提前知道多少东西。我们只能借助实验去探索。
+
+Most importantly, hypothesis testing minimizes the biases described above that slow our learning. With it, we actually get paid to learn and use objective data to validate or falsify our ideas. We minimize sunk costs thereby making it less likely to cling to a failed idea. We use randomness to help us learn instead of fooling us into seeking a reward where none is to be found. Charismatic personalities have less sway when objective data is the measuring tool. And finally, being wrong is accepted as the normal state and part of the experiment. In effect, we are using an evidence-based decision system over one based on omnipotence and superstition.
 
 更重要的是，假设检验可以尽可能减少前面提到的偏误，不再让它们耽误我们的学习。有了假设检验，我们挣的钱就是靠学习得来的，而且可以使用客观数据来验证或是证伪我们的想法。我们将沉没成本降至最低，因此就不太可能抱着错误想法不放。我们借助随机性辅助学习，而不是欺骗自己寻找并不存在的奖励。有了客观数据作为度量工具，魅力型人格就没那么有影响了。最后，大家认可错误是一种正常状态，也是实验的一部分。实际上，我们使用的是基于证据的决策系统，而不再是依靠全知全能或者迷信。
 
+We can further inoculate ourselves against bias by placing strict, consistent limits on the amount of capital allocated to hypotheses and requiring short timeframes for proving them true. Otherwise, we are right back to endeavors that need "just a little more time" or "just a little more money." Evolution allows no such exemptions. Ultimately, we need to decide if we want to be "right" or make money. We sometimes seek the former while claiming to seek the latter.
+
 我们可以进一步让自己免于偏误，这需要针对假设可以使用的资本，施加严格的、一致的限制，同时要求在短时间周期内验证它们。否则，我们就又回到了老路上：需要“再多那么一点点时间”，或是“再多那么一点点钱”。自然演化不允许这样的豁免。归根结底，我们需要判断：是想自己“正确”，还是要赚钱。有时候，我们想达成前者，而口头上说是要追求后者。
+
+Admittedly, this approach doesn’t yield a particularly motivating rally cry like that of the predictive approach’s "Full speed ahead!" By contrast, "Let’s run an experiment" is hardly as energizing. But it has the potential to be more profitable which, perhaps, carries its own motivation.
 
 不可否认，这种方法不会激发能让鼓舞人的激情演讲，比如前文预测式方法的“全速前进”！相比而言，“咱们做个实验吧”，听上去不那么热血澎湃。但这么做有可能带来更多利润，也许这样自有其鼓舞作用。
 
 ## 常见的错误策略
+
+A Common and Misguided Strategy
 
 ```
 亲爱的勃鲁托斯，那错处并不在我们的命运，
@@ -249,9 +308,29 @@ Scrum [7] 是常见的敏捷方法。它的两周冲刺迭代缩短了发布的�
 莎士比亚《裘力斯·凯撒》，第一幕，第二场（译注：朱生豪译本）
 ```
 
+```
+"The fault, dear Brutus, is not in our stars,
+But in ourselves…"
+
+Julius Caesar (Act 1, Scene 2)
+```
+
+Perhaps we have a biased sample set in our industry and hear only the stories of predictive planning nightmares and not the successes, making us believe that the nightmare scenario is the common one. But given so many stories from so many people over so many years, it seems that the scenario is probably representative for many work environments. It contains the worst possible choices and almost always leads to failed outcomes.
+
 也许我们在自己的行业里选取了有偏差的例子，只听到噩梦般的预测和规划，而无视成功案例，从而使我们相信，噩梦场景比比皆是。可是，这么多年来，有这么多人讲出这么多故事，看来那是可以代表很多工作环境的。其中含有最差的选择，几乎必将带来失败的结果。
 
+Here’s how it occurs: We have a generic, somewhat vague goal like "increase revenue from our website by ten percent next year." Or maybe it’s more specific like "add a left-handed widget to our data portal because customers will buy it."  Whatever it is, it typically isn’t well-specified and the assumptions underlying the premise are just that: assumptions. And hidden details will surely appear as we begin work. We have done similar features in the past but, crucially, we have never done exactly the same thing before. But that should be "good enough" for the basis of our prediction. We then have one, perhaps two, developers provide a prediction that is little more than an off-the-cuff guess. And then we are off to the races. It often goes like this in predictive environments:
+
 事情是这样发生的。我们有一个泛泛的、很是模糊的目标，诸如：“明年网站带来的收入增长 10%”。抑或是更明确的：“在我们的数据门户上加入一个左撇子用户的小部件，因为客户会为之买单。”不管是什么，它经常没有明确说明，在前提之下的假设只是假设而已，没有依据。当然，只要我们开始干活了，任何隐藏的细节都会跳出来。我们在过去开发过类似功能，但是，关键在于，我们过去没有做过完全类似的事情。但这作为预测的依据就已经“足够好”了。然后，我们就有了一个，或者两个，开发人员做出预测，跟随意的瞎猜差不多。然后，我们就开工了。在预测性的工作环境中，常常是这样的：
+
+```
+Manager: "How long will it take to write the Widget feature?"
+Programmer: "I don’t know, maybe a month."
+Manager: "What? That’s ridiculous! There’s no way it will take that long!"
+Programmer: "Well, OK, I can probably do it in a week."
+Manager: "That’s more like it. I’ll put it in the schedule. Do it next week."
+```
+
 
 ```
 经理：开发那个小部件需要多久？
@@ -261,7 +340,17 @@ Scrum [7] 是常见的敏捷方法。它的两周冲刺迭代缩短了发布的�
 经理：这还差不多。我会放到日程表里。下周做吧。
 ```
 
+In an Agile environment it might look like this:
+
 在敏捷环境中，差不多是这样的：
+
+```
+Manager: "How many story points are you estimating for the Widget story?"
+Programmer: "I don’t know, maybe it's a thirteen."
+Manager: "What? That’s ridiculous! There’s no way it’s that big!"
+Programmer: "Well, OK, it’s probably a three."
+Manager: "That’s more like it. I’ll update the backlog. Do it in the next sprint."
+```
 
 ```
 经理：那个小部件的故事，你估计要几个故事点？
@@ -271,21 +360,45 @@ Scrum [7] 是常见的敏捷方法。它的两周冲刺迭代缩短了发布的�
 经理：这还差不多。我会更新到待办任务列表里。下个冲刺迭代做吧。
 ```
 
+This is little more than random guessing under extreme duress and creates the worst possible conditions: vague specifications, no rigorous collection of historical data upon which to draw for a careful, statistical analysis, off-the-cuff predictions from one or two programmers, and turning the guess into a commitment to deliver according to a schedule. To this mix, add incentives for managers to "hold developers accountable" for failing to deliver what they never realized was a promise instead of a guess and the understandable fear of punishment for being wrong about their guess once it becomes a commitment. Is it any wonder that failure is an inevitable outcome? They only way it is delivered is by cutting features, heroic overtime, and sacrificing quality. And yet, the lesson is rarely "this isn’t working so we need to try something else." Instead, it’s often "we need to get better at predictions."
+
 这跟处于强大压力下的瞎猜差不多，而且会营造出最糟糕的情况：模糊的需求说明；没有认真收集的历史数据，无法勇气做出用心的统计分析；来自一两个程序员的武断猜测，然后将猜测变为承诺，要根据时间表交付。不但如此，一旦程序员无法交付，经理还有理由去“拿程序员是问”，而程序员没有意识到自己给出的是一个承诺，而不是猜测，同时，程序员还会担心受到惩罚，因为怕自己的猜测变为承诺后出现错误，这种担心也是可以理解的。那么，要是失败不可避免，这还有什么奇怪的吗？唯一能够按时交付的方法，就是砍功能、狂加班、舍质量。然而，吸取的教训很少是：“这样干不行，我们得试试别的办法。”相反，常常是：“我们得把预测做得更好。”
+
+We get what we pay for. If we are required to use predictions to derive plans then we must invest the time and money to do it right. If we use Agile methods then the delivery of working software must take precedence over predictions. To do otherwise is wishing to get something for nothing. As the Second Law of Thermodynamics makes clear, "There’s no free lunch."
 
 人们让我们付钱做什么，我们就会做什么。如果要求我们必须用预测制定计划，那我们就必须投入时间和金钱把它做好。如果我们使用敏捷方法，那么交付可用的软件必须优于做出预测。其他做法相当于希望天上掉馅饼。正如热力学第二定律所明言：“世上没有免费的午餐。”（译注：热力学第二定律是表述热力学过程的不可逆性——孤立系统自发地朝着热力学平衡方向──最大熵状态──演化，也表明第二类永动机永不可能实现。来自维基百科。）
 
+
 ## 了解汝之环境
+
+Know Thine Environment
+
+It is imperative to know the environment in which our businesses are operating. If we work on large, contract-driven projects where timelines are extended and the specifications are well-defined in advance, then quantitative prediction is usually a required skill to survive. On the other hand, if we operate in the more common environment where specifications are vague or non-existent, the market needs are unclear or unknowable, timelines are short and urgent, and competition for market share is fierce, then we should consider a hypothesis-driven approach.
 
 了解自己的业务开展的环境，很有必要。如果我们开发的是合同驱动的大型项目，时间表已经展开，而且需求已经明确定义，那么定量的预测是生存的必要条件。然而，要是我们身处的环境更常见，需求模糊甚至不存在，市场需求不明确甚至是未知的，时间要求很短而且紧迫，市场份额的竞争很激烈，那么我们就应该考虑使用假设检验方法。
 
+A key problem is that we often misunderstand the mathematical underpinnings of our environment. We often believe that we operate in a deterministic world where more effort will reward us with a successful result. In fact, we often are operating in a non-deterministic, highly empirical world with an unstable foundation that changes with time. Statisticians call this a problem with "a non-stationary base" where the mathematical foundation is not stable and there is no base upon which to anchor our assumptions. Under these conditions, fixed, deterministic methods will not succeed outside of sheer, random luck. For all of the biases listed above, it’s nearly irresistible to believe that we can predict and plan even when we can’t.
+
 关键问题在于，我们常常误解自己所在环境的底层数学逻辑。我们常常相信，自己处于决定性的世界，付出更多努力就能得到满意的结果。实际上，我们常常是在非决定性的、高度实验性的世界中，它的基础不稳固，会随时间变化。统计学家称这样的问题有“非平稳基数”（non-stationary base），也就是其基本数学逻辑不稳定，而且没有可以落地假设的基础。在这些情况下，固定的、决定性的方法无法成功，除非有十足的运气。由于上面列出的各种偏误，我们几乎无法抗拒这样的想法：我们可以预测并规划，即便实际上做不到。
 
+Unfortunately, if we are not operating under stable conditions then greater effort put into a prediction has a higher chance of increasing our confidence in its accuracy than it does in improving the accuracy itself. And so we become more certain of our wisdom than we do of our doubt. We are then prone to commit ever more capital to prove that we are right instead of cautiously guarding our resources and applying them when the data tell us we are on the right path.
+
 然而，如果我们不是处于稳定的情况中，那么付出更多努力预测，就会让我们更加相信它的准确性，而不是去改善准确性本身。这样一来，我们就更仰仗自己的智慧，而不是选择自己的疑问。我们更倾向于付出更多资本，以此证明我们的正确，而不是小心保护我们的资源，并且只在数据告诉我们方向正确的时候再去运用这些资源。
+
+Knowing the environment in which we operate means that pay incentives are aligned with methods that produce successful outcomes for that environment. We are incentivized to learn, in whatever form it may take for our environment.
 
 了解我们所处的环境，意味着薪酬激励要与在这个环境中成功产出结果的工作方法相一致。我们应该因为学习而受到激励，无论学习在环境中如何体现。
 
 ## 结语
+
+Final Thoughts
+
+One of the key difficulties with predictions lies in our natural human reluctance to accept uncertainty. Being in a state of uncertainty and doubt is an extremely uncomfortable place. So we are much more inclined to embrace those who are full of confidence than we are those who shrug and prefer to run an experiment to verify a hypothesis.
+
+The external reality is that the business environment is often governed by uncertainty, unknowable unknowns, and darkness that we must navigate with only the faintest of lights. Our challenge is to accept the disquieting nature of that environment instead of clinging to the comfort of a belief system that provides us with a reassuring but misleading picture.
+
+The road to knowledge is paved with the embrace of uncertainty. If we can learn to live with its discomfort then we open the path to learning. To paraphrase a famous saying: The price of learning is eternal unease.
+
 
 预测的关键困难，在于我们人类不愿意接受不确定性。处于不确定状态中，并由此产生疑问，这让我们极为不适。因此，我们更倾向于拥抱那些信心满满的人，而不是耸耸肩、更愿意做实验验证假设的人。
 
