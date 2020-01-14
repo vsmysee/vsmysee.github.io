@@ -5,7 +5,7 @@ title: 月光下品咖啡
 
 MoonScript is a dynamic scripting language that compiles into Lua
 
-CoffeeScript is a dynamic scripting language that compiles into Javascript
+CoffeeScript is a little language that compiles into JavaScript
 
 
 Moon
