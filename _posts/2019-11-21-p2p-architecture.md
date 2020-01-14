@@ -24,3 +24,8 @@ title:  p2p架构的中间件
 
 ## Kafka
 ![](https://dzone.com/storage/temp/1717220-apache-kafka.png)
+
+
+## Redis Cluster
+![](https://miro.medium.com/max/732/1*1kS33aRPwETLyYeFCw7rIg.png)
+
