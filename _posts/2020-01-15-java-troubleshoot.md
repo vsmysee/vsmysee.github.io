@@ -30,7 +30,7 @@ top -Hp pid
 ```
 
 ```
-                                            %CPU  %MEM
+pid user                                    %CPU  %MEM
 38 root      20   0 2792972 265924  18088 S  0.3  3.3   0:25.86 SimplePauseDete
 39 root      20   0 2792972 265924  18088 S  0.3  3.3   0:25.86 SimplePauseDete
 40 root      20   0 2792972 265924  18088 S  0.3  3.3   0:25.83 SimplePauseDete
