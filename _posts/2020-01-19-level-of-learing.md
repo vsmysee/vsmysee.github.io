@@ -36,3 +36,15 @@ A person who has been a practitioner for 20 years and can do tasks, but perhaps 
 
 A retired sportsperson who becomes a coach to future generations.
 
+
+
+[参考2](https://www.cnblogs.com/luoahong/p/7203905.html)
+
+
+```
+第一个境界：捕捉和收集大量学习信息
+第二个境界：筛选出对自己有用的真实信息
+第三个境界：用信息建构自己的知识体系
+第四个境界：把知识内化为自己的智慧
+第五个境界：把智慧升华为世界观和方法论
+```
