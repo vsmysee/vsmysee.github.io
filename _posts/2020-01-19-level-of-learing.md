@@ -48,3 +48,10 @@ A retired sportsperson who becomes a coach to future generations.
 第四个境界：把知识内化为自己的智慧
 第五个境界：把智慧升华为世界观和方法论
 ```
+
+
+[参考3](https://medium.com/datadriveninvestor/known-knowns-unknown-knowns-and-unknown-unknowns-b35013fb350d)
+
+![](/images/knowns.png)
+
+
