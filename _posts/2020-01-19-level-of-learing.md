@@ -19,9 +19,10 @@ title: 学习的五个层次
 
 第四个层次例子：
 
-音乐家
 
 Master musicians, playing elegant and flowing music.
+
+音乐家大师，演奏优雅流畅的音乐。
 
 
 A person who has been a practitioner for 20 years and can do tasks, but perhaps cannot explain how they can do them.
