@@ -221,7 +221,7 @@ h4 {
     width: 64px;
     height: 64px;
     position: fixed;
-    bottom: 100px;
+    bottom: 5px;
     opacity: 0;
     z-index: 2;
 }
