@@ -19,3 +19,7 @@ We systematically err in the same direction. That makes our mistakes predictable
 即使是高智商的人也陷入同样的​​认知陷阱。同样，错误也不是随机分布的。
 我们系统地朝着同一方向犯错。这使得我们的错误是可以预测的，并且可以在一定程度上修复，但只能在一定程度上，永远不能完全修复。
 ```
+
+书中包含99个认知错误
+
+
