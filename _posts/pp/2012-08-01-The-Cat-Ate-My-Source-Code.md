@@ -3,6 +3,8 @@ layout: article
 title: The Cat Ate My Source Code
 ---
 
+源码被猫吃了
+
 The greatest of all weaknesses is the fear of appearing weak.
 
 ## J. B. Bossuet, Politics from Holy Writ, 1709

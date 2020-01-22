@@ -3,6 +3,7 @@ layout: article
 title: Communicate
 ---
 
+交流
 
 I believe that it is better to be looked over than it is to be overlooked.
 

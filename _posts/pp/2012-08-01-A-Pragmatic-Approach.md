@@ -3,6 +3,8 @@ layout: article
 title: A Pragmatic Approach
 ---
 
+实效的路径
+
 There are certain tips and tricks that apply at all levels of software development, ideas that are almost axiomatic, and processes that are virtually universal. However, these approaches are rarely documented as such; you'll mostly find them written down as odd sentences in discussions of design, project management, or coding.
 
 In this chapter we'll bring these ideas and processes together. The first two sections, The Evils of Duplication and Orthogonality, are closely related. The first warns you not to duplicate knowledge throughout your systems, the second not to split any one piece of knowledge across multiple system components.
