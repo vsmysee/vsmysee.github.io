@@ -96,7 +96,7 @@ title: 10个面试算法
 10. Lucas Theorem
 ```
 
-## 位操纵 （BIT Manipulation)
+## 位操作 （BIT Manipulation)
 
 ```
 1. Maximum Subarray XOR
