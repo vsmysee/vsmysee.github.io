@@ -6,7 +6,7 @@ title: 哲学大奖的数学书
 计算进化史
 
 
-![](https://www.ituring.com.cn/download/021ookUnCaDj.small)
+![](https://img3.doubanio.com/view/subject/l/public/s29347644.jpg)
 
 
 
