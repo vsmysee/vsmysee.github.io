@@ -20,7 +20,7 @@ Linux_5.1 Released Sun, 5 May 2019 (63 days)
 
 Linux_5.0 Released Sun, 3 March 2019 (70 days)
 
-##4.x
+## 4.x
 
 Linux_4.20 Released 23 December, 2018 (62 days)
 
