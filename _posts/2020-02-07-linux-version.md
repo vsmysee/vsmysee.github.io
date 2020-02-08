@@ -6,6 +6,17 @@ title: Linux版本
 [地址](https://kernelnewbies.org/LinuxVersions)
 
 
+根据[这篇文章](http://liupzmin.com/2019/11/06/docker/container-chat/)
+
+
+按照时间线梳理下，Linux 在其内核 2.4.19 版本上加入了 Namesapce 功能,内核4.6中又添加了Cgroup namespace,2008 年，通过将 Cgroups 的资源管理能力和 Linux Namespace 的视图隔离能力组合在一起， LXC（Linux Container） 这样的完整的容器技术出现在了 Linux 内核当中
+
+2013年，Docker 的第一个版本发布
+
+2014年，Docker 0.9 发布，用 libcontainer 库代替了原来的 LXC 
+
+Kubernetes 源于 Google 内部的 Borg 项目，经 Google 使用 Go 语言重写后，被命名为 Kubernetes，并于 2014 年 6 月开源
+
 ## 5.x
 
 Linux_5.5 Released Sun, 26 Jan 2020 (63 days)
