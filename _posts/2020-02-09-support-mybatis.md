@@ -8,6 +8,7 @@ title: 收回对Mybatis的成见
 
 {% highlight java %}
 
+{% raw %}
 private String selectPersonSql() {
       return new SQL() {{
         SELECT("P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME");
@@ -28,11 +29,13 @@ private String selectPersonSql() {
         ORDER_BY("P.FULL_NAME");
       }}.toString();
     }
-
+{% endraw %}
 {% endhighlight %}
 
 
 {% highlight java %}
+
+{% raw %}
 
 public String selectPersonLike(final String id, final String firstName, final String lastName) {
       return new SQL() {{
@@ -50,4 +53,6 @@ public String selectPersonLike(final String id, final String firstName, final St
         ORDER_BY("P.LAST_NAME");
       }}.toString();
 }
+{% endraw %}
+
 {% endhighlight %}
