@@ -6,6 +6,7 @@ title: 44条工程管理经验
 [原文](http://www.defmacro.org/2014/10/03/engman.html)
 
 ## Do
+
 Attract, nurture, coach, and retain talent. Talk to engineers to tease out concerns early, then fix them if you can.
 
 Communicate to every engineer the next most important issue for them to work on.
