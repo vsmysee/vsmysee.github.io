@@ -27,3 +27,8 @@ title:  关于我
 
 
 ![](https://plugins.jetbrains.com/files/13694/screenshot_20948.png)
+
+
+
+
+如果想联系我，这是我的邮箱: vsmysee@gmail.com
