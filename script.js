@@ -14,22 +14,6 @@ var fuckScreen = function () {
     });
 }
 
-//执行图片加载
-var asyLoadImg = function (option) {
-
-    function createImg(url) {
-        new Image().src = url;
-    }
-
-    if (typeof option == "String") {
-        createImg(option);
-    } else if (option instanceof Array) {
-        for (var i = 0; i < option.length; i++) {
-            createImg(option[i]);
-        }
-    }
-
-}
 
 
 var getWindowHeight = function () {
@@ -198,36 +182,7 @@ SlideBox.prototype = {
 
 $(function () {
 
-    var pop = new Pop({
-        w: 1000,
-        h: 600,
-        close: function () {
-            var height = this.height;
-            var targetTop = -(getWindowHeight() - height) / 2 - height - height / 2 - 20;
-            var root = this;
-            $(this.el).stop().animate({marginTop: parseInt(targetTop)}, 400, function () {
-                root.hidden();
-                root.setMarginTop(-height / 2);
-            });
 
-        }
-    });
-
-    pop.setContent(document.getElementById("profile_html").innerHTML);
-
-    new SlideBox(document.getElementById("profile_wp"));
-
-
-    var showProfile = function () {
-        pop.show(function () {
-            var oldTop = this.getMarginTop();
-            this.setMarginTop(-getWindowHeight() / 2 - this.height);
-            this.display();
-            $(this.el).stop().animate({marginTop: oldTop}, 800);
-        });
-    };
-
-    //返回顶部
     (function () {
 
         if (getDocumentHeight() - getWindowHeight() < 290) {
@@ -235,7 +190,9 @@ $(function () {
         }
 
         var menuArray = {
-            "me": showProfile,
+            "me": function () {
+                window.location = "/blog/2020/01/10/self-mockery";
+            },
             "home": function () {
                 window.location = "/";
             },
@@ -322,18 +279,6 @@ $(function () {
 
     })();
 
-
-    //先把个人信息图片加载一把利用浏览器缓存
-    var loadMyProfileImg = function () {
-        var forload = [];
-        forload.push("/images/close.png");
-        document.getElementById("profile_html").innerHTML.replace(/<img\s+src=[\'|\"](.*)[\'|\"]/igm, function ($, $1) {
-            forload.push($1);
-        });
-        asyLoadImg(forload);
-    }
-
-    setTimeout(loadMyProfileImg, 5000);
 
 
 })
