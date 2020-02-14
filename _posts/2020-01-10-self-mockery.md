@@ -3,7 +3,7 @@ layout: article
 title:  关于我
 ---
 
-我给你自己写了两首词和一首诗
+我给你自己写了两首卜算子和一首诗
 
 ![](/images/self-mockery.jpg)
 
