@@ -30,5 +30,21 @@ title:  关于我
 
 
 
+如果想联系我: 
 
-如果想联系我，这是我的邮箱: vsmysee@gmail.com
+```
+vsmysee@gmail.com
+https://github.com/vsmysee/
+```
+
+
+我所认为的编程境界
+
+![](/images/river-snow-change.jpg)
+
+
+我的经历
+
+![](/images/codinghard.jpg)
+
+

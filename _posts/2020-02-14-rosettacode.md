@@ -16,7 +16,7 @@ Rosetta Code currently has 1,006 tasks, 225 draft tasks, and is aware of 764 lan
 
 
 
-不如快排算法的各种技法:
+比如快排算法的各种技法:
 
 
 ```
