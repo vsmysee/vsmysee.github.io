@@ -65,6 +65,8 @@ https://github.com/vsmysee/
 没有捷径
 没有那么多抽象正确
 学习诗歌的简洁性有助于编码
+最怕一刀切
+CPU也有可能有bug
 ```
 
 
