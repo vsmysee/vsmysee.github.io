@@ -13,6 +13,9 @@ title: 关于欧拉等式
 理查德·费曼把她唤作“欧拉的宝石”
 ```
 
+Euler’s identity is an equality found in mathematics that has been compared to a Shakespearean sonnet and described as "the most beautiful equation." It is a special case of a foundational equation in complex arithmetic called Euler’s Formula, which the late great physicist Richard Feynman called in his lectures "our jewel" and "the most remarkable formula in mathematics." 
+
+
 她端庄大方，秀外慧中，简洁包含着深刻。悬挂于巴黎发明宫数学陈列室的间墙，如莎士比亚的十四行诗，达·芬奇的蒙娜丽莎，王羲之的兰亭集序，人人都可驻足欣赏，顶礼膜拜。
 
 
@@ -58,6 +61,19 @@ ___
 
 ___
 
+
+The expression possesses Euler’s number ‘e’, the base of natural logarithms that is extensively recruited in calculus. It is a transcendental number whose value is 2.71828….
+
+It possesses ‘i’, the complex or imaginary unit, which is the square root of -1 or the solution of the function ‘x²+1=0’. It is of utmost importance in electrical engineering and has provided great insights in quantum mechanics.
+
+It possesses ‘π’, another transcendental number obtained by the ratio of a circle’s circumference to its diameter. Its value is 3.14159… This constant does not need any further introduction, as it is the most popular mathematical constant, ubiquitous in fields from Euclidian geometry to General Relativity.
+
+It possesses the first natural number ‘1’, the multiplicative identity — any number multiplied by this identity results in the same number itself.
+
+It possesses the first whole number ‘0’, the additive identity – any number added to this identity results in the same number itself.
+
+
+---
 
 这个欧拉公式的神奇之处在于，它把数学中最基本的五个常数，以非常优美的形式结合了起来：
 
