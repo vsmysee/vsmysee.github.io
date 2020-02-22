@@ -3,6 +3,21 @@ layout: article
 title: Redis Manifesto
 ---
 
+关键词
+
+```
+设计数据结构DSl
+内存优先
+直接的api
+专注于代码效率
+代码如诗
+避免复杂性
+线程非银弹
+两层api
+编码之乐
+```
+
+
 
 1 - A DSL for Abstract Data Types. Redis is a DSL (Domain Specific Language)
     that manipulates abstract data types and implemented as a TCP daemon.
