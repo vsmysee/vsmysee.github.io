@@ -3,8 +3,6 @@ layout: article
 title: 真正的兴趣
 ---
 
-[原文](https://program-think.blogspot.com/2015/12/Hobbies-and-Interests.html)
-
 ## 特征
 
 动机的【内在性】
