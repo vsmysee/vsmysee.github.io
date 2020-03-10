@@ -1,6 +1,6 @@
 ---
 layout: article
-title:  一些英文这里句子
+title:  一些英文句子
 ---
 
 1.The past is gone and static. Nothing we can do will change it. Thefuture is before us and dynamic. Everything we do will affect it. 往昔已逝，静如止水；我们无法再做改变。而前方的未来正生机勃勃；我们所做的每一件事都将影响着它。
