@@ -65,6 +65,6 @@ we have primarily leaned toward exhaustive requirements and creating tight coupl
 我们倾向于粗细不分地列出需求（ exhaustive requirements）和创建紧耦合（tight couplings），但这种方式经常 更容易导致故障，或者产生更脆弱的系统。
 
 
-he reality is that most large failures are the result of a string of micro-failures leading up to the final event. There is no root cause. We’d do better to stop looking for one
+the reality is that most large failures are the result of a string of micro-failures leading up to the final event. There is no root cause. We’d do better to stop looking for one
 
 大部分大故障都是一连串小故障叠加的结果，最终触发了某个事件（most large failures are the result of a string of micro-failures leading up to the final event）。这些故障并没有根本原因（There is no root cause）。我们最好不 要再去试图寻找根本原因了
