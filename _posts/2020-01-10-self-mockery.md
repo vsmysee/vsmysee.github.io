@@ -37,6 +37,10 @@ vsmysee@gmail.com
 https://github.com/vsmysee/
 ```
 
+喜好诗词
+
+这是我的另一个博客：[诗文](http://www.codecode.club/)
+
 
 我所认为的编程境界
 
