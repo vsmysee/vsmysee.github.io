@@ -191,7 +191,7 @@ $(function () {
 
         var menuArray = {
             "me": function () {
-                window.location = "/blog/2020/01/10/self-mockery";
+                window.location = "/blog/2020/01/10/about-me";
             },
             "home": function () {
                 window.location = "/";
