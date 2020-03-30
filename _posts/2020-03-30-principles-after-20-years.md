@@ -16,7 +16,7 @@ You don’t write the code for the machines, you write it for your colleagues an
 
 Any significant and rewarding piece of software is the result of collaboration. Communicate effectively and collaborate openly. Trust others and earn their trust. Respect people more than code. Lead by example. Convert your followers to leaders.
 
-开放写作
+开放协作
 
 Divide and conquer. Write isolated modules with separate concerns which are loosely coupled. Test each part separately and together. Keep the tests close to reality but test the edge cases too.
 
