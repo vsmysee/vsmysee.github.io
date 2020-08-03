@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "火箭"架构
+title: 火箭架构
 ---
 
 [原文](https://xie.infoq.cn/article/e67fcf1dfe68f1f6007aee956)
