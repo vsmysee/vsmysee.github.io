@@ -4,7 +4,7 @@ title: GUI编程的进化
 ---
 
 
-[原文(https://ewind.us/2019/gui-and-ui/)
+[原文](https://ewind.us/2019/gui-and-ui/)
 
 
 ```
