@@ -5,7 +5,7 @@ title: 修改CapsLock
 
 CapsLock占据了键盘的绝佳位置却不怎么干活,于是我们可以把它的功能用软件修改掉
 
-Windows: AHK软件
+Windows: AHK软件,免费开源的脚本软件,通过编程的方式操控电脑
 
 
 AHK
@@ -30,10 +30,12 @@ SwitchIME(dwLayout){
 }
 
 ```
-我通过按一次CapsLock,将发送ctrl + i,ESC 和修改注册表三格操作
+我通过按一次CapsLock,将发送ctrl + i,ESC 和修改注册表三个操作
 
 
 MAC: Karabiner-Elements软件
+
+配置文件为json,放在.config/karabiner
 
 
 ```
