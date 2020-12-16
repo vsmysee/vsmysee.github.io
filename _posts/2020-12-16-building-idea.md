@@ -24,7 +24,7 @@ https://download.jetbrains.com/idea/ideaIC-11.1.5d.exe?_ga=2.205728411.926551103
 可以在这里下载： http://85-207-0-21.static.bluetone.cz/java/1.6.0_45/
 
 
-然后点击菜单上的make project就可以了，也可以只运行IDEA, 由于这是目前我觉得最干净的一个分支，所以把它备份了
+然后点击菜单上的make project就可以了，也可以直接运行IDEA, 运行起来了的IDEA版本也刚好为11.1.5，由于这是目前我觉得最干净的一个分支，所以把它备份了
 
 https://github.com/vsmysee/intellij-community-117
 
