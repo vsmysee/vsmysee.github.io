@@ -174,3 +174,55 @@ Android 架构组件是一组库，可帮助您设计稳健、可测试且易维
 * 使用 LiveData 构建数据对象，在基础数据库改变时通知视图。
 * ViewModel 存储界面相关的数据，这些数据不会在应用旋转时销毁。
 * Room 是一个 SQLite 对象映射库。它可用来避免样板代码，还可以轻松地将 SQLite 表数据转换为 Java 对象。Room 提供 SQLite 语句的编译时检查，并且可以返回 RxJava、Flowable 和 LiveData 可观察对象。
+
+## 构造界面
+
+界面构造首先需要学习布局，可通过两种方式声明布局：
+
+* 在 XML 中声明界面元素。Android 提供对应 View 类及其子类的简明 XML 词汇，如用于微件和布局的词汇。您也可使用 Android Studio 的 Layout Editor，并采用拖放界面来构建 XML 布局。
+
+* 在运行时实例化布局元素。您的应用能以程序化方式创建 View 对象和 ViewGroup 对象（并操纵其属性）。
+
+每个布局文件都必须只包含一个根元素，按照在 HTML 中创建包含一系列嵌套元素的网页的相同方式快速设计界面布局及其包含的屏幕元素。
+
+以最简单的线性布局为例子
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+    <TextView android:id="@+id/text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Hello, I am a TextView" />
+    <Button android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello, I am a Button" />
+</LinearLayout>
+```
+
+任何 View 对象均可拥有与之关联的整型 ID，用于在结构树中对 View 对象进行唯一标识。编译应用后，系统会以整型形式引用此 ID，但在布局 XML 文件中，系统通常会以字符串的形式在 id 属性中指定该 ID
+代码中查找组件
+
+```
+Button myButton = (Button) findViewById(R.id.my_button);
+```
+
+其实这种方式类似于dom操作，非常原始，学习web，在后来的Android开发中可以使用视图绑定，在 Android Studio 3.6 及更高版本中，视图绑定功能可以替换 findViewById() 调用，并为与视图互动的代码提供编译时类型安全。考虑使用视图绑定，而非 findViewById()。
+
+对于组件的大小，有两个非常重要的属性
+
+* wrap_content 指示您的视图将其大小调整为内容所需的尺寸。
+* match_parent 指示您的视图尽可能采用其父视图组所允许的最大尺寸。
+
+
+不要使用绝对单位（如像素）来指定布局宽度和高度。更好的方法是使用相对测量单位（如与密度无关的像素单位 dp、wrap_content 或 match_parent），因为这样有助于确保您的应用在各类尺寸的设备屏幕上正确显示
+
+视图的几何形状就是矩形的几何形状，视图拥有一个位置（以一对“水平向左”和“垂直向上”的坐标表示）和两个尺寸（以宽度和高度表示）。位置和尺寸的单位是像素，视图拥有两对宽度和高度值，第一对称为“测量宽度”和“测量高度”。这些尺寸定义视图希望在其父项内具有的大小。您可通过调用 getMeasuredWidth() 和 getMeasuredHeight() 来获得这些测量尺寸。
+第二对简称为“宽度”和“高度”，有时称为“绘制宽度”和“绘制高度”，为了测量尺寸，视图需将其内边距考虑在内。内边距以视图左侧、顶部、右侧和底部各部分的像素数表示，尽管视图可以定义内边距，但它并不支持外边距。
+
+
+复杂的布局，我们可能使用各种布局组件嵌套组合才能实现，后来平台提供了一个ConstraintLayout，可让您使用扁平视图层次结构（无嵌套视图组）创建复杂的大型布局。它与 RelativeLayout 相似，其中所有的视图均根据同级视图与父布局之间的关系进行布局，但其灵活性要高于 RelativeLayout，并且更易于与 Android Studio 的布局编辑器配合使用。
