@@ -134,3 +134,17 @@ Android 应用并非仅包含代码，它还需要与源代码分离的资源，
 * values
 * xml
 * font
+
+## 生命周期
+
+对于任何一个编程领域，我们都逃不过对核心对象生命周期的理解，如果不能理解，则程序基本上就是一个炸弹，一个 Activity 在其生命周期中会经历多种状态。您可以使用一系列回调来处理状态之间的转换
+
+* onCreate，系统创建Activity时触发
+* onStart，此回调包含 Activity 进入前台与用户进行互动之前的最后准备工作
+* onResume，会在 Activity 开始与用户互动之前调用此回调。此时，该 Activity 位于 Activity 堆栈的顶部，并会捕获所有用户输入
+* onPause，Activity 失去焦点并进入“已暂停”状态时，系统就会调用
+* onStop， Activity 对用户不再可见时，系统会调用 
+* onRestart，当处于“已停止”状态的 Activity 即将重启时，系统就会调用此回调
+* onDestroy，系统会在销毁 Activity 之前调用此回调
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20191125165133/Activity-Lifecycle-in-Android.jpg)
