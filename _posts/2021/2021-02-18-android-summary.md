@@ -35,10 +35,46 @@ title:  安卓记事
 
 ## 平台架构
 
-简略的说，是从Linux那里取了内核，从JDK取了内库，然后自己实现了一个特殊虚拟机ART（早期叫Dalvik），为了避免Linux内核的协议问题，构造了一个硬件抽象层HAL。
-然后用JNI技术在jvm上构造了java语言和C++库的桥，然后封住了一套java API的框架,图形引擎使用Skia，但并不是所有APP都可以用Java来写，所以还提供了一套底层的NDK。
+简略的说，是从Linux那里取了内核，从JDK取了内库，然后自己实现了一个特殊虚拟机ART（早期叫Dalvik），字节码的格式基于了寄存器而不是栈结构。
+
+为了避免Linux内核的协议问题，构造了一个硬件抽象层HAL，这样各个厂商不需要开放源代码。
+
+然后用JNI技术在jvm上构造了java语言和C++库的桥，然后封住了一套java API的框架，图形引擎使用Skia，web部分使用Webkit，但并不是所有APP都可以用Java来写，所以还提供了一套底层的NDK。
+
 开发IDE早期是一个eclipse插件，后来用了JetBrains的IDE社区版进行扩展。开发语言与时俱进，可以用比较新的Kotlin，构建工具使用在2007年开始流程的Gradle。
 
+另外还有配套的各种工具，比如ADB，模拟器
+
+
+## 代码结构
+
+Android的代码结构非常庞大，内核部分都是独立的，对这个结构基本了解一下即可
+
+```
+art 全新的ART运行环境（Android Runtime）
+bionic  系统C库
+bootable 启动引导相关代码
+build 存放系统编译规则及generic等基础开发包配置
+cts Android兼容性测试套件标准
+dalvik dalvik虚拟机
+developers 开发者目录
+development  应用程序开发相关
+device 设备相关配置
+external 开源模组相关文件
+frameworks 应用程序框架，Android系统核心部分，由Java和C++编写
+hardware 主要是硬件抽象层的代码
+libcore 核心库相关文件
+libnativehelper 动态库，实现JNI库的基础
+packages 应用程序包
+pdk 本地开发套件
+platform_testing 平台测试
+prebuilts x86和arm架构下预编译的一些资源
+sdk sdk和模拟器
+system 底层文件系统库、应用和组件
+toolchain 工具链文件
+tools 工具文件
+Makefile 全局Makefile文件，用来定义编译规则
+```
 
 ## Activity
 
