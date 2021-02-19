@@ -3,7 +3,7 @@ layout: article
 title:  安卓记事
 ---
 
-我做了10年的后端，其实从来没有想过可能和安卓有交集，新的工作让我不得不进入这个领域，最大的感受依然不变，我们需要对每个知识领域保持敬畏，因为深入到细节层面，或者可靠性层面，唯有敬畏之心
+我做了10年的基于web的后端研发，其实从来没有想过可能和安卓有交集，新的工作让我不得不进入这个领域，最大的感受依然不变，我们需要对每个知识领域保持敬畏，因为深入到细节层面，或者可靠性层面，唯有敬畏之心
 方可对复杂性有认识，不存在技术领域有高低贵贱之分。
 
 
@@ -226,3 +226,35 @@ Button myButton = (Button) findViewById(R.id.my_button);
 
 
 复杂的布局，我们可能使用各种布局组件嵌套组合才能实现，后来平台提供了一个ConstraintLayout，可让您使用扁平视图层次结构（无嵌套视图组）创建复杂的大型布局。它与 RelativeLayout 相似，其中所有的视图均根据同级视图与父布局之间的关系进行布局，但其灵活性要高于 RelativeLayout，并且更易于与 Android Studio 的布局编辑器配合使用。
+
+
+### 自定义
+
+当平台提供的默认组件不满足要求的时候，我们就需要自定义组件，需要执行如下操作
+
+* 扩展的最通用的视图是 View，因此您通常需要先扩展此视图，以创建新的父组件
+* 可以提供一个构造函数（从 XML 获取属性和参数），也可以使用您自己的此类属性和参数
+* 可能需要创建自己的事件监听器、属性存取器和修饰符，以及在组件类中创建可能更为复杂的行为
+* 换 onMeasure()；如果您希望组件显示某些内容，也可能需要替换 onDraw()。虽然两者都具有默认行为，但默认的 onDraw() 不会执行任何操作，而默认的 onMeasure() 始终会设置 100x100 的大小，这可能不是您所希望的。
+* 根据需要替换其他 on... 方法
+
+onDraw的本质是操作一个叫做Canvas的类，这是一个画布，我们拿着画笔在上面随意的绘制即可，注意只能绘制2D图形，如果需要3D绘制，需要扩展 SurfaceView，从单独的线程绘制
+
+定义完自己的类之后，就可以在xml中配置使用了
+
+```
+<view xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.example.android.notepad.NoteEditor$LinedEditText"
+    android:id="@+id/note"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="5dp"
+    android:scrollbars="vertical"
+    android:fadingEdge="vertical"
+    android:gravity="top"
+    android:textSize="22sp"
+    android:capitalize="sentences"
+/>
+```
+
