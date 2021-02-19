@@ -316,3 +316,37 @@ Android 平台支持三大类传感器：
 * 动态传感器
 * 环境传感器
 * 位置传感器
+
+
+### 连接
+
+智能手机的的最大优势是其连接性，根据不同的场景，我们存在非常多的连接方式，比如
+
+* 蓝牙
+* 低功耗蓝牙
+* NFC
+* WIFI
+* USB
+* SIP 
+
+由于连接本质上的复杂度，一般来说我们都是基于某个框架或者库来开发，Volley 是一个可让 Android 应用更轻松快捷地联网的 HTTP 库，Cronet 是 Chromium 网络堆栈，可作为库提供给 Android 应用
+gRPC 是一种可在任何环境中运行的现代开源高性能 RPC 框架。借助可插拔支持，它可以在数据中心内和跨数据中心高效地连接服务，以实现负载平衡、跟踪、运行状况检查和身份验证
+
+当有了网络连接之后，我们会得到另外一个强大UI构造模式，那就是WebView，这样把要显示得内容完全通过网络来传输控制，但是会丧失本地渲染对象得绝佳性能。
+
+
+```
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+    
+```
+
+```java
+
+    WebView myWebView = (WebView) findViewById(R.id.webview);
+    myWebView.loadUrl("http://www.example.com");
+    
+```
