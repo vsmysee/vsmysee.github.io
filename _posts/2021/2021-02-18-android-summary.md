@@ -3,7 +3,7 @@ layout: article
 title:  安卓记事
 ---
 
-我做了10年的基于web的后端研发，从来没有想过可能和安卓有交集，新的工作让我不得不进入这个领域，最大的感受依然不变，我们需要对每个知识领域保持敬畏，因为深入到细节层面，或者可靠性层面，唯有敬畏之心
+我做了10年的基于web的后端研发，没有想过可能和安卓有交集，新的工作让我进入这个领域，最大的感受依然不变，我们需要对每个知识领域保持敬畏，因为深入到细节层面，或者可靠性层面，唯有敬畏之心
 方可对复杂性有认识，不存在技术领域有高低贵贱之分，微尘出大千，一个小小的程序都可以洞见大大的世界。
 
 
@@ -174,6 +174,18 @@ ART 有多个不同的 GC 方案，涉及运行不同的垃圾回收器。从 An
 
 ![](https://miro.medium.com/max/1000/1*2wsimRFo3i2Ro-Fcpb_kyA.png)
 
+
+## 启动过程
+
+几个概念
+
+* BootROM 它是一个驻留在CPU专用集成电路的硬连线代码
+* Bootloader 引导加载程序，它是一个小程序
+* Init进程它是Linux内核完成安装后启动的第一个进程
+
+过程如下
+
+![](https://community.nxp.com/t5/image/serverpage/image-id/46742i6BD77ACF9DCC3C8C/image-size/large?v=1.0&px=999)
 
 # 功能开发
 
@@ -457,6 +469,9 @@ onDraw的本质是操作一个叫做Canvas的类，这是一个画布，我们�
 
 ExoPlayer 的标准音频和视频组件基于 Android 的 MediaCodec API 构建
 
+音频架构图
+![](https://source.android.google.cn/devices/audio/images/ape_fwk_audio.png)
+
 Android 框架支持通过 android.hardware.camera2 API 或相机 Intent 捕获图像和视频，相关的类是
 
 * android.hardware.camera2
@@ -467,8 +482,7 @@ Android 框架支持通过 android.hardware.camera2 API 或相机 Intent 捕获�
 
 MediaStore.ACTION_IMAGE_CAPTURE 或 MediaStore.ACTION_VIDEO_CAPTURE 的 Intent 操作类型可用于捕获图像或视频，而无需直接使用 Camera 对象。
 
-音频架构图
-![](https://source.android.google.cn/devices/audio/images/ape_fwk_audio.png)
+
 
 大多数 Android 设备都有内置传感器，用来测量运动、屏幕方向和各种环境条件。这些传感器能够提供高度精确的原始数据，非常适合用来监测设备的三维移动或定位，或监测设备周围环境的变化。例如，游戏可以跟踪设备重力传感器的读数，以推断出复杂的用户手势和动作，如倾斜、摇晃、旋转或挥动。
 同样，天气应用可以使用设备的温度传感器和湿度传感器来计算和报告露点，旅行应用则可以使用地磁场传感器和加速度计来报告罗盘方位。
