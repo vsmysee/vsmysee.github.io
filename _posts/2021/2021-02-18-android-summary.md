@@ -133,9 +133,13 @@ Makefile 全局Makefile文件，用来定义编译规则
 
 ## 编译打包
 
-前面提到了Android的内库是取自JDK，但是字节码结构和虚拟机是重新实现的，那么从源文件是如何编译成一个APK的呢？
+前面提到了Android的内库是取自JDK，但是字节码结构和虚拟机是重新实现的，同样一段代码，字节码格式是不一样的
 
-编译过程还是复用了javac，javac产生的字节码会经过混淆器R8，D8编译器的处理成dex文件，D8的工作还包含一部分脱糖工作，这样能让我们使用java8的语法。
+![](https://miro.medium.com/max/700/1*sRkZebFFMiuSa-tXfmBOIA.png)
+
+![](https://miro.medium.com/max/700/1*g50YUoPcBFT-I4Cv8KrDaw.png)
+
+从源文件是如何编译成一个APK的呢？编译过程还是复用了javac，javac产生的字节码会经过混淆器R8，D8编译器的处理成dex文件，D8的工作还包含一部分脱糖工作，这样能让我们使用java8的语法。
 
 ![](https://miro.medium.com/max/700/1*APXAk8JFCdcfOPTpCD7SeQ.png)
 
