@@ -187,6 +187,27 @@ ART 有多个不同的 GC 方案，涉及运行不同的垃圾回收器。从 An
 
 ![](https://community.nxp.com/t5/image/serverpage/image-id/46742i6BD77ACF9DCC3C8C/image-size/large?v=1.0&px=999)
 
+
+Bootrom is a small piece of write-protected flash rom memory embedded inside the processor chip. It contains the very first code that is executed by the processor when it powers up or resets.
+
+BootLoader is started by the bootrom, it’s job is to execute any specific setup before starting the Kernel, which literary means to copy os files to working memory.
+
+Kernel will start setup cache, protected memory, scheduling and loads drivers. When kernel finishes system setup first thing it does is look for “init” in system files and launches root process or the first process of the system.
+
+init is a root process, it has two responsibilities, mount directories like /sys, /dev, /proc and run init.rc script that starts among other things native daemons like Service Manager, Media Server etc..
+
+Android runtime is started by init root process with app_process command which tells it to start Art or Dalvik process virtual machine and to call Zygote's main() function.
+
+Art/Dalvik are process virtual machines. Dalvik is used on devices below Lollipop where's it is replaced by Art. The biggest difference between them is that Dalvik uses JIT (just in time) and Art uses AOT (ahead of time) compilation.
+
+Zygote is a special Android OS process that enables shared code across Dalvik/Art VM in contrast with Java VM where each instance has its own copy of core library class files and heap objects.
+
+相比服务端的jvm，android的虚拟机运行模式有很大的区别，会存在共享，这就是Zygote的作用
+
+Zygote进程运行时, 会初始化Dalvik虚拟机, 并运行它. Android的应用程序是由Java编写的, 它们不能直接运行在Linux上, 只能运行在Dalvik虚拟机中. 并且, 每个应用程序都运行在各自的虚拟机中, 应用程序每次运行都要重新初始化并启动虚拟机, 这个过程会消耗相当长时间, 是拖慢应用程序的原因之一. 因此, 在Android中, 应用程序运行前, 通过Zygote进程共享已运行的虚拟机的代码与内存信息, 缩短应用程序运行所耗费的时间. 也就是说, Zygote进程会事先将应用程序要使用的Android Framework中的类与资源加载到内存中, 并组织形成所用资源的链接信息. 这样, 新运行的Android应用程序在使用所需资源时不必每次形成资源的链接信息, 这样就大大提升了程序的运行时间.
+
+
+
 # 功能开发
 
 ## Activity
