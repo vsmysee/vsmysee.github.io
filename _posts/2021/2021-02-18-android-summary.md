@@ -131,6 +131,19 @@ tools 工具文件
 Makefile 全局Makefile文件，用来定义编译规则
 ```
 
+## 编译打包
+
+前面提到了Android的内库是取自JDK，但是字节码结构和虚拟机是重新实现的，那么从源文件是如何编译成一个APK的呢？
+
+编译过程还是复用了javac，javac产生的字节码会经过混淆器R8，D8编译器的处理成dex文件，D8的工作还包含一部分脱糖工作，这样能让我们使用java8的语法。
+
+![](https://miro.medium.com/max/700/1*APXAk8JFCdcfOPTpCD7SeQ.png)
+
+这个过程的全貌可以用这个图来表达
+
+![](https://miro.medium.com/max/1000/1*2wsimRFo3i2Ro-Fcpb_kyA.png)
+
+
 ## Activity
 
 打开一个APP，首先要解决的是如何显示界面，于是有了Activity，在web开发中我们叫做页面，一个APP由非常多的Activity组成，各种Activity互相调用，由于某一个时刻和用户交互的是一个Activity，所以会在交互过程
