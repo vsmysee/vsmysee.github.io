@@ -56,6 +56,9 @@ title:  安卓记事
 * 3.6（2020 年 2 月）
 * 4.0（2020 年 5 月）
 
+早期Android的速度比较慢，于是在4.1的时候谷歌启动了黄油计划提升性能，后台又在各个版本做了安全，性能，瘦身，续航等优化。
+在9.0更是引入了机器学习API。
+
 ## 平台架构
 
 简略的说，是从Linux那里取了内核，从JDK取了内库，然后自己实现了一个特殊虚拟机ART（早期叫Dalvik），字节码的格式基于了寄存器而不是栈结构。
@@ -68,8 +71,37 @@ title:  安卓记事
 
 另外还有配套的各种工具，比如ADB，模拟器
 
+### 内核部分
 
-## 代码结构
+手机的内核其实比运行PC还麻烦：
+
+虽然 Linux 内核包含其支持的所有不同芯片架构和硬件驱动程序的代码，但各个系统仅运行一小部分代码库。一台普通的笔记本电脑需要使用来自 5000 个文件的大约 200 万行内核代码才能正常运行；
+而 Pixel 手机需要使用来自 6000 个文件的 320 万行内核代码才能正常运行（因为 SoC 的复杂性有所增加）。
+
+AOSP 通用内核是长期支持 (LTS) 内核的下游，包含与 Android 社区相关但尚未合并到 LTS 的补丁程序。这些补丁程序可能包括：
+
+* 针对 Android 需求定制的功能（例如交互式 cpufreq 调节器）。
+* 由于实现方面的问题而被上游拒绝的功能（例如 MTP/PTP、Paranoid Networking）。
+* 可供 Android 设备使用但仍处于开发上游阶段的功能（例如 Energy Aware Scheduling/EAS）。
+* 对其他方有用的供应商/原始设备制造商 (OEM) 功能（例如 sdcardfs）。
+
+与 LTS (4.14.0) 相比，Android 通用内核更改了 355 行，插入了 32266 行，并删除了 1546 行（截至 2018 年 2 月）。
+
+最大的特性包括：
+
+* 19.8% Energy Aware Scheduling (kernel/sched)
+* 13.8% 网络 (net/netfilter)
+* 13.5% Sdcardfs (fs/sdcardfs)
+* 9.4% USB (drivers/usb)
+* 7.2% SoC (arch/arm64, arch/x86)
+* 6.2% f2fs（fs/f2fs - 从上游向后移植）
+* 6.1% 输入 (drivers/input/misc)
+* 5.4% FIQ 调试程序 (drivers/staging/android/fiq_debugger)
+* 3.6% Goldfish 模拟器 (drivers/platform/goldfish)
+* 3.4% Verity (drivers/md)
+* 11.6% 其他
+
+### 代码结构
 
 Android的代码结构非常庞大，内核部分都是独立的，对这个结构基本了解一下即可
 
