@@ -15,7 +15,7 @@ title:  安卓记事
 市面上常听到的高通骁龙和华为麒麟芯片，都属于SoC芯片，SoC还决定了将会用什么RAM（运行内存）和ROM（存储内存）。
 
 比如高通的结构
-![](https://img2018.cnblogs.com/blog/78946/201809/78946-20180928232441314-854190848.png)
+![](https://img-blog.csdn.net/20181008104026505?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N6eDk0MDIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 
 然后我们来看软件系统的堆栈结构，我们都需要明白自己活在哪一层
@@ -190,7 +190,13 @@ ART 有多个不同的 GC 方案，涉及运行不同的垃圾回收器。从 An
 * Bootloader 引导加载程序，它是一个小程序
 * Init进程它是Linux内核完成安装后启动的第一个进程
 
-过程如下
+Bootloader可以当做电脑的BIOS，市场上的手机一般上会加锁这个程序。Bootloader锁就是限制用户刷第三方ROM和第三方Recovery以及限制Root的“锁”。
+
+Recovery 更类似于一个小型的管理系统。只不过功能简单，所做的管理有限。在recovery模式下，会加载了部分文件系统，所以才可以读sdcard中的update.zip进行刷机，当然，也可以清除cache和用户数据。
+
+Fastboot 主要是用来与bootloader的USB通讯的PC命令行工具。他一般主要也用来向bootloader传送刷机文件进行文件分区重烧。 因此在使用时，必须有一个PC机并且USB线要始终联着。所以这种方式称为线刷
+
+启动过程如下
 
 ![](https://community.nxp.com/t5/image/serverpage/image-id/46742i6BD77ACF9DCC3C8C/image-size/large?v=1.0&px=999)
 
