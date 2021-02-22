@@ -67,6 +67,43 @@ title:  安卓记事
 早期Android的速度比较慢，于是在4.1的时候谷歌启动了黄油计划提升性能，后台又在各个版本做了安全，性能，瘦身，续航等优化。
 在9.0更是引入了机器学习API。
 
+
+## 认识刷机过程
+
+掌握刷机流程之后，我们就可以对系统的结构有进一步的认识
+
+使用谷歌Pixel Sailfish，需要注意，系统是系统，驱动是驱动，内核是内核
+
+AOSP
+```
+repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r2
+下载驱动 https://developers.google.com/android/drivers
+安装OpenJDK 8
+初始化编译环境 source build/envsetup.sh
+make -j60 #这个60是cpu核心个数*2，我这是30个cpu
+编译完成的系统镜像位于当前目录的out/target/product/sailfish/下
+
+
+adb reboot bootloader
+fastboot flashall -w
+
+```
+
+内核
+```
+git clone https://android.googlesource.com/kernel/msm.git
+cd msm
+git checkout android-msm-marlin-3.18-pi-qpr1
+source build/envsetup.sh
+lunch aosp_sailfish-userdebug
+make -j60
+adb reboot bootloader
+fastboot flash boot boot.img
+```
+
+
+
+
 ## 平台架构
 
 简略的说，是从Linux那里取了内核，从JDK取了内库，然后自己实现了一个特殊虚拟机ART（早期叫Dalvik），字节码的格式基于了寄存器而不是栈结构。
