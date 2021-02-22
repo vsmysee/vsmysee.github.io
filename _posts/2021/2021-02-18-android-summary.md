@@ -14,9 +14,6 @@ title:  安卓记事
 首先我们要熟悉下手机的结构，相比电脑，手机由于体积的限制，有很多概念是不一样的。ROM其实相当于硬盘，处理部分叫SOC，Soc芯片上通常会集成CPU（负责管理手机反应运行速度），GPU（管理手机的游戏性能），基带芯片（管理手机信号），NPU（管手机人工智能）等关键芯片的功能。
 市面上常听到的高通骁龙和华为麒麟芯片，都属于SOC芯片，SOC还决定了将会用什么RAM（运行内存）和ROM（存储内存）。
 
-比如高通的结构
-
-![](https://img-blog.csdn.net/20181008104026505?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N6eDk0MDIxMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 
 然后我们来看软件系统的堆栈结构，我们都需要明白自己活在哪一层
@@ -231,7 +228,18 @@ Zygote is a special Android OS process that enables shared code across Dalvik/Ar
 
 Zygote进程运行时, 会初始化Dalvik虚拟机, 并运行它. Android的应用程序是由Java编写的, 它们不能直接运行在Linux上, 只能运行在Dalvik虚拟机中. 并且, 每个应用程序都运行在各自的虚拟机中, 应用程序每次运行都要重新初始化并启动虚拟机, 这个过程会消耗相当长时间, 是拖慢应用程序的原因之一. 因此, 在Android中, 应用程序运行前, 通过Zygote进程共享已运行的虚拟机的代码与内存信息, 缩短应用程序运行所耗费的时间. 也就是说, Zygote进程会事先将应用程序要使用的Android Framework中的类与资源加载到内存中, 并组织形成所用资源的链接信息. 这样, 新运行的Android应用程序在使用所需资源时不必每次形成资源的链接信息, 这样就大大提升了程序的运行时间.
 
+Android内部有很多的分区：
 
+* system 分区
+* MISC分区
+* recovery分区
+* boot 分区
+* userdata 分区
+* cache 分区
+* SD卡分区
+
+Android 10 进行了进一步更改来支持动态分区，这是一种可以通过无线下载 (OTA) 更新来创建、销毁分区或调整分区大小的用户空间分区系统。
+作为此更改的一部分，Linux 内核无法再在搭载 Android 10 的设备上装载逻辑系统分区，因此该操作由第一阶段的 init 处理。
 
 # 功能开发
 
