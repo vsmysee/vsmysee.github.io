@@ -449,6 +449,18 @@ Android 日志记录系统是系统进程 logd 维护的一组结构化环形缓
 
 ## AndroidStudio
 
+Android Studio 是用于开发 Android 应用的官方集成开发环境 (IDE)，以 IntelliJ IDEA 为基础构建而成。除了 IntelliJ 强大的代码编辑器和开发者工具，Android Studio 还提供更多可提高 Android 应用构建效率的功能，例如：
+
+* 基于 Gradle 的灵活构建系统
+* 快速且功能丰富的模拟器
+* 统一的环境（供您开发适用于所有 Android 设备的应用）
+* Apply Changes 功能可将代码和资源更改推送到正在运行的应用，而无需重启应用
+* 代码模板和 GitHub 集成，可协助您打造常见的应用功能及导入示例代码
+* 大量的测试工具和框架
+* Lint 工具，能够找出性能、易用性和版本兼容性等方面的问题
+* C++ 和 NDK 支持
+* 内置对 Google Cloud Platform 的支持，可轻松集成 Google Cloud Messaging 和 App Engine
+
 Android的构建比较复杂，AndroidStudio的开发过程依赖于google内部组件，在推向AOSP之前需要做一次内部组件清除的过程，而这个过程在开源社区没有找到相应的方法，即便推向了 AOSP的分支代码也存在没有清理干净的情况，尝试自己做清理会发生一连串的依赖性错误
 
 早期版本的构建比较简单，能够构建的最大版本是3.2.1
