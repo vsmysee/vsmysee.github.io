@@ -96,6 +96,13 @@ Android 10 或更高版本会将选定的系统组件转换为模块，其中一
 您可以将更新后的模块化系统组件打包在一起，并通过 Google（使用 Google Play 商店基础架构）或 Android 合作伙伴（使用合作伙伴提供的 OTA 机制）将其推送到最终用户设备。模块软件包会以原子方式安装（和回滚），这意味着所有需要更新的模块都会进行更新，或者所有模块都不会进行更新。例如，如果某个需要更新的模块出于某种原因无法更新，设备不会安装软件包中的任何模块。
 
 
+### JNI
+
+JNI（Java Native Interface，Java本地接口），用于打通Java层与Native(C/C++)层。
+这不是Android系统所独有的，而是Java所有。众所周知，Java语言是跨平台的语言，而这跨平台的背后都是依靠Java虚拟机，虚拟机采用C/C++编写，适配各个系统，通过JNI为上层Java提供各种服务，保证跨平台性。
+
+Android系统在启动启动过程中，先启动Kernel创建init进程，紧接着由init进程fork第一个横穿Java和C/C++的进程，即Zygote进程。Zygote启动过程中会AndroidRuntime.cpp中的startVm创建虚拟机，VM创建完成后，紧接着调用startReg完成虚拟机中的JNI方法注册。
+
 
 ### 内核部分
 
@@ -262,6 +269,20 @@ Android内部有很多的分区：
 Android 10 进行了进一步更改来支持动态分区，这是一种可以通过无线下载 (OTA) 更新来创建、销毁分区或调整分区大小的用户空间分区系统。
 作为此更改的一部分，Linux 内核无法再在搭载 Android 10 的设备上装载逻辑系统分区，因此该操作由第一阶段的 init 处理。
 
+
+## 进程间通信
+
+PC 是 Inter-Process Communication 的缩写，为进程间或者跨进程通信，是指两个进程之间进行数据交换的过程。在Android中最有特色的进程间通信方式就是 Binder 。
+
+Binder 是基于 C/S 架构的。由一系列的组件组成，包括 Client、 Server、 ServiceManager、 Binder 驱动。其中 Client 、Server 、Service Manager 运行在用户空间，Binder 驱动运行在内核空间。其中 Service Manager 和 Binder 驱动由系统提供，而 Client、 Server 由应用程序来实现。Client、 Server 和 ServiceManager 均是通过系统调用 open、 mmap 和 ioctl 来访问设备文件 /dev/binder，从而实现与 Binder 驱动的交互来间接的实现跨进程通信。
+
+AIDL 意思即 Android Interface Definition Language，翻译过来就是Android接口定义语言，是用于定义服务器和客户端通信接口的一种描述语言，可以拿来生成用于IPC的代码。从某种意义上说AIDL其实是一个模板，因为在使用过程中，实际起作用的并不是AIDL文件，而是据此而生成的一个IInterface的实例代码，AIDL其实是为了避免我们重复编写代码而出现的一个模板
+
+Android 10 添加了对稳定的 Android 接口定义语言 (AIDL) 的支持，这是一种跟踪由 AIDL 接口提供的应用编程接口 (API)/应用二进制接口 (ABI) 的新方法。稳定的 AIDL 与 AIDL 的主要区别如下：
+
+* 在构建系统中使用 aidl_interfaces 定义接口。
+* 接口只能包含结构化数据。对于代表所需类型的 Parcelable，系统会根据其 AIDL 定义自动创建，并自动对其进行编组和解组。
+* 可以将接口声明为“稳定”接口（向后兼容）。声明之后，会在 AIDL 接口旁的一个文件中对这些接口的 API 进行跟踪和版本编号。
 
 ## AndroidStudio
 
