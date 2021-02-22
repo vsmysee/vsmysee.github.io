@@ -23,6 +23,9 @@ title:  安卓记事
 每一层对程序员的要求也不一样。
 
 
+首先我们从系统的相对比较底层的组件开始，然后才开始从功能开发和非功能开发两个部分来描述。
+
+
 ## 版本
 
 大概的历史
@@ -70,7 +73,7 @@ title:  安卓记事
 
 为了避免Linux内核的协议问题，构造了一个硬件抽象层HAL，这样各个厂商不需要开放源代码。
 
-然后用JNI技术在jvm上构造了java语言和C++库的桥，然后封住了一套java API的框架，图形引擎使用Skia，web部分使用Webkit，但并不是所有APP都可以用Java来写，所以还提供了一套底层的NDK。
+然后用JNI技术在jvm上构造了java语言和C++库的桥，然后封装了一套java API的框架，图形引擎使用Skia，web部分使用Webkit，但并不是所有APP都可以用Java来写，所以还提供了一套底层的NDK。
 
 开发IDE早期是一个eclipse插件，后来用了JetBrains的IDE社区版进行扩展。开发语言与时俱进，可以用比较新的Kotlin，构建工具使用在2007年开始流程的Gradle。
 
@@ -240,6 +243,27 @@ Android内部有很多的分区：
 
 Android 10 进行了进一步更改来支持动态分区，这是一种可以通过无线下载 (OTA) 更新来创建、销毁分区或调整分区大小的用户空间分区系统。
 作为此更改的一部分，Linux 内核无法再在搭载 Android 10 的设备上装载逻辑系统分区，因此该操作由第一阶段的 init 处理。
+
+
+## AndroidStudio
+
+Android的构建比较复杂，AndroidStudio的开发过程依赖于google内部组件，在推向AOSP之前需要做一次内部组件清除的过程，而这个过程在开源社区没有找到相应的方法，即便推向了 AOSP的分支代码也存在没有清理干净的情况，尝试自己做清理会发生一连串的依赖性错误
+
+早期版本的构建比较简单，能够见到构建的最大版本是3.2.1
+
+首先需要用Repo工具下载代码
+
+```
+需要python3
+mkdir ~/bin
+PATH=~/bin:$PATH
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+repo init --depth=1 -u https://android.googlesource.com/platform/manifest -b studio-3.0
+repo sync
+repo forall -vc "git reset --hard"
+```
+
 
 # 功能开发
 
