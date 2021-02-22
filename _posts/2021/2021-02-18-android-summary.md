@@ -74,10 +74,22 @@ title:  安卓记事
 
 使用谷歌Pixel Sailfish，需要注意，系统是系统，驱动是驱动，内核是内核
 
+如果手机没有BL解锁需要先解锁，在开发者选项里打开oem解锁
+
+```
+adb reboot bootloader
+fastboot flashing unlock
+```
+
+
+下载驱动 https://developers.google.com/android/drivers
+
+Sailfish使用的是高通的组件，所以是需要高通的驱动，驱动的硬件是GPS, Audio, Camera, Gestures, Graphics, DRM, Video, Sensors
+
 AOSP
 ```
 repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r2
-下载驱动 https://developers.google.com/android/drivers
+
 安装OpenJDK 8
 初始化编译环境 source build/envsetup.sh
 make -j60 #这个60是cpu核心个数*2，我这是30个cpu
@@ -88,6 +100,15 @@ adb reboot bootloader
 fastboot flashall -w
 
 ```
+
+驱动下载下来是两个脚本：
+
+extract-google_devices-sailfish.sh
+extract-qcom-sailfish.sh
+
+执行脚本得到驱动，然后拷贝到aosp源代码目录
+
+
 
 内核
 ```
