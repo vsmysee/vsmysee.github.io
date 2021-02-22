@@ -86,6 +86,8 @@ fastboot flashing unlock
 
 Sailfish使用的是高通的组件，所以是需要高通的驱动，驱动的硬件是GPS, Audio, Camera, Gestures, Graphics, DRM, Video, Sensors
 
+当然，如果只是构建出镜像在模拟器里跑就不需要驱动。
+
 AOSP
 ```
 repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r2
@@ -93,7 +95,15 @@ repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.
 安装OpenJDK 8
 初始化编译环境 source build/envsetup.sh
 make -j60 #这个60是cpu核心个数*2，我这是30个cpu
-编译完成的系统镜像位于当前目录的out/target/product/sailfish/下
+编译完成的系统镜像位于当前目录的out/target/product/sailfish/下，很多的img
+
+```
+boot.img
+recovery.img
+ramdisk.img
+system.img
+userdata.img
+```
 
 
 adb reboot bootloader
