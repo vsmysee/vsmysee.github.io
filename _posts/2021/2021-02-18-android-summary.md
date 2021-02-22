@@ -207,6 +207,8 @@ ART 有多个不同的 GC 方案，涉及运行不同的垃圾回收器。从 An
 
 ![](https://miro.medium.com/max/1000/1*2wsimRFo3i2Ro-Fcpb_kyA.png)
 
+AAPT2（Android 资源打包工具）是一种构建工具，Android Studio 和 Android Gradle 插件使用它来编译和打包应用的资源。AAPT2 会解析资源、为资源编制索引，并将资源编译为针对 Android 平台进行过优化的二进制格式。
+
 ### 字节码
 
 标准Java的栈结构字节码是8位字节码，Android虚拟机字节码是16位字节码，传统的Java字节码class文件中包含了很多冗余的数据，Dalvik对冗余的数据进行了精简压缩，从而减小体积。
@@ -283,6 +285,43 @@ Android 10 添加了对稳定的 Android 接口定义语言 (AIDL) 的支持，�
 * 在构建系统中使用 aidl_interfaces 定义接口。
 * 接口只能包含结构化数据。对于代表所需类型的 Parcelable，系统会根据其 AIDL 定义自动创建，并自动对其进行编组和解组。
 * 可以将接口声明为“稳定”接口（向后兼容）。声明之后，会在 AIDL 接口旁的一个文件中对这些接口的 API 进行跟踪和版本编号。
+
+
+## 消息通信
+
+在整个Android的源码世界里，有两大利剑，其一是Binder IPC机制，，另一个便是消息机制(由Handler/Looper/MessageQueue等构成的)
+
+Android有大量的消息驱动方式来进行交互，比如Android的四剑客Activity, Service, Broadcast, ContentProvider的启动过程的交互，都离不开消息机制，Android某种意义上也可以说成是一个以消息驱动的系统。消息机制涉及MessageQueue/Message/Looper/Handler这4个类。
+
+
+* Message：消息分为硬件产生的消息(如按钮、触摸)和软件生成的消息；
+* MessageQueue：消息队列的主要功能向消息池投递消息(MessageQueue.enqueueMessage)和取走消息池的消息(MessageQueue.next)；
+* Handler：消息辅助类，主要功能向消息池发送各种消息事件(Handler.sendMessage)和处理相应消息事件(Handler.handleMessage)；
+* Looper：不断循环执行(Looper.loop)，按分发机制将消息分发给目标处理者。
+
+Handler通过sendMessage()发送Message到MessageQueue队列；
+Looper通过loop()，不断提取出达到触发条件的Message，并将Message交给target来处理；
+经过dispatchMessage()后，交回给Handler的handleMessage()来进行相应地处理。
+将Message加入MessageQueue时，处往管道写入字符，可以会唤醒loop线程；如果MessageQueue中没有Message，并处于Idle状态，则会执行IdelHandler接口中的方法，往往用于做一些清理性地工作。
+
+
+## 工具
+
+### ADB
+
+Android 调试桥 (adb) 是一种功能多样的命令行工具，可让您与设备进行通信。adb 命令可用于执行各种设备操作（例如安装和调试应用），并提供对 Unix shell（可用来在设备上运行各种命令）的访问权限。它是一种客户端-服务器程序，包括以下三个组件：
+
+* 客户端：用于发送命令。客户端在开发计算机上运行。您可以通过发出 adb 命令从命令行终端调用客户端。
+* 守护程序 (adbd)：用于在设备上运行命令。守护程序在每个设备上作为后台进程运行。
+* 服务器：用于管理客户端与守护程序之间的通信。服务器在开发机器上作为后台进程运行。
+* adb 包含在 Android SDK 平台工具软件包中
+
+### Logcat 
+
+Logcat 是一个命令行工具，用于转储系统消息日志，包括设备抛出错误时的堆栈轨迹，以及从您的应用使用 Log 类写入的消息。
+
+Android 日志记录系统是系统进程 logd 维护的一组结构化环形缓冲区。这组可用的缓冲区是固定的，并由系统定义。最相关的缓冲区为：main（用于存储大多数应用日志）、system（用于存储源自 Android 操作系统的消息）和 crash（用于存储崩溃日志）。每个日志条目都包含一个优先级（VERBOSE、DEBUG、INFO、WARNING、ERROR 或 FATAL）、一个标识日志来源的标记以及实际的日志消息。
+
 
 ## AndroidStudio
 
