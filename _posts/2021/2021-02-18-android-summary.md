@@ -249,9 +249,11 @@ Android 10 进行了进一步更改来支持动态分区，这是一种可以通
 
 Android的构建比较复杂，AndroidStudio的开发过程依赖于google内部组件，在推向AOSP之前需要做一次内部组件清除的过程，而这个过程在开源社区没有找到相应的方法，即便推向了 AOSP的分支代码也存在没有清理干净的情况，尝试自己做清理会发生一连串的依赖性错误
 
-早期版本的构建比较简单，能够见到构建的最大版本是3.2.1
+早期版本的构建比较简单，能够构建的最大版本是3.2.1
 
 首先需要用Repo工具下载代码
+
+分支地址：https://android.googlesource.com/platform/manifest/+refs
 
 ```
 需要python3
@@ -264,6 +266,17 @@ repo sync
 repo forall -vc "git reset --hard"
 ```
 
+进入到toos/idea目录，执行./build_studio.sh
+
+每一个版本的AndroidStuidio都是Base在某个版本的intellij-community上的，所以我们最好是根据tag找到和时间匹配的版本进行工程调试
+
+1.0版本的代码依赖IDEA 13.1.5，发布于2013年，可以用IDEA13.1.7直接打开tools/idea目录，3.0代码基于2017.1.2 ，可以用IDEA2017.1.6打开，然后进行调试
+
+由于IDEA13.17还没有自带jvm，需要先设置jdk1.6的环境变量
+
+export JAVA_HOME=/home/ubuntu/Downloads/jdk1.6.0_45
+
+启动IDEA打开AndroidStuido源码之后可以直接运行
 
 # 功能开发
 
