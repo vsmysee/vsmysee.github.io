@@ -1318,6 +1318,7 @@ Window表示一个窗口的概念，它存在于Window、Dialog以及Toast中，
 
 Android中所有的视图都是通过Window来呈现的，不管是Activity、Dialog还是Toast，它们的视图实际上都是附加在Window上的，因此Window实际是View的直接管理者。在View的事件分发机制也可以知道，单击事件由Window传递给DecorView，再由DecorView传递给我们的View，就连Activity的设置视图的方法setContentView在底层也是通过Window来实现的。
 
+
 自定义View注意事项
 
 让View支持wrap_content
@@ -1574,6 +1575,41 @@ Android 视图对象不是线程安全的。无论是创建、使用还是销毁
 ThreadPoolExecutor 是一个可简化此过程的辅助类。这个类可用于管理一组线程的创建，设置其优先级，并管理工作在这些线程之间的分布情况。随着工作负载的增减，该类会创建或销毁更多线程以适应工作负载。
 
 该类还可帮助您的应用生成最佳数量的线程。构造 ThreadPoolExecutor 对象时，应用会设置最小和最大线程数。随着 ThreadPoolExecutor 上的工作负载不断增加，该类会考虑初始化的最小和最大线程计数，并考虑待处理工作量。ThreadPoolExecutor 根据这些因素决定在任何特定时间应保留多少线程。
+
+ThreadPoolExecutor是线程池的真正实现，它的构造方法提供了一系列参数来配置线程池，下面这个参数是常用的：
+
+```java
+public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue)
+```
+
+corePoolSize
+线程池的核心线程数。核心线程会一直存活，即使它们处于闲置状态，除非设置allowCoreThreadTimeOut
+
+maximumPoolSize
+线程池中允许存在的最大线程数
+
+keepAliveTime
+当线程数量超过核心线程数量时，允许闲置线程等待新任务的时长
+
+unit
+keepAliveTime参数的时间单位。常用的有MILLISECONDS、SECONDS、MINUTES等
+
+workQueue
+线程池中任务队列。该队列将只保存通过execute方法提交的Runnable对象。
+
+ThreadPoolExecutor执行任务时大致遵循以下规则：
+
+```
+如果线程池中的线程数量未达到核心线程的数量，那么会直接启动一个核心线程来执行任务。
+如果线程池中的线程数量已经达到或者超过了核心线程的数量，那么任务会被插入到队列中排队等待执行。
+如果无法插入到队列中，这说明任务队列已满。这时候如果线程未达到线程池规定的最大值，那么会立刻启动一个非核心线程来执行任务。
+如果步奏3中的线程数量已经达到了线程池规定的最大值，那么就会拒绝执行此任务，线程池会调用RejectedExecutionHandler#rejectedExecution来通知调用者。
+```
+
 
 您应该创建多少线程？
 尽管在软件层面上，您的代码可以创建数百个线程，但这样做会导致性能问题。您的应用与后台服务、渲染程序、音频引擎、网络等共享有限的 CPU 资源。CPU 实际上只能并行处理少量线程；一旦超限便会遇到优先级和调度问题。因此，务必要根据工作负载需求创建合适数量的线程。
