@@ -31,7 +31,7 @@ title:  安卓记事
 
 每一层对程序员的要求也不一样。
 
-Android系统支持的CPU有三种架构，x86,ARM,MIPS
+Android系统支持的CPU有三种架构类型，x86,ARM,MIPS
 
 ```
 x86 CISC绝大部分pc都是x86架构。
@@ -39,7 +39,7 @@ ARM RISC广泛应用在嵌入式系统
 MIPS RISC广泛被使用在许多电子产品、网络设备、个人娱乐装置与商业装置上
 ```
 
-目前支持以下七种不同的CPU架构：ARMv5，ARMv7 (从2010年起)，x86 (从2011年起)，MIPS (从2012年起)，ARMv8，MIPS64和x86_64 (从2014年起)，每一种都关联着一个相应的应用程序二进制接口ABI（Application Binary Interface）。
+目前支持以下七种不同的CPU：ARMv5，ARMv7 (从2010年起)，x86 (从2011年起)，MIPS (从2012年起)，ARMv8，MIPS64和x86_64 (从2014年起)，每一种都关联着一个相应的应用程序二进制接口ABI（Application Binary Interface）。
 
 ABI定义了二进制文件（尤其是.so文件）如何运行在相应的系统平台上，从使用的指令集，内存对齐到可用的系统函数库。
 
@@ -366,6 +366,439 @@ AAPT2（Android 资源打包工具）是一种构建工具，Android Studio 和 
 * 对于按位表示，(Object) null == (int) 0。
 * 如果一个方法有 N 个参数，则在该方法的调用帧的最后 N 个寄存器中按顺序传递这些参数。宽参数占用两个寄存器。向实例方法传入一个 this 引用作为其第一个参数。
 
+
+列表
+
+```
+int OP_NOP                          = 0x0000;
+33    int OP_MOVE                         = 0x0001;
+34    int OP_MOVE_FROM16                  = 0x0002;
+35    int OP_MOVE_16                      = 0x0003;
+36    int OP_MOVE_WIDE                    = 0x0004;
+37    int OP_MOVE_WIDE_FROM16             = 0x0005;
+38    int OP_MOVE_WIDE_16                 = 0x0006;
+39    int OP_MOVE_OBJECT                  = 0x0007;
+40    int OP_MOVE_OBJECT_FROM16           = 0x0008;
+41    int OP_MOVE_OBJECT_16               = 0x0009;
+42    int OP_MOVE_RESULT                  = 0x000a;
+43    int OP_MOVE_RESULT_WIDE             = 0x000b;
+44    int OP_MOVE_RESULT_OBJECT           = 0x000c;
+45    int OP_MOVE_EXCEPTION               = 0x000d;
+46    int OP_RETURN_VOID                  = 0x000e;
+47    int OP_RETURN                       = 0x000f;
+48    int OP_RETURN_WIDE                  = 0x0010;
+49    int OP_RETURN_OBJECT                = 0x0011;
+50    int OP_CONST_4                      = 0x0012;
+51    int OP_CONST_16                     = 0x0013;
+52    int OP_CONST                        = 0x0014;
+53    int OP_CONST_HIGH16                 = 0x0015;
+54    int OP_CONST_WIDE_16                = 0x0016;
+55    int OP_CONST_WIDE_32                = 0x0017;
+56    int OP_CONST_WIDE                   = 0x0018;
+57    int OP_CONST_WIDE_HIGH16            = 0x0019;
+58    int OP_CONST_STRING                 = 0x001a;
+59    int OP_CONST_STRING_JUMBO           = 0x001b;
+60    int OP_CONST_CLASS                  = 0x001c;
+61    int OP_MONITOR_ENTER                = 0x001d;
+62    int OP_MONITOR_EXIT                 = 0x001e;
+63    int OP_CHECK_CAST                   = 0x001f;
+64    int OP_INSTANCE_OF                  = 0x0020;
+65    int OP_ARRAY_LENGTH                 = 0x0021;
+66    int OP_NEW_INSTANCE                 = 0x0022;
+67    int OP_NEW_ARRAY                    = 0x0023;
+68    int OP_FILLED_NEW_ARRAY             = 0x0024;
+69    int OP_FILLED_NEW_ARRAY_RANGE       = 0x0025;
+70    int OP_FILL_ARRAY_DATA              = 0x0026;
+71    int OP_THROW                        = 0x0027;
+72    int OP_GOTO                         = 0x0028;
+73    int OP_GOTO_16                      = 0x0029;
+74    int OP_GOTO_32                      = 0x002a;
+75    int OP_PACKED_SWITCH                = 0x002b;
+76    int OP_SPARSE_SWITCH                = 0x002c;
+77    int OP_CMPL_FLOAT                   = 0x002d;
+78    int OP_CMPG_FLOAT                   = 0x002e;
+79    int OP_CMPL_DOUBLE                  = 0x002f;
+80    int OP_CMPG_DOUBLE                  = 0x0030;
+81    int OP_CMP_LONG                     = 0x0031;
+82    int OP_IF_EQ                        = 0x0032;
+83    int OP_IF_NE                        = 0x0033;
+84    int OP_IF_LT                        = 0x0034;
+85    int OP_IF_GE                        = 0x0035;
+86    int OP_IF_GT                        = 0x0036;
+87    int OP_IF_LE                        = 0x0037;
+88    int OP_IF_EQZ                       = 0x0038;
+89    int OP_IF_NEZ                       = 0x0039;
+90    int OP_IF_LTZ                       = 0x003a;
+91    int OP_IF_GEZ                       = 0x003b;
+92    int OP_IF_GTZ                       = 0x003c;
+93    int OP_IF_LEZ                       = 0x003d;
+94    int OP_AGET                         = 0x0044;
+95    int OP_AGET_WIDE                    = 0x0045;
+96    int OP_AGET_OBJECT                  = 0x0046;
+97    int OP_AGET_BOOLEAN                 = 0x0047;
+98    int OP_AGET_BYTE                    = 0x0048;
+99    int OP_AGET_CHAR                    = 0x0049;
+100    int OP_AGET_SHORT                   = 0x004a;
+101    int OP_APUT                         = 0x004b;
+102    int OP_APUT_WIDE                    = 0x004c;
+103    int OP_APUT_OBJECT                  = 0x004d;
+104    int OP_APUT_BOOLEAN                 = 0x004e;
+105    int OP_APUT_BYTE                    = 0x004f;
+106    int OP_APUT_CHAR                    = 0x0050;
+107    int OP_APUT_SHORT                   = 0x0051;
+108    int OP_IGET                         = 0x0052;
+109    int OP_IGET_WIDE                    = 0x0053;
+110    int OP_IGET_OBJECT                  = 0x0054;
+111    int OP_IGET_BOOLEAN                 = 0x0055;
+112    int OP_IGET_BYTE                    = 0x0056;
+113    int OP_IGET_CHAR                    = 0x0057;
+114    int OP_IGET_SHORT                   = 0x0058;
+115    int OP_IPUT                         = 0x0059;
+116    int OP_IPUT_WIDE                    = 0x005a;
+117    int OP_IPUT_OBJECT                  = 0x005b;
+118    int OP_IPUT_BOOLEAN                 = 0x005c;
+119    int OP_IPUT_BYTE                    = 0x005d;
+120    int OP_IPUT_CHAR                    = 0x005e;
+121    int OP_IPUT_SHORT                   = 0x005f;
+122    int OP_SGET                         = 0x0060;
+123    int OP_SGET_WIDE                    = 0x0061;
+124    int OP_SGET_OBJECT                  = 0x0062;
+125    int OP_SGET_BOOLEAN                 = 0x0063;
+126    int OP_SGET_BYTE                    = 0x0064;
+127    int OP_SGET_CHAR                    = 0x0065;
+128    int OP_SGET_SHORT                   = 0x0066;
+129    int OP_SPUT                         = 0x0067;
+130    int OP_SPUT_WIDE                    = 0x0068;
+131    int OP_SPUT_OBJECT                  = 0x0069;
+132    int OP_SPUT_BOOLEAN                 = 0x006a;
+133    int OP_SPUT_BYTE                    = 0x006b;
+134    int OP_SPUT_CHAR                    = 0x006c;
+135    int OP_SPUT_SHORT                   = 0x006d;
+136    int OP_INVOKE_VIRTUAL               = 0x006e;
+137    int OP_INVOKE_SUPER                 = 0x006f;
+138    int OP_INVOKE_DIRECT                = 0x0070;
+139    int OP_INVOKE_STATIC                = 0x0071;
+140    int OP_INVOKE_INTERFACE             = 0x0072;
+141    int OP_INVOKE_VIRTUAL_RANGE         = 0x0074;
+142    int OP_INVOKE_SUPER_RANGE           = 0x0075;
+143    int OP_INVOKE_DIRECT_RANGE          = 0x0076;
+144    int OP_INVOKE_STATIC_RANGE          = 0x0077;
+145    int OP_INVOKE_INTERFACE_RANGE       = 0x0078;
+146    int OP_NEG_INT                      = 0x007b;
+147    int OP_NOT_INT                      = 0x007c;
+148    int OP_NEG_LONG                     = 0x007d;
+149    int OP_NOT_LONG                     = 0x007e;
+150    int OP_NEG_FLOAT                    = 0x007f;
+151    int OP_NEG_DOUBLE                   = 0x0080;
+152    int OP_INT_TO_LONG                  = 0x0081;
+153    int OP_INT_TO_FLOAT                 = 0x0082;
+154    int OP_INT_TO_DOUBLE                = 0x0083;
+155    int OP_LONG_TO_INT                  = 0x0084;
+156    int OP_LONG_TO_FLOAT                = 0x0085;
+157    int OP_LONG_TO_DOUBLE               = 0x0086;
+158    int OP_FLOAT_TO_INT                 = 0x0087;
+159    int OP_FLOAT_TO_LONG                = 0x0088;
+160    int OP_FLOAT_TO_DOUBLE              = 0x0089;
+161    int OP_DOUBLE_TO_INT                = 0x008a;
+162    int OP_DOUBLE_TO_LONG               = 0x008b;
+163    int OP_DOUBLE_TO_FLOAT              = 0x008c;
+164    int OP_INT_TO_BYTE                  = 0x008d;
+165    int OP_INT_TO_CHAR                  = 0x008e;
+166    int OP_INT_TO_SHORT                 = 0x008f;
+167    int OP_ADD_INT                      = 0x0090;
+168    int OP_SUB_INT                      = 0x0091;
+169    int OP_MUL_INT                      = 0x0092;
+170    int OP_DIV_INT                      = 0x0093;
+171    int OP_REM_INT                      = 0x0094;
+172    int OP_AND_INT                      = 0x0095;
+173    int OP_OR_INT                       = 0x0096;
+174    int OP_XOR_INT                      = 0x0097;
+175    int OP_SHL_INT                      = 0x0098;
+176    int OP_SHR_INT                      = 0x0099;
+177    int OP_USHR_INT                     = 0x009a;
+178    int OP_ADD_LONG                     = 0x009b;
+179    int OP_SUB_LONG                     = 0x009c;
+180    int OP_MUL_LONG                     = 0x009d;
+181    int OP_DIV_LONG                     = 0x009e;
+182    int OP_REM_LONG                     = 0x009f;
+183    int OP_AND_LONG                     = 0x00a0;
+184    int OP_OR_LONG                      = 0x00a1;
+185    int OP_XOR_LONG                     = 0x00a2;
+186    int OP_SHL_LONG                     = 0x00a3;
+187    int OP_SHR_LONG                     = 0x00a4;
+188    int OP_USHR_LONG                    = 0x00a5;
+189    int OP_ADD_FLOAT                    = 0x00a6;
+190    int OP_SUB_FLOAT                    = 0x00a7;
+191    int OP_MUL_FLOAT                    = 0x00a8;
+192    int OP_DIV_FLOAT                    = 0x00a9;
+193    int OP_REM_FLOAT                    = 0x00aa;
+194    int OP_ADD_DOUBLE                   = 0x00ab;
+195    int OP_SUB_DOUBLE                   = 0x00ac;
+196    int OP_MUL_DOUBLE                   = 0x00ad;
+197    int OP_DIV_DOUBLE                   = 0x00ae;
+198    int OP_REM_DOUBLE                   = 0x00af;
+199    int OP_ADD_INT_2ADDR                = 0x00b0;
+200    int OP_SUB_INT_2ADDR                = 0x00b1;
+201    int OP_MUL_INT_2ADDR                = 0x00b2;
+202    int OP_DIV_INT_2ADDR                = 0x00b3;
+203    int OP_REM_INT_2ADDR                = 0x00b4;
+204    int OP_AND_INT_2ADDR                = 0x00b5;
+205    int OP_OR_INT_2ADDR                 = 0x00b6;
+206    int OP_XOR_INT_2ADDR                = 0x00b7;
+207    int OP_SHL_INT_2ADDR                = 0x00b8;
+208    int OP_SHR_INT_2ADDR                = 0x00b9;
+209    int OP_USHR_INT_2ADDR               = 0x00ba;
+210    int OP_ADD_LONG_2ADDR               = 0x00bb;
+211    int OP_SUB_LONG_2ADDR               = 0x00bc;
+212    int OP_MUL_LONG_2ADDR               = 0x00bd;
+213    int OP_DIV_LONG_2ADDR               = 0x00be;
+214    int OP_REM_LONG_2ADDR               = 0x00bf;
+215    int OP_AND_LONG_2ADDR               = 0x00c0;
+216    int OP_OR_LONG_2ADDR                = 0x00c1;
+217    int OP_XOR_LONG_2ADDR               = 0x00c2;
+218    int OP_SHL_LONG_2ADDR               = 0x00c3;
+219    int OP_SHR_LONG_2ADDR               = 0x00c4;
+220    int OP_USHR_LONG_2ADDR              = 0x00c5;
+221    int OP_ADD_FLOAT_2ADDR              = 0x00c6;
+222    int OP_SUB_FLOAT_2ADDR              = 0x00c7;
+223    int OP_MUL_FLOAT_2ADDR              = 0x00c8;
+224    int OP_DIV_FLOAT_2ADDR              = 0x00c9;
+225    int OP_REM_FLOAT_2ADDR              = 0x00ca;
+226    int OP_ADD_DOUBLE_2ADDR             = 0x00cb;
+227    int OP_SUB_DOUBLE_2ADDR             = 0x00cc;
+228    int OP_MUL_DOUBLE_2ADDR             = 0x00cd;
+229    int OP_DIV_DOUBLE_2ADDR             = 0x00ce;
+230    int OP_REM_DOUBLE_2ADDR             = 0x00cf;
+231    int OP_ADD_INT_LIT16                = 0x00d0;
+232    int OP_RSUB_INT                     = 0x00d1;
+233    int OP_MUL_INT_LIT16                = 0x00d2;
+234    int OP_DIV_INT_LIT16                = 0x00d3;
+235    int OP_REM_INT_LIT16                = 0x00d4;
+236    int OP_AND_INT_LIT16                = 0x00d5;
+237    int OP_OR_INT_LIT16                 = 0x00d6;
+238    int OP_XOR_INT_LIT16                = 0x00d7;
+239    int OP_ADD_INT_LIT8                 = 0x00d8;
+240    int OP_RSUB_INT_LIT8                = 0x00d9;
+241    int OP_MUL_INT_LIT8                 = 0x00da;
+242    int OP_DIV_INT_LIT8                 = 0x00db;
+243    int OP_REM_INT_LIT8                 = 0x00dc;
+244    int OP_AND_INT_LIT8                 = 0x00dd;
+245    int OP_OR_INT_LIT8                  = 0x00de;
+246    int OP_XOR_INT_LIT8                 = 0x00df;
+247    int OP_SHL_INT_LIT8                 = 0x00e0;
+248    int OP_SHR_INT_LIT8                 = 0x00e1;
+249    int OP_USHR_INT_LIT8                = 0x00e2;
+250    int OP_INVOKE_POLYMORPHIC           = 0x00fa;
+251    int OP_INVOKE_POLYMORPHIC_RANGE     = 0x00fb;
+252    int OP_INVOKE_CUSTOM                = 0x00fc;
+253    int OP_INVOKE_CUSTOM_RANGE          = 0x00fd;
+254    int OP_CONST_METHOD_HANDLE          = 0x00fe;
+255    int OP_CONST_METHOD_TYPE            = 0x00ff;
+256    // END(libcore-opcodes)
+257
+258    /** Never implemented; do not use. */
+259    int OP_CONST_CLASS_JUMBO            = 0x00ff;
+260    /** Never implemented; do not use. */
+261    int OP_CHECK_CAST_JUMBO             = 0x01ff;
+262    /** Never implemented; do not use. */
+263    int OP_INSTANCE_OF_JUMBO            = 0x02ff;
+264    /** Never implemented; do not use. */
+265    int OP_NEW_INSTANCE_JUMBO           = 0x03ff;
+266    /** Never implemented; do not use. */
+267    int OP_NEW_ARRAY_JUMBO              = 0x04ff;
+268    /** Never implemented; do not use. */
+269    int OP_FILLED_NEW_ARRAY_JUMBO       = 0x05ff;
+270    /** Never implemented; do not use. */
+271    int OP_IGET_JUMBO                   = 0x06ff;
+272    /** Never implemented; do not use. */
+273    int OP_IGET_WIDE_JUMBO              = 0x07ff;
+274    /** Never implemented; do not use. */
+275    int OP_IGET_OBJECT_JUMBO            = 0x08ff;
+276    /** Never implemented; do not use. */
+277    int OP_IGET_BOOLEAN_JUMBO           = 0x09ff;
+278    /** Never implemented; do not use. */
+279    int OP_IGET_BYTE_JUMBO              = 0x0aff;
+280    /** Never implemented; do not use. */
+281    int OP_IGET_CHAR_JUMBO              = 0x0bff;
+282    /** Never implemented; do not use. */
+283    int OP_IGET_SHORT_JUMBO             = 0x0cff;
+284    /** Never implemented; do not use. */
+285    int OP_IPUT_JUMBO                   = 0x0dff;
+286    /** Never implemented; do not use. */
+287    int OP_IPUT_WIDE_JUMBO              = 0x0eff;
+288    /** Never implemented; do not use. */
+289    int OP_IPUT_OBJECT_JUMBO            = 0x0fff;
+290    /** Never implemented; do not use. */
+291    int OP_IPUT_BOOLEAN_JUMBO           = 0x10ff;
+292    /** Never implemented; do not use. */
+293    int OP_IPUT_BYTE_JUMBO              = 0x11ff;
+294    /** Never implemented; do not use. */
+295    int OP_IPUT_CHAR_JUMBO              = 0x12ff;
+296    /** Never implemented; do not use. */
+297    int OP_IPUT_SHORT_JUMBO             = 0x13ff;
+298    /** Never implemented; do not use. */
+299    int OP_SGET_JUMBO                   = 0x14ff;
+300    /** Never implemented; do not use. */
+301    int OP_SGET_WIDE_JUMBO              = 0x15ff;
+302    /** Never implemented; do not use. */
+303    int OP_SGET_OBJECT_JUMBO            = 0x16ff;
+304    /** Never implemented; do not use. */
+305    int OP_SGET_BOOLEAN_JUMBO           = 0x17ff;
+306    /** Never implemented; do not use. */
+307    int OP_SGET_BYTE_JUMBO              = 0x18ff;
+308    /** Never implemented; do not use. */
+309    int OP_SGET_CHAR_JUMBO              = 0x19ff;
+310    /** Never implemented; do not use. */
+311    int OP_SGET_SHORT_JUMBO             = 0x1aff;
+312    /** Never implemented; do not use. */
+313    int OP_SPUT_JUMBO                   = 0x1bff;
+314    /** Never implemented; do not use. */
+315    int OP_SPUT_WIDE_JUMBO              = 0x1cff;
+316    /** Never implemented; do not use. */
+317    int OP_SPUT_OBJECT_JUMBO            = 0x1dff;
+318    /** Never implemented; do not use. */
+319    int OP_SPUT_BOOLEAN_JUMBO           = 0x1eff;
+320    /** Never implemented; do not use. */
+321    int OP_SPUT_BYTE_JUMBO              = 0x1fff;
+322    /** Never implemented; do not use. */
+323    int OP_SPUT_CHAR_JUMBO              = 0x20ff;
+324    /** Never implemented; do not use. */
+325    int OP_SPUT_SHORT_JUMBO             = 0x21ff;
+326    /** Never implemented; do not use. */
+327    int OP_INVOKE_VIRTUAL_JUMBO         = 0x22ff;
+328    /** Never implemented; do not use. */
+329    int OP_INVOKE_SUPER_JUMBO           = 0x23ff;
+330    /** Never implemented; do not use. */
+331    int OP_INVOKE_DIRECT_JUMBO          = 0x24ff;
+332    /** Never implemented; do not use. */
+333    int OP_INVOKE_STATIC_JUMBO          = 0x25ff;
+334    /** Never implemented; do not use. */
+335    int OP_INVOKE_INTERFACE_JUMBO       = 0x26ff;
+336
+337    /*
+338     * The rest of these are either generated by dexopt for optimized
+339     * code, or inserted by the VM at runtime.  They are never generated
+340     * by "dx".
+341     *
+342     * They are all deprecated and will be removed in a future
+343     * release, since these declarations are really of private implementation
+344     * details that are subject to change.
+345     */
+346
+347    /**
+348     * Implementation detail.
+349     * @deprecated Implementation detail.
+350     */
+351    @Deprecated int OP_IGET_WIDE_VOLATILE           = 0xe8;
+352
+353    /**
+354     * Implementation detail.
+355     * @deprecated Implementation detail.
+356     */
+357    @Deprecated int OP_IPUT_WIDE_VOLATILE           = 0xe9;
+358
+359    /**
+360     * Implementation detail.
+361     * @deprecated Implementation detail.
+362     */
+363    @Deprecated int OP_SGET_WIDE_VOLATILE           = 0xea;
+364
+365    /**
+366     * Implementation detail.
+367     * @deprecated Implementation detail.
+368     */
+369    @Deprecated int OP_SPUT_WIDE_VOLATILE           = 0xeb;
+370
+371    /**
+372     * Implementation detail.
+373     * @deprecated Implementation detail.
+374     */
+375    @Deprecated int OP_BREAKPOINT                   = 0xec;
+376
+377    /**
+378     * Implementation detail.
+379     * @deprecated Implementation detail.
+380     */
+381    @Deprecated int OP_THROW_VERIFICATION_ERROR     = 0xed;
+382
+383    /**
+384     * Implementation detail.
+385     * @deprecated Implementation detail.
+386     */
+387    @Deprecated int OP_EXECUTE_INLINE               = 0xee;
+388
+389    /**
+390     * Implementation detail.
+391     * @deprecated Implementation detail.
+392     */
+393    @Deprecated int OP_EXECUTE_INLINE_RANGE         = 0xef;
+394
+395    /**
+396     * Implementation detail.
+397     * @deprecated Implementation detail.
+398     */
+399    @Deprecated int OP_INVOKE_DIRECT_EMPTY          = 0xf0;
+400
+401    /**
+402     * Implementation detail.
+403     * @deprecated Implementation detail.
+404     */
+405    @Deprecated int OP_IGET_QUICK                   = 0xf2;
+406
+407    /**
+408     * Implementation detail.
+409     * @deprecated Implementation detail.
+410     */
+411    @Deprecated int OP_IGET_WIDE_QUICK              = 0xf3;
+412
+413    /**
+414     * Implementation detail.
+415     * @deprecated Implementation detail.
+416     */
+417    @Deprecated int OP_IGET_OBJECT_QUICK            = 0xf4;
+418
+419    /**
+420     * Implementation detail.
+421     * @deprecated Implementation detail.
+422     */
+423    @Deprecated int OP_IPUT_QUICK                   = 0xf5;
+424
+425    /**
+426     * Implementation detail.
+427     * @deprecated Implementation detail.
+428     */
+429    @Deprecated int OP_IPUT_WIDE_QUICK              = 0xf6;
+430
+431    /**
+432     * Implementation detail.
+433     * @deprecated Implementation detail.
+434     */
+435    @Deprecated int OP_IPUT_OBJECT_QUICK            = 0xf7;
+436
+437    /**
+438     * Implementation detail.
+439     * @deprecated Implementation detail.
+440     */
+441    @Deprecated int OP_INVOKE_VIRTUAL_QUICK         = 0xf8;
+442
+443    /**
+444     * Implementation detail.
+445     * @deprecated Implementation detail.
+446     */
+447    @Deprecated int OP_INVOKE_VIRTUAL_QUICK_RANGE   = 0xf9;
+448
+449    /**
+450     * Implementation detail.
+451     * @deprecated Implementation detail.
+452     */
+453    @Deprecated int OP_INVOKE_SUPER_QUICK           = 0xfa;
+454
+455    /**
+456     * Implementation detail.
+457     * @deprecated Implementation detail.
+458     */
+459    @Deprecated int OP_INVOKE_SUPER_QUICK_RANGE     = 0xfb;
+```
 ## 启动过程
 
 几个概念
