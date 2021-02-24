@@ -1312,6 +1312,27 @@ onDraw的本质是操作一个叫做Canvas的类，这是一个画布，我们�
 />
 ```
 
+底层渲染其实叫做Window
+
+Window表示一个窗口的概念，它存在于Window、Dialog以及Toast中，但是日常开发中并不多见，它可以实现悬浮窗。Window是一个抽象类，其具体实现是PhoneWindow。WindowManager是外界访问Window的入口，Window的具体实现在WindowManagerService中，WindowManager与WindowManagerService之间的交互是一个IPC过程。
+
+Android中所有的视图都是通过Window来呈现的，不管是Activity、Dialog还是Toast，它们的视图实际上都是附加在Window上的，因此Window实际是View的直接管理者。在View的事件分发机制也可以知道，单击事件由Window传递给DecorView，再由DecorView传递给我们的View，就连Activity的设置视图的方法setContentView在底层也是通过Window来实现的。
+
+自定义View注意事项
+
+让View支持wrap_content
+直接继承View或ViewGroup的控件，如果不在onMeasure对wrap_content特殊处理，那么wrap_content无法正常使用。
+
+
+如有必要，让View支持padding
+直接继承View的控件，如果不在draw方法中处理paidding，那么padding属性无法起作用。直接继承ViewGroup的控件需要在onMeasure和onLayout中考虑自身的padding和子元素的margin，不然导致失效。
+
+如要需要在View中使用Handler，用post(Runnable)方法代替
+
+View中如果有线程或者动画，需要在适当的时候停止
+如果有线程或者动画需要停止时，可以在onDetachedFromWindow中停止。当包含View的Activity退出或者当前View被remove时，View的此方法会回调。与此方法对应的是onAttachedFromWindow。当包含此View的Activity启动时会回调。同时，当View变得不可见时，我们也需要停止，否则有可能会造成内存泄露。
+
+
 由于界面交互涉及到一个特殊的美学领域，谷歌指定了一个设计准则：Android 用户期望您的应用的外观和行为与平台保持一致。您不仅应当遵循 Material Design 指南来设计视觉和导航模式，还应遵循质量指南，以便确保兼容性、性能和安全性，等等
 
 ## 如何有趣？
@@ -1342,6 +1363,42 @@ onDraw的本质是操作一个叫做Canvas的类，这是一个画布，我们�
 您可以选择所需的动画类型（例如，淡入/淡出视图或更改视图尺寸），而过渡框架会确定如何为从起始布局到结束布局的运动添加动画效果。
 
 图片和图形的处理需要掌握 Drawable 类及其子类，Drawable 是可绘制对象的常规抽象。不同的子类可用于特定的图片场景，您可以对其进行扩展以定义您自己的行为方式独特的可绘制对象。
+
+
+可绘制对象资源
+可绘制对象资源是图形的一般概念，是指可在屏幕上绘制的图形，以及可使用 getDrawable(int) 等 API 检索，或应用到拥有 android:drawable 和 android:icon 等属性的其他 XML 资源的图形。可绘制对象包含以下多种类型：
+
+位图文件
+位图图形文件（.png、.jpg 或 .gif）。创建 BitmapDrawable。
+
+九宫格文件
+具有可伸缩区域的 PNG 文件，支持根据内容调整图像大小 (.9.png)。创建 NinePatchDrawable。
+
+图层列表
+管理其他可绘制对象阵列的可绘制对象。这些可绘制对象按阵列顺序绘制，因此索引最大的元素绘制于顶部。创建 LayerDrawable。
+
+状态列表
+此 XML 文件用于为不同状态引用不同位图图形（例如，按下按钮时使用不同图像）。创建 StateListDrawable。
+
+级别列表
+此 XML 文件用于定义管理大量备选可绘制对象的可绘制对象，每个可绘制对象都配有最大备选数量。创建 LevelListDrawable。
+
+转换可绘制对象
+此 XML 文件用于定义可在两种可绘制对象资源之间交错淡出的可绘制对象。创建 TransitionDrawable。
+
+插入可绘制对象
+此 XML 文件用于定义以指定距离插入其他可绘制对象的可绘制对象。当视图需要小于视图实际边界的背景可绘制对象时，此类可绘制对象非常有用。
+
+裁剪可绘制对象
+此 XML 文件用于定义对其他可绘制对象进行裁剪（根据其当前级别值）的可绘制对象。创建 ClipDrawable。
+
+缩放可绘制对象
+此 XML 文件用于定义更改其他可绘制对象大小（根据其当前级别值）的可绘制对象。创建 ScaleDrawable
+
+形状可绘制对象
+此 XML 文件用于定义几何形状（包括颜色和渐变）。创建 GradientDrawable。
+
+
 
 音频应用的首选架构是客户端/服务器设计。播放器及其媒体会话在 MediaBrowserService 内实现，界面和媒体控制器与 MediaBrowser 一起位于 Android Activity 中。典型的视频播放器在运行期间会一直显示其控件和视频内容；它无法在后台运行或在没有界面的情况下运行。因此，比较合适的做法是将您的应用构建成为单个 Activity，使其包含用户界面、播放器、媒体会话和媒体控制器：
 对于音视频开发几个重要的类是
