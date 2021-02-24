@@ -1204,6 +1204,16 @@ Android 架构组件是一组库，可帮助您设计稳健、可测试且易维
 
 ## 构造界面
 
+Android的界面构造一般模式从上往下：
+
+```
+状态栏
+操作栏
+内容区域
+导航栏
+```
+操作栏叫做ActionBar,在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕
+
 ### 单位
 
 由于android设备的碎片化，市场上各种各样的设备大小不一，像素不一，所以我们要搞清楚很重要的几个单位。
@@ -1287,6 +1297,22 @@ Button myButton = (Button) findViewById(R.id.my_button);
 
 
 复杂的布局，我们可能使用各种布局组件嵌套组合才能实现，后来平台提供了一个ConstraintLayout，可让您使用扁平视图层次结构（无嵌套视图组）创建复杂的大型布局。它与 RelativeLayout 相似，其中所有的视图均根据同级视图与父布局之间的关系进行布局，但其灵活性要高于 RelativeLayout，并且更易于与 Android Studio 的布局编辑器配合使用。
+
+```
+相对定位类似于RelativeLayout的作用
+Margins
+作用到GONE控件上的Margins
+居中和偏移(Bias)
+偏移(Bias)
+圆形定位
+可见性行为
+尺寸约束
+Widget的尺寸约束
+百分比尺寸
+链（Chains）
+虚拟辅助对象（Virtual Helper objects）
+ConstraintSet允许我们通过代码设置一系列约束，除此之外，还能对ConstraintLayout里面的控件做动画。
+```
 
 
 ### 自定义
