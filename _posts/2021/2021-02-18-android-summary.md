@@ -336,6 +336,15 @@ ART 功能
 ART 有多个不同的 GC 方案，涉及运行不同的垃圾回收器。从 Android 8 (Oreo) 开始，默认方案是并发复制 (CC)。另一个 GC 方案是并发标记清除 (CMS)。
 
 
+演进
+
+* 在Android 5.0之前，使用JIT模式。由于边解释边执行，所以效率比较低。
+* 在Android 5.0 ~ 6.0，使用AOT模式。效率高，但是安装时间长。
+* 从Android 7.0 到现在，采用解释器 + JIT + AOT这种混合模式。
+* 在Android 8.0上改进了解释器，解释模式执行效率大幅提升
+* Android 10上提供了预先放置热点代码的方式，应用在安装的时候就能知道常用代码会被提前编译(Google Play)。
+
+
 ## 编译打包
 
 前面提到了Android的内库是取自JDK，但是字节码结构和虚拟机是重新实现的，同样一段代码，字节码格式是不一样的
@@ -353,6 +362,17 @@ ART 有多个不同的 GC 方案，涉及运行不同的垃圾回收器。从 An
 ![](https://miro.medium.com/max/1000/1*2wsimRFo3i2Ro-Fcpb_kyA.png)
 
 AAPT2（Android 资源打包工具）是一种构建工具，Android Studio 和 Android Gradle 插件使用它来编译和打包应用的资源。AAPT2 会解析资源、为资源编制索引，并将资源编译为针对 Android 平台进行过优化的二进制格式。
+
+
+这里面有七步：
+
+* 应用资源（res文件、assets文件、AndroidManifest.xml以及android.jar）通过 aapt 生成R.java文件以及打包好的资源文件
+* AIDL文件通过 aidl 生成对应的Java文件
+* 源码文件、R.java文件以及AIDL生成的Java文件通过 javac 编译成.class文件
+* 第3步生成的.class文件以及第三方库中的.class文件通过 dx 处理生成classes.dex文件
+* 打包好的资源文件、上一步生成的classes.dex文件、第三方库中的资源文件以及.so文件等其他资源通过 apkbuilder 生成未签名的.apk文件
+* 调用 jarsigner 对上面未签名.apk进行签名
+* 调用 zipalign 对签名后的.apk进行对齐处理
 
 ### 字节码
 
@@ -990,6 +1010,29 @@ Intent包含了目标Activity的Class对象
 
 每个应用项目必须在项目源设置的根目录中加入 AndroidManifest.xml 文件（且必须使用此名称）。 清单文件会向 Android 构建工具、Android 操作系统和 Google Play 描述应用的基本信息。
 可以理解为web开发中的web.xml或者struts.xml，因为需要对APP进行配置。
+
+
+一个Activity由于需求的膨胀肯定会变得复杂，很可能里面的部分逻辑是需要在多个Activity中复用的，于是出现了Fragment
+
+Fragment表示Activity中的部分行为或者UI。我们可以将多个framgent组合进一个Activity来构建一个多窗格的UI，一个fragment也能在多个Activity中进行复用。我们可以将fragment理解为Activity的一个模块，它有自己的生命周期，接收自己的输入事件，我们可以在Activity运行时添加或者删除一个fragment。
+
+Fragment必须嵌入到Activity中，且其生命周期会直接被宿主Activity的生命周期影响。
+
+
+我们至少需要实现以下生命周期方法：
+
+onCreate()
+创建Fragment时调用。我们应该初始化Fragment暂停或停止，然后恢复时要保留的必要组件。
+
+onCreateView()
+第一次绘制UI时调用。我们在这里要返回fragment布局的根view，如果Fragment不提供UI，可以返回null。
+
+
+onPause()
+用户正在离开fragment时调用，这并不总是意味着Fragment正在被销毁。我们应该在这里提供需要持久化的用户的更改操作，因为用户可能不再回来。
+
+
+Activity与Fragment之间最重要的不同在于两者在返回栈的保存方式。Activity被放置在由系统管理的返回栈中(More information, see Tasks and Back Stack)。然而，Fragment被放置在由宿主Activity管理的返回栈中。
 
 ## 基础 
 
