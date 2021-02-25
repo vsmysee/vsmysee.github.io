@@ -31,6 +31,19 @@ title:  安卓记事
 
 每一层对程序员的要求也不一样。
 
+应用程序层：
+应用程序层是一个核心应用程序的集合，所有安装在手机上的APP属于这一层。
+
+应用程序框架层：
+应用程序框架层主要提供了构建应用程序时用到的各种API。
+
+核心类库：
+核心类库中包含了系统库及Android运行环境。
+
+Linux内核：
+Linux内核层为Android设备的各种硬件提供了底层的驱动。
+
+
 Android系统支持的CPU有三种架构类型，x86,ARM,MIPS
 
 ```
@@ -83,6 +96,17 @@ so内存分配不受Dalivik/ART的单个应用限制，减少OOM
 | P                | 2018              |  28 |
 | 10               | 2019              |  29 |
 | 11               | 2020              |  30 |
+```
+
+Android各个版本API的区别
+```
+（1）android3.0，代号Honeycomb，引入Fragments、 ActionBar、属性动画、硬件加速；
+（2）android4.0，代号I，API14，截图功能、人脸识别、虚拟按键、3D优化驱动；
+（3）android5.0，代号L，API21，调整桌面图标及部件透明度等；
+（4）android6.0，代号M，API23，软件权限管理、安卓支付、指纹支持、App关联；
+（5）android7.0，代号N，API24，多窗口支持(不影响Activity生命周期)，增加了JIT编译器，引入了新的应用签名方案APK Signature Scheme v2（缩短应用安装时间和更多未授权APK文件更改保护），严格了权限访问；
+（6）android8.0，代号O ，API26，取消静态广播注册，限制后台进程调用手机资源，桌面图标自适应；
+（7）android9.0，代号P，API27，加强电池管理，系统界面添加了Home虚拟键，提供人工智能API，支持免打扰模式；
 ```
 
 然后就是Android Studio的历史
@@ -373,6 +397,17 @@ AAPT2（Android 资源打包工具）是一种构建工具，Android Studio 和 
 * 打包好的资源文件、上一步生成的classes.dex文件、第三方库中的资源文件以及.so文件等其他资源通过 apkbuilder 生成未签名的.apk文件
 * 调用 jarsigner 对上面未签名.apk进行签名
 * 调用 zipalign 对签名后的.apk进行对齐处理
+
+
+如何缩减APK包大小？
+
+代码:保持良好的编程习惯，不要重复或者不用的代码，谨慎添加libs，移除使用不到的libs。②使用proguard混淆代码，它会对不用的代码做优化，并且混淆后也能够减少安装包的大小。③native code的部分，大多数情况下只需要支持armabi与x86的架构即可。如果非必须，可以考虑拿掉x86的部分。
+
+资源:
+使用工具查找没有使用到的资源，去除不使用的图片，String，XML等。②生成APK的时候，aapt工具本身会对png做优化，但是在此之前还可以使用其他工具如tinypng对图片进行进一步的压缩预处理。③jpeg还是png，根据需要做选择，在某些时候jpeg可以减少图片的体积。对于.9.png的图片，可拉伸区域尽量切小，另外可以通过使用.9.png拉伸达到大图效果的时候尽量不要使用整张大图。
+
+策略:
+有选择性的提供hdpi，xhdpi，xxhdpi的图片资源。建议优先提供xhdpi的图片，对于mdpi，ldpi与xxxhdpi根据需要提供有差异的部分即可。②尽可能的重用已有的图片资源。例如对称的图片，只需要提供一张，另外一张图片可以通过代码旋转的方式实现。③能用代码绘制实现的功能，尽量不要使用大量的图片。例如减少使用多张图片组成animate-list的AnimationDrawable，这种方式提供了多张图片很占空间。
 
 ### 字节码
 
@@ -818,7 +853,19 @@ int OP_NOP                          = 0x0000;
 457     * @deprecated Implementation detail.
 458     */
 459    @Deprecated int OP_INVOKE_SUPER_QUICK_RANGE     = 0xfb;
+
 ```
+
+### 反编译
+在Android中反编译主要通过dex2jar以及apktool来完成。
+
+（1）使用dex2jar和jd-gui反编译apk
+首先将apk解压后提取出classes.dex文件，接着通过dex2jar反编译classes.dex，然后通过jd-gui来打开反编译后的jar包。
+
+（2）使用apktool对apk进行二次打包
+使用dex2jar和jd-gui反编译apk，可以将一个dex文件反编译为Java代码，但是它们无法反编译出apk中的二进制数据资源，但是apktool可以做到这一点。此外apktool还可以用于二次打包
+
+
 ## 启动过程
 
 几个概念
@@ -879,7 +926,17 @@ Android 10 进行了进一步更改来支持动态分区，这是一种可以通
 
 ## 进程间通信
 
-PC 是 Inter-Process Communication 的缩写，为进程间或者跨进程通信，是指两个进程之间进行数据交换的过程。在Android中最有特色的进程间通信方式就是 Binder 。
+IPC 是 Inter-Process Communication 的缩写，为进程间或者跨进程通信，是指两个进程之间进行数据交换的过程。在Android中最有特色的进程间通信方式就是 Binder 。
+
+传统的通信方式:
+
+```
+1、管道（pipe）：速度慢，容量有限，只有父子进程能通讯。
+2、命名管道（FIFO）：任何进程间都能通讯，但速度慢。
+3、消息队列：容量受到系统限制，且需要注意第一次读的时候，需要考虑上一次没有读完数据的问题。
+4、信号量：不能传递复杂消息，只能用来同步。
+5、共享内存：能够很容易控制容量，速度快，但要保持同步。
+```
 
 Binder 是基于 C/S 架构的。由一系列的组件组成，包括 Client、 Server、 ServiceManager、 Binder 驱动。其中 Client 、Server 、Service Manager 运行在用户空间，Binder 驱动运行在内核空间。其中 Service Manager 和 Binder 驱动由系统提供，而 Client、 Server 由应用程序来实现。Client、 Server 和 ServiceManager 均是通过系统调用 open、 mmap 和 ioctl 来访问设备文件 /dev/binder，从而实现与 Binder 驱动的交互来间接的实现跨进程通信。
 
@@ -1456,7 +1513,22 @@ Android 框架支持通过 android.hardware.camera2 API 或相机 Intent 捕获�
 
 MediaStore.ACTION_IMAGE_CAPTURE 或 MediaStore.ACTION_VIDEO_CAPTURE 的 Intent 操作类型可用于捕获图像或视频，而无需直接使用 Camera 对象。
 
+视频播放的方式：
 
+使用自带的播放器
+使用Intent设置ACTION_VIEW来调用系统的播放器。这种方式播放视频，主要是指定Action为ACTION_VIEW、Data为Uri、Type为MIME类型（MIME类型就是设定某种扩展名的文件用一种应用程序来打开的方式类型，当扩展名文件被访问时，浏览器会自动使用指定应用程序来打开）。
+
+使用VideoView控件播放视频
+VideoView控件需要与MediaController类相结合来播放视频。
+
+使用MediaPlayer与SurfaceView播放视频
+可以直接从内存或者DMA等硬件接口中取得图像数据，是个非常重要的绘图容器。它可以在主线程之外的线程向屏幕绘图，这样可以避免画图任务繁重时造成主线程阻塞，从而提高了程序的反应速度。
+使用MediaPlayer与SurfaceView播放视频的步骤如下：
+
+* 创建MediaPlyer对象，并让其加载指定的视频文件。
+* 在布局文件中定义SurfaceView组件，或在程序中创建SurfaceView组件，并为SurfaceView的SurfaceHolder添加Callback监听器。
+* 调用MediaPlayer对象的setDisplay()方法将所播放的视频图像输出到指定的SurfaceView组件。
+* 调用MediaPlayer对象的start()、stop()、pause()方法控制视频的播放状态。
 
 大多数 Android 设备都有内置传感器，用来测量运动、屏幕方向和各种环境条件。这些传感器能够提供高度精确的原始数据，非常适合用来监测设备的三维移动或定位，或监测设备周围环境的变化。例如，游戏可以跟踪设备重力传感器的读数，以推断出复杂的用户手势和动作，如倾斜、摇晃、旋转或挥动。
 同样，天气应用可以使用设备的温度传感器和湿度传感器来计算和报告露点，旅行应用则可以使用地磁场传感器和加速度计来报告罗盘方位。
@@ -1467,6 +1539,16 @@ Android 平台支持三大类传感器：
 * 环境传感器
 * 位置传感器
 
+### 如何存储
+
+Android系统的数据持久化主要有三种方式：即文件存储、SharedPreference存储、数据库存储，此外还可以将数据存入SD卡中。
+
+文件存储不对存储的内容进行任何的格式化处理，所有数据都是原封不动地保存到文件当中，因此适合用于存储一些简单的文本数据或二进制数据。
+
+SharedPreferencds文件是使用XML格式来对数据进行管理的。
+
+数据库存储-SQLite，SQLite是一款轻量级的关系数据库，它的运行速度非常快，占用资源很少，通常只需要几百KB的内存。此外，SQLite不仅支持标准的SQL语法，还遵循了数据库的ACID事务。
+Android的SQLite主要用于较大的数据持久化保存，以达到节省客户流量的作用。
 
 ### 连接
 
