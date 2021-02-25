@@ -1034,6 +1034,132 @@ export JAVA_HOME=/home/ubuntu/Downloads/jdk1.6.0_45
 
 # 功能开发
 
+
+## 项目结构
+
+Android项目是由gradle管理的，一般外层放一个文件
+
+```
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'    
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+
+```
+然后里面放应用文件夹，可以是开发app，也可以是开发库
+
+
+如果是开发库，则gradle写法如下
+
+```
+apply plugin: 'com.android.library'
+
+group='com.github.yourpackage'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 3
+        versionName '3.1.0'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true // this prevents "not mocked" error
+    }
+}
+
+dependencies {
+    implementation 'androidx.annotation:annotation:1.0.0'
+    testImplementation 'junit:junit:4.12'
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    options.charSet = 'UTF-8'
+    failOnError  false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+
+```
+
+开发应用则是
+
+```
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "yourpackage"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 57
+        versionName '3.1.0'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:1.0.2"
+    implementation 'com.google.android.material:material:1.0.0'
+}
+
+```
+
+注意这几个版本设置，影响到手机的运行和API的使用
+
+```
+buildToolsVersion
+compileSdkVersion
+minSdkVersion
+maxSdkVersion
+targetSdkVersion
+```
+
 ## Activity
 
 打开一个APP，首先要解决的是如何显示界面，于是有了Activity，在web开发中我们叫做页面，一个APP由非常多的Activity组成，各种Activity互相调用，由于某一个时刻和用户交互的是一个Activity，所以会在交互过程
