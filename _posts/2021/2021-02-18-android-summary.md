@@ -1797,6 +1797,25 @@ Android Studio 编译原生库的默认构建工具是 CMake。由于很多现�
 * LLDB：Android Studio 用于调试原生代码的调试程序。
 
 
+### 常用组件
+
+```
+okhttp
+retrofit
+dagger
+EventBus
+热修复框架 tinker
+volley
+android-async-http
+Picasso
+Glide
+Fresco
+RxPermissions
+Jsoup
+Gson
+```
+
+
 # 非功能性
 
 
