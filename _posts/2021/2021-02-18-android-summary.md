@@ -1414,6 +1414,33 @@ Android 架构组件是一组库，可帮助您设计稳健、可测试且易维
 * ViewModel 存储界面相关的数据，这些数据不会在应用旋转时销毁。
 * Room 是一个 SQLite 对象映射库。它可用来避免样板代码，还可以轻松地将 SQLite 表数据转换为 Java 对象。Room 提供 SQLite 语句的编译时检查，并且可以返回 RxJava、Flowable 和 LiveData 可观察对象。
 
+### 应用级开发架构
+
+应用级架构要做到清晰也会需要分层，清洁架构等主题
+
+![](https://fernandocejas.com/assets/img/blog/clean_architecture_evolution_diagram.png)
+
+层次
+
+![](https://fernandocejas.com/assets/img/blog/clean_architecture_evolution_layers.png)
+
+业界探索出了很多模式或组件，比如RxJava，Dagger，ORM等。
+
+对于任何一种思想，我们需要保持独立思考，千万记住这世上没有银弹。然而，一个好软件的架构将帮助我们把代码变得简洁而又健壮，同时易于扩展和维护。
+
+当遇到一个软件问题的时候，你必须要采取的态度：
+
+```
+遵循 SOLID 原则；
+
+不要想太多（不把过度设计）；
+
+遵循实用主义；
+
+尽可能地在项目中减少框架依赖。
+```
+
+
 ## 构造界面
 
 Android的界面构造一般模式从上往下：
