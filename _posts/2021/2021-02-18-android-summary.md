@@ -67,7 +67,7 @@ so内存分配不受Dalivik/ART的单个应用限制，减少OOM
 相对于java代码，二进制代码的反编译难度更大，一些核心代码可以考虑放在so中。
 ```
 
-## 手机的诞生
+## 手机的发布
 
 了解下Android手机系统发布和更新的过程
 
@@ -952,6 +952,19 @@ Android 10 进行了进一步更改来支持动态分区，这是一种可以通
 
 /vendor 分区：它是存放厂商特殊系统修改的地方。特别是在 Android 8.0 以后，隆重推出了“Treble”项目。厂商 OTA 时可以只更新自己的 /vendor 分区即可，让厂商能够以更低的成本，更轻松、更快速地将设备更新到新版 Android 系统。
 
+一个APP的启动过程可以简述如下：
+
+```
+Launcher被调用点击事件，转到Instrumentation类的startActivity方法。
+Instrumentation通过跨进程通信告诉AMS要启动应用的需求。
+AMS反馈Launcher，让Launcher进入Paused状态
+Launcher进入Paused状态，AMS转到ZygoteProcess类，并通过socket与Zygote通信，告知Zygote需要新建进程。
+Zygote fork进程，并调用ActivityThread的main方法，也就是app的入口。
+ActivityThread的main方法新建了ActivityThread实例，并新建了Looper实例，开始loop循环。
+同时ActivityThread也告知AMS，进程创建完毕，开始创建Application，Provider，并调用Applicaiton的attach，onCreate方法。
+最后就是创建上下文，通过类加载器加载Activity，调用Activity的onCreate方法。
+```
+
 
 ## 进程间通信
 
@@ -1815,6 +1828,8 @@ Jsoup
 Gson
 ```
 
+另外有一些黑科技，比如Xposed也可以玩一下
+
 
 # 非功能性
 
@@ -1978,6 +1993,9 @@ Android 的内存堆是分代的，这意味着它会根据分配对象的预期
 
 Facebook 的 Profilo
 
+有一些性能跟踪工具或者说APM用到了编译器修改字节码技术：
+
+Android Gradle 1.5 版本后提供的 Transform 机制, 它允许第三方的 Plugin 插件在 .class 文件打包成 dex 之前进行动态修改，这就为动态修改字节码文件提供了入口，衍生出很多“插桩”的功能，比如埋点、插入日志等。
 
 ## 性能提示
 
