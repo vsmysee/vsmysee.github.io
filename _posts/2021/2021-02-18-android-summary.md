@@ -1200,6 +1200,67 @@ maxSdkVersion
 targetSdkVersion
 ```
 
+详细结构如下
+
+```
+1、build
+
+    模块编译后的文件存放目录。
+
+2、libs
+
+    模块依赖的jar包存放目录。
+
+3、src/androidTest
+
+    设备化测试代码存放目录。
+
+4、src/main/java
+
+    代码存放目录，该目录等同于Eclipse里面的src目录。
+
+5、src/main/res
+
+    资源文件存放目录，该目录等同于Eclipse里面的res目录，后面详细介绍。
+
+6、src/main/AndroidManifest.xml
+
+    应用程序的基本信息清单，等同于Eclipse中的AndroidManifest.xml文件。
+
+7、src/test
+
+    测试代码存放目录。
+
+8、.gitignore
+
+    模块中Git版本管理忽略文件，标记出哪些文件不用进入git库中。
+
+9、app.iml
+
+    模块配置文件。
+
+10、build.gradle
+
+    模块的gradle构建配置文件。
+
+11、proguard-rules.pro
+
+    代码混淆文件。
+
+    除了上述所描述的文件和文件夹，以后开发过程中可能还会遇到这些：
+
+11、src/main/jniLibs
+
+    so文件存放目录。
+
+12、src/main/assets
+
+    附加的资源文件存放目录，作用同Eclipse中的assets目录。
+```
+
+
+
+
 ## Activity
 
 打开一个APP，首先要解决的是如何显示界面，于是有了Activity，在web开发中我们叫做页面，一个APP由非常多的Activity组成，各种Activity互相调用，由于某一个时刻和用户交互的是一个Activity，所以会在交互过程
@@ -1386,6 +1447,26 @@ Android 应用并非仅包含代码，它还需要与源代码分离的资源，
 * values
 * xml
 * font
+
+这里面比较迷惑的是drawable和mipmap：
+
+drawable
+
+```
+位图文件（.png、.9.png、.jpg、.gif）或编译为以下可绘制对象资源子类型的 XML 文件：
+九宫格（可调整大小的位图）
+状态列表
+形状
+动画可绘制对象
+其他可绘制对象
+```
+
+mipmap
+
+适用于不同启动器图标密度的可绘制对象文件。
+
+
+所以注意，启动图标，也就是放在桌面上的图标需要放在mipmap
 
 ## 生命周期
 
