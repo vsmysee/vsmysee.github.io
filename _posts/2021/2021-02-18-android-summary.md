@@ -276,6 +276,23 @@ JNIEnv 提供了大部分 JNI 函数。您的原生函数都会收到 JNIEnv 作
 JNIEnv 和 JavaVM 的 C 声明与 C++ 声明不同。"jni.h" include 文件会提供不同的类型定义符，具体取决于该文件是包含在 C 还是 C++ 中。因此，我们不建议在这两种语言包含的头文件中添加 NIEnv 参数。（换个说法：如果您的头文件需要 #ifdef __cplusplus，且该标头中有任何内容引用 JNIEnv，您可能都必须进行一些额外操作。）
 
 
+我们来看看典型的相机调用利用JNI流程：
+
+Package->Framework->JNI->Camera(cpp)--(binder)-->CameraService->Camera HAL->Camera Driver
+
+各个参数设置完成，对焦完成后，位于Package的Camera.java会调用Framework中Camera.java的takePicture函数，此函数保存Package层传下的callback函数，同时调用JNI层的native_takePicture
+
+JNI层的native_takePicture自己并没有做太多事情，只是简单地调用cpp的Camera中的takePicture函数。此前已经把JNI中的一个对象注册成了Camera.cpp的listener
+
+位于frameworks/base/libs/camera是向CameraService请求服务的客户端，但它本身也继承了一个BnCameraClient类，用于CameraService回调自己。
+
+接下来通过binder转到另一个进程CameraService中的处理。CameraService中之前已经实例化了一个HAL层的CameraHardware，并把自己的data callback传递给了CameraHardware，这些工作都是由CameraService的内部类Client来完成的，这个Client类继承自BnCamera，是真正提供Camera操作API的类
+
+然后自然是调用HAL层CameraHardware的takePicture函数。从HAL层向下就不是Android的标准代码了，各个厂商有自己不同的实现。但思路应该都是相同的：Camera遵循V4L2架构，利用ioctl发送VIDIOC_DQBUF命令得到有效的图像数据，接着回调HAL层的data callback接口以通知CameraService，CameraService会通过binder通知Camera.cpp
+
+可以看到JNI层最终都会调用来自java层的函数postEventFromNative，这个函数会发送对应的消息给自己的eventhandler，收到消息后就会根据消息的类型回调Package层Camera.java最初传下来的callback函数。至此，我们就在最上层拿到了图像数据。
+
+
 ### 内核部分
 
 什么是内核？通俗的说类似这样的场景：
@@ -1693,6 +1710,21 @@ ConstraintSet允许我们通过代码设置一系列约束，除此之外，还�
 
 onDraw的本质是操作一个叫做Canvas的类，这是一个画布，我们拿着画笔在上面随意的绘制即可，注意只能绘制2D图形，如果需要3D绘制，需要扩展 SurfaceView，从单独的线程绘制
 
+
+其他需要关注的方法
+```
+onTouchEvent()
+onTouchEvent方法针对用户触摸操作事件处理。我们通过方法中MotionEvent参数对象的getAction()方法来实时获取用户的手势，有UP、DOWN和MOVE等枚举值。分别表示用于手指抬起、按下和滑动等动作。
+invalidate()
+invalidate()方法的作用是对View进行重绘，即invalidate方法则只会导致View的onDraw方法被调用，如果视图的大小发生了变化，还会调用layout()方法。
+postInvalidate()
+功能与invalidate()方法相同，postInvalidate()方法是异步请求重绘视图。
+requestLayout()
+requestLayout()方法是对View重新执行布局layout过程，即requestLayout方法会导致View的onMeasure、onLayout、onDraw方法被调用，有可能不会调用draw()过程（即不会重新绘制任何视图），包括该调用者本身。对于会不会调用draw，取决于view的l,t,r,b是否改变。
+requestFocus()
+重新执行View的draw()过程，但只会绘制需要重绘的视图，即哪个View或ViewGroup调用了这个方法，就重绘哪个视图。
+```
+
 定义完自己的类之后，就可以在xml中配置使用了
 
 ```
@@ -1717,6 +1749,104 @@ Window表示一个窗口的概念，它存在于Window、Dialog以及Toast中，
 
 Android中所有的视图都是通过Window来呈现的，不管是Activity、Dialog还是Toast，它们的视图实际上都是附加在Window上的，因此Window实际是View的直接管理者。在View的事件分发机制也可以知道，单击事件由Window传递给DecorView，再由DecorView传递给我们的View，就连Activity的设置视图的方法setContentView在底层也是通过Window来实现的。
 
+Canvas用于托管绘图，可以使用Paint画笔对象在画布绘制很多东西，即画布
+
+```
+//绘制过程中需要用到的绘图基元(即绘制相关)
+	1)  drawArc()//绘制圆弧；
+	2)  drawBitmap()//绘制Bitmap图像；
+	3)  drawCircle()//绘制圆圈；
+	4)  drawLine()//绘制线条；
+	5)  drawOval()//绘制椭圆；
+	6)  drawPath()//绘制Path路径；
+	7)  drawPicture()//绘制Picture图片；
+	8)  drawRect()//绘制矩形；
+	9)  drawRoundRect()//绘制圆角矩形；
+	10) drawText()//绘制文本；
+	11) drawVertices()//绘制顶点。
+
+	//与层的保存和回滚相关的方法；
+	1)  canvas.save()//把当前绘制的图像保存起来，让后续的操作相当于是在一个新图层上绘制；
+	2)  canvas.restore()//把当前画布调整到上一个save()之前的状态；
+	
+	//对画布进行操作的方法
+	1)  canvas.translate(dx, dy)//把当前画布的原点移到(dx, dy)点，后续操作都以(dx, dy)点作为参照；
+	2)  canvas.scale(x, y)//将当前画布在水平方向上缩放x倍，竖直方向上缩放y倍；
+	3)  canvas.rotate(angle)//将当前画布顺时针旋转angle度。
+	
+```
+
+Paint类
+
+Paint描述绘图的颜色和样式，即画笔对象。这个类中包含了如何绘制几何图形、文字和位图的样式和颜色信息，指定了如何绘制文本和图形。画笔对象右很多设置方法，大体上可以分为两类：一类与图形绘制有关，一类与文本绘制有关。
+
+```
+    //图形绘制之画笔设置
+	//设置绘制的颜色，a表示透明度，r、g、b表示颜色值；
+	1)  setArgb(int a, int r, int g, int b)
+	//设置绘制的图形的透明度；
+	2)  setAlpha(int a)
+	//设置绘制的颜色；
+	3)  setColor(int color)
+	//设置是否使用抗锯齿功能，抗锯齿功能会消耗较大资源，绘制图形的速度会减慢；
+	4)  setAntiAlias(boolean a)
+	//设置是否使用图像抖动处理，会使图像颜色更加平滑饱满，更加清晰；
+	5)  setDither(boolean b)
+	//设置是否在动画中滤掉Bitmap的优化，可以加快显示速度；
+	6)  setFileterBitmap(Boolean b)
+	//设置MaskFilter来实现滤镜的效果；
+	7)  setMaskFilter(MaskFilter mf)
+	//设置颜色过滤器，可以在绘制颜色时实现不同颜色的变换效果；
+	8)  setColorFilter(ColorFilter cf)
+	//设置绘制的路径的效果；
+	9)  setPathEffect(PathEffect pe)
+	//设置Shader绘制各种渐变效果；
+	10) setShader(Shader s)
+	//在图形下面设置阴影层，r为阴影角度，x和y为阴影在x轴和y轴上的距离，c为阴影的颜色；
+	11) setShadowLayer(float r, int x, int y, int c)
+	//设置画笔的样式：FILL实心；STROKE空心；FILL_OR_STROKE同时实心与空心；
+	12) setStyle(Paint.Style s)
+	//当设置画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的图形样式；
+	13) setStrokeCap(Paint.Cap c)
+	//设置绘制时各图形的结合方式；
+	14) setStrokeJoin(Paint.Join j)
+	//当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的粗细度；
+	15) setStrokeWidth(float w)
+	//设置图形重叠时的处理方式；
+	16) setXfermode(Xfermode m)
+	
+
+	//文本绘制之画笔设置
+	//设置绘制的文本的对齐方式；
+	1)  setTextAlign(Path.Align a)
+	//设置文本在X轴的缩放比例，可以实现文字的拉伸效果；
+	2)  setTextScaleX(float s)
+	//设置字号；
+	3)  setTextSize(float s)
+	//设置斜体文字，s是文字倾斜度；
+	4)  setTextSkewX(float s)
+	//设置字体风格，包括粗体、斜体等；
+	5)  setTypeFace(TypeFace tf)
+	//设置绘制的文本是否带有下划线效果；
+	6)  setUnderlineText(boolean b)
+	//设置绘制的文本是否带有删除线效果；
+	7)  setStrikeThruText(boolean b)
+	//模拟实现粗体文字，如果设置在小字体上效果会非常差；
+	8)  setFakeBoldText(boolean b)
+	//如果设置为true则有助于文本在LCD屏幕上显示效果；
+	9)  setSubpixelText(boolean b)
+
+	//画笔其他功能型方法
+	//清除阴影层；
+	1)  clearShadowLayer()
+	//重置画笔为默认值。
+	2)  reset()
+	//将页面中t文本从s下标开始到e下标结束的所有字符所占的区域宽高封装到b这个矩形中；
+	3)  getTextBounds(String t, int s, int e, Rect b)
+	//返回t文本中从s下标开始到e下标结束的所有字符所占的宽度；
+	4)  measureText(String t, int s, int e)
+```
+
 
 自定义View注意事项
 
@@ -1734,6 +1864,33 @@ View中如果有线程或者动画，需要在适当的时候停止
 
 
 由于界面交互涉及到一个特殊的美学领域，谷歌指定了一个设计准则：Android 用户期望您的应用的外观和行为与平台保持一致。您不仅应当遵循 Material Design 指南来设计视觉和导航模式，还应遵循质量指南，以便确保兼容性、性能和安全性，等等
+
+
+
+### 事件分发
+
+UI的一系列操作都是事件，Android事件机制如下：
+
+
+事件分发里面的事件通常指 ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_Cancel 这四种，他们连在一起就构成了一个时间序列。比如 ACTION_DOWN、ACTION_MOVE、ACTION_MOVE…ACTION_MOVE、ACTION_UP，这就构成了一个事件序列。
+
+事件序列的传递是从 Activity 开始，依次经过、PhoneWindow、DecorView、ViewGroup、View。如果是最终的 View 也没有处理的话，就依次向上移交，最终会在 Activity 的 onTouchEvent 方法中处理。
+
+如果事件从 ViewGroup 中传递给 View 去处理的时候，如果 View 没有处理掉，在 onTouchEvent 方法中返回了 false，那么该事件就重新交给 ViewGroup 处理，并且后续的事件都不会再传递给该 View。
+
+onInterceptTouchEvent 方法只有在 ViewGroup 中存在，并且默认返回 false，代表 ViewGroup 不拦截事件。
+
+正常情况下，一个事件序列只能由一个 View 处理。如果一个 View 接管了事件，不管是具体的子 View还是 ViewGroup，后续的事件都会让这个 View 处理，除非人为干预事件的分发过程。
+
+子 View 可以通过调用 requestDisallowInterceptTouchEvent(true) ，干预父元素的除了 ACTION_DOWN 事件以外的事件走向。 一般用于处理滑动冲突中，子控件请求父控件不拦截ACTION_DOWN以外的其他事件，ACTION_DOWN事件不受影响。
+
+View 的 onTouchEvent 方法默认是返回 true 的，也就是会默认拦截事件。除非 它是不可点击的，(clickable、longClickable 都为 false)。View 的 longClickable 默认均为 false，Button、ImageButton 的 clickable 默认为 true，TextView clickable 默认为false
+
+View 的 enable 属性不会影响 onTouchEvent 的返回值，只要 clickable、longClickable 有一个为 true，那么onTouchEvent就默认会返回 true
+
+View 的点击事件是在 ACTION_UP 事件处理的时候执行的，所以要执行，必须要有 ACTION_DOWN 和 ACTION_UP 两个事件。
+
+
 
 ## 如何有趣？
 
