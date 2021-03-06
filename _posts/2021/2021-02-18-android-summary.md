@@ -1955,6 +1955,49 @@ View 的点击事件是在 ACTION_UP 事件处理的时候执行的，所以要�
 形状可绘制对象
 此 XML 文件用于定义几何形状（包括颜色和渐变）。创建 GradientDrawable。
 
+一个例子
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape=["rectangle" | "oval" | "line" | "ring"] >
+    <corners
+        android:radius="integer"
+        android:topLeftRadius="integer"
+        android:topRightRadius="integer"
+        android:bottomLeftRadius="integer"
+        android:bottomRightRadius="integer" />
+    <gradient
+        android:angle="integer"
+        android:centerX="float"
+        android:centerY="float"
+        android:centerColor="integer"
+        android:endColor="color"
+        android:gradientRadius="integer"
+        android:startColor="color"
+        android:type=["linear" | "radial" | "sweep"]
+        android:useLevel=["true" | "false"] />
+    <padding
+        android:left="integer"
+        android:top="integer"
+        android:right="integer"
+        android:bottom="integer" />
+    <size
+        android:width="integer"
+        android:height="integer" />
+    <solid
+        android:color="color" />
+    <stroke
+        android:width="integer"
+        android:color="color"
+        android:dashWidth="integer"
+        android:dashGap="integer" />
+</shape>
+```
+
+所以在界面构造方法上，除了用xml配置内置组件，还有通过xml来绘制，最后才是自定义view
+
 
 
 音频应用的首选架构是客户端/服务器设计。播放器及其媒体会话在 MediaBrowserService 内实现，界面和媒体控制器与 MediaBrowser 一起位于 Android Activity 中。典型的视频播放器在运行期间会一直显示其控件和视频内容；它无法在后台运行或在没有界面的情况下运行。因此，比较合适的做法是将您的应用构建成为单个 Activity，使其包含用户界面、播放器、媒体会话和媒体控制器：
