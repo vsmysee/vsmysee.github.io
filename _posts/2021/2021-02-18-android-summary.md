@@ -97,6 +97,100 @@ so内存分配不受Dalivik/ART的单个应用限制，减少OOM
 有了这些基础知识，首先我们从系统的相对比较底层的组件开始，然后才开始从功能开发和非功能开发两个部分来描述。
 
 
+## 知识体系
+
+熟悉了知识体系之后，我们好具体展开
+
+四大组件
+```
+Activity
+Service
+BroadcastReceiver
+ContentProvider
+```
+
+布局和控件
+```
+RelativeLayout
+FrameLayout
+LinearLayout
+ConstraintLayout
+Button
+TextView
+RecyclerView
+```
+
+自定义View/ViewGroup
+```
+onMeasure
+onLayout
+onDraw
+onTouchEvent
+dispatchTouchEvent
+自定义属性
+```
+
+动画和手势
+```
+View动画
+属性动画
+layoutAnimation视图动画
+手势检测(GestureDetector)
+缩放手势检测(ScaleGestureDecetor)
+```
+
+网络
+```
+请求网络
+解析数据
+```
+
+ 图片加载
+ ```
+本地图片
+网络图片
+压缩图片
+多图列表
+DiskLruCache
+ ```
+
+ Handler
+ ```
+Looper
+Message
+MessageQueue
+内存泄漏
+ThreadLocal
+ ```
+
+ Android各版本新特性
+ ```
+Android5.0
+Android6.0
+Android7.0
+Android8.0(O)
+Android9.0(P)
+Android10.0(Q)
+Android11.0(R)
+ ```
+
+```
+adb常用命令
+文件和数据库
+异步线程池
+Resources
+```
+
+开源库使用
+```
+Retrofit/OKhttp
+RxJava
+Glide
+注解框架
+Jetpack
+```
+
+
 ## 版本
 
 大概的历史
