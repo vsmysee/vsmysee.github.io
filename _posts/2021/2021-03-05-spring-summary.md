@@ -286,3 +286,146 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 ```
 
 所以AOP的代理是通过一个FactroyBean创建出来的，ProxyFactoryBean创建代理的时候需要传入接口数组，代理目标和拦截器，对应JDKProxy类，拦截器最终会实现InvocationHandler
+
+还有种配置：
+
+```
+<beans>
+
+	<!-- Simple target -->
+	<bean id="target" class="org.springframework.aop.framework.adapter.ThrowsAdviceInterceptorTests$Echo">	
+	</bean>
+	
+	<bean id="nopInterceptor" class="org.springframework.aop.interceptor.NopInterceptor">
+	</bean>
+	
+	<bean id="countingBeforeAdvice"
+		class="org.springframework.aop.framework.CountingBeforeAdvice"
+	/>
+	
+	<bean id="throwsAdvice" 
+		class="org.springframework.aop.framework.adapter.ThrowsAdviceInterceptorTests$MyThrowsHandler">	
+	</bean>
+	
+
+	<bean id="throwsAdvised"
+		class="org.springframework.aop.framework.ProxyFactoryBean"
+	> 
+			<property name="interceptorNames">
+				<value>countingBeforeAdvice,nopInterceptor,throwsAdvice,target</value>
+			</property>
+	</bean>
+	
+</beans>		
+	
+```
+把拦截器和目标对象都放在interceptorNames里面，最后一个元素会被当做目标对象，看代码
+
+
+```java
+
+	/**
+	 * Check the interceptorNames list whether it contains a target name as final element.
+	 * If found, remove the final name from the list and set it as targetName.
+	 */
+	private void checkInterceptorNames() {
+		if (!ObjectUtils.isEmpty(this.interceptorNames)) {
+			String finalName = this.interceptorNames[this.interceptorNames.length - 1];
+			if (this.targetName == null && this.targetSource == EMPTY_TARGET_SOURCE) {
+				// The last name in the chain may be an Advisor/Advice or a target/TargetSource.
+				// Unfortunately we don't know; we must look at type of the bean.
+				if (!finalName.endsWith(GLOBAL_SUFFIX) && !isNamedBeanAnAdvisorOrAdvice(finalName)) {
+					// Must be an interceptor.
+					this.targetName = finalName;
+					if (logger.isDebugEnabled()) {
+						logger.debug("Bean with name '" + finalName + "' concluding interceptor chain " +
+								"is not an advisor class: treating it as a target or TargetSource");
+					}
+					String[] newNames = new String[this.interceptorNames.length - 1];
+					System.arraycopy(this.interceptorNames, 0, newNames, 0, newNames.length);
+					this.interceptorNames = newNames;
+				}
+			}
+		}
+	}
+
+```
+
+当这个工厂Bean返回对象的时候，会分析目标对象的接口，然后生成代理
+
+```java
+
+	private synchronized Object getSingletonInstance() {
+		if (this.singletonInstance == null) {
+			this.targetSource = freshTargetSource();
+			if (this.autodetectInterfaces && getProxiedInterfaces().length == 0 && !isProxyTargetClass()) {
+				// Rely on AOP infrastructure to tell us what interfaces to proxy.
+				setInterfaces(ClassUtils.getAllInterfacesForClass(this.targetSource.getTargetClass()));
+			}
+			// Eagerly initialize the shared singleton instance.
+			super.setFrozen(this.freezeProxy);
+			this.singletonInstance = getProxy(createAopProxy());
+			// We must listen to superclass advice change events to recache the singleton
+			// instance if necessary.
+			addListener(this);
+		}
+		return this.singletonInstance;
+	}
+
+```
+
+生成代理的时候用的JdkDynamicAopProxy，传入的是一个AdvisedSupport，里面包含了拦截对象和目标对象，创建代理的代码
+
+```
+	public Object getProxy(ClassLoader classLoader) {
+		if (logger.isDebugEnabled()) {
+			Class targetClass = this.advised.getTargetSource().getTargetClass();
+			logger.debug("Creating JDK dynamic proxy" +
+					(targetClass != null ? " for [" + targetClass.getName() + "]" : ""));
+		}
+		Class[] proxiedInterfaces = AopProxyUtils.completeProxiedInterfaces(this.advised);
+		findDefinedEqualsAndHashCodeMethods(proxiedInterfaces);
+		return Proxy.newProxyInstance(classLoader, proxiedInterfaces, this);
+	}
+```
+
+FactoryBean创建出来的实例会放在单独的HashMap里
+```
+
+	/** Cache of singleton objects created by FactoryBeans: FactoryBean name --> object */
+	private final Map factoryBeanObjectCache = new HashMap();
+```
+
+
+```java
+
+if (beanInstance instanceof FactoryBean) {
+			if (!BeanFactoryUtils.isFactoryDereference(name)) {
+				// Return bean instance from factory.
+				FactoryBean factory = (FactoryBean) beanInstance;
+				if (logger.isDebugEnabled()) {
+					logger.debug("Bean with name '" + beanName + "' is a factory bean");
+				}
+				// Cache object obtained from FactoryBean if it is a singleton.
+				if (shared && factory.isSingleton()) {
+					synchronized (this.factoryBeanObjectCache) {
+						object = this.factoryBeanObjectCache.get(beanName);
+						if (object == null) {
+							object = getObjectFromFactoryBean(factory, beanName, mbd);
+							this.factoryBeanObjectCache.put(beanName, object);
+						}
+					}
+				}
+				else {
+					object = getObjectFromFactoryBean(factory, beanName, mbd);
+				}
+			}
+			else {
+	 			// The user wants the factory itself.
+				if (logger.isDebugEnabled()) {
+					logger.debug("Calling code asked for FactoryBean instance for name '" + beanName + "'");
+				}
+			}
+		}
+
+```
