@@ -376,7 +376,7 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 
 生成代理的时候用的JdkDynamicAopProxy，传入的是一个AdvisedSupport，里面包含了拦截对象和目标对象，创建代理的代码
 
-```
+```java
 	public Object getProxy(ClassLoader classLoader) {
 		if (logger.isDebugEnabled()) {
 			Class targetClass = this.advised.getTargetSource().getTargetClass();
@@ -429,3 +429,6 @@ if (beanInstance instanceof FactoryBean) {
 		}
 
 ```
+
+底层原理知道了之后，其实在真实使用的时候还是太繁琐，所以为了简化API，AOP开始不断的演化
+

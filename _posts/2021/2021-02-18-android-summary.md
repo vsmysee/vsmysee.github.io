@@ -676,7 +676,17 @@ AAPT2（Android 资源打包工具）是一种构建工具，Android Studio 和 
 
 ### 字节码
 
+
 标准Java的栈结构字节码是8位字节码，Android虚拟机字节码是16位字节码，传统的Java字节码class文件中包含了很多冗余的数据，Dalvik对冗余的数据进行了精简压缩，从而减小体积。
+
+我有时候在思考，为什么Android不直接将java代码编译为机器码呢？这里面可能的原因：
+
+1，复用javac，复用生态
+
+2，引入一层虚拟机带来了很多动态性，比如第三方的性能植入监控，字节码操作技术
+
+引入一层间接层来解决某些复杂问题是一个软件模式。
+
 
 机器模型和调用规范旨在大致模仿常见的真实架构和 C 样式的调用规范
 
@@ -1893,6 +1903,42 @@ Widget的尺寸约束
 链（Chains）
 虚拟辅助对象（Virtual Helper objects）
 ConstraintSet允许我们通过代码设置一系列约束，除此之外，还能对ConstraintLayout里面的控件做动画。
+```
+
+平台默认提供了很多控件
+
+
+```
+TextView 显示文字，相当于Panel
+ImageView 显示图片
+EditText 输入框，可编辑,可设置软键盘方式
+Button 按钮，可附带图片
+ImageButton
+CheckBox 复选框
+RadioButton 单选按钮（和 RadioGroup 配合使用）
+AnalogClock
+DigitalClock
+DatePicker
+TimePicker
+WebView
+Switch：开关  
+计时器（Chronometer）
+ListView
+Spinner
+Gallery
+GridView
+ProgressBar
+SeekBar
+RatingBar
+AlertDialog
+ProgressDialog
+PopupWindow
+SubMenu
+ContextMenu
+PopupMenu 
+ActionBar 
+Toast
+CalendarView
 ```
 
 
