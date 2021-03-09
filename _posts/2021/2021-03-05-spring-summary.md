@@ -29,6 +29,9 @@ Object getBean(String name, Class requiredType) throws BeansException;
 boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
 ```
 
+抛出的异常时运行期异常。
+
+
 实现这个接口的类是XmlBeanFactory，表示我们用xml来通过配置的方式进行bean管理，如何配置呢？
 
 ```
@@ -92,4 +95,59 @@ public interface AopProxy {
 
 以上就是spring的内核，后面的所有故事都是围绕以上接口展开的。
 
+## 实例化
 
+配置文件中配置类的路径，由框架来初始化，初始化的时机可以选择框架启动的时候也可以延迟到获取bean的时候，初始化示例的核心代码是BeanUtils
+
+```
+	public static Object instantiateClass(Constructor ctor, Object[] args) throws BeansException {
+		Assert.notNull(ctor, "Constructor must not be null");
+		try {
+			if (!Modifier.isPublic(ctor.getModifiers()) ||
+					!Modifier.isPublic(ctor.getDeclaringClass().getModifiers())) {
+				ctor.setAccessible(true);
+			}
+			return ctor.newInstance(args);
+		}
+		catch (InstantiationException ex) {
+			throw new BeanInstantiationException(ctor.getDeclaringClass(),
+					"Is it an abstract class?", ex);
+		}
+		catch (IllegalAccessException ex) {
+			throw new BeanInstantiationException(ctor.getDeclaringClass(),
+					"Has the class definition changed? Is the constructor accessible?", ex);
+		}
+		catch (IllegalArgumentException ex) {
+			throw new BeanInstantiationException(ctor.getDeclaringClass(),
+					"Illegal arguments for constructor", ex);
+		}
+		catch (InvocationTargetException ex) {
+			throw new BeanInstantiationException(ctor.getDeclaringClass(),
+					"Constructor threw exception", ex.getTargetException());
+		}
+	}
+```
+
+当得到一个类的实例之后，接下来就是要进行初始化，初始化是个非常关键步骤，所以留下了扩展点
+
+```
+public interface BeanPostProcessor {
+
+
+	Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
+
+
+	Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
+
+}
+```
+
+初始化过程中，又有一个扩展点，如果类实现了InitializingBean接口，则先执行
+
+```
+public interface InitializingBean {
+	
+	void afterPropertiesSet() throws Exception;
+
+}
+```
