@@ -72,7 +72,7 @@ XmlBeanFactory是spring的心脏，但是在应用中我们一般使用Applicati
 
 如何使用呢
 
-```
+```java
 ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/org/springframework/context/support/simpleContext.xml");
 ```
 
@@ -144,7 +144,7 @@ public interface BeanPostProcessor {
 
 初始化过程中，又有一个扩展点，如果类实现了InitializingBean接口，则先执行
 
-```
+```java
 public interface InitializingBean {
 	
 	void afterPropertiesSet() throws Exception;
@@ -193,3 +193,6 @@ protected void addSingleton(String beanName, Object sharedBean) {
 		}
 	}
 ```
+
+ 单例容器主要由DefaultSingletonBeanRegistry来完成，XmlBeanFactory会继承这个类。
+
