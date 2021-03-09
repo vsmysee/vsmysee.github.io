@@ -196,3 +196,93 @@ protected void addSingleton(String beanName, Object sharedBean) {
 
  单例容器主要由DefaultSingletonBeanRegistry来完成，XmlBeanFactory会继承这个类。
 
+
+ 另外一种生命周期是prototype，每次都创建新的示例 
+
+ ```java
+            // Create bean instance.
+			if (mergedBeanDefinition.isSingleton()) {
+				sharedInstance = getSingleton(beanName, new ObjectFactory() {
+					public Object getObject() throws BeansException {
+						try {
+							return createBean(beanName, mergedBeanDefinition, args);
+						}
+						catch (BeansException ex) {
+							// Explicitly remove instance from singleton cache: It might have been put there
+							// eagerly by the creation process, to allow for circular reference resolution.
+							// Also remove any beans that received a temporary reference to the bean.
+							destroySingleton(beanName);
+							throw ex;
+						}
+					}
+				});
+				bean = getObjectForBeanInstance(sharedInstance, name, mergedBeanDefinition);
+			}
+
+			else if (mergedBeanDefinition.isPrototype()) {
+				// It's a prototype -> create a new instance.
+				Object prototypeInstance = null;
+				try {
+					beforePrototypeCreation(beanName);
+					prototypeInstance = createBean(beanName, mergedBeanDefinition, args);
+				}
+				finally {
+					afterPrototypeCreation(beanName);
+				}
+				bean = getObjectForBeanInstance(prototypeInstance, name, mergedBeanDefinition);
+			}
+
+ ```
+
+
+## 动态代理
+
+IOC容器默认生成的Bean示例对象在被使用的时候和我们平时构造的对象没有什么不一样，但是如果这些示例是由接口的，那么JDK提供了一个机制，可以生成一个和某个实例相同接口的对象，然后调用这个对象的方法的时候，我们可以植入一段拦截
+
+Proxy类
+```java
+ public static Object newProxyInstance(ClassLoader loader,
+					  Class<?>[] interfaces,
+					  InvocationHandler h)
+	throws IllegalArgumentException
+    {}
+```
+
+传入一个接口数组，然后实现一个InvocationHandler，就生成了一个实现了这些接口的对象，对象调用某个方法的时候，代码会走到InvocationHandler里面
+
+```java
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable;
+```
+
+于是我们就可以拦截java由接口的类了。
+
+要为一个容器中的对象，生成代理怎么在spring里配置呢？
+
+```
+<bean id="personTarget" class="com.mycompany.PersonImpl">
+    <property name="name"><value>Tony</value></property>
+    <property name="age"><value>51</value></property>
+</bean>
+
+<bean id="myAdvisor" class="com.mycompany.MyAdvisor">
+    <property name="someProperty"><value>Custom string property value</value></property>
+</bean>
+
+<bean id="debugInterceptor" class="org.springframework.aop.interceptor.DebugInterceptor">
+</bean>
+
+<bean id="person" 
+    class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="proxyInterfaces"><value>com.mycompany.Person</value></property>
+
+    <property name="target"><ref local="personTarget"/></property>
+    <property name="interceptorNames">
+        <list>
+            <value>myAdvisor</value>
+            <value>debugInterceptor</value>
+        </list>
+    </property>
+</bean>
+```
+
+所以AOP的代理是通过一个FactroyBean创建出来的，ProxyFactoryBean创建代理的时候需要传入接口数组，代理目标和拦截器，对应JDKProxy类，拦截器最终会实现InvocationHandler
