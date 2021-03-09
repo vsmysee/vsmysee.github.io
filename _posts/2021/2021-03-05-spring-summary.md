@@ -23,7 +23,7 @@ JavaBean的种类按照功能可以划分为可视化和不可视化两类。可
 
 BeanFactory
 
-```
+```java
 Object getBean(String name) throws BeansException;
 Object getBean(String name, Class requiredType) throws BeansException;
 boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
@@ -53,7 +53,7 @@ new XmlBeanFactory(new ClassPathResource("test.xml", getClass()), parent);
 
 这里包含了一个隐含的假设，难道所有的bean都能通过xml配置出来吗？不是的，所以我们需要另一个接口
 
-```
+```java
 public interface FactoryBean {
 	
 	Object getObject() throws Exception;
@@ -81,7 +81,7 @@ ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/org/sp
 因为我们的bean是从容器中获取的，于是需要引入某种代理技术把真实的对象替换掉，于是有了一个新的接口
 
 
-```
+```java
 public interface AopProxy {
 
 	Object getProxy();
@@ -99,7 +99,7 @@ public interface AopProxy {
 
 配置文件中配置类的路径，由框架来初始化，初始化的时机可以选择框架启动的时候也可以延迟到获取bean的时候，初始化示例的核心代码是BeanUtils
 
-```
+```java
 	public static Object instantiateClass(Constructor ctor, Object[] args) throws BeansException {
 		Assert.notNull(ctor, "Constructor must not be null");
 		try {
@@ -130,7 +130,7 @@ public interface AopProxy {
 
 当得到一个类的实例之后，接下来就是要进行初始化，初始化是个非常关键步骤，所以留下了扩展点
 
-```
+```java
 public interface BeanPostProcessor {
 
 
@@ -150,4 +150,46 @@ public interface InitializingBean {
 	void afterPropertiesSet() throws Exception;
 
 }
+```
+
+## 存储
+
+默认bean的生命周期是单例，需要有个地方存起来，这个版本是放在HashMap中的，由于HashMap不是线程安全的，所以在加入的时候加了锁
+
+```
+	private final Map singletonCache = CollectionFactory.createLinkedMapIfPossible(16);
+
+```
+
+```java
+protected void addSingleton(String beanName, Object sharedBean) {
+		Assert.hasText(beanName, "Bean name must not be empty");
+		Assert.notNull(sharedBean, "Singleton object must not be null");
+		synchronized (this.singletonCache) {
+			this.singletonCache.put(beanName, sharedBean);
+		}
+}
+```
+
+同时get实例的时候也是加锁的
+
+```java
+	public Object getSingleton(String beanName) {
+		synchronized (this.singletonCache) {
+			return this.singletonCache.get(beanName);
+		}
+	}
+```
+
+构造过程中为了为了避免并发问题，用了一个同步的HashSet来拦截并发操作
+
+```java
+	private final Set singletonsCurrentlyInCreation = Collections.synchronizedSet(new HashSet());
+
+
+    protected void beforeSingletonCreation(String beanName) {
+		if (!this.singletonsCurrentlyInCreation.add(beanName)) {
+			throw new IllegalStateException("Singleton '" + beanName + "' is already in creation");
+		}
+	}
 ```
