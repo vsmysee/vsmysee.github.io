@@ -1,18 +1,18 @@
 ---
 layout: article
-title:  安卓记事
+title: 安卓记事
 ---
 
-我做了10年web后端研发，没有想过可能和安卓有交集，新的工作让我进入这个领域，最大的感受依然不变，我们需要对每个知识领域保持敬畏，因为深入到细节层面，或者可靠性层面，唯有敬畏之心
+我做了10年web后端研发，没有想过可能和安卓有交集，新的工作让我进入了这个领域，最大的感受依然不变，我们需要对每个知识领域保持敬畏，因为深入到细节层面，或者可靠性层面，唯有敬畏之心
 方可对复杂性有认识，不存在技术领域有高低贵贱之分，微尘出大千，一个小小的程序都可以洞见大大的世界。
 
 
 作为一个2003年起步的操作系统，算下来快要20年了，20年是足以让一个领域变得成熟，成熟就会变得庞大，庞大的后果就是我们觉得每个个体都好弱小，几年的光阴都在一小块天地里挣扎，谷歌在在收购安卓之后，直到2008年左右才开始把系统推向市场，如果考究这个系统
+
 对比IOS，后者历史则更为厚重，是从Mac Book操作系统上阉割出来的，智能手机操作系统的最大的推动者还是乔布斯。后来Android和IOS都齐头并进，互相学习，甚至被应用生态倒逼系统更新，比如中国的小程序。
 
 
-首先我们要熟悉下手机的结构，相比电脑，手机由于体积的限制，有很多概念是不一样的。ROM其实相当于硬盘，处理部分叫SOC，Soc芯片上通常会集成CPU（负责管理手机反应运行速度），GPU（管理手机的游戏性能），基带芯片（管理手机信号），NPU（管手机人工智能）等关键芯片的功能。
-市面上常听到的高通骁龙和华为麒麟芯片，都属于SOC芯片，SOC还决定了将会用什么RAM（运行内存）和ROM（存储内存）。
+首先我们要熟悉下手机的结构，相比电脑，手机由于体积的限制，有很多概念是不一样的。ROM其实相当于硬盘，处理部分叫SOC，Soc芯片上通常会集成CPU（负责管理手机反应运行速度），GPU（管理手机的游戏性能），基带芯片（管理手机信号），NPU（管手机人工智能）等关键芯片的功能。市面上常听到的高通骁龙和华为麒麟芯片，都属于SOC芯片，SOC还决定了将会用什么RAM（运行内存）和ROM（存储内存）。
 
 相比电脑，我觉得比较特别的硬件就是：
 
@@ -89,7 +89,7 @@ so内存分配不受Dalivik/ART的单个应用限制，减少OOM
 
 总之，在Android手机世界里，谷歌、芯片厂商、终端厂商，运营商都是生态链里的关键玩家，四者互相影响。从终端厂商角度看，我觉得芯片厂商对终端厂商的影响力更关键和致命。最简单来说，高通要是不更新更好的芯片，很多手机商的产品也就停滞不前了。
 
-对比苹果，人家从芯片到OS都自己搞.
+对比苹果，人家从芯片到OS都自己搞，国内，华为公司也在尝试这个路径，芯片到系统到开发工具都掌握在自己手里。
 
 所以手机制造商需要提升领域的核心能力，芯片这一关就需要跨过去，然后是系统，如果谷歌的AOSP哪天闭源，则又是一个巨大咽喉锁定，在中国，从系统到芯片再到终端，甚至运营商都有技术涉足的只有华为公司。
 
@@ -145,26 +145,26 @@ layoutAnimation视图动画
 解析数据
 ```
 
- 图片加载
- ```
+图片加载
+```
 本地图片
 网络图片
 压缩图片
 多图列表
 DiskLruCache
- ```
+```
 
- Handler
- ```
+Handler
+```
 Looper
 Message
 MessageQueue
 内存泄漏
 ThreadLocal
- ```
+```
 
- Android各版本新特性
- ```
+Android各版本新特性
+```
 Android5.0
 Android6.0
 Android7.0
@@ -172,7 +172,7 @@ Android8.0(O)
 Android9.0(P)
 Android10.0(Q)
 Android11.0(R)
- ```
+```
 
 ```
 adb常用命令
@@ -312,17 +312,19 @@ opencv
 
 ```
 
-|  版本            | 时间               | API Level |
+| 版本 | 时间 | API Level |
 
-| KitKat 4.4       | 2013              |  19 |
-| Lollipop 5.0     | 2014              |  21 |
-| Marshmallow 6.0  | 2015              |  23 |
-| Nougat           | 2016              |  24 |
-| O                | 2017              |  26 |
-| P                | 2018              |  28 |
-| 10               | 2019              |  29 |
-| 11               | 2020              |  30 |
+| KitKat 4.4 | 2013 | 19 |
+| Lollipop 5.0 | 2014 | 21 |
+| Marshmallow 6.0 | 2015 | 23 |
+| Nougat | 2016 | 24 |
+| O | 2017 | 26 |
+| P | 2018 | 28 |
+| 10 | 2019 | 29 |
+| 11 | 2020 | 30 |
 ```
+
+一般的APP兼容到23这个级别就差不多了。
 
 Android各个版本API的区别
 
@@ -345,8 +347,7 @@ Android各个版本API的区别
 * 3.6（2020 年 2 月）
 * 4.0（2020 年 5 月）
 
-早期Android的速度比较慢，于是在4.1的时候谷歌启动了黄油计划提升性能，后来又在各个版本做了安全，性能，瘦身，续航等优化。
-在9.0更是引入了机器学习API。
+早期Android的速度比较慢，于是在4.1的时候谷歌启动了黄油计划提升性能，后来又在各个版本做了安全，性能，瘦身，续航等优化。在9.0更是引入了机器学习API。
 
 
 ## 认识刷机过程
@@ -574,13 +575,13 @@ Android的代码结构非常庞大，内核部分都是独立的，对这个结�
 
 ```
 art 全新的ART运行环境（Android Runtime）
-bionic  系统C库
+bionic 系统C库
 bootable 启动引导相关代码
 build 存放系统编译规则及generic等基础开发包配置
 cts Android兼容性测试套件标准
 dalvik dalvik虚拟机
 developers 开发者目录
-development  应用程序开发相关
+development 应用程序开发相关
 device 设备相关配置
 external 开源模组相关文件
 frameworks 应用程序框架，Android系统核心部分，由Java和C++编写
@@ -700,438 +701,439 @@ AAPT2（Android 资源打包工具）是一种构建工具，Android Studio 和 
 列表
 
 ```
-int OP_NOP                          = 0x0000;
-33    int OP_MOVE                         = 0x0001;
-34    int OP_MOVE_FROM16                  = 0x0002;
-35    int OP_MOVE_16                      = 0x0003;
-36    int OP_MOVE_WIDE                    = 0x0004;
-37    int OP_MOVE_WIDE_FROM16             = 0x0005;
-38    int OP_MOVE_WIDE_16                 = 0x0006;
-39    int OP_MOVE_OBJECT                  = 0x0007;
-40    int OP_MOVE_OBJECT_FROM16           = 0x0008;
-41    int OP_MOVE_OBJECT_16               = 0x0009;
-42    int OP_MOVE_RESULT                  = 0x000a;
-43    int OP_MOVE_RESULT_WIDE             = 0x000b;
-44    int OP_MOVE_RESULT_OBJECT           = 0x000c;
-45    int OP_MOVE_EXCEPTION               = 0x000d;
-46    int OP_RETURN_VOID                  = 0x000e;
-47    int OP_RETURN                       = 0x000f;
-48    int OP_RETURN_WIDE                  = 0x0010;
-49    int OP_RETURN_OBJECT                = 0x0011;
-50    int OP_CONST_4                      = 0x0012;
-51    int OP_CONST_16                     = 0x0013;
-52    int OP_CONST                        = 0x0014;
-53    int OP_CONST_HIGH16                 = 0x0015;
-54    int OP_CONST_WIDE_16                = 0x0016;
-55    int OP_CONST_WIDE_32                = 0x0017;
-56    int OP_CONST_WIDE                   = 0x0018;
-57    int OP_CONST_WIDE_HIGH16            = 0x0019;
-58    int OP_CONST_STRING                 = 0x001a;
-59    int OP_CONST_STRING_JUMBO           = 0x001b;
-60    int OP_CONST_CLASS                  = 0x001c;
-61    int OP_MONITOR_ENTER                = 0x001d;
-62    int OP_MONITOR_EXIT                 = 0x001e;
-63    int OP_CHECK_CAST                   = 0x001f;
-64    int OP_INSTANCE_OF                  = 0x0020;
-65    int OP_ARRAY_LENGTH                 = 0x0021;
-66    int OP_NEW_INSTANCE                 = 0x0022;
-67    int OP_NEW_ARRAY                    = 0x0023;
-68    int OP_FILLED_NEW_ARRAY             = 0x0024;
-69    int OP_FILLED_NEW_ARRAY_RANGE       = 0x0025;
-70    int OP_FILL_ARRAY_DATA              = 0x0026;
-71    int OP_THROW                        = 0x0027;
-72    int OP_GOTO                         = 0x0028;
-73    int OP_GOTO_16                      = 0x0029;
-74    int OP_GOTO_32                      = 0x002a;
-75    int OP_PACKED_SWITCH                = 0x002b;
-76    int OP_SPARSE_SWITCH                = 0x002c;
-77    int OP_CMPL_FLOAT                   = 0x002d;
-78    int OP_CMPG_FLOAT                   = 0x002e;
-79    int OP_CMPL_DOUBLE                  = 0x002f;
-80    int OP_CMPG_DOUBLE                  = 0x0030;
-81    int OP_CMP_LONG                     = 0x0031;
-82    int OP_IF_EQ                        = 0x0032;
-83    int OP_IF_NE                        = 0x0033;
-84    int OP_IF_LT                        = 0x0034;
-85    int OP_IF_GE                        = 0x0035;
-86    int OP_IF_GT                        = 0x0036;
-87    int OP_IF_LE                        = 0x0037;
-88    int OP_IF_EQZ                       = 0x0038;
-89    int OP_IF_NEZ                       = 0x0039;
-90    int OP_IF_LTZ                       = 0x003a;
-91    int OP_IF_GEZ                       = 0x003b;
-92    int OP_IF_GTZ                       = 0x003c;
-93    int OP_IF_LEZ                       = 0x003d;
-94    int OP_AGET                         = 0x0044;
-95    int OP_AGET_WIDE                    = 0x0045;
-96    int OP_AGET_OBJECT                  = 0x0046;
-97    int OP_AGET_BOOLEAN                 = 0x0047;
-98    int OP_AGET_BYTE                    = 0x0048;
-99    int OP_AGET_CHAR                    = 0x0049;
-100    int OP_AGET_SHORT                   = 0x004a;
-101    int OP_APUT                         = 0x004b;
-102    int OP_APUT_WIDE                    = 0x004c;
-103    int OP_APUT_OBJECT                  = 0x004d;
-104    int OP_APUT_BOOLEAN                 = 0x004e;
-105    int OP_APUT_BYTE                    = 0x004f;
-106    int OP_APUT_CHAR                    = 0x0050;
-107    int OP_APUT_SHORT                   = 0x0051;
-108    int OP_IGET                         = 0x0052;
-109    int OP_IGET_WIDE                    = 0x0053;
-110    int OP_IGET_OBJECT                  = 0x0054;
-111    int OP_IGET_BOOLEAN                 = 0x0055;
-112    int OP_IGET_BYTE                    = 0x0056;
-113    int OP_IGET_CHAR                    = 0x0057;
-114    int OP_IGET_SHORT                   = 0x0058;
-115    int OP_IPUT                         = 0x0059;
-116    int OP_IPUT_WIDE                    = 0x005a;
-117    int OP_IPUT_OBJECT                  = 0x005b;
-118    int OP_IPUT_BOOLEAN                 = 0x005c;
-119    int OP_IPUT_BYTE                    = 0x005d;
-120    int OP_IPUT_CHAR                    = 0x005e;
-121    int OP_IPUT_SHORT                   = 0x005f;
-122    int OP_SGET                         = 0x0060;
-123    int OP_SGET_WIDE                    = 0x0061;
-124    int OP_SGET_OBJECT                  = 0x0062;
-125    int OP_SGET_BOOLEAN                 = 0x0063;
-126    int OP_SGET_BYTE                    = 0x0064;
-127    int OP_SGET_CHAR                    = 0x0065;
-128    int OP_SGET_SHORT                   = 0x0066;
-129    int OP_SPUT                         = 0x0067;
-130    int OP_SPUT_WIDE                    = 0x0068;
-131    int OP_SPUT_OBJECT                  = 0x0069;
-132    int OP_SPUT_BOOLEAN                 = 0x006a;
-133    int OP_SPUT_BYTE                    = 0x006b;
-134    int OP_SPUT_CHAR                    = 0x006c;
-135    int OP_SPUT_SHORT                   = 0x006d;
-136    int OP_INVOKE_VIRTUAL               = 0x006e;
-137    int OP_INVOKE_SUPER                 = 0x006f;
-138    int OP_INVOKE_DIRECT                = 0x0070;
-139    int OP_INVOKE_STATIC                = 0x0071;
-140    int OP_INVOKE_INTERFACE             = 0x0072;
-141    int OP_INVOKE_VIRTUAL_RANGE         = 0x0074;
-142    int OP_INVOKE_SUPER_RANGE           = 0x0075;
-143    int OP_INVOKE_DIRECT_RANGE          = 0x0076;
-144    int OP_INVOKE_STATIC_RANGE          = 0x0077;
-145    int OP_INVOKE_INTERFACE_RANGE       = 0x0078;
-146    int OP_NEG_INT                      = 0x007b;
-147    int OP_NOT_INT                      = 0x007c;
-148    int OP_NEG_LONG                     = 0x007d;
-149    int OP_NOT_LONG                     = 0x007e;
-150    int OP_NEG_FLOAT                    = 0x007f;
-151    int OP_NEG_DOUBLE                   = 0x0080;
-152    int OP_INT_TO_LONG                  = 0x0081;
-153    int OP_INT_TO_FLOAT                 = 0x0082;
-154    int OP_INT_TO_DOUBLE                = 0x0083;
-155    int OP_LONG_TO_INT                  = 0x0084;
-156    int OP_LONG_TO_FLOAT                = 0x0085;
-157    int OP_LONG_TO_DOUBLE               = 0x0086;
-158    int OP_FLOAT_TO_INT                 = 0x0087;
-159    int OP_FLOAT_TO_LONG                = 0x0088;
-160    int OP_FLOAT_TO_DOUBLE              = 0x0089;
-161    int OP_DOUBLE_TO_INT                = 0x008a;
-162    int OP_DOUBLE_TO_LONG               = 0x008b;
-163    int OP_DOUBLE_TO_FLOAT              = 0x008c;
-164    int OP_INT_TO_BYTE                  = 0x008d;
-165    int OP_INT_TO_CHAR                  = 0x008e;
-166    int OP_INT_TO_SHORT                 = 0x008f;
-167    int OP_ADD_INT                      = 0x0090;
-168    int OP_SUB_INT                      = 0x0091;
-169    int OP_MUL_INT                      = 0x0092;
-170    int OP_DIV_INT                      = 0x0093;
-171    int OP_REM_INT                      = 0x0094;
-172    int OP_AND_INT                      = 0x0095;
-173    int OP_OR_INT                       = 0x0096;
-174    int OP_XOR_INT                      = 0x0097;
-175    int OP_SHL_INT                      = 0x0098;
-176    int OP_SHR_INT                      = 0x0099;
-177    int OP_USHR_INT                     = 0x009a;
-178    int OP_ADD_LONG                     = 0x009b;
-179    int OP_SUB_LONG                     = 0x009c;
-180    int OP_MUL_LONG                     = 0x009d;
-181    int OP_DIV_LONG                     = 0x009e;
-182    int OP_REM_LONG                     = 0x009f;
-183    int OP_AND_LONG                     = 0x00a0;
-184    int OP_OR_LONG                      = 0x00a1;
-185    int OP_XOR_LONG                     = 0x00a2;
-186    int OP_SHL_LONG                     = 0x00a3;
-187    int OP_SHR_LONG                     = 0x00a4;
-188    int OP_USHR_LONG                    = 0x00a5;
-189    int OP_ADD_FLOAT                    = 0x00a6;
-190    int OP_SUB_FLOAT                    = 0x00a7;
-191    int OP_MUL_FLOAT                    = 0x00a8;
-192    int OP_DIV_FLOAT                    = 0x00a9;
-193    int OP_REM_FLOAT                    = 0x00aa;
-194    int OP_ADD_DOUBLE                   = 0x00ab;
-195    int OP_SUB_DOUBLE                   = 0x00ac;
-196    int OP_MUL_DOUBLE                   = 0x00ad;
-197    int OP_DIV_DOUBLE                   = 0x00ae;
-198    int OP_REM_DOUBLE                   = 0x00af;
-199    int OP_ADD_INT_2ADDR                = 0x00b0;
-200    int OP_SUB_INT_2ADDR                = 0x00b1;
-201    int OP_MUL_INT_2ADDR                = 0x00b2;
-202    int OP_DIV_INT_2ADDR                = 0x00b3;
-203    int OP_REM_INT_2ADDR                = 0x00b4;
-204    int OP_AND_INT_2ADDR                = 0x00b5;
-205    int OP_OR_INT_2ADDR                 = 0x00b6;
-206    int OP_XOR_INT_2ADDR                = 0x00b7;
-207    int OP_SHL_INT_2ADDR                = 0x00b8;
-208    int OP_SHR_INT_2ADDR                = 0x00b9;
-209    int OP_USHR_INT_2ADDR               = 0x00ba;
-210    int OP_ADD_LONG_2ADDR               = 0x00bb;
-211    int OP_SUB_LONG_2ADDR               = 0x00bc;
-212    int OP_MUL_LONG_2ADDR               = 0x00bd;
-213    int OP_DIV_LONG_2ADDR               = 0x00be;
-214    int OP_REM_LONG_2ADDR               = 0x00bf;
-215    int OP_AND_LONG_2ADDR               = 0x00c0;
-216    int OP_OR_LONG_2ADDR                = 0x00c1;
-217    int OP_XOR_LONG_2ADDR               = 0x00c2;
-218    int OP_SHL_LONG_2ADDR               = 0x00c3;
-219    int OP_SHR_LONG_2ADDR               = 0x00c4;
-220    int OP_USHR_LONG_2ADDR              = 0x00c5;
-221    int OP_ADD_FLOAT_2ADDR              = 0x00c6;
-222    int OP_SUB_FLOAT_2ADDR              = 0x00c7;
-223    int OP_MUL_FLOAT_2ADDR              = 0x00c8;
-224    int OP_DIV_FLOAT_2ADDR              = 0x00c9;
-225    int OP_REM_FLOAT_2ADDR              = 0x00ca;
-226    int OP_ADD_DOUBLE_2ADDR             = 0x00cb;
-227    int OP_SUB_DOUBLE_2ADDR             = 0x00cc;
-228    int OP_MUL_DOUBLE_2ADDR             = 0x00cd;
-229    int OP_DIV_DOUBLE_2ADDR             = 0x00ce;
-230    int OP_REM_DOUBLE_2ADDR             = 0x00cf;
-231    int OP_ADD_INT_LIT16                = 0x00d0;
-232    int OP_RSUB_INT                     = 0x00d1;
-233    int OP_MUL_INT_LIT16                = 0x00d2;
-234    int OP_DIV_INT_LIT16                = 0x00d3;
-235    int OP_REM_INT_LIT16                = 0x00d4;
-236    int OP_AND_INT_LIT16                = 0x00d5;
-237    int OP_OR_INT_LIT16                 = 0x00d6;
-238    int OP_XOR_INT_LIT16                = 0x00d7;
-239    int OP_ADD_INT_LIT8                 = 0x00d8;
-240    int OP_RSUB_INT_LIT8                = 0x00d9;
-241    int OP_MUL_INT_LIT8                 = 0x00da;
-242    int OP_DIV_INT_LIT8                 = 0x00db;
-243    int OP_REM_INT_LIT8                 = 0x00dc;
-244    int OP_AND_INT_LIT8                 = 0x00dd;
-245    int OP_OR_INT_LIT8                  = 0x00de;
-246    int OP_XOR_INT_LIT8                 = 0x00df;
-247    int OP_SHL_INT_LIT8                 = 0x00e0;
-248    int OP_SHR_INT_LIT8                 = 0x00e1;
-249    int OP_USHR_INT_LIT8                = 0x00e2;
-250    int OP_INVOKE_POLYMORPHIC           = 0x00fa;
-251    int OP_INVOKE_POLYMORPHIC_RANGE     = 0x00fb;
-252    int OP_INVOKE_CUSTOM                = 0x00fc;
-253    int OP_INVOKE_CUSTOM_RANGE          = 0x00fd;
-254    int OP_CONST_METHOD_HANDLE          = 0x00fe;
-255    int OP_CONST_METHOD_TYPE            = 0x00ff;
-256    // END(libcore-opcodes)
+int OP_NOP = 0x0000;
+33 int OP_MOVE = 0x0001;
+34 int OP_MOVE_FROM16 = 0x0002;
+35 int OP_MOVE_16 = 0x0003;
+36 int OP_MOVE_WIDE = 0x0004;
+37 int OP_MOVE_WIDE_FROM16 = 0x0005;
+38 int OP_MOVE_WIDE_16 = 0x0006;
+39 int OP_MOVE_OBJECT = 0x0007;
+40 int OP_MOVE_OBJECT_FROM16 = 0x0008;
+41 int OP_MOVE_OBJECT_16 = 0x0009;
+42 int OP_MOVE_RESULT = 0x000a;
+43 int OP_MOVE_RESULT_WIDE = 0x000b;
+44 int OP_MOVE_RESULT_OBJECT = 0x000c;
+45 int OP_MOVE_EXCEPTION = 0x000d;
+46 int OP_RETURN_VOID = 0x000e;
+47 int OP_RETURN = 0x000f;
+48 int OP_RETURN_WIDE = 0x0010;
+49 int OP_RETURN_OBJECT = 0x0011;
+50 int OP_CONST_4 = 0x0012;
+51 int OP_CONST_16 = 0x0013;
+52 int OP_CONST = 0x0014;
+53 int OP_CONST_HIGH16 = 0x0015;
+54 int OP_CONST_WIDE_16 = 0x0016;
+55 int OP_CONST_WIDE_32 = 0x0017;
+56 int OP_CONST_WIDE = 0x0018;
+57 int OP_CONST_WIDE_HIGH16 = 0x0019;
+58 int OP_CONST_STRING = 0x001a;
+59 int OP_CONST_STRING_JUMBO = 0x001b;
+60 int OP_CONST_CLASS = 0x001c;
+61 int OP_MONITOR_ENTER = 0x001d;
+62 int OP_MONITOR_EXIT = 0x001e;
+63 int OP_CHECK_CAST = 0x001f;
+64 int OP_INSTANCE_OF = 0x0020;
+65 int OP_ARRAY_LENGTH = 0x0021;
+66 int OP_NEW_INSTANCE = 0x0022;
+67 int OP_NEW_ARRAY = 0x0023;
+68 int OP_FILLED_NEW_ARRAY = 0x0024;
+69 int OP_FILLED_NEW_ARRAY_RANGE = 0x0025;
+70 int OP_FILL_ARRAY_DATA = 0x0026;
+71 int OP_THROW = 0x0027;
+72 int OP_GOTO = 0x0028;
+73 int OP_GOTO_16 = 0x0029;
+74 int OP_GOTO_32 = 0x002a;
+75 int OP_PACKED_SWITCH = 0x002b;
+76 int OP_SPARSE_SWITCH = 0x002c;
+77 int OP_CMPL_FLOAT = 0x002d;
+78 int OP_CMPG_FLOAT = 0x002e;
+79 int OP_CMPL_DOUBLE = 0x002f;
+80 int OP_CMPG_DOUBLE = 0x0030;
+81 int OP_CMP_LONG = 0x0031;
+82 int OP_IF_EQ = 0x0032;
+83 int OP_IF_NE = 0x0033;
+84 int OP_IF_LT = 0x0034;
+85 int OP_IF_GE = 0x0035;
+86 int OP_IF_GT = 0x0036;
+87 int OP_IF_LE = 0x0037;
+88 int OP_IF_EQZ = 0x0038;
+89 int OP_IF_NEZ = 0x0039;
+90 int OP_IF_LTZ = 0x003a;
+91 int OP_IF_GEZ = 0x003b;
+92 int OP_IF_GTZ = 0x003c;
+93 int OP_IF_LEZ = 0x003d;
+94 int OP_AGET = 0x0044;
+95 int OP_AGET_WIDE = 0x0045;
+96 int OP_AGET_OBJECT = 0x0046;
+97 int OP_AGET_BOOLEAN = 0x0047;
+98 int OP_AGET_BYTE = 0x0048;
+99 int OP_AGET_CHAR = 0x0049;
+100 int OP_AGET_SHORT = 0x004a;
+101 int OP_APUT = 0x004b;
+102 int OP_APUT_WIDE = 0x004c;
+103 int OP_APUT_OBJECT = 0x004d;
+104 int OP_APUT_BOOLEAN = 0x004e;
+105 int OP_APUT_BYTE = 0x004f;
+106 int OP_APUT_CHAR = 0x0050;
+107 int OP_APUT_SHORT = 0x0051;
+108 int OP_IGET = 0x0052;
+109 int OP_IGET_WIDE = 0x0053;
+110 int OP_IGET_OBJECT = 0x0054;
+111 int OP_IGET_BOOLEAN = 0x0055;
+112 int OP_IGET_BYTE = 0x0056;
+113 int OP_IGET_CHAR = 0x0057;
+114 int OP_IGET_SHORT = 0x0058;
+115 int OP_IPUT = 0x0059;
+116 int OP_IPUT_WIDE = 0x005a;
+117 int OP_IPUT_OBJECT = 0x005b;
+118 int OP_IPUT_BOOLEAN = 0x005c;
+119 int OP_IPUT_BYTE = 0x005d;
+120 int OP_IPUT_CHAR = 0x005e;
+121 int OP_IPUT_SHORT = 0x005f;
+122 int OP_SGET = 0x0060;
+123 int OP_SGET_WIDE = 0x0061;
+124 int OP_SGET_OBJECT = 0x0062;
+125 int OP_SGET_BOOLEAN = 0x0063;
+126 int OP_SGET_BYTE = 0x0064;
+127 int OP_SGET_CHAR = 0x0065;
+128 int OP_SGET_SHORT = 0x0066;
+129 int OP_SPUT = 0x0067;
+130 int OP_SPUT_WIDE = 0x0068;
+131 int OP_SPUT_OBJECT = 0x0069;
+132 int OP_SPUT_BOOLEAN = 0x006a;
+133 int OP_SPUT_BYTE = 0x006b;
+134 int OP_SPUT_CHAR = 0x006c;
+135 int OP_SPUT_SHORT = 0x006d;
+136 int OP_INVOKE_VIRTUAL = 0x006e;
+137 int OP_INVOKE_SUPER = 0x006f;
+138 int OP_INVOKE_DIRECT = 0x0070;
+139 int OP_INVOKE_STATIC = 0x0071;
+140 int OP_INVOKE_INTERFACE = 0x0072;
+141 int OP_INVOKE_VIRTUAL_RANGE = 0x0074;
+142 int OP_INVOKE_SUPER_RANGE = 0x0075;
+143 int OP_INVOKE_DIRECT_RANGE = 0x0076;
+144 int OP_INVOKE_STATIC_RANGE = 0x0077;
+145 int OP_INVOKE_INTERFACE_RANGE = 0x0078;
+146 int OP_NEG_INT = 0x007b;
+147 int OP_NOT_INT = 0x007c;
+148 int OP_NEG_LONG = 0x007d;
+149 int OP_NOT_LONG = 0x007e;
+150 int OP_NEG_FLOAT = 0x007f;
+151 int OP_NEG_DOUBLE = 0x0080;
+152 int OP_INT_TO_LONG = 0x0081;
+153 int OP_INT_TO_FLOAT = 0x0082;
+154 int OP_INT_TO_DOUBLE = 0x0083;
+155 int OP_LONG_TO_INT = 0x0084;
+156 int OP_LONG_TO_FLOAT = 0x0085;
+157 int OP_LONG_TO_DOUBLE = 0x0086;
+158 int OP_FLOAT_TO_INT = 0x0087;
+159 int OP_FLOAT_TO_LONG = 0x0088;
+160 int OP_FLOAT_TO_DOUBLE = 0x0089;
+161 int OP_DOUBLE_TO_INT = 0x008a;
+162 int OP_DOUBLE_TO_LONG = 0x008b;
+163 int OP_DOUBLE_TO_FLOAT = 0x008c;
+164 int OP_INT_TO_BYTE = 0x008d;
+165 int OP_INT_TO_CHAR = 0x008e;
+166 int OP_INT_TO_SHORT = 0x008f;
+167 int OP_ADD_INT = 0x0090;
+168 int OP_SUB_INT = 0x0091;
+169 int OP_MUL_INT = 0x0092;
+170 int OP_DIV_INT = 0x0093;
+171 int OP_REM_INT = 0x0094;
+172 int OP_AND_INT = 0x0095;
+173 int OP_OR_INT = 0x0096;
+174 int OP_XOR_INT = 0x0097;
+175 int OP_SHL_INT = 0x0098;
+176 int OP_SHR_INT = 0x0099;
+177 int OP_USHR_INT = 0x009a;
+178 int OP_ADD_LONG = 0x009b;
+179 int OP_SUB_LONG = 0x009c;
+180 int OP_MUL_LONG = 0x009d;
+181 int OP_DIV_LONG = 0x009e;
+182 int OP_REM_LONG = 0x009f;
+183 int OP_AND_LONG = 0x00a0;
+184 int OP_OR_LONG = 0x00a1;
+185 int OP_XOR_LONG = 0x00a2;
+186 int OP_SHL_LONG = 0x00a3;
+187 int OP_SHR_LONG = 0x00a4;
+188 int OP_USHR_LONG = 0x00a5;
+189 int OP_ADD_FLOAT = 0x00a6;
+190 int OP_SUB_FLOAT = 0x00a7;
+191 int OP_MUL_FLOAT = 0x00a8;
+192 int OP_DIV_FLOAT = 0x00a9;
+193 int OP_REM_FLOAT = 0x00aa;
+194 int OP_ADD_DOUBLE = 0x00ab;
+195 int OP_SUB_DOUBLE = 0x00ac;
+196 int OP_MUL_DOUBLE = 0x00ad;
+197 int OP_DIV_DOUBLE = 0x00ae;
+198 int OP_REM_DOUBLE = 0x00af;
+199 int OP_ADD_INT_2ADDR = 0x00b0;
+200 int OP_SUB_INT_2ADDR = 0x00b1;
+201 int OP_MUL_INT_2ADDR = 0x00b2;
+202 int OP_DIV_INT_2ADDR = 0x00b3;
+203 int OP_REM_INT_2ADDR = 0x00b4;
+204 int OP_AND_INT_2ADDR = 0x00b5;
+205 int OP_OR_INT_2ADDR = 0x00b6;
+206 int OP_XOR_INT_2ADDR = 0x00b7;
+207 int OP_SHL_INT_2ADDR = 0x00b8;
+208 int OP_SHR_INT_2ADDR = 0x00b9;
+209 int OP_USHR_INT_2ADDR = 0x00ba;
+210 int OP_ADD_LONG_2ADDR = 0x00bb;
+211 int OP_SUB_LONG_2ADDR = 0x00bc;
+212 int OP_MUL_LONG_2ADDR = 0x00bd;
+213 int OP_DIV_LONG_2ADDR = 0x00be;
+214 int OP_REM_LONG_2ADDR = 0x00bf;
+215 int OP_AND_LONG_2ADDR = 0x00c0;
+216 int OP_OR_LONG_2ADDR = 0x00c1;
+217 int OP_XOR_LONG_2ADDR = 0x00c2;
+218 int OP_SHL_LONG_2ADDR = 0x00c3;
+219 int OP_SHR_LONG_2ADDR = 0x00c4;
+220 int OP_USHR_LONG_2ADDR = 0x00c5;
+221 int OP_ADD_FLOAT_2ADDR = 0x00c6;
+222 int OP_SUB_FLOAT_2ADDR = 0x00c7;
+223 int OP_MUL_FLOAT_2ADDR = 0x00c8;
+224 int OP_DIV_FLOAT_2ADDR = 0x00c9;
+225 int OP_REM_FLOAT_2ADDR = 0x00ca;
+226 int OP_ADD_DOUBLE_2ADDR = 0x00cb;
+227 int OP_SUB_DOUBLE_2ADDR = 0x00cc;
+228 int OP_MUL_DOUBLE_2ADDR = 0x00cd;
+229 int OP_DIV_DOUBLE_2ADDR = 0x00ce;
+230 int OP_REM_DOUBLE_2ADDR = 0x00cf;
+231 int OP_ADD_INT_LIT16 = 0x00d0;
+232 int OP_RSUB_INT = 0x00d1;
+233 int OP_MUL_INT_LIT16 = 0x00d2;
+234 int OP_DIV_INT_LIT16 = 0x00d3;
+235 int OP_REM_INT_LIT16 = 0x00d4;
+236 int OP_AND_INT_LIT16 = 0x00d5;
+237 int OP_OR_INT_LIT16 = 0x00d6;
+238 int OP_XOR_INT_LIT16 = 0x00d7;
+239 int OP_ADD_INT_LIT8 = 0x00d8;
+240 int OP_RSUB_INT_LIT8 = 0x00d9;
+241 int OP_MUL_INT_LIT8 = 0x00da;
+242 int OP_DIV_INT_LIT8 = 0x00db;
+243 int OP_REM_INT_LIT8 = 0x00dc;
+244 int OP_AND_INT_LIT8 = 0x00dd;
+245 int OP_OR_INT_LIT8 = 0x00de;
+246 int OP_XOR_INT_LIT8 = 0x00df;
+247 int OP_SHL_INT_LIT8 = 0x00e0;
+248 int OP_SHR_INT_LIT8 = 0x00e1;
+249 int OP_USHR_INT_LIT8 = 0x00e2;
+250 int OP_INVOKE_POLYMORPHIC = 0x00fa;
+251 int OP_INVOKE_POLYMORPHIC_RANGE = 0x00fb;
+252 int OP_INVOKE_CUSTOM = 0x00fc;
+253 int OP_INVOKE_CUSTOM_RANGE = 0x00fd;
+254 int OP_CONST_METHOD_HANDLE = 0x00fe;
+255 int OP_CONST_METHOD_TYPE = 0x00ff;
+256 // END(libcore-opcodes)
 257
-258    /** Never implemented; do not use. */
-259    int OP_CONST_CLASS_JUMBO            = 0x00ff;
-260    /** Never implemented; do not use. */
-261    int OP_CHECK_CAST_JUMBO             = 0x01ff;
-262    /** Never implemented; do not use. */
-263    int OP_INSTANCE_OF_JUMBO            = 0x02ff;
-264    /** Never implemented; do not use. */
-265    int OP_NEW_INSTANCE_JUMBO           = 0x03ff;
-266    /** Never implemented; do not use. */
-267    int OP_NEW_ARRAY_JUMBO              = 0x04ff;
-268    /** Never implemented; do not use. */
-269    int OP_FILLED_NEW_ARRAY_JUMBO       = 0x05ff;
-270    /** Never implemented; do not use. */
-271    int OP_IGET_JUMBO                   = 0x06ff;
-272    /** Never implemented; do not use. */
-273    int OP_IGET_WIDE_JUMBO              = 0x07ff;
-274    /** Never implemented; do not use. */
-275    int OP_IGET_OBJECT_JUMBO            = 0x08ff;
-276    /** Never implemented; do not use. */
-277    int OP_IGET_BOOLEAN_JUMBO           = 0x09ff;
-278    /** Never implemented; do not use. */
-279    int OP_IGET_BYTE_JUMBO              = 0x0aff;
-280    /** Never implemented; do not use. */
-281    int OP_IGET_CHAR_JUMBO              = 0x0bff;
-282    /** Never implemented; do not use. */
-283    int OP_IGET_SHORT_JUMBO             = 0x0cff;
-284    /** Never implemented; do not use. */
-285    int OP_IPUT_JUMBO                   = 0x0dff;
-286    /** Never implemented; do not use. */
-287    int OP_IPUT_WIDE_JUMBO              = 0x0eff;
-288    /** Never implemented; do not use. */
-289    int OP_IPUT_OBJECT_JUMBO            = 0x0fff;
-290    /** Never implemented; do not use. */
-291    int OP_IPUT_BOOLEAN_JUMBO           = 0x10ff;
-292    /** Never implemented; do not use. */
-293    int OP_IPUT_BYTE_JUMBO              = 0x11ff;
-294    /** Never implemented; do not use. */
-295    int OP_IPUT_CHAR_JUMBO              = 0x12ff;
-296    /** Never implemented; do not use. */
-297    int OP_IPUT_SHORT_JUMBO             = 0x13ff;
-298    /** Never implemented; do not use. */
-299    int OP_SGET_JUMBO                   = 0x14ff;
-300    /** Never implemented; do not use. */
-301    int OP_SGET_WIDE_JUMBO              = 0x15ff;
-302    /** Never implemented; do not use. */
-303    int OP_SGET_OBJECT_JUMBO            = 0x16ff;
-304    /** Never implemented; do not use. */
-305    int OP_SGET_BOOLEAN_JUMBO           = 0x17ff;
-306    /** Never implemented; do not use. */
-307    int OP_SGET_BYTE_JUMBO              = 0x18ff;
-308    /** Never implemented; do not use. */
-309    int OP_SGET_CHAR_JUMBO              = 0x19ff;
-310    /** Never implemented; do not use. */
-311    int OP_SGET_SHORT_JUMBO             = 0x1aff;
-312    /** Never implemented; do not use. */
-313    int OP_SPUT_JUMBO                   = 0x1bff;
-314    /** Never implemented; do not use. */
-315    int OP_SPUT_WIDE_JUMBO              = 0x1cff;
-316    /** Never implemented; do not use. */
-317    int OP_SPUT_OBJECT_JUMBO            = 0x1dff;
-318    /** Never implemented; do not use. */
-319    int OP_SPUT_BOOLEAN_JUMBO           = 0x1eff;
-320    /** Never implemented; do not use. */
-321    int OP_SPUT_BYTE_JUMBO              = 0x1fff;
-322    /** Never implemented; do not use. */
-323    int OP_SPUT_CHAR_JUMBO              = 0x20ff;
-324    /** Never implemented; do not use. */
-325    int OP_SPUT_SHORT_JUMBO             = 0x21ff;
-326    /** Never implemented; do not use. */
-327    int OP_INVOKE_VIRTUAL_JUMBO         = 0x22ff;
-328    /** Never implemented; do not use. */
-329    int OP_INVOKE_SUPER_JUMBO           = 0x23ff;
-330    /** Never implemented; do not use. */
-331    int OP_INVOKE_DIRECT_JUMBO          = 0x24ff;
-332    /** Never implemented; do not use. */
-333    int OP_INVOKE_STATIC_JUMBO          = 0x25ff;
-334    /** Never implemented; do not use. */
-335    int OP_INVOKE_INTERFACE_JUMBO       = 0x26ff;
+258 /** Never implemented; do not use. */
+259 int OP_CONST_CLASS_JUMBO = 0x00ff;
+260 /** Never implemented; do not use. */
+261 int OP_CHECK_CAST_JUMBO = 0x01ff;
+262 /** Never implemented; do not use. */
+263 int OP_INSTANCE_OF_JUMBO = 0x02ff;
+264 /** Never implemented; do not use. */
+265 int OP_NEW_INSTANCE_JUMBO = 0x03ff;
+266 /** Never implemented; do not use. */
+267 int OP_NEW_ARRAY_JUMBO = 0x04ff;
+268 /** Never implemented; do not use. */
+269 int OP_FILLED_NEW_ARRAY_JUMBO = 0x05ff;
+270 /** Never implemented; do not use. */
+271 int OP_IGET_JUMBO = 0x06ff;
+272 /** Never implemented; do not use. */
+273 int OP_IGET_WIDE_JUMBO = 0x07ff;
+274 /** Never implemented; do not use. */
+275 int OP_IGET_OBJECT_JUMBO = 0x08ff;
+276 /** Never implemented; do not use. */
+277 int OP_IGET_BOOLEAN_JUMBO = 0x09ff;
+278 /** Never implemented; do not use. */
+279 int OP_IGET_BYTE_JUMBO = 0x0aff;
+280 /** Never implemented; do not use. */
+281 int OP_IGET_CHAR_JUMBO = 0x0bff;
+282 /** Never implemented; do not use. */
+283 int OP_IGET_SHORT_JUMBO = 0x0cff;
+284 /** Never implemented; do not use. */
+285 int OP_IPUT_JUMBO = 0x0dff;
+286 /** Never implemented; do not use. */
+287 int OP_IPUT_WIDE_JUMBO = 0x0eff;
+288 /** Never implemented; do not use. */
+289 int OP_IPUT_OBJECT_JUMBO = 0x0fff;
+290 /** Never implemented; do not use. */
+291 int OP_IPUT_BOOLEAN_JUMBO = 0x10ff;
+292 /** Never implemented; do not use. */
+293 int OP_IPUT_BYTE_JUMBO = 0x11ff;
+294 /** Never implemented; do not use. */
+295 int OP_IPUT_CHAR_JUMBO = 0x12ff;
+296 /** Never implemented; do not use. */
+297 int OP_IPUT_SHORT_JUMBO = 0x13ff;
+298 /** Never implemented; do not use. */
+299 int OP_SGET_JUMBO = 0x14ff;
+300 /** Never implemented; do not use. */
+301 int OP_SGET_WIDE_JUMBO = 0x15ff;
+302 /** Never implemented; do not use. */
+303 int OP_SGET_OBJECT_JUMBO = 0x16ff;
+304 /** Never implemented; do not use. */
+305 int OP_SGET_BOOLEAN_JUMBO = 0x17ff;
+306 /** Never implemented; do not use. */
+307 int OP_SGET_BYTE_JUMBO = 0x18ff;
+308 /** Never implemented; do not use. */
+309 int OP_SGET_CHAR_JUMBO = 0x19ff;
+310 /** Never implemented; do not use. */
+311 int OP_SGET_SHORT_JUMBO = 0x1aff;
+312 /** Never implemented; do not use. */
+313 int OP_SPUT_JUMBO = 0x1bff;
+314 /** Never implemented; do not use. */
+315 int OP_SPUT_WIDE_JUMBO = 0x1cff;
+316 /** Never implemented; do not use. */
+317 int OP_SPUT_OBJECT_JUMBO = 0x1dff;
+318 /** Never implemented; do not use. */
+319 int OP_SPUT_BOOLEAN_JUMBO = 0x1eff;
+320 /** Never implemented; do not use. */
+321 int OP_SPUT_BYTE_JUMBO = 0x1fff;
+322 /** Never implemented; do not use. */
+323 int OP_SPUT_CHAR_JUMBO = 0x20ff;
+324 /** Never implemented; do not use. */
+325 int OP_SPUT_SHORT_JUMBO = 0x21ff;
+326 /** Never implemented; do not use. */
+327 int OP_INVOKE_VIRTUAL_JUMBO = 0x22ff;
+328 /** Never implemented; do not use. */
+329 int OP_INVOKE_SUPER_JUMBO = 0x23ff;
+330 /** Never implemented; do not use. */
+331 int OP_INVOKE_DIRECT_JUMBO = 0x24ff;
+332 /** Never implemented; do not use. */
+333 int OP_INVOKE_STATIC_JUMBO = 0x25ff;
+334 /** Never implemented; do not use. */
+335 int OP_INVOKE_INTERFACE_JUMBO = 0x26ff;
 336
-337    /*
-338     * The rest of these are either generated by dexopt for optimized
-339     * code, or inserted by the VM at runtime.  They are never generated
-340     * by "dx".
-341     *
-342     * They are all deprecated and will be removed in a future
-343     * release, since these declarations are really of private implementation
-344     * details that are subject to change.
-345     */
+337 /*
+338 * The rest of these are either generated by dexopt for optimized
+339 * code, or inserted by the VM at runtime. They are never generated
+340 * by "dx".
+341 *
+342 * They are all deprecated and will be removed in a future
+343 * release, since these declarations are really of private implementation
+344 * details that are subject to change.
+345 */
 346
-347    /**
-348     * Implementation detail.
-349     * @deprecated Implementation detail.
-350     */
-351    @Deprecated int OP_IGET_WIDE_VOLATILE           = 0xe8;
+347 /**
+348 * Implementation detail.
+349 * @deprecated Implementation detail.
+350 */
+351 @Deprecated int OP_IGET_WIDE_VOLATILE = 0xe8;
 352
-353    /**
-354     * Implementation detail.
-355     * @deprecated Implementation detail.
-356     */
-357    @Deprecated int OP_IPUT_WIDE_VOLATILE           = 0xe9;
+353 /**
+354 * Implementation detail.
+355 * @deprecated Implementation detail.
+356 */
+357 @Deprecated int OP_IPUT_WIDE_VOLATILE = 0xe9;
 358
-359    /**
-360     * Implementation detail.
-361     * @deprecated Implementation detail.
-362     */
-363    @Deprecated int OP_SGET_WIDE_VOLATILE           = 0xea;
+359 /**
+360 * Implementation detail.
+361 * @deprecated Implementation detail.
+362 */
+363 @Deprecated int OP_SGET_WIDE_VOLATILE = 0xea;
 364
-365    /**
-366     * Implementation detail.
-367     * @deprecated Implementation detail.
-368     */
-369    @Deprecated int OP_SPUT_WIDE_VOLATILE           = 0xeb;
+365 /**
+366 * Implementation detail.
+367 * @deprecated Implementation detail.
+368 */
+369 @Deprecated int OP_SPUT_WIDE_VOLATILE = 0xeb;
 370
-371    /**
-372     * Implementation detail.
-373     * @deprecated Implementation detail.
-374     */
-375    @Deprecated int OP_BREAKPOINT                   = 0xec;
+371 /**
+372 * Implementation detail.
+373 * @deprecated Implementation detail.
+374 */
+375 @Deprecated int OP_BREAKPOINT = 0xec;
 376
-377    /**
-378     * Implementation detail.
-379     * @deprecated Implementation detail.
-380     */
-381    @Deprecated int OP_THROW_VERIFICATION_ERROR     = 0xed;
+377 /**
+378 * Implementation detail.
+379 * @deprecated Implementation detail.
+380 */
+381 @Deprecated int OP_THROW_VERIFICATION_ERROR = 0xed;
 382
-383    /**
-384     * Implementation detail.
-385     * @deprecated Implementation detail.
-386     */
-387    @Deprecated int OP_EXECUTE_INLINE               = 0xee;
+383 /**
+384 * Implementation detail.
+385 * @deprecated Implementation detail.
+386 */
+387 @Deprecated int OP_EXECUTE_INLINE = 0xee;
 388
-389    /**
-390     * Implementation detail.
-391     * @deprecated Implementation detail.
-392     */
-393    @Deprecated int OP_EXECUTE_INLINE_RANGE         = 0xef;
+389 /**
+390 * Implementation detail.
+391 * @deprecated Implementation detail.
+392 */
+393 @Deprecated int OP_EXECUTE_INLINE_RANGE = 0xef;
 394
-395    /**
-396     * Implementation detail.
-397     * @deprecated Implementation detail.
-398     */
-399    @Deprecated int OP_INVOKE_DIRECT_EMPTY          = 0xf0;
+395 /**
+396 * Implementation detail.
+397 * @deprecated Implementation detail.
+398 */
+399 @Deprecated int OP_INVOKE_DIRECT_EMPTY = 0xf0;
 400
-401    /**
-402     * Implementation detail.
-403     * @deprecated Implementation detail.
-404     */
-405    @Deprecated int OP_IGET_QUICK                   = 0xf2;
+401 /**
+402 * Implementation detail.
+403 * @deprecated Implementation detail.
+404 */
+405 @Deprecated int OP_IGET_QUICK = 0xf2;
 406
-407    /**
-408     * Implementation detail.
-409     * @deprecated Implementation detail.
-410     */
-411    @Deprecated int OP_IGET_WIDE_QUICK              = 0xf3;
+407 /**
+408 * Implementation detail.
+409 * @deprecated Implementation detail.
+410 */
+411 @Deprecated int OP_IGET_WIDE_QUICK = 0xf3;
 412
-413    /**
-414     * Implementation detail.
-415     * @deprecated Implementation detail.
-416     */
-417    @Deprecated int OP_IGET_OBJECT_QUICK            = 0xf4;
+413 /**
+414 * Implementation detail.
+415 * @deprecated Implementation detail.
+416 */
+417 @Deprecated int OP_IGET_OBJECT_QUICK = 0xf4;
 418
-419    /**
-420     * Implementation detail.
-421     * @deprecated Implementation detail.
-422     */
-423    @Deprecated int OP_IPUT_QUICK                   = 0xf5;
+419 /**
+420 * Implementation detail.
+421 * @deprecated Implementation detail.
+422 */
+423 @Deprecated int OP_IPUT_QUICK = 0xf5;
 424
-425    /**
-426     * Implementation detail.
-427     * @deprecated Implementation detail.
-428     */
-429    @Deprecated int OP_IPUT_WIDE_QUICK              = 0xf6;
+425 /**
+426 * Implementation detail.
+427 * @deprecated Implementation detail.
+428 */
+429 @Deprecated int OP_IPUT_WIDE_QUICK = 0xf6;
 430
-431    /**
-432     * Implementation detail.
-433     * @deprecated Implementation detail.
-434     */
-435    @Deprecated int OP_IPUT_OBJECT_QUICK            = 0xf7;
+431 /**
+432 * Implementation detail.
+433 * @deprecated Implementation detail.
+434 */
+435 @Deprecated int OP_IPUT_OBJECT_QUICK = 0xf7;
 436
-437    /**
-438     * Implementation detail.
-439     * @deprecated Implementation detail.
-440     */
-441    @Deprecated int OP_INVOKE_VIRTUAL_QUICK         = 0xf8;
+437 /**
+438 * Implementation detail.
+439 * @deprecated Implementation detail.
+440 */
+441 @Deprecated int OP_INVOKE_VIRTUAL_QUICK = 0xf8;
 442
-443    /**
-444     * Implementation detail.
-445     * @deprecated Implementation detail.
-446     */
-447    @Deprecated int OP_INVOKE_VIRTUAL_QUICK_RANGE   = 0xf9;
+443 /**
+444 * Implementation detail.
+445 * @deprecated Implementation detail.
+446 */
+447 @Deprecated int OP_INVOKE_VIRTUAL_QUICK_RANGE = 0xf9;
 448
-449    /**
-450     * Implementation detail.
-451     * @deprecated Implementation detail.
-452     */
-453    @Deprecated int OP_INVOKE_SUPER_QUICK           = 0xfa;
+449 /**
+450 * Implementation detail.
+451 * @deprecated Implementation detail.
+452 */
+453 @Deprecated int OP_INVOKE_SUPER_QUICK = 0xfa;
 454
-455    /**
-456     * Implementation detail.
-457     * @deprecated Implementation detail.
-458     */
-459    @Deprecated int OP_INVOKE_SUPER_QUICK_RANGE     = 0xfb;
+455 /**
+456 * Implementation detail.
+457 * @deprecated Implementation detail.
+458 */
+459 @Deprecated int OP_INVOKE_SUPER_QUICK_RANGE = 0xfb;
 
 ```
 
 ### 反编译
+
 在Android中反编译主要通过dex2jar以及apktool来完成。
 
 （1）使用dex2jar和jd-gui反编译apk
@@ -1266,7 +1268,7 @@ Android 调试桥 (adb) 是一种功能多样的命令行工具，可让您与�
 * 服务器：用于管理客户端与守护程序之间的通信。服务器在开发机器上作为后台进程运行。
 * adb 包含在 Android SDK 平台工具软件包中
 
-### Logcat 
+### Logcat
 
 Logcat 是一个命令行工具，用于转储系统消息日志，包括设备抛出错误时的堆栈轨迹，以及从您的应用使用 Log 类写入的消息。
 
@@ -1327,20 +1329,20 @@ Android项目是由gradle管理的，一般外层放一个文件
 
 ```
 buildscript {
-    repositories {
-        jcenter()
-        google()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'    
-    }
+repositories {
+jcenter()
+google()
+}
+dependencies {
+classpath 'com.android.tools.build:gradle:3.4.0'
+}
 }
 
 allprojects {
-    repositories {
-        jcenter()
-        google()
-    }
+repositories {
+jcenter()
+google()
+}
 }
 
 
@@ -1356,50 +1358,50 @@ apply plugin: 'com.android.library'
 group='com.github.yourpackage'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 3
-        versionName '3.1.0'
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    testOptions {
-        unitTests.returnDefaultValues = true // this prevents "not mocked" error
-    }
+compileSdkVersion 28
+buildToolsVersion '28.0.3'
+defaultConfig {
+minSdkVersion 14
+targetSdkVersion 28
+versionCode 3
+versionName '3.1.0'
+}
+buildTypes {
+release {
+minifyEnabled false
+proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+}
+}
+testOptions {
+unitTests.returnDefaultValues = true // this prevents "not mocked" error
+}
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.0.0'
-    testImplementation 'junit:junit:4.12'
+implementation 'androidx.annotation:annotation:1.0.0'
+testImplementation 'junit:junit:4.12'
 }
 
 task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+from android.sourceSets.main.java.srcDirs
+classifier = 'sources'
 }
 
 task javadoc(type: Javadoc) {
-    options.charSet = 'UTF-8'
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+options.charSet = 'UTF-8'
+failOnError false
+source = android.sourceSets.main.java.sourceFiles
+classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
+classifier = 'javadoc'
+from javadoc.destinationDir
 }
 
 artifacts {
-    archives sourcesJar
-    archives javadocJar
+archives sourcesJar
+archives javadocJar
 }
 
 
@@ -1411,27 +1413,27 @@ artifacts {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    defaultConfig {
-        applicationId "yourpackage"
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 57
-        versionName '3.1.0'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
+compileSdkVersion 28
+defaultConfig {
+applicationId "yourpackage"
+minSdkVersion 16
+targetSdkVersion 28
+versionCode 57
+versionName '3.1.0'
+testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+}
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+buildTypes {
+release {
+minifyEnabled false
+proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+}
+}
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:1.0.2"
-    implementation 'com.google.android.material:material:1.0.0'
+implementation "androidx.appcompat:appcompat:1.0.2"
+implementation 'com.google.android.material:material:1.0.0'
 }
 
 ```
@@ -1451,57 +1453,57 @@ targetSdkVersion
 ```
 1、build
 
-    模块编译后的文件存放目录。
+模块编译后的文件存放目录。
 
 2、libs
 
-    模块依赖的jar包存放目录。
+模块依赖的jar包存放目录。
 
 3、src/androidTest
 
-    设备化测试代码存放目录。
+设备化测试代码存放目录。
 
 4、src/main/java
 
-    代码存放目录，该目录等同于Eclipse里面的src目录。
+代码存放目录，该目录等同于Eclipse里面的src目录。
 
 5、src/main/res
 
-    资源文件存放目录，该目录等同于Eclipse里面的res目录，后面详细介绍。
+资源文件存放目录，该目录等同于Eclipse里面的res目录，后面详细介绍。
 
 6、src/main/AndroidManifest.xml
 
-    应用程序的基本信息清单，等同于Eclipse中的AndroidManifest.xml文件。
+应用程序的基本信息清单，等同于Eclipse中的AndroidManifest.xml文件。
 
 7、src/test
 
-    测试代码存放目录。
+测试代码存放目录。
 
 8、.gitignore
 
-    模块中Git版本管理忽略文件，标记出哪些文件不用进入git库中。
+模块中Git版本管理忽略文件，标记出哪些文件不用进入git库中。
 
 9、app.iml
 
-    模块配置文件。
+模块配置文件。
 
 10、build.gradle
 
-    模块的gradle构建配置文件。
+模块的gradle构建配置文件。
 
 11、proguard-rules.pro
 
-    代码混淆文件。
+代码混淆文件。
 
-    除了上述所描述的文件和文件夹，以后开发过程中可能还会遇到这些：
+除了上述所描述的文件和文件夹，以后开发过程中可能还会遇到这些：
 
 11、src/main/jniLibs
 
-    so文件存放目录。
+so文件存放目录。
 
 12、src/main/assets
 
-    附加的资源文件存放目录，作用同Eclipse中的assets目录。
+附加的资源文件存放目录，作用同Eclipse中的assets目录。
 ```
 
 或者
@@ -1538,12 +1540,12 @@ ViewGroup的子类
 一个Activity的代码如下
 ```java
 public class MainActivity extends AppCompatActivity {
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-        }
-    }
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+}
+}
 ```
 R.layout就是指定的布局文件，R是自动生成的类，不需要我们控制。
 
@@ -1573,6 +1575,53 @@ Fragment表示Activity中的部分行为或者UI。我们可以将多个framgent
 Fragment必须嵌入到Activity中，且其生命周期会直接被宿主Activity的生命周期影响。
 
 
+```
+Fragment是依赖于Activity的，不能独立存在的。
+一个Activity里可以有多个Fragment。
+一个Fragment可以被多个Activity重用。
+Fragment有自己的生命周期，并能接收输入事件。
+我们能在Activity运行时动态地添加或删除Fragment。
+
+```
+
+
+Fragment的优势有以下几点：
+
+```
+模块化（Modularity）：我们不必把所有代码全部写在Activity中，而是把代码写在各自的Fragment中。
+可重用（Reusability）：多个Activity可以重用一个Fragment。
+可适配（Adaptability）：根据硬件的屏幕尺寸、屏幕方向，能够方便地实现不同的布局，这样用户体验更好。
+```
+
+在Activity中添加Fragment的方式有两种：
+
+```
+静态添加：通过xml的方式添加，缺点是一旦添加就不能在运行时删除。
+动态添加：运行时添加，这种方式比较灵活，因此建议使用这种方式。
+虽然Fragment能在XML中添加，但是这只是一个语法糖而已，Fragment并不是一个View，而是和Activity同一层次的。
+```
+
+动态添加的代码：
+
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+mAFragment = new AFragment();
+
+getFragmentManager().beginTransaction()
+.replace(R.id.main_container, mAFragment).commit();
+getFragmentManager().beginTransaction().show(mAFragment);
+}
+```
+
+
+这里我们在Activity中获取FragmentManager然后再进一步获取到FragmentTransaction对象将我们new出来的AFragment add到FrameLayout中。效果图跟上面第一种实现方式一致我就不贴图了。
+这种动态加载Fragment的方式十分灵活，可以让我们在代码当中动态的决定加载哪些Fragment显示出来。这里我们需要重点关注的是FragmentTransaction对象。除了例子当中使用的add操作以外，它还有replace,hide,show,remove等操作
+
+
+
 我们至少需要实现以下生命周期方法：
 
 onCreate()
@@ -1588,7 +1637,29 @@ onPause()
 
 Activity与Fragment之间最重要的不同在于两者在返回栈的保存方式。Activity被放置在由系统管理的返回栈中(More information, see Tasks and Back Stack)。然而，Fragment被放置在由宿主Activity管理的返回栈中。
 
-## 基础 
+完整生命周期如下
+
+```
+onAttach()：Fragment和Activity相关联时调用。可以通过该方法获取Activity引用，还可以通过getArguments()获取参数。
+onCreate()：Fragment被创建时调用。
+onCreateView()：创建Fragment的布局。
+onActivityCreated()：当Activity完成onCreate()时调用。
+onStart()：当Fragment可见时调用。
+onResume()：当Fragment可见且可交互时调用。
+onPause()：当Fragment不可交互但可见时调用。
+onStop()：当Fragment不可见时调用。
+onDestroyView()：当Fragment的UI从视图结构中移除时调用。
+onDestroy()：销毁Fragment时调用。
+onDetach()：当Fragment和Activity解除关联时调用。
+```
+
+
+Fragment的应用场景最多的便是ViewPager+Fragment的实现，现在主流的APP几乎都能看到它们的身影。ViewPager+Fragment结构相信绝大多数的人都用ViewPager+Fragment的形式实现过界面，同时目前市面上主流的APP也都是采用这种结构来进行UI架构的
+
+
+
+
+## 基础
 
 前面的层次图显示我们可以工作在各个层，各个层对编程技术的要求是不一样的，所以编程语言也不一样，应用层我们可以使用java,kotiln，往下就只能用C++或者C, 由于开发人员总是在追求应用层开发的快捷性，所以发明了
 其他的一些编程方案，比如用web技术的react native,比如用flutter，但是注意，复杂性不会消失，引入新的开发模式就会有新的问题和新的约束。
@@ -1620,6 +1691,7 @@ Activity表达界面，是用户交互的入口点，不是界面的就是Servic
 广播接收器可以理解为消息中间件，更常见的用途只是作为通向其他组件的通道，旨在执行极少量的工作，许多广播均由系统发起，广播接收器作为 BroadcastReceiver 的子类实现，并且每条广播都作为 Intent 对象进行传递
 
 内容提供程序管理一组共享的应用数据，您可以将这些数据存储在文件系统、SQLite 数据库、网络中或者您的应用可访问的任何其他持久化存储位置。其他应用可通过内容提供程序查询或修改数据（如果内容提供程序允许），像级后端研发中的RPC。
+
 内容提供程序是应用的入口点，用于发布由 URI 架构识别的已命名数据项。因此，应用可以决定如何将其包含的数据映射到 URI 命名空间，进而将这些 URI 分发给其他实体。反之，这些实体也可使用分发的 URI 来访问数据。
 
 
@@ -1639,33 +1711,33 @@ Activity表达界面，是用户交互的入口点，不是界面的就是Servic
 下表提供 AndroidManifest.xml 文件中所有有效元素的参考文档链接。
 
 ```
-<action>	向 Intent 过滤器添加操作。
-<activity>	声明 Activity 组件。
-<activity-alias>	声明 Activity 的别名。
-<application>	应用的声明。
-<category>	向 Intent 过滤器添加类别名称。
-<compatible-screens>	指定与应用兼容的每个屏幕配置。
-<data>	向 Intent 过滤器添加数据规范。
-<grant-uri-permission>	指定父级内容提供程序有权访问的应用数据的子集。
-<instrumentation>	声明支持您监控应用与系统进行交互的 Instrumentation 类。
-<intent-filter>	指定 Activity、服务或广播接收器可以响应的 Intent 类型。
-<manifest>	AndroidManifest.xml 文件的根元素。
-<meta-data>	可以提供给父级组件的其他任意数据项的名称-值对。
-<path-permission>	定义内容提供程序中特定数据子集的路径和所需权限。
-<permission>	声明安全权限，可用于限制对此应用或其他应用的特定组件或功能的访问。
-<permission-group>	为相关权限的逻辑分组声明名称。
-<permission-tree>	声明权限树的基本名称。
-<provider>	声明内容提供程序组件。
-<receiver>	声明广播接收器组件。
-<service>	声明服务组件。
-<supports-gl-texture>	声明应用支持的一种 GL 纹理压缩格式。
-<supports-screens>	声明应用支持的屏幕尺寸，并为大于此尺寸的屏幕启用屏幕兼容模式。
-<uses-configuration>	指明应用要求的特定输入功能。
-<uses-feature>	声明应用使用的单个硬件或软件功能。
-<uses-library>	指定应用必须链接到的共享库。
-<uses-permission>	指定为使应用正常运行，用户必须授予的系统权限。
-<uses-permission-sdk-23>	指明应用需要特定权限，但仅当应用在运行 Android 6.0（API 级别 23）或更高版本的设备上安装时才需要。
-<uses-sdk>	您可以通过整数形式的 API 级别，表示应用与一个或多个版本的 Android 平台的兼容性。
+<action> 向 Intent 过滤器添加操作。
+<activity> 声明 Activity 组件。
+<activity-alias> 声明 Activity 的别名。
+<application> 应用的声明。
+<category> 向 Intent 过滤器添加类别名称。
+<compatible-screens> 指定与应用兼容的每个屏幕配置。
+<data> 向 Intent 过滤器添加数据规范。
+<grant-uri-permission> 指定父级内容提供程序有权访问的应用数据的子集。
+<instrumentation> 声明支持您监控应用与系统进行交互的 Instrumentation 类。
+<intent-filter> 指定 Activity、服务或广播接收器可以响应的 Intent 类型。
+<manifest> AndroidManifest.xml 文件的根元素。
+<meta-data> 可以提供给父级组件的其他任意数据项的名称-值对。
+<path-permission> 定义内容提供程序中特定数据子集的路径和所需权限。
+<permission> 声明安全权限，可用于限制对此应用或其他应用的特定组件或功能的访问。
+<permission-group> 为相关权限的逻辑分组声明名称。
+<permission-tree> 声明权限树的基本名称。
+<provider> 声明内容提供程序组件。
+<receiver> 声明广播接收器组件。
+<service> 声明服务组件。
+<supports-gl-texture> 声明应用支持的一种 GL 纹理压缩格式。
+<supports-screens> 声明应用支持的屏幕尺寸，并为大于此尺寸的屏幕启用屏幕兼容模式。
+<uses-configuration> 指明应用要求的特定输入功能。
+<uses-feature> 声明应用使用的单个硬件或软件功能。
+<uses-library> 指定应用必须链接到的共享库。
+<uses-permission> 指定为使应用正常运行，用户必须授予的系统权限。
+<uses-permission-sdk-23> 指明应用需要特定权限，但仅当应用在运行 Android 6.0（API 级别 23）或更高版本的设备上安装时才需要。
+<uses-sdk> 您可以通过整数形式的 API 级别，表示应用与一个或多个版本的 Android 平台的兼容性。
 ```
 
 
@@ -1737,7 +1809,7 @@ mipmap
 * onStart，此回调包含 Activity 进入前台与用户进行互动之前的最后准备工作
 * onResume，会在 Activity 开始与用户互动之前调用此回调。此时，该 Activity 位于 Activity 堆栈的顶部，并会捕获所有用户输入
 * onPause，Activity 失去焦点并进入“已暂停”状态时，系统就会调用
-* onStop， Activity 对用户不再可见时，系统会调用 
+* onStop， Activity 对用户不再可见时，系统会调用
 * onRestart，当处于“已停止”状态的 Activity 即将重启时，系统就会调用此回调
 * onDestroy，系统会在销毁 Activity 之前调用此回调
 
@@ -1752,6 +1824,7 @@ mipmap
 
 
 ### 进程生命
+
 在大多数情况下，每个 Android 应用都在各自的 Linux 进程中运行。当需要运行应用的一些代码时，系统会为应用创建此进程，并使其保持运行，直到不再需要它且系统需要回收其内存以供其他应用使用。
 应用开发者必须了解不同的应用组件（特别是 Activity、Service 和 BroadcastReceiver）对应用进程的生命周期有何影响。这些组件使用不当会导致系统在应用进程正执行重要任务时将它终止。
 
@@ -1768,6 +1841,14 @@ Android 架构组件是一组库，可帮助您设计稳健、可测试且易维
 * 使用 LiveData 构建数据对象，在基础数据库改变时通知视图。
 * ViewModel 存储界面相关的数据，这些数据不会在应用旋转时销毁。
 * Room 是一个 SQLite 对象映射库。它可用来避免样板代码，还可以轻松地将 SQLite 表数据转换为 Java 对象。Room 提供 SQLite 语句的编译时检查，并且可以返回 RxJava、Flowable 和 LiveData 可观察对象。
+
+
+Jetpack 其实不是什么新东西，是把之前发布的一些东西分门别类，取了个高大上的名称，其中架构组件是重头戏。
+
+架构组件 (Architecture Components)
+基础组件 (Foundation Components)
+界面组件 (UI Components)
+行为组件 (Behavior Components)
 
 ### 应用级开发架构
 
@@ -1807,6 +1888,7 @@ OpenGL ES （Embedded Systems）：OpenGL ES 是针对嵌入式设备的 OpenGL 
 Vulkan：它是一个低开销、跨平台的 3D 图形和计算 API。Vulkan 的目标是跨所有平台的高性能实时 3D 图形应用程序，旨在提供更高的性能和更均衡的 CPU / GPU 使用。
 
 Android 7.0 把 OpenGL ES 升级到最新的 3.2 版本的同时，还添加了对 Vulkan 的支持。Vulkan 的设计目标是取代 OpenGL，Vulkan 是一个相当低级别的 API，并且提供并行的任务处理。Vulkan 还能够渲染 2D 图形应用程序。
+
 除了其较低的 CPU 使用率，Vulkan 还能够更好地在多个 CPU 内核之间分配工作。在功耗、多核优化提升绘图调用上有着非常明显的优势。
 
 
@@ -1818,6 +1900,7 @@ Android的界面构造一般模式从上往下：
 内容区域
 导航栏
 ```
+
 操作栏叫做ActionBar,在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕
 
 ### 单位
@@ -1867,17 +1950,17 @@ px = dp * (dpi / 160)
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical" >
-    <TextView android:id="@+id/text"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Hello, I am a TextView" />
-    <Button android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello, I am a Button" />
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical" >
+<TextView android:id="@+id/text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Hello, I am a TextView" />
+<Button android:id="@+id/button"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Hello, I am a Button" />
 </LinearLayout>
 ```
 
@@ -1899,6 +1982,7 @@ Button myButton = (Button) findViewById(R.id.my_button);
 不要使用绝对单位（如像素）来指定布局宽度和高度。更好的方法是使用相对测量单位（如与密度无关的像素单位 dp、wrap_content 或 match_parent），因为这样有助于确保您的应用在各类尺寸的设备屏幕上正确显示
 
 视图的几何形状就是矩形的几何形状，视图拥有一个位置（以一对“水平向左”和“垂直向上”的坐标表示）和两个尺寸（以宽度和高度表示）。位置和尺寸的单位是像素，视图拥有两对宽度和高度值，第一对称为“测量宽度”和“测量高度”。这些尺寸定义视图希望在其父项内具有的大小。您可通过调用 getMeasuredWidth() 和 getMeasuredHeight() 来获得这些测量尺寸。
+
 第二对简称为“宽度”和“高度”，有时称为“绘制宽度”和“绘制高度”，为了测量尺寸，视图需将其内边距考虑在内。内边距以视图左侧、顶部、右侧和底部各部分的像素数表示，尽管视图可以定义内边距，但它并不支持外边距。
 
 
@@ -1936,7 +2020,7 @@ DigitalClock
 DatePicker
 TimePicker
 WebView
-Switch：开关  
+Switch：开关
 计时器（Chronometer）
 ListView
 Spinner
@@ -1950,8 +2034,8 @@ ProgressDialog
 PopupWindow
 SubMenu
 ContextMenu
-PopupMenu 
-ActionBar 
+PopupMenu
+ActionBar
 Toast
 CalendarView
 ```
@@ -1988,17 +2072,17 @@ requestFocus()
 
 ```
 <view xmlns:android="http://schemas.android.com/apk/res/android"
-    class="com.example.android.notepad.NoteEditor$LinedEditText"
-    android:id="@+id/note"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:padding="5dp"
-    android:scrollbars="vertical"
-    android:fadingEdge="vertical"
-    android:gravity="top"
-    android:textSize="22sp"
-    android:capitalize="sentences"
+class="com.example.android.notepad.NoteEditor$LinedEditText"
+android:id="@+id/note"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@android:color/transparent"
+android:padding="5dp"
+android:scrollbars="vertical"
+android:fadingEdge="vertical"
+android:gravity="top"
+android:textSize="22sp"
+android:capitalize="sentences"
 />
 ```
 
@@ -2012,27 +2096,27 @@ Canvas用于托管绘图，可以使用Paint画笔对象在画布绘制很多东
 
 ```
 //绘制过程中需要用到的绘图基元(即绘制相关)
-	1)  drawArc()//绘制圆弧；
-	2)  drawBitmap()//绘制Bitmap图像；
-	3)  drawCircle()//绘制圆圈；
-	4)  drawLine()//绘制线条；
-	5)  drawOval()//绘制椭圆；
-	6)  drawPath()//绘制Path路径；
-	7)  drawPicture()//绘制Picture图片；
-	8)  drawRect()//绘制矩形；
-	9)  drawRoundRect()//绘制圆角矩形；
-	10) drawText()//绘制文本；
-	11) drawVertices()//绘制顶点。
+1) drawArc()//绘制圆弧；
+2) drawBitmap()//绘制Bitmap图像；
+3) drawCircle()//绘制圆圈；
+4) drawLine()//绘制线条；
+5) drawOval()//绘制椭圆；
+6) drawPath()//绘制Path路径；
+7) drawPicture()//绘制Picture图片；
+8) drawRect()//绘制矩形；
+9) drawRoundRect()//绘制圆角矩形；
+10) drawText()//绘制文本；
+11) drawVertices()//绘制顶点。
 
-	//与层的保存和回滚相关的方法；
-	1)  canvas.save()//把当前绘制的图像保存起来，让后续的操作相当于是在一个新图层上绘制；
-	2)  canvas.restore()//把当前画布调整到上一个save()之前的状态；
-	
-	//对画布进行操作的方法
-	1)  canvas.translate(dx, dy)//把当前画布的原点移到(dx, dy)点，后续操作都以(dx, dy)点作为参照；
-	2)  canvas.scale(x, y)//将当前画布在水平方向上缩放x倍，竖直方向上缩放y倍；
-	3)  canvas.rotate(angle)//将当前画布顺时针旋转angle度。
-	
+//与层的保存和回滚相关的方法；
+1) canvas.save()//把当前绘制的图像保存起来，让后续的操作相当于是在一个新图层上绘制；
+2) canvas.restore()//把当前画布调整到上一个save()之前的状态；
+
+//对画布进行操作的方法
+1) canvas.translate(dx, dy)//把当前画布的原点移到(dx, dy)点，后续操作都以(dx, dy)点作为参照；
+2) canvas.scale(x, y)//将当前画布在水平方向上缩放x倍，竖直方向上缩放y倍；
+3) canvas.rotate(angle)//将当前画布顺时针旋转angle度。
+
 ```
 
 Paint类
@@ -2040,70 +2124,70 @@ Paint类
 Paint描述绘图的颜色和样式，即画笔对象。这个类中包含了如何绘制几何图形、文字和位图的样式和颜色信息，指定了如何绘制文本和图形。画笔对象右很多设置方法，大体上可以分为两类：一类与图形绘制有关，一类与文本绘制有关。
 
 ```
-    //图形绘制之画笔设置
-	//设置绘制的颜色，a表示透明度，r、g、b表示颜色值；
-	1)  setArgb(int a, int r, int g, int b)
-	//设置绘制的图形的透明度；
-	2)  setAlpha(int a)
-	//设置绘制的颜色；
-	3)  setColor(int color)
-	//设置是否使用抗锯齿功能，抗锯齿功能会消耗较大资源，绘制图形的速度会减慢；
-	4)  setAntiAlias(boolean a)
-	//设置是否使用图像抖动处理，会使图像颜色更加平滑饱满，更加清晰；
-	5)  setDither(boolean b)
-	//设置是否在动画中滤掉Bitmap的优化，可以加快显示速度；
-	6)  setFileterBitmap(Boolean b)
-	//设置MaskFilter来实现滤镜的效果；
-	7)  setMaskFilter(MaskFilter mf)
-	//设置颜色过滤器，可以在绘制颜色时实现不同颜色的变换效果；
-	8)  setColorFilter(ColorFilter cf)
-	//设置绘制的路径的效果；
-	9)  setPathEffect(PathEffect pe)
-	//设置Shader绘制各种渐变效果；
-	10) setShader(Shader s)
-	//在图形下面设置阴影层，r为阴影角度，x和y为阴影在x轴和y轴上的距离，c为阴影的颜色；
-	11) setShadowLayer(float r, int x, int y, int c)
-	//设置画笔的样式：FILL实心；STROKE空心；FILL_OR_STROKE同时实心与空心；
-	12) setStyle(Paint.Style s)
-	//当设置画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的图形样式；
-	13) setStrokeCap(Paint.Cap c)
-	//设置绘制时各图形的结合方式；
-	14) setStrokeJoin(Paint.Join j)
-	//当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的粗细度；
-	15) setStrokeWidth(float w)
-	//设置图形重叠时的处理方式；
-	16) setXfermode(Xfermode m)
-	
+//图形绘制之画笔设置
+//设置绘制的颜色，a表示透明度，r、g、b表示颜色值；
+1) setArgb(int a, int r, int g, int b)
+//设置绘制的图形的透明度；
+2) setAlpha(int a)
+//设置绘制的颜色；
+3) setColor(int color)
+//设置是否使用抗锯齿功能，抗锯齿功能会消耗较大资源，绘制图形的速度会减慢；
+4) setAntiAlias(boolean a)
+//设置是否使用图像抖动处理，会使图像颜色更加平滑饱满，更加清晰；
+5) setDither(boolean b)
+//设置是否在动画中滤掉Bitmap的优化，可以加快显示速度；
+6) setFileterBitmap(Boolean b)
+//设置MaskFilter来实现滤镜的效果；
+7) setMaskFilter(MaskFilter mf)
+//设置颜色过滤器，可以在绘制颜色时实现不同颜色的变换效果；
+8) setColorFilter(ColorFilter cf)
+//设置绘制的路径的效果；
+9) setPathEffect(PathEffect pe)
+//设置Shader绘制各种渐变效果；
+10) setShader(Shader s)
+//在图形下面设置阴影层，r为阴影角度，x和y为阴影在x轴和y轴上的距离，c为阴影的颜色；
+11) setShadowLayer(float r, int x, int y, int c)
+//设置画笔的样式：FILL实心；STROKE空心；FILL_OR_STROKE同时实心与空心；
+12) setStyle(Paint.Style s)
+//当设置画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的图形样式；
+13) setStrokeCap(Paint.Cap c)
+//设置绘制时各图形的结合方式；
+14) setStrokeJoin(Paint.Join j)
+//当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的粗细度；
+15) setStrokeWidth(float w)
+//设置图形重叠时的处理方式；
+16) setXfermode(Xfermode m)
 
-	//文本绘制之画笔设置
-	//设置绘制的文本的对齐方式；
-	1)  setTextAlign(Path.Align a)
-	//设置文本在X轴的缩放比例，可以实现文字的拉伸效果；
-	2)  setTextScaleX(float s)
-	//设置字号；
-	3)  setTextSize(float s)
-	//设置斜体文字，s是文字倾斜度；
-	4)  setTextSkewX(float s)
-	//设置字体风格，包括粗体、斜体等；
-	5)  setTypeFace(TypeFace tf)
-	//设置绘制的文本是否带有下划线效果；
-	6)  setUnderlineText(boolean b)
-	//设置绘制的文本是否带有删除线效果；
-	7)  setStrikeThruText(boolean b)
-	//模拟实现粗体文字，如果设置在小字体上效果会非常差；
-	8)  setFakeBoldText(boolean b)
-	//如果设置为true则有助于文本在LCD屏幕上显示效果；
-	9)  setSubpixelText(boolean b)
 
-	//画笔其他功能型方法
-	//清除阴影层；
-	1)  clearShadowLayer()
-	//重置画笔为默认值。
-	2)  reset()
-	//将页面中t文本从s下标开始到e下标结束的所有字符所占的区域宽高封装到b这个矩形中；
-	3)  getTextBounds(String t, int s, int e, Rect b)
-	//返回t文本中从s下标开始到e下标结束的所有字符所占的宽度；
-	4)  measureText(String t, int s, int e)
+//文本绘制之画笔设置
+//设置绘制的文本的对齐方式；
+1) setTextAlign(Path.Align a)
+//设置文本在X轴的缩放比例，可以实现文字的拉伸效果；
+2) setTextScaleX(float s)
+//设置字号；
+3) setTextSize(float s)
+//设置斜体文字，s是文字倾斜度；
+4) setTextSkewX(float s)
+//设置字体风格，包括粗体、斜体等；
+5) setTypeFace(TypeFace tf)
+//设置绘制的文本是否带有下划线效果；
+6) setUnderlineText(boolean b)
+//设置绘制的文本是否带有删除线效果；
+7) setStrikeThruText(boolean b)
+//模拟实现粗体文字，如果设置在小字体上效果会非常差；
+8) setFakeBoldText(boolean b)
+//如果设置为true则有助于文本在LCD屏幕上显示效果；
+9) setSubpixelText(boolean b)
+
+//画笔其他功能型方法
+//清除阴影层；
+1) clearShadowLayer()
+//重置画笔为默认值。
+2) reset()
+//将页面中t文本从s下标开始到e下标结束的所有字符所占的区域宽高封装到b这个矩形中；
+3) getTextBounds(String t, int s, int e, Rect b)
+//返回t文本中从s下标开始到e下标结束的所有字符所占的宽度；
+4) measureText(String t, int s, int e)
 ```
 
 
@@ -2219,39 +2303,39 @@ View 的点击事件是在 ACTION_UP 事件处理的时候执行的，所以要�
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape=["rectangle" | "oval" | "line" | "ring"] >
-    <corners
-        android:radius="integer"
-        android:topLeftRadius="integer"
-        android:topRightRadius="integer"
-        android:bottomLeftRadius="integer"
-        android:bottomRightRadius="integer" />
-    <gradient
-        android:angle="integer"
-        android:centerX="float"
-        android:centerY="float"
-        android:centerColor="integer"
-        android:endColor="color"
-        android:gradientRadius="integer"
-        android:startColor="color"
-        android:type=["linear" | "radial" | "sweep"]
-        android:useLevel=["true" | "false"] />
-    <padding
-        android:left="integer"
-        android:top="integer"
-        android:right="integer"
-        android:bottom="integer" />
-    <size
-        android:width="integer"
-        android:height="integer" />
-    <solid
-        android:color="color" />
-    <stroke
-        android:width="integer"
-        android:color="color"
-        android:dashWidth="integer"
-        android:dashGap="integer" />
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:shape=["rectangle" | "oval" | "line" | "ring"] >
+<corners
+android:radius="integer"
+android:topLeftRadius="integer"
+android:topRightRadius="integer"
+android:bottomLeftRadius="integer"
+android:bottomRightRadius="integer" />
+<gradient
+android:angle="integer"
+android:centerX="float"
+android:centerY="float"
+android:centerColor="integer"
+android:endColor="color"
+android:gradientRadius="integer"
+android:startColor="color"
+android:type=["linear" | "radial" | "sweep"]
+android:useLevel=["true" | "false"] />
+<padding
+android:left="integer"
+android:top="integer"
+android:right="integer"
+android:bottom="integer" />
+<size
+android:width="integer"
+android:height="integer" />
+<solid
+android:color="color" />
+<stroke
+android:width="integer"
+android:color="color"
+android:dashWidth="integer"
+android:dashGap="integer" />
 </shape>
 ```
 
@@ -2344,7 +2428,7 @@ Step 4：重写onUpgrade( )方法定义版本号发生改变后执行的操作
 * NFC
 * WIFI
 * USB
-* SIP 
+* SIP
 
 WiFi、蜂窝网络、蓝牙、NFC 这些都是我们日常经常使用的无线网络类型。
 
@@ -2365,19 +2449,19 @@ gRPC 是一种可在任何环境中运行的现代开源高性能 RPC 框架。�
 
 
 ```
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-    />
-    
+<WebView
+android:id="@+id/webview"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+/>
+
 ```
 
 ```java
 
-    WebView myWebView = (WebView) findViewById(R.id.webview);
-    myWebView.loadUrl("http://www.example.com");
-    
+WebView myWebView = (WebView) findViewById(R.id.webview);
+myWebView.loadUrl("http://www.example.com");
+
 ```
 
 
@@ -2424,7 +2508,6 @@ Gson
 # 非功能性
 
 
-
 一般来说，我们会关注一个程序的功能部分，其实非功能部分占据了一个产品级应用的比重非常大，为什么呢？因为这里包含了我们不能做什么的教训。
 
 通过遵循最佳实践，我们会得到一个可以工作的APP，可是要发布这个APP，必须配套下面的各种操作
@@ -2439,6 +2522,7 @@ Gson
 * 稳定的开发速度，帮助您最大限度地减轻技术负担。
 
 务必考虑随着设计新功能而出现的责任单元。对于每个单元，您需要编写相应的单元测试。您的单元测试应几乎囊括与单元的所有可能的互动，包括标准互动、无效输入以及资源不可用的情况。
+
 应尽可能利用 Jetpack 库；当您使用这些经过充分测试的库时，您可以专注于验证您的应用特有的行为。
 
 Android Studio 中的典型项目包含两个用于放置测试的目录。请按以下方式组织整理您的测试：
@@ -2487,9 +2571,9 @@ Android Vitals 是 Google 推出的一项计划，旨在改善 Android 设备的
 
 应用执行的任何代码块几乎都与事件回调（例如输入、布局扩充或绘制）相关联。当某个操作触发事件时，发生了事件的线程会将事件从线程本身里推送到主线程的消息队列中。然后，主线程可以为事件提供服务。
 
- ANR的本质:
+ANR的本质:
 
-当有动画或屏幕更新正在进行时，系统会每隔 16ms 左右尝试执行一个工作块（负责绘制屏幕），从而以每秒 60 帧的流畅速度进行渲染。要使系统达到此目标，界面/视图层次结构必须在主线程上更新。但是，如果主线程的消息队列中的任务太多或太长，导致主线程无法足够快地完成更新，那么应用应将此工作移至工作线程。如果主线程无法在 16ms 内执行完工作块，则用户可能会察觉到卡顿、延迟或界面对输入无响应。 
+当有动画或屏幕更新正在进行时，系统会每隔 16ms 左右尝试执行一个工作块（负责绘制屏幕），从而以每秒 60 帧的流畅速度进行渲染。要使系统达到此目标，界面/视图层次结构必须在主线程上更新。但是，如果主线程的消息队列中的任务太多或太长，导致主线程无法足够快地完成更新，那么应用应将此工作移至工作线程。如果主线程无法在 16ms 内执行完工作块，则用户可能会察觉到卡顿、延迟或界面对输入无响应。
 如果主线程阻塞大约 5 秒，系统会显示“应用无响应”(ANR) 对话框，允许用户直接关闭应用。
 
 卡顿的一些可能原因：
@@ -2546,10 +2630,10 @@ ThreadPoolExecutor是线程池的真正实现，它的构造方法提供了一�
 
 ```java
 public ThreadPoolExecutor(int corePoolSize,
-                          int maximumPoolSize,
-                          long keepAliveTime,
-                          TimeUnit unit,
-                          BlockingQueue<Runnable> workQueue)
+int maximumPoolSize,
+long keepAliveTime,
+TimeUnit unit,
+BlockingQueue<Runnable> workQueue)
 ```
 
 corePoolSize
