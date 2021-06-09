@@ -35,7 +35,9 @@ remote :远程仓库
 
 git的高效主要是HEAD的设计，很多操作只移动这个指针。
 
-一个新建文件状态为Untracked，需要通过git add加入index，加入之后想反悔git reset HEAD file 或者git restore --staged file
+一个新建文件状态为Untracked，需要通过git add加入index，加入之后想反悔git reset HEAD file 或者git restore --staged file或者git rm --cached file
+
+git add -A 将新增的修改的文件全部加入index
 
 git commit -m "msg"会把index里的修改提交到版本库，如果提交之后想反悔message部分，可以git commit --amend，或者it commit --amend -m "Fixes bug #42"，如果想反悔提交则git reset --hard SHA
 
@@ -44,6 +46,12 @@ git reset -hard "HEAD^"是直接将最新一次提交删除
 如果是修改了一个文件想反悔git checkout fileName，如果已经add了就要先git reset HEAD file 
 
 --hard反悔提交会把暂存区的所有更改都丢弃，但工作区里的修改会保留，如果--hard的反悔你反悔了，可以通过git reflog再reset回来。
+
+如果正在工作区修改或者新增文件，或者add到index了，但是需要去其他分之处理bug，可以先暂存起来git stash，等处理好了再git stash pop出来。
+
+删除文件直接用git rm file会直接将删除操作加入暂存区，git mv file file是重命名
+
+
 
 
 
