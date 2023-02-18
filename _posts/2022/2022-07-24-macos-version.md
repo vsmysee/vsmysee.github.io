@@ -98,6 +98,8 @@ Mac OS X Cheetah	10.0.4
 
 2017, 在macOS High Sierra中，AFPS（苹果文件系统）取代了所谓的HFS +。 现在，AFPS是macOS中的默认文件系统， Java6支持的最后版本，兼容到Mac Pro (2010 年中期或之后的机型)
 
+使用 macOS 10.13 中引入的 Apple 文件系统 (APFS)，您可以在储存设备上轻松添加和删除宗卷。APFS 格式的宗卷可以自动扩展和收缩，您不再需要为储存设备重新分区。
+
 
 ## macOS Mojave（版本10.14，自由）
 
